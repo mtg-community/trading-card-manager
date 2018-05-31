@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.google.gms:google-services:3.2.1'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url "$rootDir/../node_modules/react-native/android"
+        }
+        google()
+    }
+}
+
+
+subprojects {
+   afterEvaluate {
+     project -> if (project.hasProperty("android")) {
+       android {
+            compileSdkVersion 27
+            buildToolsVersion '27.0.3'
+       }
+      }
+    }
+}
