@@ -2,14 +2,15 @@
 # https://docs.travis-ci.com/user/encrypting-files/
 
 echo "Decrypting bitbucket ssh key..."
-openssl aes-256-cbc -K $encrypted_84b6efd66213_key \
-  -iv $encrypted_84b6efd66213_iv \
+openssl aes-256-cbc -K $encrypted_385968bf931c_key \
+  -iv $encrypted_385968bf931c_iv \
   -in travis-ci/bitbucket_key.enc \
-  -out bitbucket_key -d
+  -out travis-ci/bitbucket_key -d
 
+echo "Setting up SSH keys..."
 eval "$(ssh-agent)"
-chmod 600 bitbucket_key
-ssh-add bitbucket_key
+chmod 600 travis-ci/bitbucket_key
+ssh-add travis-ci/bitbucket_key
 
 echo "Cloning secrets repository..."
 REPO_SSH_URL="git@bitbucket.org:eduardomoroni/trading-card-manager-secrets.git"
