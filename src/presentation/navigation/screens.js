@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import { getStore } from '../redux';
 import { decorateWithProvider } from './reduxIntegration';
-import { HomeScreen } from '../components/HomeScreen';
+import { HomeScreen } from '../modules/home/HomeScreen';
 
 export const SCREENS = {
   HOME: `navigation.playground.WelcomeScreen`,

@@ -9,8 +9,8 @@ import {
   incrementCounter,
   decrementCounter,
   selectCounter,
-} from '../../redux/counter';
-import { state, store } from '../../redux/__mocks__';
+} from '../../../redux/counter';
+import { state, store } from '../../../redux/__mocks__/index';
 
 describe('<HomeScreen />', () => {
   describe('react-redux connection', () => {

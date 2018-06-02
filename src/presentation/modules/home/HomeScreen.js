@@ -8,7 +8,7 @@ import {
   incrementCounter,
   decrementCounter,
   selectCounter,
-} from '../redux/counter';
+} from '../../redux/counter';
 import { Home } from './Home';
 
 const instructions = Platform.select({
