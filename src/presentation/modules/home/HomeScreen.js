@@ -1,8 +1,10 @@
 // @flow strict
 
 import React, { Component } from 'react';
+import { Navigation } from 'react-native-navigation';
 import { connect } from 'react-redux';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { SCREENS } from '../../navigation/screens';
 
 import {
   incrementCounter,
@@ -25,12 +27,25 @@ type Props = {
 };
 
 export class HomeContainer extends Component<Props> {
+  navigateToLogin = () => {
+    console.log('OIOIOI');
+    const navParams = {
+      component: {
+        name: SCREENS.SIGN_IN,
+        passProps: {test: 'ABC'},
+      },
+    };
+    console.log('componentId', this.props.componentId);
+    Navigation.push(this.props.componentId, navParams);
+  };
+
   render() {
     return (
       <Home
         increment={this.props.increment}
         decrement={this.props.decrement}
         counter={this.props.counter}
+        navigateToLogin={this.navigateToLogin}
         instructions={instructions}
       />
     );

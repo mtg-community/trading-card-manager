@@ -11,6 +11,7 @@ import { styles } from './Home.styles';
 type Props = {
   decrement: () => void,
   increment: () => void,
+  navigateToLogin: () => void,
   instructions: string,
   counter: number,
 };
@@ -27,5 +28,6 @@ export const Home = (props: Props) => (
     <Text style={styles.instructions}>{props.counter}</Text>
     <Button onPress={props.increment} title="INCREMENT" color="#841584" />
     <Button onPress={props.decrement} title="DECREMENT" color="#841584" />
+    <Button onPress={props.navigateToLogin} title="LOGIN" color="#841584" />
   </View>
 );
