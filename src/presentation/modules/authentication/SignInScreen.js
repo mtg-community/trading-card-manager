@@ -16,10 +16,15 @@ type PropsTypes = {
 export class SignInContainer extends Component<PropsTypes> {
   signIn = async (email: string, password: string): Promise<void> => {
     const userCredential = await signInWithEmailAndPassword(
-      'eduardomoroni@gmail.com',
-      '123456',
+      'eduardo@gmail.com',
+      'abc',
     );
+    console.log('->', userCredential);
     this.props.saveUserIntoState(userCredential.user);
+  };
+
+  showError = (error: Error) => {
+    alert(`Error during signing in ${error.message}.`)
   };
 
   navigateBack = () => {};
@@ -28,6 +33,7 @@ export class SignInContainer extends Component<PropsTypes> {
     return (
       <EmailAndPasswordForm
         onButtonPress={this.signIn}
+        onErrorCallback={this.showError}
         buttonText={I18n.t('SIGN_IN/BUTTON_TEXT')}
         title={I18n.t('SIGN_IN/TITLE')}
         navigateBack={this.navigateBack}
