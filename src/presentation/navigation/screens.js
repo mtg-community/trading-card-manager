@@ -4,7 +4,7 @@ import { Navigation } from 'react-native-navigation';
 import { Provider } from 'react-redux';
 import { SignInScreen } from '../modules/authentication/SignInScreen';
 
-import { getStore } from '../redux';
+import { getStore } from '../redux/index';
 import { decorateWithProvider } from './reduxIntegration';
 import { HomeScreen } from '../modules/home/HomeScreen';
 

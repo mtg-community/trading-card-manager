@@ -9,7 +9,7 @@ import {
   incrementCounter,
   decrementCounter,
   selectCounter,
-} from '../../../redux/counter';
+} from '../../../redux/ducks/counter';
 import { state, store } from '../../../redux/__mocks__/index';
 
 describe('<HomeScreen />', () => {

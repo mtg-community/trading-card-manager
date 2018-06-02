@@ -1,23 +1,13 @@
 // @flow strict
 
-import Maybe from 'data.maybe';
 import { createLogger } from 'redux-logger';
 import { combineReducers, applyMiddleware, createStore } from 'redux';
-import { counterReducer } from './counter';
-import type { FunctionalReducerConfigType } from './types';
-
-const createFunctionalReducer = ({
-  reducers,
-  initialState,
-}: FunctionalReducerConfigType) => {
-  return (state = initialState, action) =>
-    Maybe.fromNullable(reducers[action.type])
-      .map(handler => handler(state, action))
-      .getOrElse(state);
-};
+import { counterReducer } from './ducks/counter';
+import { userReducer } from './ducks/user';
 
 const reducers = {
-  counter: createFunctionalReducer(counterReducer),
+  counter: counterReducer,
+  user: userReducer,
 };
 
 export const getStore = () => {

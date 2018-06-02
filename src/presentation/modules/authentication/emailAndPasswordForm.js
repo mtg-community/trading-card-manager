@@ -18,7 +18,7 @@ import { Colors } from '../theme/constants';
 
 type PropsType = {
   footer: ?React.Node,
-  onButtonPress: (string, string) => void,
+  onButtonPress: (string, string) => void | ((string, string) => Promise<void>),
   buttonText: string,
   title: string,
   navigateBack: () => void,

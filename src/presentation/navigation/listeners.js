@@ -8,7 +8,7 @@ export const registerListeners = () => {
     Navigation.setRoot({
       root: {
         component: {
-          name: SCREENS.SIGN_IN,
+          name: SCREENS.HOME,
         },
       },
     });

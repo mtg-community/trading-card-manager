@@ -5,7 +5,7 @@ let Firebase = jest.mock('react-native-firebase');
 export const mockUserCredentials: UserCredential = {
   additionalUserInfo: {
     isNewUser: false,
-    providerId: 'firebase',
+    providerId: 'password',
   },
   user: {
     email: 'eduardo@email.com',
