@@ -27,7 +27,7 @@ export class SignInContainer extends Component<PropsTypes> {
   render() {
     return (
       <EmailAndPasswordForm
-        onButtonPress={(email, password) => this.signIn(email, password)}
+        onButtonPress={this.signIn}
         buttonText={I18n.t('SIGN_IN/BUTTON_TEXT')}
         title={I18n.t('SIGN_IN/TITLE')}
         navigateBack={this.navigateBack}

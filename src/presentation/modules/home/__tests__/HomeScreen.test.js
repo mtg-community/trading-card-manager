@@ -10,7 +10,7 @@ import {
   decrementCounter,
   selectCounter,
 } from '../../../redux/ducks/counter';
-import { state, store } from '../../../redux/__mocks__/index';
+import { state, store } from '../../../redux/__mocks__';
 
 describe('<HomeScreen />', () => {
   describe('react-redux connection', () => {
