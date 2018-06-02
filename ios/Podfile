@@ -2,6 +2,7 @@ platform :ios, '9.0'
 
 target 'app' do
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
 end
 
 post_install do |installer_representation|
