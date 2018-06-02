@@ -1,7 +1,15 @@
+// @flow strict
+
 import React from 'react';
 import { TouchableNativeFeedback, View } from 'react-native';
 
-export const Touchable = props => {
+import * as TouchableWithoutFeedback from 'react-native/Libraries/Components/Touchable/TouchableWithoutFeedback';
+
+type PropsType = {
+  ...TouchableWithoutFeedback.propTypes,
+};
+
+export const Touchable = (props: PropsType) => {
   const background = props.borderless
     ? TouchableNativeFeedback.SelectableBackgroundBorderless()
     : TouchableNativeFeedback.SelectableBackground();

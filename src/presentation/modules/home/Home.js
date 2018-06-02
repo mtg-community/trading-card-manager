@@ -1,4 +1,4 @@
-// @flow strict
+// @flow strict strict
 
 import Config from 'react-native-config';
 import I18n from 'react-native-i18n';

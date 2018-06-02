@@ -1,4 +1,4 @@
-// @flow strict
+// @flow strict strict
 
 import { StyleSheet } from 'react-native';
 

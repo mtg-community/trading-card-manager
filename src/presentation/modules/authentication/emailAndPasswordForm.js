@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+// @flow strict
+
+import * as React from 'react';
 import { View } from 'react-native';
 import PropTypes, { func } from 'prop-types';
 
 import { FormHeader } from './formHeader';
-import { FormTextInput } from './formTextInput';
+import {
+  TextInput,
+  type TextInputRefType,
+} from '../theme/components/textInput';
 import { FormButton } from '../theme/components/buttons';
 import { LoadingOverlay } from '../theme/components/loadingOverlay';
 import { BackButtonFloating } from '../theme/components/buttons/backButtonFloating';
@@ -11,7 +16,29 @@ import { BackButtonFloating } from '../theme/components/buttons/backButtonFloati
 import { styles } from './styles/loginForm.style';
 import { Colors } from '../theme/constants';
 
-export class EmailAndPasswordForm extends Component {
+type PropsType = {
+  footer: React.Node,
+  onButtonPress: (string, string) => void,
+  buttonText: string,
+  alert: {
+    showAlert: boolean,
+    message: ?string,
+  },
+  navigateBack: () => void,
+  clearAlerts: () => void,
+};
+
+type StateType = {
+  email: string,
+  password: string,
+  loading: boolean,
+};
+
+export class EmailAndPasswordForm extends React.Component<
+  PropsType,
+  StateType,
+> {
+  passwordInputRef: ?TextInputRefType;
   static defaultProps = { footer: <View /> };
   static propTypes = {
     footer: PropTypes.object,
@@ -30,8 +57,8 @@ export class EmailAndPasswordForm extends Component {
     loading: false,
   };
 
-  setEmail = email => this.setState({ email });
-  setPassword = password => this.setState({ password });
+  setEmail = (email: string) => this.setState({ email });
+  setPassword = (password: string) => this.setState({ password });
 
   onButtonPress = async () => {
     this.setState({ loading: true });
@@ -40,7 +67,7 @@ export class EmailAndPasswordForm extends Component {
     this.setState({ loading: false });
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: PropsType) {
     const { showAlert, message } = nextProps.alert;
     if (showAlert) {
       alert(message);
@@ -48,13 +75,17 @@ export class EmailAndPasswordForm extends Component {
     }
   }
 
-  focusPassword = () => this.passwordInput.focus();
+  focusPassword = () => {
+    if (this.passwordInputRef) {
+      this.passwordInputRef.focus();
+    }
+  };
 
   render() {
     return (
       <LoadingOverlay style={styles.screen} isLoading={this.state.loading}>
-        <FormHeader />
-        <FormTextInput
+        <FormHeader title={'Sign In'} />
+        <TextInput
           autoCapitalize="none"
           autoFocus
           blurOnSubmit={false}
@@ -67,12 +98,12 @@ export class EmailAndPasswordForm extends Component {
           style={styles.itemSpacing}
           value={this.state.email}
         />
-        <FormTextInput
+        <TextInput
           onChangeText={this.setPassword}
           onSubmitEditing={this.onButtonPress}
           placeholder="Password"
           ref={ref => {
-            this.passwordInput = ref;
+            this.passwordInputRef = ref;
           }}
           returnKeyType={'done'}
           secureTextEntry

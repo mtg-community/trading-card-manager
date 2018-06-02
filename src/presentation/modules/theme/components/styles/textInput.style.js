@@ -1,5 +1,7 @@
+// @flow strict
+
 import { StyleSheet } from 'react-native';
-import { Metrics, Colors, Fonts } from '../../theme/constants';
+import { Metrics, Colors, Fonts } from '../../constants/index';
 
 export const styles = StyleSheet.create({
   textInput: {
@@ -14,5 +16,9 @@ export const styles = StyleSheet.create({
   },
   invalidInput: {
     borderColor: Colors.fire,
+  },
+  itemSpacing: {
+    marginHorizontal: Metrics.marginHorizontal * 2,
+    marginBottom: Metrics.marginVertical
   },
 });
