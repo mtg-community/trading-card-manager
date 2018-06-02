@@ -17,15 +17,11 @@ import { styles } from './styles/loginForm.style';
 import { Colors } from '../theme/constants';
 
 type PropsType = {
-  footer: React.Node,
+  footer: ?React.Node,
   onButtonPress: (string, string) => void,
   buttonText: string,
-  alert: {
-    showAlert: boolean,
-    message: ?string,
-  },
+  title: string,
   navigateBack: () => void,
-  clearAlerts: () => void,
 };
 
 type StateType = {
@@ -43,12 +39,7 @@ export class EmailAndPasswordForm extends React.Component<
   static propTypes = {
     footer: PropTypes.object,
     buttonText: PropTypes.string.isRequired,
-    alert: PropTypes.shape({
-      showAlert: PropTypes.bool.isRequired,
-      message: PropTypes.string,
-    }).isRequired,
     navigateBack: PropTypes.func.isRequired,
-    clearAlerts: func.isRequired,
   };
 
   state = {
@@ -67,14 +58,6 @@ export class EmailAndPasswordForm extends React.Component<
     this.setState({ loading: false });
   };
 
-  componentWillReceiveProps(nextProps: PropsType) {
-    const { showAlert, message } = nextProps.alert;
-    if (showAlert) {
-      alert(message);
-      this.props.clearAlerts();
-    }
-  }
-
   focusPassword = () => {
     if (this.passwordInputRef) {
       this.passwordInputRef.focus();
@@ -84,7 +67,7 @@ export class EmailAndPasswordForm extends React.Component<
   render() {
     return (
       <LoadingOverlay style={styles.screen} isLoading={this.state.loading}>
-        <FormHeader title={'Sign In'} />
+        <FormHeader title={this.props.title} />
         <TextInput
           autoCapitalize="none"
           autoFocus

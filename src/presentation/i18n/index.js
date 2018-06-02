@@ -8,9 +8,12 @@ export const initializeI18n = () => {
   I18n.translations = {
     en: {
       greeting: 'Hi!',
+      "SIGN_IN/BUTTON_TEXT": 'SIGN IN',
+      "SIGN_IN/TITLE": 'Welcome to MTGX'
     },
     fr: {
       greeting: 'Bonjour!',
+      "SIGN_IN/BUTTON_TEXT": 'ENTRAR'
     },
   };
 };
