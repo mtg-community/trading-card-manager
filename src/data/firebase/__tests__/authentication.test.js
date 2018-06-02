@@ -1,11 +1,11 @@
 // @flow
 
 import React from 'react';
-import { mockUser } from '../__mocks__/react-native-firebase';
+import { mockUserCredentials } from '../__mocks__/react-native-firebase';
 import {
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   INVALID_EMAIL_ERROR,
+  signUpWithEmailAndPassword,
 } from '../authentication';
 import isEmail from 'validator/lib/isEmail';
 import Firebase from 'react-native-firebase';
@@ -24,29 +24,27 @@ describe('Firebase Authentication Module', () => {
     const user = await signInWithEmailAndPassword(email, password);
 
     expect(isEmail).toHaveBeenCalledWith(email);
-    expect(Firebase.auth().signInWithEmailAndPassword).toHaveBeenCalledWith(
-      email,
-      password,
-    );
-    expect(user).toEqual(mockUser);
+    expect(
+      Firebase.auth().signInAndRetrieveDataWithEmailAndPassword,
+    ).toHaveBeenCalledWith(email, password);
+    expect(user).toEqual(mockUserCredentials);
   });
 
-  it('should call createUserWithEmailAndPassword correctly', async () => {
-    const user = await createUserWithEmailAndPassword(email, password);
+  it('should call signUpWithEmailAndPassword correctly', async () => {
+    const user = await signUpWithEmailAndPassword(email, password);
 
     expect(isEmail).toHaveBeenCalledWith(email);
-    expect(Firebase.auth().createUserWithEmailAndPassword).toHaveBeenCalledWith(
-      email,
-      password,
-    );
-    expect(user).toEqual(mockUser);
+    expect(
+      Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword,
+    ).toHaveBeenCalledWith(email, password);
+    expect(user).toEqual(mockUserCredentials);
   });
 
   it('should throw error is email is invalid', async () => {
     isEmail.mockReturnValue(false);
 
     await expect(
-      createUserWithEmailAndPassword('INVALID_EMAIL', password),
+      signUpWithEmailAndPassword('INVALID_EMAIL', password),
     ).rejects.toThrow(INVALID_EMAIL_ERROR);
 
     await expect(
