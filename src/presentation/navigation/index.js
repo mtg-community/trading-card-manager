@@ -47,3 +47,7 @@ export const showModal = (name: string, title: string, passProps: {} = {}) => {
     },
   });
 };
+
+export const pop = (componentId: string) => {
+  Navigation.pop(componentId);
+};

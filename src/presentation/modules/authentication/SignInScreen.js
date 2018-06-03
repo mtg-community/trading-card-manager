@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import type { User } from 'react-native-firebase';
 import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
+import { pop } from '../../navigation';
 import { selectUser, loginAction } from '../../redux/ducks/user';
 import { EmailAndPasswordForm } from './emailAndPasswordForm';
 
@@ -17,7 +18,10 @@ export class SignInContainer extends Component<PropsTypes> {
     this.props.loginUser('eduardo@email.com', 'abcdef');
   };
 
-  navigateBack = () => {};
+  navigateBack = () => {
+    // $FlowIgnoreNavigationComponentId
+    pop(this.props.componentId);
+  };
 
   render() {
     return (
