@@ -3,32 +3,26 @@
 import { Navigation } from 'react-native-navigation';
 import { SignInScreen } from '../modules/authentication/SignInScreen';
 import { ErrorScreen } from '../modules/error/errorScreen';
-
-import { configureStore } from '../redux/index';
-import { decorateWithProvider } from './reduxIntegration';
 import { HomeScreen } from '../modules/home/HomeScreen';
 
+import { withReduxProvider } from './reduxIntegration';
+
 export const SCREENS = {
-  HOME: `navigation.playground.WelcomeScreen`,
-  SIGN_IN: `navigation.playground.SignInScreen`,
-  ERROR: `navigation.playground.ErrorScreen`,
+  HOME: `navigation.mtgx.WelcomeScreen`,
+  SIGN_IN: `navigation.mtgx.SignInScreen`,
+  ERROR: `navigation.mtgx.ErrorScreen`,
 };
 
 export const registerScreens = () => {
-  const store = configureStore();
-
-  Navigation.registerComponent(
-    SCREENS.HOME,
-    decorateWithProvider(HomeScreen, store),
-  );
+  Navigation.registerComponent(SCREENS.HOME, withReduxProvider(HomeScreen));
 
   Navigation.registerComponent(
     SCREENS.SIGN_IN,
-    decorateWithProvider(SignInScreen, store),
+    withReduxProvider(SignInScreen),
   );
 
   Navigation.registerComponent(
     SCREENS.ERROR,
-    decorateWithProvider(ErrorScreen, store),
+    withReduxProvider(ErrorScreen),
   );
 };

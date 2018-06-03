@@ -1,6 +1,6 @@
 // @flow strict
 
-import { takeLatest, put, call } from 'redux-saga/effects';
+import { takeLatest, put, call, all } from 'redux-saga/effects';
 import { signInWithEmailAndPassword } from '../../../data/firebase/authentication';
 import { SCREENS } from '../../navigation/screens';
 import { showModal } from '../../navigation';
@@ -23,5 +23,5 @@ function* signInSaga(action) {
 }
 
 export function* rootSaga(): Generator<*, *, *> {
-  yield [takeLatest(SIGN_IN, signInSaga)];
+  yield all([takeLatest(SIGN_IN, signInSaga)]);
 }
