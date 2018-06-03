@@ -18,7 +18,7 @@ function* signInSaga(action) {
     yield put(setUserAction(user));
   } catch (error) {
     console.log('ERROR ACONTECEU', error);
-    showModal(SCREENS.HOME, 'ERROR');
+    showModal(SCREENS.ERROR, 'ERROR');
   }
 }
 
