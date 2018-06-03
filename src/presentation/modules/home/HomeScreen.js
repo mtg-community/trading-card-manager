@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Navigation } from 'react-native-navigation';
 import { connect } from 'react-redux';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { navigateTo } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 
 import {
@@ -28,14 +29,8 @@ type Props = {
 
 export class HomeContainer extends Component<Props> {
   navigateToLogin = () => {
-    const navParams = {
-      component: {
-        name: SCREENS.SIGN_IN,
-      },
-    };
-
     // $FlowIgnoreNavigationComponentId
-    Navigation.push(this.props.componentId, navParams);
+    navigateTo(SCREENS.SIGN_IN, this.props.componentId);
   };
 
   render() {

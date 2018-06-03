@@ -19,7 +19,6 @@ import { Colors } from '../theme/constants';
 type PropsType = {
   footer: ?React.Node,
   onButtonPress: (string, string) => Promise<void>,
-  onErrorCallback: Error => void,
   buttonText: string,
   title: string,
   navigateBack: () => void,
@@ -43,9 +42,6 @@ export class EmailAndPasswordForm extends React.Component<
   };
   static defaultProps = {
     footer: <View />,
-    onErrorCallback: (error: Error) => {
-      console.warn(error);
-    },
   };
 
   state = {
@@ -60,13 +56,8 @@ export class EmailAndPasswordForm extends React.Component<
   onButtonPress = async () => {
     this.setState({ loading: true });
     const { email, password } = this.state;
-    try {
-      await this.props.onButtonPress(email, password);
-    } catch (e) {
-      this.props.onErrorCallback(e);
-    } finally {
-      this.setState({ loading: false });
-    }
+    await this.props.onButtonPress(email, password);
+    this.setState({ loading: false });
   };
 
   focusPassword = () => {

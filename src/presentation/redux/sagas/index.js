@@ -2,6 +2,8 @@
 
 import { takeLatest, put, call } from 'redux-saga/effects';
 import { signInWithEmailAndPassword } from '../../../data/firebase/authentication';
+import { SCREENS } from '../../navigation/screens';
+import { showModal } from '../../navigation';
 import { setUserAction } from '../ducks/user';
 
 export const SIGN_IN = 'user/saga/sign_in';
@@ -16,6 +18,7 @@ function* signInSaga(action) {
     yield put(setUserAction(user));
   } catch (error) {
     console.log('ERROR ACONTECEU', error);
+    showModal(SCREENS.HOME, 'ERROR');
   }
 }
 

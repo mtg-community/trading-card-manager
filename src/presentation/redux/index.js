@@ -1,7 +1,7 @@
 // @flow strict
 
 import { combineReducers, applyMiddleware, createStore } from 'redux';
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
 import { counterReducer } from './ducks/counter';
 import { userReducer } from './ducks/user';
@@ -20,7 +20,10 @@ export const configureStore = () => {
     middleware.push(createLogger());
   }
 
-  const store = createStore(combineReducers(reducers), applyMiddleware(...middleware));
+  const store = createStore(
+    combineReducers(reducers),
+    applyMiddleware(...middleware),
+  );
   sagaMiddleware.run(rootSaga);
   return store;
 };

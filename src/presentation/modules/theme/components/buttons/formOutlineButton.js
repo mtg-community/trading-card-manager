@@ -1,9 +1,9 @@
-import React from 'react'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import { styles } from './styles/buttons.style'
-import { func } from 'prop-types'
-import { StyleSheet, TouchableHighlight, Text, View } from 'react-native'
-import { Colors, Metrics } from '../../constants'
+import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { styles } from './styles/buttons.style';
+import { func } from 'prop-types';
+import { StyleSheet, TouchableHighlight, Text, View } from 'react-native';
+import { Colors, Metrics } from '../../constants';
 
 const ButtonLabel = ({ title, subtitle, style }) => {
   if (subtitle) {
@@ -12,10 +12,10 @@ const ButtonLabel = ({ title, subtitle, style }) => {
         <Text style={style.title}>{title}</Text>
         <Text style={style.subtitle}>{subtitle}</Text>
       </View>
-    )
+    );
   }
-  return <Text style={style.title}>{title}</Text>
-}
+  return <Text style={style.title}>{title}</Text>;
+};
 
 export const FormOutlineButton = props => {
   const {
@@ -27,22 +27,22 @@ export const FormOutlineButton = props => {
     secondaryTextCenter,
     secondarySubtitle,
     infoWrap,
-    iconWrap
-  } = styles
+    iconWrap,
+  } = styles;
 
   const underlayColor = props.secondary
     ? Colors.secondary700
-    : Colors.primary700
-  const outlineStyle = props.secondary ? secondaryOutline : primaryOutline
+    : Colors.primary700;
+  const outlineStyle = props.secondary ? secondaryOutline : primaryOutline;
   const [textStyle, subtitleStyle, iconColor] = props.secondary
     ? [secondaryTextCenter, secondarySubtitle, Colors.secondary500]
-    : [primaryTextCenter, primarySubtitle, Colors.primary500]
+    : [primaryTextCenter, primarySubtitle, Colors.primary500];
 
   const style = StyleSheet.flatten([
     transparentButton,
     outlineStyle,
-    props.style
-  ])
+    props.style,
+  ]);
   return (
     <TouchableHighlight
       onPress={props.onPress}
@@ -67,9 +67,9 @@ export const FormOutlineButton = props => {
         )}
       </View>
     </TouchableHighlight>
-  )
-}
+  );
+};
 
 FormOutlineButton.propTypes = {
-  onPress: func.isRequired
-}
+  onPress: func.isRequired,
+};

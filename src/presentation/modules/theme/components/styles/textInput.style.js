@@ -19,6 +19,6 @@ export const styles = StyleSheet.create({
   },
   itemSpacing: {
     marginHorizontal: Metrics.marginHorizontal * 2,
-    marginBottom: Metrics.marginVertical
+    marginBottom: Metrics.marginVertical,
   },
 });
