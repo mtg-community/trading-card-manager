@@ -13,7 +13,7 @@ type PropsType = {
 };
 
 export const ErrorContainer = ({ error, componentId, title }: PropsType) => {
-  const navigateBack = () => {
+  const dismiss = () => {
     // $FlowIgnoreNavigationComponentId
     dismissModal(componentId);
   };
@@ -27,8 +27,8 @@ export const ErrorContainer = ({ error, componentId, title }: PropsType) => {
 
   return (
     <ErrorComponent
-      onButtonPress={navigateBack}
-      navigateBack={navigateBack}
+      onButtonPress={dismiss}
+      navigateBack={dismiss}
       buttonText={I18n.t('ERROR/BUTTON')}
       title={title}
       message={error ? error.message : ''}

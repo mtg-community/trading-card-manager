@@ -12,5 +12,5 @@ export const styles = StyleSheet.create({
   message: {
     ...Fonts.style.h5,
     color: Colors.gray900,
-  }
+  },
 });

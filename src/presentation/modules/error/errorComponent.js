@@ -28,5 +28,5 @@ export const ErrorComponent = (props: PropsType) => {
 };
 
 ErrorComponent.defaultProps = {
-  message: ''
+  message: '',
 };

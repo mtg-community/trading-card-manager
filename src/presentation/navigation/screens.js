@@ -21,8 +21,5 @@ export const registerScreens = () => {
     withReduxProvider(SignInScreen),
   );
 
-  Navigation.registerComponent(
-    SCREENS.ERROR,
-    withReduxProvider(ErrorScreen),
-  );
+  Navigation.registerComponent(SCREENS.ERROR, withReduxProvider(ErrorScreen));
 };
