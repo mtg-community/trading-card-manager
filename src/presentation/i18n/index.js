@@ -10,6 +10,8 @@ export const initializeI18n = () => {
       greeting: 'Hi!',
       'SIGN_IN/BUTTON_TEXT': 'SIGN IN',
       'SIGN_IN/TITLE': 'Welcome to MTGX',
+      'SIGN_IN/ERROR_TITLE': 'Couldn\'t sign in',
+      'ERROR/BUTTON': 'Ok',
     },
     fr: {
       greeting: 'Bonjour!',

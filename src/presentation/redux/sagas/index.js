@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword } from '../../../data/firebase/authenticatio
 import { SCREENS } from '../../navigation/screens';
 import { showModal } from '../../navigation';
 import { setUserAction } from '../ducks/user';
+import I18n from 'react-native-i18n';
 
 export const SIGN_IN = 'user/saga/sign_in';
 
@@ -17,8 +18,8 @@ function* signInSaga(action) {
     );
     yield put(setUserAction(user));
   } catch (error) {
-    console.log('ERROR ACONTECEU', error);
-    showModal(SCREENS.ERROR, 'ERROR');
+    const title = I18n.t('SIGN_IN/ERROR_TITLE');
+    showModal(SCREENS.ERROR, title, { error, title });
   }
 }
 

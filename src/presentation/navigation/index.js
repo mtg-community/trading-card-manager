@@ -24,6 +24,10 @@ export const navigateTo = (
   Navigation.push(componentId, navParams);
 };
 
+export const dismissModal = (componentId: string) => {
+  Navigation.dismissModal(componentId);
+};
+
 export const showModal = (name: string, title: string, passProps: {} = {}) => {
   const options = {
     topBar: {

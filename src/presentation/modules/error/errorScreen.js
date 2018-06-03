@@ -1,24 +1,37 @@
 // @flow strict
 
-import React, { Component } from 'react';
+import React from 'react';
+import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
-import { pop } from '../../navigation';
+import { dismissModal } from '../../navigation';
 import { ErrorComponent } from './errorComponent';
 
-type PropsType = {};
+type PropsType = {
+  title: string,
+  error: ?Error,
+  componentId: string,
+};
 
-export const ErrorContainer = (props: PropsType) => {
+export const ErrorContainer = ({ error, componentId, title }: PropsType) => {
   const navigateBack = () => {
     // $FlowIgnoreNavigationComponentId
-    pop(props.componentId);
+    dismissModal(componentId);
   };
+
+  if (error) {
+    console.log(error);
+    console.warn(error.message ? error.message : 'Error without message');
+  } else {
+    console.warn('Error screen without error prop');
+  }
 
   return (
     <ErrorComponent
-      onButtonPress={() => {}}
+      onButtonPress={navigateBack}
       navigateBack={navigateBack}
-      buttonText={'BOTAO'}
-      title={'ERROR GRAVE'}
+      buttonText={I18n.t('ERROR/BUTTON')}
+      title={title}
+      message={error ? error.message : ''}
     />
   );
 };

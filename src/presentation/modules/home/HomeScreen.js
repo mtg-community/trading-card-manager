@@ -1,9 +1,8 @@
 // @flow strict
 
 import React, { Component } from 'react';
-import { Navigation } from 'react-native-navigation';
+import { Platform } from 'react-native';
 import { connect } from 'react-redux';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import { navigateTo } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 

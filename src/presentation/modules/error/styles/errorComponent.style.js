@@ -1,7 +1,7 @@
-// @flow
+// @flow strict
 
 import { StyleSheet } from 'react-native';
-import { Colors } from '../../theme/constants';
+import { Colors, Fonts } from '../../theme/constants';
 
 export const styles = StyleSheet.create({
   container: {
@@ -9,4 +9,8 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.screen,
     justifyContent: 'center',
   },
+  message: {
+    ...Fonts.style.h5,
+    color: Colors.gray900,
+  }
 });
