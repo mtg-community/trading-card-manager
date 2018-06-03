@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 
-import { styles } from './Home.styles';
+import { styles } from './home.styles';
 
 type Props = {
   decrement: () => void,

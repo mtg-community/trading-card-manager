@@ -3,8 +3,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { HomeScreen, HomeContainer } from '../HomeScreen';
-import { Home } from '../Home';
+import { HomeScreen, HomeContainer } from '../homeScreen';
+import { Home } from '../home';
 import {
   incrementCounter,
   decrementCounter,

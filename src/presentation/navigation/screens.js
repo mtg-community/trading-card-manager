@@ -1,9 +1,9 @@
 // @flow strict
 
 import { Navigation } from 'react-native-navigation';
-import { SignInScreen } from '../modules/authentication/SignInScreen';
+import { SignInScreen } from '../modules/authentication/signInScreen';
 import { ErrorScreen } from '../modules/error/errorScreen';
-import { HomeScreen } from '../modules/home/HomeScreen';
+import { HomeScreen } from '../modules/home/homeScreen';
 
 import { withReduxProvider } from './reduxIntegration';
 

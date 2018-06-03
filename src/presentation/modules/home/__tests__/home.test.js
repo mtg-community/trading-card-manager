@@ -4,7 +4,7 @@ import React from 'react';
 import { Button, Text } from 'react-native';
 import { shallow } from 'enzyme';
 
-import { Home } from '../Home';
+import { Home } from '../home';
 
 const props = {
   decrement: jest.fn(),

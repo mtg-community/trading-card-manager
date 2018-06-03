@@ -11,7 +11,7 @@ import {
   decrementCounter,
   selectCounter,
 } from '../../redux/ducks/counter';
-import { Home } from './Home';
+import { Home } from './home';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
