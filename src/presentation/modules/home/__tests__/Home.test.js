@@ -10,6 +10,7 @@ const props = {
   decrement: jest.fn(),
   increment: jest.fn(),
   instructions: 'Bla bla bla',
+  navigateToLogin: jest.fn(),
   counter: 1,
 };
 

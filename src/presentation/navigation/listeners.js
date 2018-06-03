@@ -6,26 +6,9 @@ import { SCREENS } from './screens';
 const initialScreen = SCREENS.HOME;
 
 export const registerListeners = async () =>
-  Navigation.events().registerAppLaunchedListener(stackNavivation);
+  Navigation.events().registerAppLaunchedListener(callback);
 
-const createComponent = name => ({
-  component: {
-    name,
-  },
-});
-
-const children = [
-  createComponent(SCREENS.HOME),
-  createComponent(SCREENS.SIGN_IN),
-];
-
-const options = {
-  topBar: {
-    hidden: true,
-  },
-};
-
-const stackNavivation = async () =>
+const callback = async () =>
   Navigation.setRoot({
     root: {
       stack: {
@@ -34,3 +17,17 @@ const stackNavivation = async () =>
       },
     },
   });
+
+const options = {
+  topBar: {
+    hidden: true,
+  },
+};
+
+const children = [
+  {
+    component: {
+      name: SCREENS.HOME,
+    },
+  },
+];

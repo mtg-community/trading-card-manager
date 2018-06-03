@@ -19,7 +19,6 @@ export class SignInContainer extends Component<PropsTypes> {
       'eduardo@gmail.com',
       'abc',
     );
-    console.log('->', userCredential);
     this.props.saveUserIntoState(userCredential.user);
   };
 

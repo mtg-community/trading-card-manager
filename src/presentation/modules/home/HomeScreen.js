@@ -28,14 +28,13 @@ type Props = {
 
 export class HomeContainer extends Component<Props> {
   navigateToLogin = () => {
-    console.log('OIOIOI');
     const navParams = {
       component: {
         name: SCREENS.SIGN_IN,
-        passProps: {test: 'ABC'},
       },
     };
-    console.log('componentId', this.props.componentId);
+
+    // $FlowIgnoreNavigationComponentId
     Navigation.push(this.props.componentId, navParams);
   };
 
