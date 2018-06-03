@@ -54,6 +54,7 @@ const mapDispatchToProps = {
   decrement: decrementCounter,
 };
 
-export const HomeScreen = connect(mapStateToProps, mapDispatchToProps)(
-  HomeContainer,
-);
+export const HomeScreen = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HomeContainer);

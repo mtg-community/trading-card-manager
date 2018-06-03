@@ -40,6 +40,7 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {};
 
-export const ErrorScreen = connect(mapStateToProps, mapDispatchToProps)(
-  ErrorContainer,
-);
+export const ErrorScreen = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ErrorContainer);
