@@ -4,6 +4,12 @@ import { User } from 'react-native-firebase';
 
 export type ActionType = PayloadlessAction;
 
+export type LoginUserAction = {
+  type: string,
+  email: string,
+  password: string,
+};
+
 export type ReducerType = {
   [string]: (number) => number,
 };

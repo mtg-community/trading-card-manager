@@ -1,10 +1,25 @@
 // @flow strict
 
 import type { User } from 'react-native-firebase';
-import type { StateType, SetUserAction, UserStateSlice } from '../types';
+import type {
+  StateType,
+  SetUserAction,
+  UserStateSlice,
+  LoginUserAction,
+} from '../types';
+import { SIGN_IN } from '../sagas';
 
 const INITIAL_STATE = null;
-const SET_USER = 'user/set';
+const SET_USER = 'user/sync/set';
+
+export const loginAction = (
+  email: string,
+  password: string,
+): LoginUserAction => ({
+  type: SIGN_IN,
+  email,
+  password,
+});
 
 export const selectUser = (state: StateType): ?User => state.user;
 

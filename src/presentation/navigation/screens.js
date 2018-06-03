@@ -4,7 +4,7 @@ import { Navigation } from 'react-native-navigation';
 import { Provider } from 'react-redux';
 import { SignInScreen } from '../modules/authentication/SignInScreen';
 
-import { getStore } from '../redux/index';
+import { configureStore } from '../redux/index';
 import { decorateWithProvider } from './reduxIntegration';
 import { HomeScreen } from '../modules/home/HomeScreen';
 
@@ -14,7 +14,7 @@ export const SCREENS = {
 };
 
 export const registerScreens = () => {
-  const store = getStore();
+  const store = configureStore();
 
   Navigation.registerComponent(
     SCREENS.HOME,

@@ -2,28 +2,23 @@
 
 import React, { Component } from 'react';
 import type { User } from 'react-native-firebase';
-import { connect } from 'react-redux';
 import I18n from 'react-native-i18n';
-import { signInWithEmailAndPassword } from '../../../data/firebase/authentication';
-import { selectUser, setUserAction } from '../../redux/ducks/user';
+import { connect } from 'react-redux';
+import { selectUser, loginAction } from '../../redux/ducks/user';
 import { EmailAndPasswordForm } from './emailAndPasswordForm';
 
 type PropsTypes = {
   user: User,
-  saveUserIntoState: User => void,
+  loginUser: (string, string) => void,
 };
 
 export class SignInContainer extends Component<PropsTypes> {
   signIn = async (email: string, password: string): Promise<void> => {
-    const userCredential = await signInWithEmailAndPassword(
-      'eduardo@gmail.com',
-      'abc',
-    );
-    this.props.saveUserIntoState(userCredential.user);
+    this.props.loginUser('eduardo@email.com', 'abcdef');
   };
 
   showError = (error: Error) => {
-    alert(`Error during signing in ${error.message}.`)
+    alert(`Error during signing in ${error.message}.`);
   };
 
   navigateBack = () => {};
@@ -46,7 +41,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  saveUserIntoState: setUserAction,
+  loginUser: loginAction,
 };
 
 export const SignInScreen = connect(mapStateToProps, mapDispatchToProps)(
