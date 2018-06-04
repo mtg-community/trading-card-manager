@@ -1,13 +1,17 @@
 // @flow strict
 
-import { takeLatest, put, call, all } from 'redux-saga/effects';
-import { signInWithEmailAndPassword } from '../../../data/firebase/authentication';
-import { SCREENS } from '../../navigation/screens';
-import { showModal } from '../../navigation';
-import { setUserAction } from '../ducks/user';
 import I18n from 'react-native-i18n';
+import { takeLatest, put, call, all } from 'redux-saga/effects';
+import {
+  signInWithEmailAndPassword,
+  signUpWithEmailAndPassword,
+} from '../../../data/firebase/authentication';
+import { showModal } from '../../navigation';
+import { SCREENS } from '../../navigation/screens';
+import { setUserAction } from '../ducks/user';
 
 export const SIGN_IN = 'user/saga/sign_in';
+export const SIGN_UP = 'user/saga/sign_up';
 
 function* signInSaga(action) {
   try {
@@ -23,6 +27,20 @@ function* signInSaga(action) {
   }
 }
 
+function* signUpSaga(action) {
+  try {
+    const user = yield call(
+      signUpWithEmailAndPassword,
+      action.email,
+      action.password,
+    );
+    yield put(setUserAction(user));
+  } catch (error) {
+    const title = I18n.t('SIGN_UP/ERROR_TITLE');
+    showModal(SCREENS.ERROR, title, { error, title });
+  }
+}
+
 export function* rootSaga(): Generator<*, *, *> {
-  yield all([takeLatest(SIGN_IN, signInSaga)]);
+  yield all([takeLatest(SIGN_IN, signInSaga), takeLatest(SIGN_UP, signUpSaga)]);
 }

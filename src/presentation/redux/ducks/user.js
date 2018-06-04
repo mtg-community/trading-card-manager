@@ -5,9 +5,9 @@ import type {
   StateType,
   SetUserAction,
   UserStateSlice,
-  LoginUserAction,
+  AuthUserAction,
 } from '../types';
-import { SIGN_IN } from '../sagas';
+import { SIGN_IN, SIGN_UP } from '../sagas';
 
 const INITIAL_STATE = null;
 const SET_USER = 'user/sync/set';
@@ -15,8 +15,17 @@ const SET_USER = 'user/sync/set';
 export const loginAction = (
   email: string,
   password: string,
-): LoginUserAction => ({
+): AuthUserAction => ({
   type: SIGN_IN,
+  email,
+  password,
+});
+
+export const signUpAction = (
+  email: string,
+  password: string,
+): AuthUserAction => ({
+  type: SIGN_UP,
   email,
   password,
 });

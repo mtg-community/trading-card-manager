@@ -6,17 +6,17 @@ import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
 import { pop, navigateTo } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
-import { selectUser, loginAction } from '../../redux/ducks/user';
+import { signUpAction } from '../../redux/ducks/user';
 import { EmailAndPasswordForm } from './emailAndPasswordForm';
-import { SignInFooter } from './signInFooter';
+import { SignUpFooter } from './signUpFooter';
 
 type PropsTypes = {
-  loginUser: (string, string) => void,
+  signUpUser: (string, string) => void,
 };
 
-export class SignInContainer extends Component<PropsTypes> {
+export class SignUpContainer extends Component<PropsTypes> {
   signIn = async (email: string, password: string): Promise<void> => {
-    this.props.loginUser(email, password);
+    this.props.signUpUser(email, password);
   };
 
   navigateBack = () => {
@@ -24,24 +24,19 @@ export class SignInContainer extends Component<PropsTypes> {
     pop(this.props.componentId);
   };
 
-  navigateTo = (screenName: string) => () => {
+  navigateToSignIn = () => {
     // $FlowIgnoreNavigationComponentId
-    navigateTo(screenName, this.props.componentId);
+    navigateTo(SCREENS.SIGN_IN, this.props.componentId);
   };
 
-  footer = (
-    <SignInFooter
-      navigateToForgotPassword={this.navigateTo(SCREENS.FORGOT_PASSWORD)}
-      navigateToSignUp={this.navigateTo(SCREENS.SIGN_UP)}
-    />
-  );
+  footer = <SignUpFooter navigateToSignIn={this.navigateToSignIn} />;
 
   render() {
     return (
       <EmailAndPasswordForm
         onButtonPress={this.signIn}
-        buttonText={I18n.t('SIGN_IN/BUTTON_TEXT')}
-        title={I18n.t('SIGN_IN/TITLE')}
+        buttonText={I18n.t('SIGN_UP/BUTTON_TEXT')}
+        title={I18n.t('SIGN_UP/TITLE')}
         navigateBack={this.navigateBack}
         footer={this.footer}
       />
@@ -50,10 +45,10 @@ export class SignInContainer extends Component<PropsTypes> {
 }
 
 const mapDispatchToProps = {
-  loginUser: loginAction,
+  signUpUser: signUpAction,
 };
 
-export const SignInScreen = connect(
+export const SignUpScreen = connect(
   null,
   mapDispatchToProps,
-)(SignInContainer);
+)(SignUpContainer);
