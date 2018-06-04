@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 
-import { styles } from './styles/signInFooter.style';
+import { styles } from './styles/footer.style';
 import { FormOutlineButton } from '../theme/components/buttons';
 
 export const SignInFooter = (props: PropsType) => (

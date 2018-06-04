@@ -18,7 +18,7 @@ const getStore = (): StoreType => {
 export function withReduxProvider<Props: {}>(
   Component: React.ComponentType<Props>,
 ): () => React.ComponentType<Props> {
-  const wrappedComponent = class Scene extends React.Component<*> {
+  const wrappedComponent = class extends React.Component<*> {
     render() {
       return (
         <Provider store={getStore()}>
