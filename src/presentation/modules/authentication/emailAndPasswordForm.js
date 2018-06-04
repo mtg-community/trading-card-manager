@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { View } from 'react-native';
 import PropTypes, { func } from 'prop-types';
+import I18n from 'react-native-i18n';
 
 import { FormHeader } from './formHeader';
 import {
@@ -77,7 +78,7 @@ export class EmailAndPasswordForm extends React.Component<
           keyboardType="email-address"
           onChangeText={this.setEmail}
           onSubmitEditing={this.focusPassword}
-          placeholder="Email address"
+          placeholder={I18n.t('EMAIL_ADDRESS')}
           returnKeyType={'next'}
           selectionColor={Colors.secondary500}
           style={styles.itemSpacing}
@@ -86,7 +87,7 @@ export class EmailAndPasswordForm extends React.Component<
         <TextInput
           onChangeText={this.setPassword}
           onSubmitEditing={this.onButtonPress}
-          placeholder="Password"
+          placeholder={I18n.t('PASSWORD')}
           ref={ref => {
             this.passwordInputRef = ref;
           }}
