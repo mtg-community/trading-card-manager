@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 import { pop, navigateTo } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 import { selectUser, loginAction } from '../../redux/ducks/user';
-import { EmailAndPasswordForm } from './emailAndPasswordForm';
-import { SignInFooter } from './signInFooter';
+import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
+import { SignInFooter } from './presentational/signInFooter';
 
 type PropsTypes = {
   loginUser: (string, string) => void,

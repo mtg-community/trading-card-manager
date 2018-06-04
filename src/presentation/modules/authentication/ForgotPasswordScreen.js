@@ -6,17 +6,17 @@ import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
 import { pop, navigateTo } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
-import { signUpAction } from '../../redux/ducks/user';
-import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
+import { forgotPasswordAction } from '../../redux/ducks/user';
+import { PasswordForm } from './presentational/passwordForm';
 import { GoBackToSignInFooter } from './presentational/GoBackToSignInFooter';
 
 type PropsTypes = {
-  signUpUser: (string, string) => void,
+  forgotPassword: string => void,
 };
 
-export class SignUpContainer extends Component<PropsTypes> {
-  signIn = async (email: string, password: string): Promise<void> => {
-    this.props.signUpUser(email, password);
+export class ForgotPasswordContainer extends Component<PropsTypes> {
+  forgotPassword = async (email: string): Promise<void> => {
+    this.props.forgotPassword(email);
   };
 
   navigateBack = () => {
@@ -33,10 +33,10 @@ export class SignUpContainer extends Component<PropsTypes> {
 
   render() {
     return (
-      <EmailAndPasswordForm
-        onButtonPress={this.signIn}
-        buttonText={I18n.t('SIGN_UP/BUTTON_TEXT')}
-        title={I18n.t('SIGN_UP/TITLE')}
+      <PasswordForm
+        onButtonPress={this.forgotPassword}
+        buttonText={I18n.t('FORGOT_PASSWORD/BUTTON_TEXT')}
+        title={I18n.t('FORGOT_PASSWORD/TITLE')}
         navigateBack={this.navigateBack}
         footer={this.footer}
       />
@@ -45,10 +45,10 @@ export class SignUpContainer extends Component<PropsTypes> {
 }
 
 const mapDispatchToProps = {
-  signUpUser: signUpAction,
+  forgotPassword: forgotPasswordAction,
 };
 
-export const SignUpScreen = connect(
+export const ForgotPasswordScreen = connect(
   null,
   mapDispatchToProps,
-)(SignUpContainer);
+)(ForgotPasswordContainer);

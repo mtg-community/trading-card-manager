@@ -3,8 +3,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
-import { AppStatusBar } from '../theme/components/appStatusBar';
-import { styles } from './styles/loginForm.style';
+import { AppStatusBar } from '../../theme/components/appStatusBar';
+import { styles } from './styles/form.style';
 
 type Props = {
   title: string,

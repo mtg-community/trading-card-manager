@@ -12,6 +12,7 @@ import { setUserAction } from '../ducks/user';
 
 export const SIGN_IN = 'user/saga/sign_in';
 export const SIGN_UP = 'user/saga/sign_up';
+export const FORGOT_PASSWORD = 'user/saga/forgot_password';
 
 function* signInSaga(action) {
   try {
@@ -41,6 +42,16 @@ function* signUpSaga(action) {
   }
 }
 
+function* forgotPasswordSaga(action) {
+  const error = new Error('Not Implemented Yet');
+  const title = I18n.t('SIGN_UP/ERROR_TITLE');
+  showModal(SCREENS.ERROR, title, { error, title });
+}
+
 export function* rootSaga(): Generator<*, *, *> {
-  yield all([takeLatest(SIGN_IN, signInSaga), takeLatest(SIGN_UP, signUpSaga)]);
+  yield all([
+    takeLatest(SIGN_IN, signInSaga),
+    takeLatest(SIGN_UP, signUpSaga),
+    takeLatest(FORGOT_PASSWORD, forgotPasswordSaga),
+  ]);
 }

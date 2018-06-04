@@ -9,13 +9,13 @@ import { FormHeader } from './formHeader';
 import {
   TextInput,
   type TextInputRefType,
-} from '../theme/components/textInput';
-import { FormButton } from '../theme/components/buttons';
-import { LoadingOverlay } from '../theme/components/loadingOverlay';
-import { BackButtonFloating } from '../theme/components/buttons/backButtonFloating';
+} from '../../theme/components/textInput';
+import { FormButton } from '../../theme/components/buttons/index';
+import { LoadingOverlay } from '../../theme/components/loadingOverlay';
+import { BackButtonFloating } from '../../theme/components/buttons/backButtonFloating';
 
-import { styles } from './styles/loginForm.style';
-import { Colors } from '../theme/constants';
+import { styles } from './styles/form.style';
+import { Colors } from '../../theme/constants/index';
 
 type PropsType = {
   footer: ?React.Node,

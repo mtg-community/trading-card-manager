@@ -10,6 +10,11 @@ export type AuthUserAction = {
   password: string,
 };
 
+export type ForgotPasswordAction = {
+  type: string,
+  email: string,
+};
+
 export type ReducerType = {
   [string]: (number) => number,
 };

@@ -6,8 +6,9 @@ import type {
   SetUserAction,
   UserStateSlice,
   AuthUserAction,
+  ForgotPasswordAction,
 } from '../types';
-import { SIGN_IN, SIGN_UP } from '../sagas';
+import { SIGN_IN, SIGN_UP, FORGOT_PASSWORD } from '../sagas';
 
 const INITIAL_STATE = null;
 const SET_USER = 'user/sync/set';
@@ -28,6 +29,11 @@ export const signUpAction = (
   type: SIGN_UP,
   email,
   password,
+});
+
+export const forgotPasswordAction = (email: string): ForgotPasswordAction => ({
+  type: FORGOT_PASSWORD,
+  email,
 });
 
 export const selectUser = (state: StateType): ?User => state.user;

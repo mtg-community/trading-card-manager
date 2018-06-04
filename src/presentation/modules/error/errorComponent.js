@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { View, Text } from 'react-native';
-import { FormHeader } from '../authentication/formHeader';
+import { FormHeader } from '../authentication/presentational/formHeader';
 import { FormButton } from '../theme/components/buttons';
 import { BackButtonFloating } from '../theme/components/buttons/backButtonFloating';
 
