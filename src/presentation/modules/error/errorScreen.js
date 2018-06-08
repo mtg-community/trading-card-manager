@@ -2,7 +2,6 @@
 
 import React from 'react';
 import I18n from 'react-native-i18n';
-import { connect } from 'react-redux';
 import { dismissModal } from '../../navigation';
 import { ErrorComponent } from './errorComponent';
 
@@ -36,11 +35,4 @@ export const ErrorContainer = ({ error, componentId, title }: PropsType) => {
   );
 };
 
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = {};
-
-export const ErrorScreen = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ErrorContainer);
+export const ErrorScreen = ErrorContainer;

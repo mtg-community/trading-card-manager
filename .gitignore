@@ -72,3 +72,5 @@ android/app/google-services.json
 .env
 ENCRYPT_PASSWORD.txt
 .vscode/
+
+coverage/

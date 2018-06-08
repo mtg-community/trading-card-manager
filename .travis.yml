@@ -23,6 +23,8 @@ install:
 - nvm install && nvm use
 - npm install -g "npm@$(jq -r '.engines.npm' package.json)"
 - npm ci
+after_script:
+- npm run test:coverage
 matrix:
   include:
   - os: linux
