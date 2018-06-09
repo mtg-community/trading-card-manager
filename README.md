@@ -6,9 +6,9 @@ Every single project I do the same, so I decided to keep it public
 [![codecov](https://codecov.io/gh/eduardomoroni/trading-card-manager/branch/master/graph/badge.svg)](https://codecov.io/gh/eduardomoroni/trading-card-manager)
 [![Known Vulnerabilities](https://snyk.io/test/github/eduardomoroni/trading-card-manager/badge.svg)](https://snyk.io/test/github/eduardomoroni/trading-card-manager)
 
-![react-native](https://img.shields.io/badge/react--native-0.55.4-green.svg?longCache=true&style=flat-square)
-![license](https://img.shields.io/badge/license-GPL--3.0-green.svg?longCache=true&style=flat-square)
-[![code style: prettier](https://img.shields.io/badge/code%20style-prettier-green.svg?longCache=true&style=flat-square)](https://github.com/prettier/prettier)
+![react-native](https://img.shields.io/badge/react--native-0.55.4-brightgreen.svg?longCache=true&style=flat-square)
+![license](https://img.shields.io/badge/license-GPL--3.0-brightgreen.svg?longCache=true&style=flat-square)
+[![code style: prettier](https://img.shields.io/badge/code%20style-prettier-brightgreen.svg?longCache=true&style=flat-square)](https://github.com/prettier/prettier)
 
 ## Pré-requisitos
 - [Ambiente de desenvolvimento React Native](https://facebook.github.io/react-native/docs/getting-started.html)
