@@ -6,14 +6,14 @@ import I18n from 'react-native-i18n';
 
 import { ErrorComponent } from '../errorComponent';
 import { ErrorScreen } from '../../errorScreen';
-import { dismissModal } from '../../../../navigation/index';
-jest.mock('../../../navigation');
+import { dismissModal } from '../../../../navigation';
+jest.mock('../../../../navigation');
 
 describe('<ErrorScreen />', () => {
   const error = new Error('*** TEST ERROR, IGNORE IT ***');
   const props = {
     title: 'TITLE',
-    error: undefined,
+    error: error,
     componentId: 'string',
   };
 
@@ -25,7 +25,7 @@ describe('<ErrorScreen />', () => {
     const errorComponentProps = component.props();
 
     expect(errorComponentProps.title).toEqual(props.title);
-    expect(errorComponentProps.message).toEqual('');
+    expect(errorComponentProps.message).toEqual(props.error.message);
     expect(errorComponentProps.buttonText).toEqual(I18n.t('ERROR/BUTTON'));
     expect(errorComponentProps.navigateBack).toEqual(instance.dismiss);
     expect(errorComponentProps.onButtonPress).toEqual(instance.dismiss);

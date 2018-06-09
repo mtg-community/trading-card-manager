@@ -24,8 +24,6 @@ export class ErrorScreen extends React.PureComponent<PropsType> {
     if (error) {
       Logger.log(error);
       Logger.warn(error.message ? error.message : 'Error without message');
-    } else {
-      Logger.warn('Error screen without error prop', process.env);
     }
 
     return (
