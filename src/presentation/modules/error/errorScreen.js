@@ -4,6 +4,7 @@ import React from 'react';
 import I18n from 'react-native-i18n';
 import { dismissModal } from '../../navigation';
 import { ErrorComponent } from './errorComponent';
+import { Logger } from '../../../data/logger';
 
 type PropsType = {
   title: string,
@@ -21,10 +22,10 @@ export class ErrorScreen extends React.PureComponent<PropsType> {
     const { error, title } = this.props;
 
     if (error) {
-      console.log(error);
-      console.warn(error.message ? error.message : 'Error without message');
+      Logger.log(error);
+      Logger.warn(error.message ? error.message : 'Error without message');
     } else {
-      console.warn('Error screen without error prop');
+      Logger.warn('Error screen without error prop', process.env);
     }
 
     return (
