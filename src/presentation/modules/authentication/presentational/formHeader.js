@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
-import { AppStatusBar } from '../../theme/components/appStatusBar';
+import { AppStatusBar } from '../../theme/presentational/appStatusBar';
 import { styles } from './styles/form.style';
 
 type Props = {

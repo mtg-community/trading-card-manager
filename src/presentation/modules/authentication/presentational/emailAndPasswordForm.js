@@ -9,10 +9,10 @@ import { FormHeader } from './formHeader';
 import {
   TextInput,
   type TextInputRefType,
-} from '../../theme/components/textInput';
-import { FormButton } from '../../theme/components/buttons/index';
-import { LoadingOverlay } from '../../theme/components/loadingOverlay';
-import { BackButtonFloating } from '../../theme/components/buttons/backButtonFloating';
+} from '../../theme/presentational/textInput';
+import { FormButton } from '../../theme/presentational/buttons/index';
+import { LoadingOverlay } from '../../theme/presentational/loadingOverlay';
+import { BackButtonFloating } from '../../theme/presentational/buttons/backButtonFloating';
 
 import { styles } from './styles/form.style';
 import { Colors } from '../../theme/constants/index';
@@ -78,7 +78,7 @@ export class EmailAndPasswordForm extends React.Component<
           keyboardType="email-address"
           onChangeText={this.setEmail}
           onSubmitEditing={this.focusPassword}
-          placeholder={I18n.t('EMAIL_ADDRESS')}
+          placeholder={I18n.t('WORDS/EMAIL_ADDRESS')}
           returnKeyType={'next'}
           selectionColor={Colors.secondary500}
           style={styles.itemSpacing}
@@ -87,7 +87,7 @@ export class EmailAndPasswordForm extends React.Component<
         <TextInput
           onChangeText={this.setPassword}
           onSubmitEditing={this.onButtonPress}
-          placeholder={I18n.t('PASSWORD')}
+          placeholder={I18n.t('WORDS/PASSWORD')}
           ref={ref => {
             this.passwordInputRef = ref;
           }}

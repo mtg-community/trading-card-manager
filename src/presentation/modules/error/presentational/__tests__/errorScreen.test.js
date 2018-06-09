@@ -5,8 +5,8 @@ import React from 'react';
 import I18n from 'react-native-i18n';
 
 import { ErrorComponent } from '../errorComponent';
-import { ErrorScreen } from '../errorScreen';
-import { dismissModal } from '../../../navigation';
+import { ErrorScreen } from '../../errorScreen';
+import { dismissModal } from '../../../../navigation/index';
 jest.mock('../../../navigation');
 
 describe('<ErrorScreen />', () => {

@@ -3,9 +3,9 @@
 import React from 'react';
 import { Button, Text } from 'react-native';
 import { shallow } from 'enzyme';
-import { FormHeader } from '../../authentication/presentational/formHeader';
-import { FormButton } from '../../theme/components/buttons';
-import { BackButtonFloating } from '../../theme/components/buttons/backButtonFloating';
+import { FormHeader } from '../../../authentication/presentational/formHeader';
+import { FormButton } from '../../../theme/presentational/buttons/index';
+import { BackButtonFloating } from '../../../theme/presentational/buttons/backButtonFloating';
 
 import { ErrorComponent } from '../errorComponent';
 

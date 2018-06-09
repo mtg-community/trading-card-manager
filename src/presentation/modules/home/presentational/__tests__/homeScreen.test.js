@@ -3,14 +3,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { HomeScreen, HomeContainer } from '../homeScreen';
+import { HomeScreen, HomeContainer } from '../../homeScreen';
 import { Home } from '../home';
 import {
   incrementCounter,
   decrementCounter,
   selectCounter,
-} from '../../../redux/ducks/counter';
-import { state, store } from '../../../redux/__mocks__';
+} from '../../../../redux/ducks/counter';
+import { state, store } from '../../../../redux/__mocks__/index';
 
 describe('<HomeScreen />', () => {
   describe('react-redux connection', () => {

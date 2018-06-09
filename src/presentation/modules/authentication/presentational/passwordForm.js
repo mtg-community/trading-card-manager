@@ -4,10 +4,10 @@ import PropTypes, { func } from 'prop-types';
 import * as React from 'react';
 import { View } from 'react-native';
 import I18n from 'react-native-i18n';
-import { BackButtonFloating } from '../../theme/components/buttons/backButtonFloating';
-import { FormButton } from '../../theme/components/buttons/index';
-import { LoadingOverlay } from '../../theme/components/loadingOverlay';
-import { TextInput } from '../../theme/components/textInput';
+import { BackButtonFloating } from '../../theme/presentational/buttons/backButtonFloating';
+import { FormButton } from '../../theme/presentational/buttons/index';
+import { LoadingOverlay } from '../../theme/presentational/loadingOverlay';
+import { TextInput } from '../../theme/presentational/textInput';
 import { Colors } from '../../theme/constants/index';
 
 import { FormHeader } from './formHeader';
@@ -62,7 +62,7 @@ export class PasswordForm extends React.Component<PropsType, StateType> {
           blurOnSubmit={false}
           keyboardType="email-address"
           onChangeText={this.setEmail}
-          placeholder={I18n.t('EMAIL_ADDRESS')}
+          placeholder={I18n.t('WORDS/EMAIL_ADDRESS')}
           returnKeyType={'done'}
           selectionColor={Colors.secondary500}
           style={styles.itemSpacing}

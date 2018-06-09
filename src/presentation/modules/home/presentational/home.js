@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 
-import { styles } from './home.styles';
+import { styles } from './styles/home.styles';
 
 type Props = {
   decrement: () => void,
@@ -19,7 +19,7 @@ type Props = {
 export const Home = (props: Props) => (
   <View style={styles.container}>
     <Text style={styles.welcome}>
-      {`${I18n.t('greeting')} Welcome to React Native!`}
+      {`${I18n.t('WORDS/GREETING')} Welcome to React Native!`}
     </Text>
     <Text style={styles.instructions}>To get started, edit App.js</Text>
     <Text style={styles.instructions}>{`This is a secret ${Config.TEST}`}</Text>

@@ -2,8 +2,8 @@
 
 import React from 'react';
 import I18n from 'react-native-i18n';
-import { dismissModal } from '../../navigation';
-import { ErrorComponent } from './errorComponent';
+import { dismissModal } from '../../navigation/index';
+import { ErrorComponent } from './presentational/errorComponent';
 import { Logger } from '../../../data/logger';
 
 type PropsType = {
