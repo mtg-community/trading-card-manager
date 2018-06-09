@@ -8,7 +8,7 @@ import { pop, navigateTo } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 import { forgotPasswordAction } from '../../redux/ducks/user';
 import { PasswordForm } from './presentational/passwordForm';
-import { GoBackToSignInFooter } from './presentational/GoBackToSignInFooter';
+import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';
 
 type PropsTypes = {
   forgotPassword: string => void,

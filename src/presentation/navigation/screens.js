@@ -1,7 +1,7 @@
 // @flow strict
 
 import { Navigation } from 'react-native-navigation';
-import { ForgotPasswordScreen } from '../modules/authentication/ForgotPasswordScreen';
+import { ForgotPasswordScreen } from '../modules/authentication/forgotPasswordScreen';
 import { SignInScreen } from '../modules/authentication/signInScreen';
 import { SignUpScreen } from '../modules/authentication/signUpScreen';
 import { ErrorScreen } from '../modules/error/errorScreen';

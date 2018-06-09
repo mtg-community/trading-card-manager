@@ -8,7 +8,7 @@ import { pop, navigateTo } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 import { signUpAction } from '../../redux/ducks/user';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
-import { GoBackToSignInFooter } from './presentational/GoBackToSignInFooter';
+import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';
 
 type PropsTypes = {
   signUpUser: (string, string) => void,
