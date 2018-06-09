@@ -24,7 +24,7 @@ function* signInSaga(action) {
     yield put(setUserAction(user));
   } catch (error) {
     const title = I18n.t('SIGN_IN/ERROR_TITLE');
-    showModal(SCREENS.ERROR, title, { error, title });
+    showModal(SCREENS.ERROR.route, title, { error, title });
   }
 }
 
@@ -38,14 +38,14 @@ function* signUpSaga(action) {
     yield put(setUserAction(user));
   } catch (error) {
     const title = I18n.t('SIGN_UP/ERROR_TITLE');
-    showModal(SCREENS.ERROR, title, { error, title });
+    showModal(SCREENS.ERROR.route, title, { error, title });
   }
 }
 
 function* forgotPasswordSaga(action) {
   const error = new Error('Not Implemented Yet');
   const title = I18n.t('SIGN_UP/ERROR_TITLE');
-  showModal(SCREENS.ERROR, title, { error, title });
+  showModal(SCREENS.ERROR.route, title, { error, title });
 }
 
 export function* rootSaga(): Generator<*, *, *> {

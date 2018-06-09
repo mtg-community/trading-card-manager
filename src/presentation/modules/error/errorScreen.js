@@ -1,6 +1,6 @@
-// @flow strict
+// @flow
 
-import React from 'react';
+import * as React from 'react';
 import I18n from 'react-native-i18n';
 import { dismissModal } from '../../navigation/index';
 import { ErrorComponent } from './presentational/errorComponent';
@@ -12,7 +12,7 @@ type PropsType = {
   componentId: string,
 };
 
-export class ErrorScreen extends React.PureComponent<PropsType> {
+export class ErrorScreen extends React.Component<PropsType> {
   dismiss = () => {
     // $FlowIgnoreNavigationComponentId
     dismissModal(this.props.componentId);

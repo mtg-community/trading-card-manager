@@ -29,7 +29,7 @@ type Props = {
 export class HomeContainer extends Component<Props> {
   navigateToLogin = () => {
     // $FlowIgnoreNavigationComponentId
-    navigateTo(SCREENS.SIGN_IN, this.props.componentId);
+    navigateTo(SCREENS.SIGN_IN.route, this.props.componentId);
   };
 
   render() {

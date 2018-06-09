@@ -1,34 +1,26 @@
 // @flow strict
 
 import { Navigation } from 'react-native-navigation';
-import { registerListeners } from './listeners';
-import { registerScreens, SCREENS } from './screens';
 
-export const initializeNavigation = () => {
-  registerScreens();
-  registerListeners();
-};
+type OpenObjectType = {};
 
 export const navigateTo = (
   name: string,
   componentId: string,
-  passProps: {} = {},
+  passProps: ?OpenObjectType,
 ) => {
-  const navParams = {
-    component: {
-      name,
-      passProps,
-    },
-  };
-
-  Navigation.push(componentId, navParams);
+  Navigation.push(componentId, createComponent(name, passProps));
 };
 
 export const dismissModal = (componentId: string) => {
   Navigation.dismissModal(componentId);
 };
 
-export const showModal = (name: string, title: string, passProps: {} = {}) => {
+export const showModal = (
+  name: string,
+  title: string,
+  passProps: ?OpenObjectType,
+) => {
   const options = {
     topBar: {
       title: {
@@ -37,21 +29,27 @@ export const showModal = (name: string, title: string, passProps: {} = {}) => {
     },
   };
 
-  const component = {
-    component: {
-      name,
-      passProps,
-      options,
-    },
-  };
-
   Navigation.showModal({
     stack: {
-      children: [component],
+      children: [createComponent(name, passProps, options)],
     },
   });
 };
 
 export const pop = (componentId: string) => {
   Navigation.pop(componentId);
+};
+
+const createComponent = (
+  name: string,
+  passProps: ?OpenObjectType = {},
+  options: ?OpenObjectType = {},
+) => {
+  return {
+    component: {
+      name,
+      passProps,
+      options,
+    },
+  };
 };

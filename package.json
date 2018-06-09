@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "data.maybe": "1.2.2",
+    "lodash": "^4.17.10",
     "prop-types": "15.6.1",
     "react": "16.3.1",
     "react-native": "0.55.4",
@@ -66,7 +67,6 @@
   "jest": {
     "preset": "react-native",
     "coverageDirectory": "<rootDir>/coverage/",
-    "setupTestFrameworkScriptFile": "<rootDir>/src/__tests__/setup.js",
     "setupTestFrameworkScriptFile": "<rootDir>/src/__tests__/setup.js",
     "testMatch": [
       "**/__tests__/**/*.test.js?(x)"

@@ -31,8 +31,8 @@ export class SignInContainer extends Component<PropsTypes> {
 
   footer = (
     <SignInFooter
-      navigateToForgotPassword={this.navigateTo(SCREENS.FORGOT_PASSWORD)}
-      navigateToSignUp={this.navigateTo(SCREENS.SIGN_UP)}
+      navigateToForgotPassword={this.navigateTo(SCREENS.FORGOT_PASSWORD.route)}
+      navigateToSignUp={this.navigateTo(SCREENS.SIGN_UP.route)}
     />
   );
 

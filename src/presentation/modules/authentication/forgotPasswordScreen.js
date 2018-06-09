@@ -26,7 +26,7 @@ export class ForgotPasswordContainer extends Component<PropsTypes> {
 
   navigateToSignIn = () => {
     // $FlowIgnoreNavigationComponentId
-    navigateTo(SCREENS.SIGN_IN, this.props.componentId);
+    navigateTo(SCREENS.SIGN_IN.route, this.props.componentId);
   };
 
   footer = <GoBackToSignInFooter navigateToSignIn={this.navigateToSignIn} />;

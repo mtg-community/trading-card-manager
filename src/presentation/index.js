@@ -1,9 +1,9 @@
 // @flow strict
 
 import { initializeI18n } from './i18n';
-import { initializeNavigation } from './navigation';
+import { initializeNavigation } from './navigation/config';
 
-export const PresentationLayer = (): void => {
+export const PresentationLayer = async () => {
   initializeI18n();
-  initializeNavigation();
+  await initializeNavigation();
 };

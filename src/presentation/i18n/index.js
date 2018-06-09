@@ -8,7 +8,7 @@ export const initializeI18n = () => {
   I18n.fallbacks = true;
 
   I18n.translations = {
-    en: pt,
+    en,
     pt,
   };
 };
