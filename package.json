@@ -22,6 +22,7 @@
     "prettier": "prettier --write 'src/**/*.js'",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest --verbose",
+    "test:coverage": "jest --silent --coverage && codecov",
     "test:watch": "jest --watch"
   },
   "dependencies": {
@@ -46,6 +47,7 @@
     "babel-jest": "22.4.3",
     "babel-preset-flow": "6.23.0",
     "babel-preset-react-native": "4.0.0",
+    "codecov": "3.0.2",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.19.1",
@@ -63,6 +65,8 @@
   },
   "jest": {
     "preset": "react-native",
+    "coverageDirectory": "<rootDir>/coverage/",
+    "setupTestFrameworkScriptFile": "<rootDir>/src/__tests__/setup.js",
     "setupTestFrameworkScriptFile": "<rootDir>/src/__tests__/setup.js",
     "testMatch": [
       "**/__tests__/**/*.test.js?(x)"
