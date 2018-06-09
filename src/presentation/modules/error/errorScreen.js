@@ -11,28 +11,30 @@ type PropsType = {
   componentId: string,
 };
 
-export const ErrorContainer = ({ error, componentId, title }: PropsType) => {
-  const dismiss = () => {
+export class ErrorScreen extends React.PureComponent<PropsType> {
+  dismiss = () => {
     // $FlowIgnoreNavigationComponentId
-    dismissModal(componentId);
+    dismissModal(this.props.componentId);
   };
 
-  if (error) {
-    console.log(error);
-    console.warn(error.message ? error.message : 'Error without message');
-  } else {
-    console.warn('Error screen without error prop');
+  render() {
+    const { error, title } = this.props;
+
+    if (error) {
+      console.log(error);
+      console.warn(error.message ? error.message : 'Error without message');
+    } else {
+      console.warn('Error screen without error prop');
+    }
+
+    return (
+      <ErrorComponent
+        onButtonPress={this.dismiss}
+        navigateBack={this.dismiss}
+        buttonText={I18n.t('ERROR/BUTTON')}
+        title={title}
+        message={error ? error.message : ''}
+      />
+    );
   }
-
-  return (
-    <ErrorComponent
-      onButtonPress={dismiss}
-      navigateBack={dismiss}
-      buttonText={I18n.t('ERROR/BUTTON')}
-      title={title}
-      message={error ? error.message : ''}
-    />
-  );
-};
-
-export const ErrorScreen = ErrorContainer;
+}
