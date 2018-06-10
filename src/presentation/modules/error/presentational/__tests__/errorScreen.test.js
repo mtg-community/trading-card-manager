@@ -31,9 +31,7 @@ describe('<ErrorScreen />', () => {
     expect(errorComponentProps.onButtonPress).toEqual(instance.dismiss);
   });
 
-  //FIXME: Improve this scenario
   it('should dismiss itself as provided callbacks', () => {
-    instance.state.navigator = { dismissModal: jest.fn() };
     instance.dismiss();
     expect(instance.state.navigator.dismissModal).toHaveBeenCalled();
   });
