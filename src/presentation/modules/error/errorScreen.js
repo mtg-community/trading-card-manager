@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import I18n from 'react-native-i18n';
-import { dismissModal } from '../../navigation/index';
+import { Navigator } from '../../navigation/index';
 import { ErrorComponent } from './presentational/errorComponent';
 import { Logger } from '../../../data/logger';
 
@@ -12,10 +12,21 @@ type PropsType = {
   componentId: string,
 };
 
-export class ErrorScreen extends React.Component<PropsType> {
+type StatesType = {
+  navigator: Navigator,
+};
+
+export class ErrorScreen extends React.Component<PropsType, StatesType> {
+  constructor(props: PropsTypes) {
+    super(props);
+    this.state = {
+      // $FlowIgnoreNavigationComponentId
+      navigator: new Navigator(props.componentId),
+    };
+  }
+
   dismiss = () => {
-    // $FlowIgnoreNavigationComponentId
-    dismissModal(this.props.componentId);
+    this.state.navigator.dismissModal();
   };
 
   render() {

@@ -19,6 +19,10 @@ export class Navigator {
     Navigation.push(this.componentId, createComponent(name, passProps));
   };
 
+  dismissModal = () => {
+    Navigation.dismissModal(this.componentId);
+  };
+
   static showModal = (
     name: string,
     title: string,

@@ -6,7 +6,7 @@ import I18n from 'react-native-i18n';
 
 import { ErrorComponent } from '../errorComponent';
 import { ErrorScreen } from '../../errorScreen';
-import { dismissModal } from '../../../../navigation';
+import { Navigator } from '../../../../navigation';
 jest.mock('../../../../navigation');
 
 describe('<ErrorScreen />', () => {
@@ -31,8 +31,10 @@ describe('<ErrorScreen />', () => {
     expect(errorComponentProps.onButtonPress).toEqual(instance.dismiss);
   });
 
+  //FIXME: Improve this scenario
   it('should dismiss itself as provided callbacks', () => {
+    instance.state.navigator = { dismissModal: jest.fn() };
     instance.dismiss();
-    expect(dismissModal).toHaveBeenCalledWith(props.componentId);
+    expect(instance.state.navigator.dismissModal).toHaveBeenCalled();
   });
 });
