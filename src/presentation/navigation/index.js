@@ -1,6 +1,6 @@
 // @flow strict
 
-import { Navigation } from 'react-native-navigation';
+import All, { Navigation } from 'react-native-navigation';
 
 type OpenObjectType = {};
 
@@ -38,6 +38,10 @@ export class Navigator {
       },
     });
   };
+
+  dismissModal = () => {
+    Navigation.dismissModal(this.componentId);
+  };
 }
 
 export const navigateTo = (
@@ -46,10 +50,6 @@ export const navigateTo = (
   passProps: ?OpenObjectType,
 ) => {
   Navigation.push(componentId, createComponent(name, passProps));
-};
-
-export const dismissModal = (componentId: string) => {
-  Navigation.dismissModal(componentId);
 };
 
 export const pop = (componentId: string) => {

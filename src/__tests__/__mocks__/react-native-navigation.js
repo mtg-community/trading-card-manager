@@ -1,5 +1,11 @@
-let Navigation = jest.mock('react-native-navigation');
+let Module = jest.mock('react-native-navigation');
 
-Navigation.registerComponent = jest.fn();
+Module.registerComponent = jest.fn();
+Module.dismissModal = jest.fn();
 
-export default Navigation;
+const Mock = {
+  Navigation: Module,
+};
+
+export default Mock;
+export const Navigation = Module;

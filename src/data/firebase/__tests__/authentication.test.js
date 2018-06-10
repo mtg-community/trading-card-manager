@@ -27,7 +27,7 @@ describe('Firebase Authentication Module', () => {
     expect(
       Firebase.auth().signInAndRetrieveDataWithEmailAndPassword,
     ).toHaveBeenCalledWith(email, password);
-    expect(user).toEqual(mockUserCredentials);
+    expect(user).toEqual(mockUserCredentials.user);
   });
 
   it('should call signUpWithEmailAndPassword correctly', async () => {
@@ -37,7 +37,7 @@ describe('Firebase Authentication Module', () => {
     expect(
       Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword,
     ).toHaveBeenCalledWith(email, password);
-    expect(user).toEqual(mockUserCredentials);
+    expect(user).toEqual(mockUserCredentials.user);
   });
 
   it('should throw error is email is invalid', async () => {
