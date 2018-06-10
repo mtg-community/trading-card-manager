@@ -1,3 +1,5 @@
+// @flow
+
 let Module = jest.mock('../index');
 
 const mockClass = {
