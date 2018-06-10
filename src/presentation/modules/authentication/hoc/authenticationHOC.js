@@ -4,6 +4,7 @@ import * as React from 'react';
 import { type User } from 'react-native-firebase';
 import { connect } from 'react-redux';
 import { onAuthStateChanged } from '../../../../data/firebase/authentication';
+import { SCREENS } from '../../../navigation/screens';
 import { setUserAction } from '../../../redux/ducks/user';
 import { SignInScreen } from '../signInScreen';
 
@@ -28,10 +29,7 @@ export class AuthenticatedComponent extends React.Component<
 
   componentDidMount() {
     this.unsubscriber = onAuthStateChanged((user: ?User) => {
-      if (user) {
-        this.props.setUser(user);
-      }
-
+      this.props.setUser(user);
       this.setState({ user });
     });
   }
@@ -45,7 +43,11 @@ export class AuthenticatedComponent extends React.Component<
   isUserAuthorized = () => this.state.user !== null;
 
   render() {
-    return this.isUserAuthorized() ? this.props.children : <SignInScreen />;
+    return this.isUserAuthorized() ? (
+      this.props.children
+    ) : (
+      <SignInScreen redirectTo={SCREENS.HOME.route} />
+    );
   }
 }
 

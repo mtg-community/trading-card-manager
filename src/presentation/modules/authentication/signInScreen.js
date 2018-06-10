@@ -7,14 +7,16 @@ import { connect } from 'react-redux';
 import { pop, navigateTo } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 import { selectUser, loginAction } from '../../redux/ducks/user';
+import type { StateType } from '../../redux/types';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
 import { SignInFooter } from './presentational/signInFooter';
 
 type PropsTypes = {
+  user: ?User,
+  redirectTo: string,
   loginUser: (string, string) => void,
 };
 
-// TODO: Add redirectTo callback,
 export class SignInContainer extends Component<PropsTypes> {
   signIn = async (email: string, password: string): Promise<void> => {
     this.props.loginUser(email, password);
@@ -25,9 +27,9 @@ export class SignInContainer extends Component<PropsTypes> {
     pop(this.props.componentId);
   };
 
-  navigateTo = (screenName: string) => () => {
+  navigateTo = (screenName: string, passProps: ?{}) => () => {
     // $FlowIgnoreNavigationComponentId
-    navigateTo(screenName, this.props.componentId);
+    navigateTo(screenName, this.props.componentId, passProps);
   };
 
   footer = (
@@ -38,6 +40,12 @@ export class SignInContainer extends Component<PropsTypes> {
   );
 
   render() {
+    if (this.props.user) {
+      // $FlowIgnoreNavigationComponentId
+      this.navigateTo(this.props.redirectTo);
+      return null;
+    }
+
     return (
       <EmailAndPasswordForm
         onButtonPress={this.signIn}
@@ -50,11 +58,15 @@ export class SignInContainer extends Component<PropsTypes> {
   }
 }
 
+const mapStateToProps = (state: StateType) => ({
+  user: selectUser(state),
+});
+
 const mapDispatchToProps = {
   loginUser: loginAction,
 };
 
 export const SignInScreen = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(SignInContainer);
