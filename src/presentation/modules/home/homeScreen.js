@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import { connect } from 'react-redux';
+import { signOut } from '../../../data/firebase/authentication';
 import { navigateTo } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 
@@ -37,6 +38,7 @@ export class HomeContainer extends Component<Props> {
       <Home
         increment={this.props.increment}
         decrement={this.props.decrement}
+        signOut={signOut}
         counter={this.props.counter}
         navigateToLogin={this.navigateToLogin}
         instructions={instructions}

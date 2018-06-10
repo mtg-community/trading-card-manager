@@ -1,6 +1,6 @@
 // @flow
 
-import Firebase, { type UserCredential } from 'react-native-firebase';
+import Firebase, { type User } from 'react-native-firebase';
 import isEmail from 'validator/lib/isEmail';
 
 export const INVALID_EMAIL_ERROR = 'Invalid Email';
@@ -8,27 +8,36 @@ export const INVALID_EMAIL_ERROR = 'Invalid Email';
 export const signInWithEmailAndPassword = async (
   email: string,
   password: string,
-): Promise<UserCredential> => {
+): Promise<User> => {
   if (!isEmail(email)) {
     throw new Error(INVALID_EMAIL_ERROR);
   }
 
-  return Firebase.auth().signInAndRetrieveDataWithEmailAndPassword(
+  const userCredentialPromise = await Firebase.auth().signInAndRetrieveDataWithEmailAndPassword(
     email,
     password,
   );
+  return userCredentialPromise.user;
 };
 
 export const signUpWithEmailAndPassword = async (
   email: string,
   password: string,
-): Promise<UserCredential> => {
+): Promise<User> => {
   if (!isEmail(email)) {
     throw new Error(INVALID_EMAIL_ERROR);
   }
 
-  return Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(
+  const userCredentialPromise = await Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(
     email,
     password,
   );
+
+  return userCredentialPromise.user;
 };
+
+export const onAuthStateChanged = (callback: (?User) => void): (() => void) => {
+  return Firebase.auth().onAuthStateChanged(callback);
+};
+
+export const signOut = (): Promise<void> => Firebase.auth().signOut();

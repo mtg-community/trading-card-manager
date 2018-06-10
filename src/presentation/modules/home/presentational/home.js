@@ -8,15 +8,16 @@ import { Text, View, Button } from 'react-native';
 
 import { styles } from './styles/home.styles';
 
-type Props = {
+export type PropsType = {
   decrement: () => void,
   increment: () => void,
   navigateToLogin: () => void,
+  signOut: () => Promise<void>,
   instructions: string,
   counter: number,
 };
 
-export const Home = (props: Props) => (
+export const Home = (props: PropsType) => (
   <View style={styles.container}>
     <Text style={styles.welcome}>
       {`${I18n.t('WORDS/GREETING')} Welcome to React Native!`}
@@ -29,5 +30,6 @@ export const Home = (props: Props) => (
     <Button onPress={props.increment} title="INCREMENT" color="#841584" />
     <Button onPress={props.decrement} title="DECREMENT" color="#841584" />
     <Button onPress={props.navigateToLogin} title="LOGIN" color="#841584" />
+    <Button onPress={props.signOut} title="LOGOUT" color="#841584" />
   </View>
 );

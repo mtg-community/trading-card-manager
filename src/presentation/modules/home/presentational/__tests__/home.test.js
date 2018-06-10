@@ -4,11 +4,12 @@ import React from 'react';
 import { Button, Text } from 'react-native';
 import { shallow } from 'enzyme';
 
-import { Home } from '../home';
+import { Home, type PropsType } from '../home';
 
-const props = {
+const props: PropsType = {
   decrement: jest.fn(),
   increment: jest.fn(),
+  signOut: jest.fn(),
   instructions: 'Bla bla bla',
   navigateToLogin: jest.fn(),
   counter: 1,

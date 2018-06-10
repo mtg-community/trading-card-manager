@@ -14,6 +14,7 @@ type PropsTypes = {
   loginUser: (string, string) => void,
 };
 
+// TODO: Add redirectTo callback,
 export class SignInContainer extends Component<PropsTypes> {
   signIn = async (email: string, password: string): Promise<void> => {
     this.props.loginUser(email, password);

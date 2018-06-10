@@ -1,6 +1,6 @@
 // @flow strict
 
-import type { User } from 'react-native-firebase';
+import { type User } from 'react-native-firebase';
 import type {
   StateType,
   SetUserAction,
