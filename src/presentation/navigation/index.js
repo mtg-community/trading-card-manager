@@ -18,6 +18,26 @@ export class Navigator {
   navigateTo = (name: string, passProps: ?OpenObjectType) => {
     Navigation.push(this.componentId, createComponent(name, passProps));
   };
+
+  static showModal = (
+    name: string,
+    title: string,
+    passProps: ?OpenObjectType,
+  ) => {
+    const options = {
+      topBar: {
+        title: {
+          text: title,
+        },
+      },
+    };
+
+    Navigation.showModal({
+      stack: {
+        children: [createComponent(name, passProps, options)],
+      },
+    });
+  };
 }
 
 export const navigateTo = (
@@ -30,26 +50,6 @@ export const navigateTo = (
 
 export const dismissModal = (componentId: string) => {
   Navigation.dismissModal(componentId);
-};
-
-export const showModal = (
-  name: string,
-  title: string,
-  passProps: ?OpenObjectType,
-) => {
-  const options = {
-    topBar: {
-      title: {
-        text: title,
-      },
-    },
-  };
-
-  Navigation.showModal({
-    stack: {
-      children: [createComponent(name, passProps, options)],
-    },
-  });
 };
 
 export const pop = (componentId: string) => {
