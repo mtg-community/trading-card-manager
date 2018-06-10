@@ -14,7 +14,19 @@ type PropsTypes = {
   forgotPassword: string => void,
 };
 
-export class ForgotPasswordContainer extends Component<PropsTypes> {
+type StatesType = {
+  navigator: Navigator,
+};
+
+export class ForgotPasswordContainer extends Component<PropsTypes, StatesType> {
+  constructor(props: PropsTypes) {
+    super(props);
+    this.state = {
+      // $FlowIgnoreNavigationComponentId
+      navigator: new Navigator(props.componentId),
+    };
+  }
+
   forgotPassword = async (email: string): Promise<void> => {
     this.props.forgotPassword(email);
   };

@@ -17,7 +17,19 @@ type PropsTypes = {
   signUpUser: (string, string) => void,
 };
 
-export class SignUpContainer extends Component<PropsTypes> {
+type StatesType = {
+  navigator: Navigator,
+};
+
+export class SignUpContainer extends Component<PropsTypes, StatesType> {
+  constructor(props: PropsTypes) {
+    super(props);
+    this.state = {
+      // $FlowIgnoreNavigationComponentId
+      navigator: new Navigator(props.componentId),
+    };
+  };
+
   signIn = async (email: string, password: string): Promise<void> => {
     this.props.signUpUser(email, password);
   };

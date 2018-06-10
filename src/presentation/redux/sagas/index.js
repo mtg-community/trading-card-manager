@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   signUpWithEmailAndPassword,
 } from '../../../data/firebase/authentication';
-import { showModal } from '../../navigation';
+import { Navigator } from '../../navigation/index';
 import { SCREENS } from '../../navigation/screens';
 import { setUserAction } from '../ducks/user';
 
@@ -24,7 +24,7 @@ function* signInSaga(action) {
     yield put(setUserAction(user));
   } catch (error) {
     const title = I18n.t('SIGN_IN/ERROR_TITLE');
-    showModal(SCREENS.ERROR.route, title, { error, title });
+    Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
   }
 }
 
@@ -38,14 +38,14 @@ function* signUpSaga(action) {
     yield put(setUserAction(user));
   } catch (error) {
     const title = I18n.t('SIGN_UP/ERROR_TITLE');
-    showModal(SCREENS.ERROR.route, title, { error, title });
+    Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
   }
 }
 
 function* forgotPasswordSaga(action) {
   const error = new Error('Not Implemented Yet');
   const title = I18n.t('SIGN_UP/ERROR_TITLE');
-  showModal(SCREENS.ERROR.route, title, { error, title });
+  Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
 }
 
 export function* rootSaga(): Generator<*, *, *> {
