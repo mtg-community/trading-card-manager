@@ -49,7 +49,6 @@ export class SignInContainer extends Component<PropsTypes, StatesType> {
     const { navigator } = this.state;
 
     if (this.props.user) {
-      // $FlowIgnoreNavigationComponentId
       this.navigateTo(this.props.redirectTo);
       return null;
     }
