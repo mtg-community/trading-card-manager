@@ -4,6 +4,22 @@ import { Navigation } from 'react-native-navigation';
 
 type OpenObjectType = {};
 
+export class Navigator {
+  componentId: string;
+
+  constructor(componentId: string) {
+    this.componentId = componentId;
+  }
+
+  navigateBack = () => {
+    Navigation.pop(this.componentId);
+  };
+
+  navigateTo = (name: string, passProps: ?OpenObjectType) => {
+    Navigation.push(this.componentId, createComponent(name, passProps));
+  };
+}
+
 export const navigateTo = (
   name: string,
   componentId: string,
