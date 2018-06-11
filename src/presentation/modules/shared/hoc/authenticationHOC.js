@@ -1,50 +1,55 @@
 // @flow strict
 
-import * as React from 'react';
 import { type User } from 'react-native-firebase';
+import { connect } from 'react-redux';
+import { branch, renderComponent, compose, lifecycle } from 'recompose';
+import { Logger } from '../../../../data/logger';
 import { onAuthStateChanged } from '../../../../data/firebase/authentication';
-import { SCREENS } from '../../../navigation/screens';
+import { setUserListenerAction } from '../../../redux/ducks/user';
 import { SignInScreen } from '../../authentication/signInScreen';
 
-type OpenPropsType = {};
-type PropsType = {
-  children: React.Node,
-};
-type StateType = {
-  user: ?User,
+const SET_USER_ACTION = 'userListener';
+
+const isUnauthorized = props => {
+  return props.user === null;
 };
 
-export const authenticated = (
-  BaseComponent: React.ComponentType<OpenPropsType>,
-) => (props: OpenPropsType) => (
-  <AuthenticatedComponent>
-    <BaseComponent {...props} />
-  </AuthenticatedComponent>
+const renderSignInIfNotAuthorized = branch(
+  isUnauthorized,
+  renderComponent(SignInScreen),
 );
 
-class AuthenticatedComponent extends React.Component<PropsType, StateType> {
-  unsubscriber: ?() => void = null;
-  state = { user: null };
-
-  isUserAuthorized = () => this.state.user !== null;
-
+export const withAuthListener = lifecycle({
+  state: { unsubscriber: null, user: null },
   componentDidMount() {
-    this.unsubscriber = onAuthStateChanged((user: ?User) => {
-      this.setState({ user });
+    const unsubscriber = onAuthStateChanged((user: ?User) => {
+      Logger.log(`User state has changed: `, user);
+      if (this.props[SET_USER_ACTION]) {
+        this.props[SET_USER_ACTION](user);
+      }
+      this.setState({ unsubscriber, user });
     });
-  }
-
+  },
   componentWillUnmount() {
-    if (this.unsubscriber) {
-      this.unsubscriber();
+    if (this.state.unsubscriber) {
+      this.state.unsubscriber();
     }
-  }
+  },
+});
 
-  render() {
-    return this.isUserAuthorized() ? (
-      this.props.children
-    ) : (
-      <SignInScreen redirectTo={SCREENS.HOME.route} />
-    );
-  }
-}
+const withReduxConnected = connect(
+  null,
+  {
+    [SET_USER_ACTION]: setUserListenerAction,
+  },
+);
+
+export const authStateListener = compose(
+  withReduxConnected,
+  withAuthListener,
+);
+
+export const withAuthentication = compose(
+  withAuthListener,
+  renderSignInIfNotAuthorized,
+);

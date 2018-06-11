@@ -6,7 +6,7 @@ import { SignInScreen } from '../modules/authentication/signInScreen';
 import { SignUpScreen } from '../modules/authentication/signUpScreen';
 import { ErrorScreen } from '../modules/error/errorScreen';
 import { HomeScreen } from '../modules/home/homeScreen';
-import { authStateListener } from '../modules/shared/hoc/authStateListenerHOC';
+import { authStateListener } from '../modules/shared/hoc/authenticationHOC';
 
 export const SCREENS: ScreenType = {
   HOME: {

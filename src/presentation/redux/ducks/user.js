@@ -50,7 +50,7 @@ export const setUserAction = (user: ?User): SetUserAction => ({
 });
 
 export const setUserListenerAction = (user: ?User): SetUserAction => ({
-  type: SET_USER,
+  type: SET_USER_LISTENER,
   user,
 });
 

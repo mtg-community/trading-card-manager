@@ -15,8 +15,8 @@ export const connectReduxAndNavigator = (
     mapDispatchToProps,
   );
   return compose(
-    reduxConnected,
     withNavigator,
+    reduxConnected,
   );
 };
 
