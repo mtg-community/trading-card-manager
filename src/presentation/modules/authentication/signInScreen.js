@@ -3,39 +3,28 @@
 import React, { Component } from 'react';
 import type { User } from 'react-native-firebase';
 import I18n from 'react-native-i18n';
-import { connect } from 'react-redux';
 import { Navigator } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 import { selectUser, loginAction } from '../../redux/ducks/user';
 import type { StateType } from '../../redux/types';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
 import { SignInFooter } from './presentational/signInFooter';
+import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 
 type PropsTypes = {
   user: ?User,
   redirectTo: string,
+  navigator: Navigator,
   loginUser: (string, string) => void,
 };
 
-type StatesType = {
-  navigator: Navigator,
-};
-
-export class SignInContainer extends Component<PropsTypes, StatesType> {
-  constructor(props: PropsTypes) {
-    super(props);
-    this.state = {
-      // $FlowIgnoreNavigationComponentId
-      navigator: new Navigator(props.componentId),
-    };
-  }
-
+export class SignInContainer extends Component<PropsTypes> {
   signIn = async (email: string, password: string): Promise<void> => {
     this.props.loginUser(email, password);
   };
 
   navigateTo = (screenName: string, passProps: ?{}) => () => {
-    this.state.navigator.navigateTo(screenName, passProps);
+    this.props.navigator.navigateTo(screenName, passProps);
   };
 
   footer = (
@@ -46,7 +35,7 @@ export class SignInContainer extends Component<PropsTypes, StatesType> {
   );
 
   render() {
-    const { navigator } = this.state;
+    const { navigator } = this.props;
 
     if (this.props.user) {
       this.navigateTo(this.props.redirectTo);
@@ -58,7 +47,7 @@ export class SignInContainer extends Component<PropsTypes, StatesType> {
         onButtonPress={this.signIn}
         buttonText={I18n.t('SIGN_IN/BUTTON_TEXT')}
         title={I18n.t('SIGN_IN/TITLE')}
-        navigateBack={navigator.navigateBack}
+        navigateBack={this.props.navigator.navigateBack}
         footer={this.footer}
       />
     );
@@ -73,7 +62,7 @@ const mapDispatchToProps = {
   loginUser: loginAction,
 };
 
-export const SignInScreen = connect(
+export const SignInScreen = connectReduxAndNavigator(
   mapStateToProps,
   mapDispatchToProps,
 )(SignInContainer);

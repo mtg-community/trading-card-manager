@@ -9,31 +9,21 @@ import { signUpAction, selectUser } from '../../redux/ducks/user';
 import type { StateType } from '../../redux/types';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
 import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';
+import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 
 type PropsTypes = {
   user: ?User,
   signUpUser: (string, string) => void,
-};
-
-type StatesType = {
   navigator: Navigator,
 };
 
-export class SignUpContainer extends Component<PropsTypes, StatesType> {
-  constructor(props: PropsTypes) {
-    super(props);
-    this.state = {
-      // $FlowIgnoreNavigationComponentId
-      navigator: new Navigator(props.componentId),
-    };
-  }
-
+export class SignUpContainer extends Component<PropsTypes> {
   signIn = async (email: string, password: string): Promise<void> => {
     this.props.signUpUser(email, password);
   };
 
   navigateBack = () => {
-    this.state.navigator.navigateBack();
+    this.props.navigator.navigateBack();
   };
 
   footer = <GoBackToSignInFooter navigateToSignIn={this.navigateBack} />;
@@ -64,7 +54,7 @@ const mapDispatchToProps = {
   signUpUser: signUpAction,
 };
 
-export const SignUpScreen = connect(
+export const SignUpScreen = connectReduxAndNavigator(
   mapStateToProps,
   mapDispatchToProps,
 )(SignUpContainer);

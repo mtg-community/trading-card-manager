@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { onAuthStateChanged } from '../../../../data/firebase/authentication';
 import { SCREENS } from '../../../navigation/screens';
 import { setUserAction } from '../../../redux/ducks/user';
-import { SignInScreen } from '../signInScreen';
+import { SignInScreen } from '../../authentication/signInScreen';
 
 type PropsType = {
   children: React.Node,

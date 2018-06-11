@@ -2,10 +2,10 @@
 
 import React, { Component } from 'react';
 import { Platform } from 'react-native';
-import { connect } from 'react-redux';
 import { signOut } from '../../../data/firebase/authentication';
 import { Navigator } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
+import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 
 import {
   incrementCounter,
@@ -28,22 +28,10 @@ type Props = {
   navigator: Navigator,
 };
 
-type StatesType = {
-  navigator: Navigator,
-};
-
-export class HomeContainer extends Component<Props, StatesType> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      // $FlowIgnoreNavigationComponentId
-      navigator: new Navigator(props.componentId),
-    };
-  }
-
+export class HomeContainer extends Component<Props> {
   navigateToLogin = () => {
     // $FlowIgnoreNavigationComponentId
-    this.state.navigator.navigateTo(SCREENS.SIGN_IN.route, {
+    this.props.navigator.navigateTo(SCREENS.SIGN_IN.route, {
       redirectTo: SCREENS.HOME.route,
     });
   };
@@ -71,7 +59,7 @@ const mapDispatchToProps = {
   decrement: decrementCounter,
 };
 
-export const HomeScreen = connect(
+export const HomeScreen = connectReduxAndNavigator(
   mapStateToProps,
   mapDispatchToProps,
 )(HomeContainer);
