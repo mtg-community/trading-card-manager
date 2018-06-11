@@ -4,6 +4,10 @@ import { User } from 'react-native-firebase';
 
 export type ActionType = PayloadlessAction;
 
+export type PayloadlessAction = {
+  type: string,
+};
+
 export type AuthUserAction = {
   type: string,
   email: string,
@@ -17,9 +21,6 @@ export type ForgotPasswordAction = {
 
 export type ReducerType = {
   [string]: (number) => number,
-};
-export type PayloadlessAction = {
-  type: string,
 };
 
 export type SetUserAction = {
