@@ -20,14 +20,14 @@ describe('<HomeScreen />', () => {
     const container = wrapper.find(HomeContainer);
 
     it('should map state to props', () => {
-      expect(container.prop('counter')).toEqual(selectCounter(state));
+      expect(wrapper.prop('counter')).toEqual(selectCounter(state));
     });
 
     it('should map dispatch to props', () => {
-      container.prop('increment')();
+      wrapper.prop('increment')();
       expect(store.getActions()).toContainEqual(incrementCounter());
 
-      container.prop('decrement')();
+      wrapper.prop('decrement')();
       expect(store.getActions()).toContainEqual(decrementCounter());
     });
   });
