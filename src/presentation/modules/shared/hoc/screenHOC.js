@@ -15,11 +15,12 @@ export const connectReduxAndNavigator = (
     mapDispatchToProps,
   );
   return compose(
-    withNavigator,
     reduxConnected,
+    withNavigator,
   );
 };
 
-const mapComponentIdToNavigator = (props: PropsTypes) => ({
+const mapComponentIdToNavigator = (props: {}) => ({
   navigator: new Navigator(props.componentId),
+  ...props,
 });
