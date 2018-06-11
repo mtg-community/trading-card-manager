@@ -13,8 +13,9 @@ import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 
 type PropsTypes = {
   user: ?User,
-  signUpUser: (string, string) => void,
+  redirectTo: string,
   navigator: Navigator,
+  signUpUser: (string, string) => void,
 };
 
 export class SignUpContainer extends Component<PropsTypes> {

@@ -42,7 +42,7 @@ export class HomeContainer extends Component<Props> {
       <Home
         increment={this.props.increment}
         decrement={this.props.decrement}
-        signOut={this.props.logOut}
+        logOut={this.props.logOut}
         counter={this.props.counter}
         navigateToLogin={this.navigateToLogin}
         instructions={instructions}

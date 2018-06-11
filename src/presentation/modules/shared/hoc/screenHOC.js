@@ -6,8 +6,8 @@ import compose from 'recompose/compose';
 import { Navigator } from '../../../navigation';
 
 export const connectReduxAndNavigator = (
-  mapStateToProps,
-  mapDispatchToProps,
+  mapStateToProps: ?{},
+  mapDispatchToProps: {},
 ) => {
   const withNavigator = mapProps(mapComponentIdToNavigator);
   const reduxConnected = connect(
@@ -21,6 +21,7 @@ export const connectReduxAndNavigator = (
 };
 
 const mapComponentIdToNavigator = (props: {}) => ({
+  //$FlowIgnoreNavigationComponentId
   navigator: new Navigator(props.componentId),
   ...props,
 });

@@ -37,6 +37,7 @@ describe('<HomeContainer />', () => {
   const props = {
     decrement: jest.fn(),
     increment: jest.fn(),
+    logOut: jest.fn(),
     navigator: new Navigator('id'),
     counter: 1,
   };

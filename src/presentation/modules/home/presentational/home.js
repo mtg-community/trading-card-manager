@@ -12,7 +12,7 @@ export type PropsType = {
   decrement: () => void,
   increment: () => void,
   navigateToLogin: () => void,
-  signOut: () => Promise<void>,
+  logOut: () => void,
   instructions: string,
   counter: number,
 };
@@ -30,6 +30,6 @@ export const Home = (props: PropsType) => (
     <Button onPress={props.increment} title="INCREMENT" color="#841584" />
     <Button onPress={props.decrement} title="DECREMENT" color="#841584" />
     <Button onPress={props.navigateToLogin} title="LOGIN" color="#841584" />
-    <Button onPress={props.signOut} title="LOGOUT" color="#841584" />
+    <Button onPress={props.logOut} title="LOGOUT" color="#841584" />
   </View>
 );
