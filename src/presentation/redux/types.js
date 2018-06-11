@@ -25,7 +25,7 @@ export type ReducerType = {
 
 export type SetUserAction = {
   type: string,
-  user: User,
+  user: ?User,
 };
 
 export type StateType = {

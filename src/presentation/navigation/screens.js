@@ -6,11 +6,12 @@ import { SignInScreen } from '../modules/authentication/signInScreen';
 import { SignUpScreen } from '../modules/authentication/signUpScreen';
 import { ErrorScreen } from '../modules/error/errorScreen';
 import { HomeScreen } from '../modules/home/homeScreen';
+import { authStateListener } from '../modules/shared/hoc/authStateListenerHOC';
 
 export const SCREENS: ScreenType = {
   HOME: {
     route: 'navigation.mtgx.WelcomeScreen',
-    component: HomeScreen,
+    component: authStateListener(HomeScreen),
   },
   ERROR: {
     route: 'navigation.mtgx.ErrorScreen',
