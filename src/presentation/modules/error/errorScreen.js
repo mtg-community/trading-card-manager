@@ -10,6 +10,7 @@ type PropsType = {
   title: string,
   error: ?Error,
   componentId: string,
+  navigator: Navigator,
 };
 
 type StatesType = {
@@ -17,7 +18,7 @@ type StatesType = {
 };
 
 export class ErrorScreen extends React.Component<PropsType, StatesType> {
-  constructor(props: PropsTypes) {
+  constructor(props: PropsType) {
     super(props);
     this.state = {
       // $FlowIgnoreNavigationComponentId

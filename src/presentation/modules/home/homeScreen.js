@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { signOut } from '../../../data/firebase/authentication';
-import { navigateTo } from '../../navigation';
+import { Navigator } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 
 import {
@@ -25,12 +25,25 @@ type Props = {
   decrement: () => void,
   increment: () => void,
   counter: number,
+  navigator: Navigator,
 };
 
-export class HomeContainer extends Component<Props> {
+type StatesType = {
+  navigator: Navigator,
+};
+
+export class HomeContainer extends Component<Props, StatesType> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      // $FlowIgnoreNavigationComponentId
+      navigator: new Navigator(props.componentId),
+    };
+  }
+
   navigateToLogin = () => {
     // $FlowIgnoreNavigationComponentId
-    navigateTo(SCREENS.SIGN_IN.route, this.props.componentId, {
+    this.state.navigator.navigateTo(SCREENS.SIGN_IN.route, {
       redirectTo: SCREENS.HOME.route,
     });
   };

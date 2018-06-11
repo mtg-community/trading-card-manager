@@ -15,6 +15,7 @@ describe('<ErrorScreen />', () => {
     title: 'TITLE',
     error: error,
     componentId: 'string',
+    navigator: new Navigator('id'),
   };
 
   const wrapper = shallow(<ErrorScreen {...props} />);

@@ -5,7 +5,6 @@ import type { User } from 'react-native-firebase';
 import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
 import { Navigator } from '../../navigation';
-import { SCREENS } from '../../navigation/screens';
 import { signUpAction, selectUser } from '../../redux/ducks/user';
 import type { StateType } from '../../redux/types';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
@@ -13,7 +12,6 @@ import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';
 
 type PropsTypes = {
   user: ?User,
-  redirectTo: string,
   signUpUser: (string, string) => void,
 };
 
@@ -38,19 +36,11 @@ export class SignUpContainer extends Component<PropsTypes, StatesType> {
     this.state.navigator.navigateBack();
   };
 
-  navigateToSignIn = () => {
-    this.navigateTo(SCREENS.SIGN_IN.route, { redirectTo: SCREENS.HOME.route });
-  };
-
-  navigateTo = (screenName: string, passProps: ?{}) => () => {
-    this.state.navigator.navigateTo(screenName, passProps);
-  };
-
-  footer = <GoBackToSignInFooter navigateToSignIn={this.navigateToSignIn} />;
+  footer = <GoBackToSignInFooter navigateToSignIn={this.navigateBack} />;
 
   render() {
     if (this.props.user) {
-      this.navigateTo(this.props.redirectTo);
+      this.navigateBack();
       return null;
     }
 

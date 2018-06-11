@@ -11,6 +11,8 @@ import {
   selectCounter,
 } from '../../../../redux/ducks/counter';
 import { state, store } from '../../../../redux/__mocks__/index';
+import { Navigator } from '../../../../navigation';
+jest.mock('../../../../navigation');
 
 describe('<HomeScreen />', () => {
   describe('react-redux connection', () => {
@@ -35,6 +37,7 @@ describe('<HomeContainer />', () => {
   const props = {
     decrement: jest.fn(),
     increment: jest.fn(),
+    navigator: new Navigator('id'),
     counter: 1,
   };
   const wrapper = shallow(<HomeContainer {...props} />);
