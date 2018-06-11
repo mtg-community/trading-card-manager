@@ -19,8 +19,12 @@ type PropsTypes = {
 };
 
 export class SignInContainer extends Component<PropsTypes> {
+  static defaultProps = {
+    redirectTo: 'navigation.mtgx.WelcomeScreen',
+  };
+
   signIn = async (email: string, password: string): Promise<void> => {
-    this.props.loginUser(email, password);
+    await this.props.loginUser(email, password);
   };
 
   navigateTo = (screenName: string, passProps: ?{}) => () => {
@@ -35,10 +39,8 @@ export class SignInContainer extends Component<PropsTypes> {
   );
 
   render() {
-    const { navigator } = this.props;
-
     if (this.props.user) {
-      this.navigateTo(this.props.redirectTo);
+      this.props.navigator.navigateTo(this.props.redirectTo);
       return null;
     }
 

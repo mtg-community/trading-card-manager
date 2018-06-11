@@ -18,8 +18,8 @@ type PropsTypes = {
 };
 
 export class SignUpContainer extends Component<PropsTypes> {
-  signIn = async (email: string, password: string): Promise<void> => {
-    this.props.signUpUser(email, password);
+  signUp = async (email: string, password: string): Promise<void> => {
+    await this.props.signUpUser(email, password);
   };
 
   navigateBack = () => {
@@ -30,13 +30,13 @@ export class SignUpContainer extends Component<PropsTypes> {
 
   render() {
     if (this.props.user) {
-      this.navigateBack();
+      this.props.navigator.navigateTo(this.props.redirectTo);
       return null;
     }
 
     return (
       <EmailAndPasswordForm
-        onButtonPress={this.signIn}
+        onButtonPress={this.signUp}
         buttonText={I18n.t('SIGN_UP/BUTTON_TEXT')}
         title={I18n.t('SIGN_UP/TITLE')}
         navigateBack={this.navigateBack}
