@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import I18n from 'react-native-i18n';
-import { Navigator } from '../../navigation';
+import { Navigator } from '../../navigation/index';
 import { ErrorComponent } from './presentational/errorComponent';
 import { Logger } from '../../../data/logger';
 
@@ -17,7 +17,7 @@ type StatesType = {
 };
 
 export class ErrorScreen extends React.Component<PropsType, StatesType> {
-  constructor(props: PropsType) {
+  constructor(props: PropsTypes) {
     super(props);
     this.state = {
       // $FlowIgnoreNavigationComponentId

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import type { User } from 'react-native-firebase';
 import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
-import { pop, navigateTo } from '../../navigation';
+import { Navigator } from '../../navigation/index';
 import { SCREENS } from '../../navigation/screens';
 import { forgotPasswordAction } from '../../redux/ducks/user';
 import { PasswordForm } from './presentational/passwordForm';
@@ -14,19 +14,30 @@ type PropsTypes = {
   forgotPassword: string => void,
 };
 
-export class ForgotPasswordContainer extends Component<PropsTypes> {
+type StatesType = {
+  navigator: Navigator,
+};
+
+export class ForgotPasswordContainer extends Component<PropsTypes, StatesType> {
+  constructor(props: PropsTypes) {
+    super(props);
+    this.state = {
+      // $FlowIgnoreNavigationComponentId
+      navigator: new Navigator(props.componentId),
+    };
+  }
+
   forgotPassword = async (email: string): Promise<void> => {
     this.props.forgotPassword(email);
   };
 
   navigateBack = () => {
     // $FlowIgnoreNavigationComponentId
-    pop(this.props.componentId);
+    this.state.navigator.navigateBack();
   };
 
   navigateToSignIn = () => {
-    // $FlowIgnoreNavigationComponentId
-    navigateTo(SCREENS.SIGN_IN.route, this.props.componentId);
+    this.state.navigator.navigateTo(SCREENS.SIGN_IN.route);
   };
 
   footer = <GoBackToSignInFooter navigateToSignIn={this.navigateToSignIn} />;

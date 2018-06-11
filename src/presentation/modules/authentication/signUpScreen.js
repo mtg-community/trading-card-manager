@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import type { User } from 'react-native-firebase';
 import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
-import { pop, navigateTo } from '../../navigation';
+import { Navigator } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 import { signUpAction, selectUser } from '../../redux/ducks/user';
 import type { StateType } from '../../redux/types';
@@ -17,14 +17,25 @@ type PropsTypes = {
   signUpUser: (string, string) => void,
 };
 
-export class SignUpContainer extends Component<PropsTypes> {
+type StatesType = {
+  navigator: Navigator,
+};
+
+export class SignUpContainer extends Component<PropsTypes, StatesType> {
+  constructor(props: PropsTypes) {
+    super(props);
+    this.state = {
+      // $FlowIgnoreNavigationComponentId
+      navigator: new Navigator(props.componentId),
+    };
+  }
+
   signIn = async (email: string, password: string): Promise<void> => {
     this.props.signUpUser(email, password);
   };
 
   navigateBack = () => {
-    // $FlowIgnoreNavigationComponentId
-    pop(this.props.componentId);
+    this.state.navigator.navigateBack();
   };
 
   navigateToSignIn = () => {
@@ -32,15 +43,13 @@ export class SignUpContainer extends Component<PropsTypes> {
   };
 
   navigateTo = (screenName: string, passProps: ?{}) => () => {
-    // $FlowIgnoreNavigationComponentId
-    navigateTo(screenName, this.props.componentId, passProps);
+    this.state.navigator.navigateTo(screenName, passProps);
   };
 
   footer = <GoBackToSignInFooter navigateToSignIn={this.navigateToSignIn} />;
 
   render() {
     if (this.props.user) {
-      // $FlowIgnoreNavigationComponentId
       this.navigateTo(this.props.redirectTo);
       return null;
     }

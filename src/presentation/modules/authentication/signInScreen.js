@@ -34,14 +34,14 @@ export class SignInContainer extends Component<PropsTypes, StatesType> {
     this.props.loginUser(email, password);
   };
 
+  navigateTo = (screenName: string, passProps: ?{}) => () => {
+    this.state.navigator.navigateTo(screenName, passProps);
+  };
+
   footer = (
     <SignInFooter
-      navigateToForgotPassword={() =>
-        this.state.navigator.navigateTo(SCREENS.FORGOT_PASSWORD.route)
-      }
-      navigateToSignUp={() =>
-        this.state.navigator.navigateTo(SCREENS.SIGN_UP.route)
-      }
+      navigateToForgotPassword={this.navigateTo(SCREENS.FORGOT_PASSWORD.route)}
+      navigateToSignUp={this.navigateTo(SCREENS.SIGN_UP.route)}
     />
   );
 
@@ -49,7 +49,7 @@ export class SignInContainer extends Component<PropsTypes, StatesType> {
     const { navigator } = this.state;
 
     if (this.props.user) {
-      navigator.navigateTo(this.props.redirectTo);
+      this.navigateTo(this.props.redirectTo);
       return null;
     }
 
