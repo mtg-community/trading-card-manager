@@ -15,6 +15,7 @@ export type PropsType = {
   logOut: () => void,
   instructions: string,
   counter: number,
+  isLoggedIn: boolean,
 };
 
 export const Home = (props: PropsType) => (
@@ -29,7 +30,10 @@ export const Home = (props: PropsType) => (
     <Text style={styles.instructions}>{props.counter}</Text>
     <Button onPress={props.increment} title="INCREMENT" color="#841584" />
     <Button onPress={props.decrement} title="DECREMENT" color="#841584" />
-    <Button onPress={props.navigateToLogin} title="LOGIN" color="#841584" />
-    <Button onPress={props.logOut} title="LOGOUT" color="#841584" />
+    {props.isLoggedIn ? (
+      <Button onPress={props.logOut} title="LOGOUT" color="#841584" />
+    ) : (
+      <Button onPress={props.navigateToLogin} title="LOGIN" color="#841584" />
+    )}
   </View>
 );

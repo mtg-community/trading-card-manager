@@ -13,6 +13,7 @@ const props: PropsType = {
   instructions: 'Bla bla bla',
   navigateToLogin: jest.fn(),
   counter: 1,
+  isLoggedIn: true,
 };
 
 describe('<Home />', () => {

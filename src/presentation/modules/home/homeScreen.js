@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { Platform } from 'react-native';
+import type { User } from 'react-native-firebase';
 import { Navigator } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 
@@ -10,7 +11,7 @@ import {
   decrementCounter,
   selectCounter,
 } from '../../redux/ducks/counter';
-import { logOutAction } from '../../redux/ducks/user';
+import { logOutAction, selectUser } from '../../redux/ducks/user';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { Home } from './presentational/home';
 
@@ -27,6 +28,7 @@ type Props = {
   logOut: () => void,
   counter: number,
   navigator: Navigator,
+  user: ?User,
 };
 
 export class HomeContainer extends Component<Props> {
@@ -46,6 +48,7 @@ export class HomeContainer extends Component<Props> {
         counter={this.props.counter}
         navigateToLogin={this.navigateToLogin}
         instructions={instructions}
+        isLoggedIn={!!this.props.user}
       />
     );
   }
@@ -53,6 +56,7 @@ export class HomeContainer extends Component<Props> {
 
 const mapStateToProps = state => ({
   counter: selectCounter(state),
+  user: selectUser(state),
 });
 
 const mapDispatchToProps = {

@@ -10,7 +10,7 @@ import {
   decrementCounter,
   selectCounter,
 } from '../../../../redux/ducks/counter';
-import { state, store } from '../../../../redux/__mocks__/index';
+import { state, store } from '../../../../redux/__mocks__/stateMock';
 import { Navigator } from '../../../../navigation';
 jest.mock('../../../../navigation');
 
@@ -40,6 +40,7 @@ describe('<HomeContainer />', () => {
     logOut: jest.fn(),
     navigator: new Navigator('id'),
     counter: 1,
+    user: null,
   };
   const wrapper = shallow(<HomeContainer {...props} />);
   const component = wrapper.find(Home);

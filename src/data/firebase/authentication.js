@@ -5,6 +5,8 @@ import isEmail from 'validator/lib/isEmail';
 
 export const INVALID_EMAIL_ERROR = 'Invalid Email';
 
+type UnsubscribeFunction = () => void;
+
 export const signInWithEmailAndPassword = async (
   email: string,
   password: string,
@@ -36,8 +38,12 @@ export const signUpWithEmailAndPassword = async (
   return userCredentialPromise.user;
 };
 
-export const onAuthStateChanged = (callback: (?User) => void): (() => void) => {
+export const onAuthStateChanged = (
+  callback: (?User) => void,
+): UnsubscribeFunction => {
   return Firebase.auth().onAuthStateChanged(callback);
 };
 
 export const signOut = (): Promise<void> => Firebase.auth().signOut();
+
+export const forgotPassword = (email: string) => {};
