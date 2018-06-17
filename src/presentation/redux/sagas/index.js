@@ -6,17 +6,23 @@ import {
   signInWithEmailAndPassword,
   signUpWithEmailAndPassword,
   signOut,
+  forgotPassword,
 } from '../../../data/firebase/authentication';
 import { Navigator } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
 import { setUserAction } from '../ducks/user';
+import type {
+  ForgotPasswordAction,
+  AuthUserAction,
+  ActionType,
+} from '../types';
 
 export const SIGN_IN = 'user/saga/sign_in';
 export const SIGN_UP = 'user/saga/sign_up';
 export const LOG_OUT = 'user/saga/log_out';
 export const FORGOT_PASSWORD = 'user/saga/forgot_password';
 
-function* signInSaga(action) {
+function* signInSaga(action: AuthUserAction) {
   try {
     const user = yield call(
       signInWithEmailAndPassword,
@@ -30,7 +36,7 @@ function* signInSaga(action) {
   }
 }
 
-function* signUpSaga(action) {
+function* signUpSaga(action: AuthUserAction) {
   try {
     const user = yield call(
       signUpWithEmailAndPassword,
@@ -44,13 +50,17 @@ function* signUpSaga(action) {
   }
 }
 
-function* forgotPasswordSaga(action) {
-  const error = new Error('Not Implemented Yet');
-  const title = I18n.t('SIGN_UP/ERROR_TITLE');
-  Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
+function* forgotPasswordSaga(action: ForgotPasswordAction) {
+  try {
+    yield call(forgotPassword, action.email);
+    //TODO: provide feedback to user
+  } catch (error) {
+    const title = I18n.t('SIGN_UP/ERROR_TITLE');
+    Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
+  }
 }
 
-function* logoutSaga(action) {
+function* logoutSaga(action: ActionType) {
   try {
     yield call(signOut);
     yield put(setUserAction(null));

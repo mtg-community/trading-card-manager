@@ -7,13 +7,17 @@ export const INVALID_EMAIL_ERROR = 'Invalid Email';
 
 type UnsubscribeFunction = () => void;
 
+const validateEmail = (email: string) => {
+  if (!isEmail(email)) {
+    throw new Error(INVALID_EMAIL_ERROR);
+  }
+};
+
 export const signInWithEmailAndPassword = async (
   email: string,
   password: string,
 ): Promise<User> => {
-  if (!isEmail(email)) {
-    throw new Error(INVALID_EMAIL_ERROR);
-  }
+  validateEmail(email);
 
   const userCredentialPromise = await Firebase.auth().signInAndRetrieveDataWithEmailAndPassword(
     email,
@@ -26,9 +30,7 @@ export const signUpWithEmailAndPassword = async (
   email: string,
   password: string,
 ): Promise<User> => {
-  if (!isEmail(email)) {
-    throw new Error(INVALID_EMAIL_ERROR);
-  }
+  validateEmail(email);
 
   const userCredentialPromise = await Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(
     email,
@@ -44,6 +46,10 @@ export const onAuthStateChanged = (
   return Firebase.auth().onAuthStateChanged(callback);
 };
 
-export const signOut = (): Promise<void> => Firebase.auth().signOut();
+export const signOut = async (): Promise<void> => Firebase.auth().signOut();
 
-export const forgotPassword = (email: string) => {};
+export const forgotPassword = async (email: string): Promise<void> => {
+  validateEmail(email);
+
+  Firebase.auth().sendPasswordResetEmail(email);
+};
