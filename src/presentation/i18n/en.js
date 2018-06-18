@@ -17,4 +17,5 @@ export const en = {
   'SIGN_IN/FOOTER/SIGN_UP_BUTTON': 'CREATE AN ACCOUNT',
   'SIGN_IN/FOOTER/RECOVER_TEXT': 'Forgot your password?',
   'SIGN_IN/FOOTER/RECOVER_LINK': 'Recover it HERE',
+  'PASSWORD_RECOVERY/ALERT/MESSAGE': 'Take a look at your email.',
 };

@@ -53,7 +53,7 @@ function* signUpSaga(action: AuthUserAction) {
 function* forgotPasswordSaga(action: ForgotPasswordAction) {
   try {
     yield call(forgotPassword, action.email);
-    //TODO: provide feedback to user
+    alert(I18n.t('PASSWORD_RECOVERY/ALERT/MESSAGE'));
   } catch (error) {
     const title = I18n.t('SIGN_UP/ERROR_TITLE');
     Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
