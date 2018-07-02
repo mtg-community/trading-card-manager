@@ -1,12 +1,14 @@
 // @flow strict
 
-import { takeLatest, all } from 'redux-saga/effects';
+import { takeLatest, all, throttle } from 'redux-saga/effects';
 import {
   signInSaga,
   signUpSaga,
   forgotPasswordSaga,
   logoutSaga,
 } from './authentication';
+
+const ONE_SECOND = 1000;
 
 export const SIGN_IN = 'user/saga/sign_in';
 export const SIGN_UP = 'user/saga/sign_up';
@@ -18,6 +20,6 @@ export function* rootSaga(): Generator<*, *, *> {
     takeLatest(SIGN_IN, signInSaga),
     takeLatest(SIGN_UP, signUpSaga),
     takeLatest(FORGOT_PASSWORD, forgotPasswordSaga),
-    takeLatest(LOG_OUT, logoutSaga),
+    throttle(ONE_SECOND, LOG_OUT, logoutSaga),
   ]);
 }
