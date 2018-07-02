@@ -9,7 +9,7 @@ import type {
   AuthUserAction,
   ForgotPasswordAction,
 } from '../types';
-import { SIGN_IN, SIGN_UP, FORGOT_PASSWORD, LOG_OUT } from '../sagas';
+import { SIGN_IN, SIGN_UP, FORGOT_PASSWORD, LOG_OUT } from '../sagas/index';
 
 const INITIAL_STATE = null;
 const SET_USER = 'user/sync/set';

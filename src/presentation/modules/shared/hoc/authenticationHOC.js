@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { branch, renderComponent, compose, lifecycle } from 'recompose';
 import { Logger } from '../../../../data/logger';
 import { onAuthStateChanged } from '../../../../data/firebase/authentication';
-import { setUserListenerAction } from '../../../redux/ducks/user';
+import { setUserListenerAction } from '../../../../domain/redux/ducks/user';
 import { SignInScreen } from '../../authentication/signInScreen';
 
 const SET_USER_ACTION = 'userListener';

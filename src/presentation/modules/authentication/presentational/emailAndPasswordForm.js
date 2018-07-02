@@ -10,12 +10,12 @@ import {
   TextInput,
   type TextInputRefType,
 } from '../../theme/presentational/textInput';
-import { FormButton } from '../../theme/presentational/buttons/index';
+import { FormButton } from '../../theme/presentational/buttons';
 import { LoadingOverlay } from '../../theme/presentational/loadingOverlay';
 import { BackButtonFloating } from '../../theme/presentational/buttons/backButtonFloating';
 
 import { styles } from './styles/form.style';
-import { Colors } from '../../theme/constants/index';
+import { Colors } from '../../theme/constants';
 
 type PropsType = {
   footer: ?React.Node,

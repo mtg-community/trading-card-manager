@@ -9,8 +9,8 @@ import {
   incrementCounter,
   decrementCounter,
   selectCounter,
-} from '../../../../redux/ducks/counter';
-import { state, store } from '../../../../redux/__mocks__/stateMock';
+} from '../../../../../domain/redux/ducks/counter';
+import { state, store } from '../../../../../domain/redux/__mocks__/stateMock';
 import { Navigator } from '../../../../navigation';
 jest.mock('../../../../navigation');
 

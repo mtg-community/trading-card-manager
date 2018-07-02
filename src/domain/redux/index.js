@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
 import { counterReducer } from './ducks/counter';
 import { userReducer } from './ducks/user';
-import { rootSaga } from './sagas';
+import { rootSaga } from './sagas/index';
 
 const reducers = {
   counter: counterReducer,

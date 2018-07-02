@@ -6,7 +6,7 @@ import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
 import { Navigator } from '../../navigation';
 import { SCREENS } from '../../navigation/screens';
-import { forgotPasswordAction } from '../../redux/ducks/user';
+import { forgotPasswordAction } from '../../../domain/redux/ducks/user';
 import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';
 import { PasswordForm } from './presentational/passwordForm';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';

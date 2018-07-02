@@ -3,13 +3,12 @@
 import React, { Component } from 'react';
 import type { User } from 'react-native-firebase';
 import I18n from 'react-native-i18n';
-import { connect } from 'react-redux';
 import { Navigator } from '../../navigation';
-import { signUpAction, selectUser } from '../../redux/ducks/user';
-import type { StateType } from '../../redux/types';
+import { signUpAction, selectUser } from '../../../domain/redux/ducks/user';
+import type { StateType } from '../../../domain/redux/types';
+import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
 import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';
-import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 
 type PropsTypes = {
   user: ?User,

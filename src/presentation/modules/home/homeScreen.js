@@ -10,8 +10,8 @@ import {
   incrementCounter,
   decrementCounter,
   selectCounter,
-} from '../../redux/ducks/counter';
-import { logOutAction, selectUser } from '../../redux/ducks/user';
+} from '../../../domain/redux/ducks/counter';
+import { logOutAction, selectUser } from '../../../domain/redux/ducks/user';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { Home } from './presentational/home';
 

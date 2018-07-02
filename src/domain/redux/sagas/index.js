@@ -8,8 +8,8 @@ import {
   signOut,
   forgotPassword,
 } from '../../../data/firebase/authentication';
-import { Navigator } from '../../navigation';
-import { SCREENS } from '../../navigation/screens';
+import { Navigator } from '../../../presentation/navigation/index';
+import { SCREENS } from '../../../presentation/navigation/screens';
 import { setUserAction } from '../ducks/user';
 import type {
   ForgotPasswordAction,
