@@ -8,4 +8,5 @@ const mockClass = {
   dismissModal: jest.fn(),
 };
 
+//$FlowFixMe
 export const Navigator = jest.fn(() => mockClass);

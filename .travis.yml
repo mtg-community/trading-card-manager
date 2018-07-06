@@ -33,7 +33,10 @@ matrix:
     android:
       components:
       - build-tools-27.0.3
+      - build-tools-26.0.2
       - android-27
+      - android-26
+      - android-23
     script:
     - "./android/gradlew assembleRelease -p android/"
     - npm run ci:check

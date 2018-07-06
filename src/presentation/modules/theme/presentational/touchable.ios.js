@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
+//$FlowFixMe
 import * as TouchableWithoutFeedback from 'react-native/Libraries/Components/Touchable/TouchableWithoutFeedback';
 
 type PropsType = {

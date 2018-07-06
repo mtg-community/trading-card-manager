@@ -3,6 +3,7 @@
 import React from 'react';
 import { TouchableNativeFeedback, View } from 'react-native';
 
+//$FlowFixMe
 import * as TouchableWithoutFeedback from 'react-native/Libraries/Components/Touchable/TouchableWithoutFeedback';
 
 type PropsType = {

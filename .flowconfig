@@ -19,6 +19,9 @@
 ; Ignore metro
 .*/node_modules/metro/.*
 
+; TODO: REMOVE THIS
+.*/node_modules/react-native/Libraries/.*
+
 [include]
 
 [libs]
