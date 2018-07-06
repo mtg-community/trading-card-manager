@@ -1,11 +1,24 @@
+ext {
+    buildToolsVersion = '27.0.3'
+    minSdkVersion = 16
+    compileSdkVersion = 26
+    targetSdkVersion = 26
+    supportLibVersion = '26.1.0'
+}
+
 buildscript {
     repositories {
         jcenter()
         google()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'com.google.gms:google-services:3.2.1'
+
     }
 }
 
@@ -13,21 +26,24 @@ allprojects {
     repositories {
         mavenLocal()
         jcenter()
+        google()
         maven {
             url "$rootDir/../node_modules/react-native/android"
         }
-        google()
     }
 }
 
-
 subprojects {
    afterEvaluate {
-     project -> if (project.hasProperty("android")) {
+    project -> if (project.hasProperty("android")) {
        android {
-            compileSdkVersion 27
-            buildToolsVersion '27.0.3'
+          compileSdkVersion 27
+          buildToolsVersion '27.0.3'
        }
-      }
     }
+    maven {
+      url 'https://maven.google.com/'
+      name 'Google'
+    }
+  }
 }
