@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "android:build": "bundle exec fastlane android build",
     "ci:check": "scripts/ci-check.sh",
-    "clean": "scripts/clear-cache.sh",
+    "clean": "scripts/clean.sh",
     "eslint": "eslint src/**",
     "eslint:fix": "eslint --fix src/** && npm run prettier",
     "flow": "flow",
