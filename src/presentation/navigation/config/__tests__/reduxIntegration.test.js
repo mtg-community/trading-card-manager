@@ -30,7 +30,8 @@ describe('React Navigation integration with Redux', () => {
     expect(provider).toHaveProp('store', mockStore);
   });
 
-  it('should be a function that returns an enhanced element', () => {
+  it('should be a function that returns an component enhancer', () => {
     expect(withReduxProvider).toEqual(expect.any(Function));
+    expect(withReduxProvider()).toEqual(expect.any(Function));
   });
 });

@@ -6,6 +6,7 @@ import type { Store as StoreType } from 'redux';
 import { configureStore } from '../../../domain/redux';
 
 let store: StoreType;
+type AnyPropsTypes = {};
 
 const getStore = (): StoreType => {
   if (!store) {
@@ -15,10 +16,10 @@ const getStore = (): StoreType => {
   return store;
 };
 
-export function withReduxProvider<Props: {}>(
-  Component: React.ComponentType<Props>,
-): () => React.ComponentType<Props> {
-  const wrappedComponent = class extends React.Component<*> {
+export function withReduxProvider<AnyPropsTypes>(
+  Component: React.ComponentType<AnyPropsTypes>,
+): () => React.ComponentType<AnyPropsTypes> {
+  const wrappedComponent = class extends React.Component<AnyPropsTypes> {
     render() {
       return (
         <Provider store={getStore()}>
