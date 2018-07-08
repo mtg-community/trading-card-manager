@@ -5,5 +5,6 @@ Module.pop = jest.fn();
 Module.showModal = jest.fn();
 Module.push = jest.fn();
 Module.dismissModal = jest.fn();
+Module.setRoot = jest.fn();
 
 export const Navigation = Module;
