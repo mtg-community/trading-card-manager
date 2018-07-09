@@ -1,50 +1,7 @@
 // @flow strict
 
-import { Navigation } from 'react-native-navigation';
-import { createReactNavigationComponent } from './config/navigationComponent';
-import { createStackLayout } from './config/stackLayout';
+export * from './navigator';
 
-type OpenObjectType = {};
-
-export class Navigator {
-  componentId: string;
-
-  constructor(componentId: string) {
-    this.componentId = componentId;
-  }
-
-  navigateBack = () => {
-    Navigation.pop(this.componentId);
-  };
-
-  navigateTo = (name: string, passProps: ?OpenObjectType) => {
-    Navigation.push(
-      this.componentId,
-      createReactNavigationComponent(name, passProps),
-    );
-  };
-
-  dismissModal = () => {
-    Navigation.dismissModal(this.componentId);
-  };
-
-  static showModal = (
-    name: string,
-    title: string,
-    passProps: ?OpenObjectType,
-  ) => {
-    const options = {
-      topBar: {
-        title: {
-          text: title,
-        },
-      },
-    };
-
-    Navigation.showModal(
-      createStackLayout([
-        createReactNavigationComponent(name, passProps, options),
-      ]),
-    );
-  };
-}
+export const CENTER_COMPONENT_ID = 'MAIN_COMPONENT_ID';
+export const LEFT_DRAWER_ID = 'LEFT_DRAWER_ID';
+export const RIGHT_DRAWER_ID = 'RIGHT_DRAWER_ID';

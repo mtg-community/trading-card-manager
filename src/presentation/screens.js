@@ -8,6 +8,7 @@ import { ErrorScreen } from './modules/error/errorScreen';
 import { HomeScreen } from './modules/home/homeScreen';
 import { authStateListener } from './modules/shared/hoc/authenticationHOC';
 import { LeftSideMenuScreen } from './modules/shared/leftSideMenuScreen';
+import { RightSideMenuScreen } from './modules/shared/rightSideMenuScreen';
 
 export const SCREENS: ScreenType = {
   HOME: {
@@ -33,6 +34,10 @@ export const SCREENS: ScreenType = {
   LEFT_MENU: {
     route: 'navigation.left.menu',
     component: LeftSideMenuScreen,
+  },
+  RIGHT_MENU: {
+    route: 'navigation.right.menu',
+    component: RightSideMenuScreen,
   },
 };
 

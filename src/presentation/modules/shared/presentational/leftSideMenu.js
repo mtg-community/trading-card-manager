@@ -19,7 +19,7 @@ export const LeftSideMenu = (props: PropTypes) => (
       <TouchableOpacity
         key={screen.route}
         style={styles.linkContainer}
-        onPress={() => props.navigator.navigateTo(screen.route)}
+        onPress={() => props.navigator.pushToRoot(screen.route)}
       >
         <Text style={styles.linkText}>{screen.title}</Text>
       </TouchableOpacity>

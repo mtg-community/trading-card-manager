@@ -1,10 +1,7 @@
 // @flow strict
 
 import React from 'react';
-import { Navigator } from '../../navigator';
-import { SCREENS } from '../../screens';
-
-import { connectReduxAndNavigator } from './hoc/screenHOC';
+import { Navigator, CENTER_COMPONENT_ID } from '../../navigator';
 import { LeftSideMenu } from './presentational/leftSideMenu';
 
 type PropTypes = {
@@ -22,9 +19,8 @@ const screens = [
   },
 ];
 
-const LeftSideMenuContainer = (props: PropTypes) => (
-  <LeftSideMenu navigator={props.navigator} screens={screens} />
-);
-export const LeftSideMenuScreen = connectReduxAndNavigator()(
-  LeftSideMenuContainer,
+const navigator = new Navigator(CENTER_COMPONENT_ID);
+
+export const LeftSideMenuScreen = (props: PropTypes) => (
+  <LeftSideMenu navigator={navigator} screens={screens} />
 );
