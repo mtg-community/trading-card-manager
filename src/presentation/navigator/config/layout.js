@@ -6,7 +6,7 @@ import { createReactNavigationComponent } from '../helpers/navigationComponent';
 import { createStackLayout } from '../helpers/stackLayout';
 import { CENTER_COMPONENT_ID, LEFT_DRAWER_ID, RIGHT_DRAWER_ID } from '../index';
 
-export const setNavigationRoot = async () => {
+export const setAppLayout = async () => {
   Navigation.setRoot({
     root: {
       sideMenu: {

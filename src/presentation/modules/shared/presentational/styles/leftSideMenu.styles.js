@@ -1,6 +1,7 @@
 // @flow strict strict
 
 import { StyleSheet } from 'react-native';
+import { Fonts } from '../../../theme/constants';
 import { Metrics } from '../../../theme/constants/metrics';
 
 export const styles = StyleSheet.create({
@@ -10,5 +11,7 @@ export const styles = StyleSheet.create({
     marginTop: Metrics.doubleBaseMargin,
   },
   linkContainer: {},
-  linkText: {},
+  linkText: {
+    ...Fonts.style.h2,
+  },
 });

@@ -5,7 +5,7 @@ import * as React from 'react';
 import * as ReactNavigation from 'react-native-navigation';
 import { SCREENS } from '../../../screens';
 import { initializeNavigator } from '../initializeNavigator';
-import { setNavigationRoot } from '../layout';
+import { setAppLayout } from '../layout';
 import * as ReduxIntegration from '../../helpers/reduxIntegration';
 
 jest.mock('react-native-navigation');
@@ -47,7 +47,7 @@ describe('Navigation initialization', () => {
   });
 
   it('should set navigator root', () => {
-    expect(setNavigationRoot).toHaveBeenCalled();
+    expect(setAppLayout).toHaveBeenCalled();
     expect(mockRegisterAppLaunchedListener).toHaveBeenCalledWith(
       expect.any(Function),
     );

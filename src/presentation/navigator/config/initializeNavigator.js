@@ -3,7 +3,7 @@
 import _ from 'lodash';
 import { Navigation } from 'react-native-navigation';
 import { SCREENS, type ScreenType } from '../../screens';
-import { setNavigationRoot } from './layout';
+import { setAppLayout } from './layout';
 import { withReduxProvider } from '../helpers/reduxIntegration';
 
 export const initializeNavigator = async () => {
@@ -13,7 +13,7 @@ export const initializeNavigator = async () => {
 
 const registerEventListeners = () => {
   Navigation.events().registerAppLaunchedListener(() => {
-    setNavigationRoot();
+    setAppLayout();
   });
 };
 
