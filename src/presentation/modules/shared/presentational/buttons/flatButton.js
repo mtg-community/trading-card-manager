@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
-
 import { Touchable } from '../touchable';
 
 import { styles } from './styles/buttons.style';

@@ -1,5 +1,3 @@
-// @flow strict
-
 const isProduction = process.env.NODE_ENV === 'production';
 const isTestEnvironment = process.env.NODE_ENV === 'test';
 const hasToShowLog = __DEV__ && process.env.NODE_ENV !== 'test';

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { Navigator } from '../../../navigator';
+import { Navigator } from '../../../navigator/index';
 import { Screen } from '../../../navigator/helpers/screen';
 import { styles } from './styles/leftSideMenu.styles';
 

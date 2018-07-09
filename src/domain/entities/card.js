@@ -5,7 +5,7 @@ import { ForeignName } from './foreignName';
 import { Ruling } from './ruling';
 
 export class Card {
-  multiverseid: number;
+  multiverseId: number = 272761;
   artist: string;
   id: string;
   name: string;

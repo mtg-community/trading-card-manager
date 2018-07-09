@@ -10,8 +10,8 @@ import { CardDetailsScreen } from './modules/cardDetails/cardDetailsScreen';
 import { ErrorScreen } from './modules/error/errorScreen';
 import { HomeScreen } from './modules/home/homeScreen';
 import { authStateListener } from './modules/shared/hoc/authenticationHOC';
-import { LeftSideMenuScreen } from './modules/shared/leftSideMenuScreen';
-import { RightSideMenuScreen } from './modules/shared/rightSideMenuScreen';
+import { LeftSideMenuScreen } from './modules/theme/leftSideMenuScreen';
+import { RightSideMenuScreen } from './modules/theme/rightSideMenuScreen';
 import { Screen } from './navigator/helpers/screen';
 
 export const SCREENS: ScreenType = {

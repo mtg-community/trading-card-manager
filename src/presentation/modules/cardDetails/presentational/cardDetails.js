@@ -8,7 +8,7 @@ import { CardImage } from './cardImage';
 import {
   FloatingActionButton,
   type ItemType,
-} from '../../theme/presentational/floatingActionButton';
+} from '../../shared/presentational/floatingActionButton';
 
 import { styles } from './styles/cardDetails.styles';
 
@@ -38,7 +38,7 @@ export class CardDetails extends Component<PropTypes> {
 
     return (
       <ScrollView style={styles.container}>
-        <CardImage style={styles.card} multiverseId={card.multiverseid} />
+        <CardImage style={styles.card} multiverseId={card.multiverseId} />
         {this.renderRow('CARD_NAME', card.name)}
         {this.renderRow('TYPE', card.type)}
         {this.renderRow('POWER_TOUGHNESS', `${card.power}/${card.toughness}`)}

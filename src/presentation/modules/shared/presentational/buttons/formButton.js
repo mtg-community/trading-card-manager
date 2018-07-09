@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { styles } from './styles/buttons.style';
 import { StyleSheet, TouchableHighlight, Text, View } from 'react-native';
-import { Colors, Metrics } from '../../constants';
+import { Colors, Metrics } from '../../../theme/constants/index';
 import { func } from 'prop-types';
 
 const ButtonLabel = ({ title, subtitle }) => {

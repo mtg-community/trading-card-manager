@@ -2,10 +2,8 @@ import React from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import { bool, func } from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import { Metrics, Colors } from '../../../theme/constants';
 import { Touchable } from '../touchable';
-
-import { Metrics, Colors } from '../../constants';
 
 const [backButtonName, backButtonSize, backButtonStyle] =
   Platform.OS === 'ios'

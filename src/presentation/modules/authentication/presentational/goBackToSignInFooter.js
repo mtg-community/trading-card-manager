@@ -5,7 +5,7 @@ import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import I18n from 'react-native-i18n';
 
 import { styles } from './styles/footer.style';
-import { FormOutlineButton } from '../../theme/presentational/buttons/index';
+import { FormOutlineButton } from '../../shared/presentational/buttons/index';
 
 export const GoBackToSignInFooter = (props: PropsType) => (
   <View>

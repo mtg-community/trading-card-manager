@@ -1,9 +1,9 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Metrics, Colors } from '../../../theme/constants';
 import { styles } from './styles/buttons.style';
 import { func } from 'prop-types';
 import { StyleSheet, TouchableHighlight, Text, View } from 'react-native';
-import { Colors, Metrics } from '../../constants';
 
 const ButtonLabel = ({ title, subtitle, style }) => {
   if (subtitle) {

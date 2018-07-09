@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Card } from '../../../domain/entities';
-import { type ItemType } from '../theme/presentational/floatingActionButton';
+import { type ItemType } from '../shared/presentational/floatingActionButton';
 
 import { CardDetails } from './presentational/cardDetails';
 

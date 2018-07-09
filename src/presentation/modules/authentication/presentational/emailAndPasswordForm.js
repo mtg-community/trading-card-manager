@@ -9,10 +9,10 @@ import { FormHeader } from './formHeader';
 import {
   TextInput,
   type TextInputRefType,
-} from '../../theme/presentational/textInput';
-import { FormButton } from '../../theme/presentational/buttons';
-import { LoadingOverlay } from '../../theme/presentational/loadingOverlay';
-import { BackButtonFloating } from '../../theme/presentational/buttons/backButtonFloating';
+} from '../../shared/presentational/textInput';
+import { FormButton } from '../../shared/presentational/buttons';
+import { LoadingOverlay } from '../../shared/presentational/loadingOverlay';
+import { BackButtonFloating } from '../../shared/presentational/buttons/backButtonFloating';
 
 import { styles } from './styles/form.style';
 import { Colors } from '../../theme/constants';

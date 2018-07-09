@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Metrics, Colors, Fonts } from '../../../constants';
+import { Metrics, Colors, Fonts } from '../../../../theme/constants/index';
 
 export const styles = StyleSheet.create({
   primaryButton: {
