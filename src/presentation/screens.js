@@ -1,6 +1,8 @@
 // @flow strict
 
 import * as React from 'react';
+import _ from 'lodash';
+
 import { ForgotPasswordScreen } from './modules/authentication/forgotPasswordScreen';
 import { SignInScreen } from './modules/authentication/signInScreen';
 import { SignUpScreen } from './modules/authentication/signUpScreen';
@@ -9,41 +11,30 @@ import { HomeScreen } from './modules/home/homeScreen';
 import { authStateListener } from './modules/shared/hoc/authenticationHOC';
 import { LeftSideMenuScreen } from './modules/shared/leftSideMenuScreen';
 import { RightSideMenuScreen } from './modules/shared/rightSideMenuScreen';
+import { Screen } from './navigator/config/screen';
 
 export const SCREENS: ScreenType = {
-  HOME: {
-    route: 'navigation.mtgx.WelcomeScreen',
-    component: authStateListener(HomeScreen),
-  },
-  ERROR: {
-    route: 'navigation.mtgx.ErrorScreen',
-    component: ErrorScreen,
-  },
-  SIGN_IN: {
-    route: 'authentication.mtgx.SignInScreen',
-    component: SignInScreen,
-  },
-  SIGN_UP: {
-    route: 'authentication.mtgx.SignUpScreen',
-    component: SignUpScreen,
-  },
-  FORGOT_PASSWORD: {
-    route: 'authentication.mtgx.ForgotPassword',
-    component: ForgotPasswordScreen,
-  },
-  LEFT_MENU: {
-    route: 'navigation.left.menu',
-    component: LeftSideMenuScreen,
-  },
-  RIGHT_MENU: {
-    route: 'navigation.right.menu',
-    component: RightSideMenuScreen,
-  },
+  HOME: new Screen(
+    'navigation.mtgx.WelcomeScreen',
+    authStateListener(HomeScreen),
+    'Home',
+  ),
+  FORGOT_PASSWORD: new Screen(
+    'authentication.mtgx.ForgotPassword',
+    ForgotPasswordScreen,
+  ),
+  ERROR: new Screen('navigation.mtgx.ErrorScreen', ErrorScreen),
+  SIGN_IN: new Screen('authentication.mtgx.SignInScreen', SignInScreen),
+  SIGN_UP: new Screen('authentication.mtgx.SignUpScreen', SignUpScreen),
+  LEFT_MENU: new Screen('navigation.left.menu', LeftSideMenuScreen),
+  RIGHT_MENU: new Screen('navigation.right.menu', RightSideMenuScreen),
 };
 
+export const NAVIGATION_DRAWER_LINKS = _.filter(
+  SCREENS,
+  screen => screen.title,
+);
+
 export type ScreenType = {
-  [string]: {|
-    route: string,
-    component: React.ComponentType<*>,
-  |},
+  [string]: Screen,
 };

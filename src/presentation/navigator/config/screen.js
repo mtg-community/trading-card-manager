@@ -1,19 +1,19 @@
+// @flow strict
+
 import * as React from 'react';
 
 export class Screen {
-  _route: string;
-  _component: React.ComponentType<*>;
+  route: string;
+  component: React.ComponentType<*>;
+  title: ?string;
 
-  constructor(route: string, component: React.ComponentType<*>) {
-    this._component = component;
-    this._route = route;
-  }
-
-  get route() {
-    return this._route;
-  }
-
-  get component() {
-    return this._component;
+  constructor(
+    route: string,
+    component: React.ComponentType<*>,
+    title: ?string,
+  ) {
+    this.component = component;
+    this.route = route;
+    this.title = title;
   }
 }
