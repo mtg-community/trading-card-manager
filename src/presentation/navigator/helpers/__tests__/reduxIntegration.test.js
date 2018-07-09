@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import { withReduxProvider } from '../reduxIntegration';
-import { configureStore } from '../../../../domain/redux';
+import { configureStore } from '../../../../domain/redux/index';
 
 const mockStore = {
   subscribe: jest.fn(),

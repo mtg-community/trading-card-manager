@@ -11,7 +11,7 @@ import { HomeScreen } from './modules/home/homeScreen';
 import { authStateListener } from './modules/shared/hoc/authenticationHOC';
 import { LeftSideMenuScreen } from './modules/shared/leftSideMenuScreen';
 import { RightSideMenuScreen } from './modules/shared/rightSideMenuScreen';
-import { Screen } from './navigator/config/screen';
+import { Screen } from './navigator/helpers/screen';
 
 export const SCREENS: ScreenType = {
   HOME: new Screen(
@@ -34,6 +34,8 @@ export const NAVIGATION_DRAWER_LINKS = _.filter(
   SCREENS,
   screen => screen.title,
 );
+
+export const INITIAL_SCREEN = SCREENS.HOME.route;
 
 export type ScreenType = {
   [string]: Screen,

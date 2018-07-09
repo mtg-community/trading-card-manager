@@ -4,13 +4,13 @@ import _ from 'lodash';
 import * as React from 'react';
 import * as ReactNavigation from 'react-native-navigation';
 import { SCREENS } from '../../../screens';
-import { initializeNavigator } from '../index';
-import { setNavigationRoot } from '../../layout';
-import * as ReduxIntegration from '../reduxIntegration';
+import { initializeNavigator } from '../initializeNavigator';
+import { setNavigationRoot } from '../layout';
+import * as ReduxIntegration from '../../helpers/reduxIntegration';
 
 jest.mock('react-native-navigation');
-jest.mock('../reduxIntegration');
-jest.mock('../../layout');
+jest.mock('../helpers/reduxIntegration');
+jest.mock('../layout');
 
 const mockRegisterAppLaunchedListener = jest.fn();
 

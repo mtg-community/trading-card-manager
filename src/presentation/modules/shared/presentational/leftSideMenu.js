@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Navigator } from '../../../navigator';
-import { Screen } from '../../../navigator/config/screen';
+import { Screen } from '../../../navigator/helpers/screen';
 import { styles } from './styles/leftSideMenu.styles';
 
 type PropTypes = {

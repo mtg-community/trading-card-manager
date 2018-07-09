@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import type { Store as StoreType } from 'redux';
-import { configureStore } from '../../../domain/redux';
+import { configureStore } from '../../../domain/redux/index';
 
 let store: StoreType;
 type AnyPropsTypes = {};

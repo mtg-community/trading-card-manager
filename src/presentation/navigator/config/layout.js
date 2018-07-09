@@ -1,12 +1,10 @@
 // @flow strict
 
 import { Navigation } from 'react-native-navigation';
-import { SCREENS } from '../screens';
-import { createReactNavigationComponent } from './config/navigationComponent';
-import { createStackLayout } from './config/stackLayout';
-import { CENTER_COMPONENT_ID, LEFT_DRAWER_ID, RIGHT_DRAWER_ID } from './index';
-
-const INITIAL_SCREEN = SCREENS.HOME.route;
+import { SCREENS, INITIAL_SCREEN } from '../../screens';
+import { createReactNavigationComponent } from '../helpers/navigationComponent';
+import { createStackLayout } from '../helpers/stackLayout';
+import { CENTER_COMPONENT_ID, LEFT_DRAWER_ID, RIGHT_DRAWER_ID } from '../index';
 
 export const setNavigationRoot = async () => {
   Navigation.setRoot({

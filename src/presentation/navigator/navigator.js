@@ -1,8 +1,7 @@
 // @flow strict
 
 import { Navigation } from 'react-native-navigation';
-import { createReactNavigationComponent } from './config/navigationComponent';
-import { createStackLayout } from './config/stackLayout';
+import { createReactNavigationComponent, createStackLayout } from './helpers';
 
 type OpenObjectType = {};
 
