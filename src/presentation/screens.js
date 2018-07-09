@@ -1,7 +1,7 @@
 // @flow strict
 
-import * as React from 'react';
 import _ from 'lodash';
+import * as React from 'react';
 
 import { ForgotPasswordScreen } from './modules/authentication/forgotPasswordScreen';
 import { SignInScreen } from './modules/authentication/signInScreen';

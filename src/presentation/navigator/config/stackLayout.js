@@ -1,19 +1,14 @@
 // @flow strict
 
-import {
-  createReactNavigationComponent,
-  type NavigationComponentType,
-} from './navigationComponent';
+import { type NavigationComponentType } from './navigationComponent';
 
 const defaultOptions = {
-  topBar: {
-    hidden: true,
-  },
+  topBar: { visible: false, drawBehind: true },
 };
 
 export const createStackLayout = (
   children: Array<NavigationComponentType>,
-  options: ?{},
+  options: ?{} = defaultOptions,
 ) => ({
   stack: {
     options,
