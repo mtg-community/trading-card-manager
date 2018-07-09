@@ -61,6 +61,7 @@
     "jest-enzyme": "6.0.2",
     "lint-staged": " 7.2.0",
     "prettier": "1.13.7",
+    "prettierrc": "0.0.0-5",
     "react-dom": "16.4.1",
     "react-test-renderer": "16.4.1",
     "redux-mock-store": "1.5.3"
@@ -79,7 +80,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "npm run eslint:fix --",
+      "prettier --write ",
       "git add"
     ]
   }
