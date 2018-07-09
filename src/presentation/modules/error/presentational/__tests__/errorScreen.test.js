@@ -6,8 +6,8 @@ import I18n from 'react-native-i18n';
 
 import { ErrorComponent } from '../errorComponent';
 import { ErrorScreen } from '../../errorScreen';
-import { Navigator } from '../../../../navigation';
-jest.mock('../../../../navigation');
+import { Navigator } from '../../../../navigator';
+jest.mock('../../../../navigator');
 
 describe('<ErrorScreen />', () => {
   const error = new Error('*** TEST ERROR, IGNORE IT ***');

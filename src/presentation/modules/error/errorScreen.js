@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import I18n from 'react-native-i18n';
-import { Navigator } from '../../navigation/index';
+import { Navigator } from '../../navigator/index';
 import { ErrorComponent } from './presentational/errorComponent';
 import { Logger } from '../../../data/logger';
 

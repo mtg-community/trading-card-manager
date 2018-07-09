@@ -6,8 +6,8 @@ import {
   signOut,
   forgotPassword,
 } from '../../../data/firebase/authentication';
-import { Navigator } from '../../../presentation/navigation';
-import { SCREENS } from '../../../presentation/navigation/screens';
+import { Navigator } from '../../../presentation/navigator';
+import { SCREENS } from '../../../presentation/screens';
 import { setUserAction } from '../ducks/user';
 import type {
   AuthUserAction,

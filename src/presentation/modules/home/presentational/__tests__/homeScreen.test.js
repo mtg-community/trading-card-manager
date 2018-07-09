@@ -11,8 +11,8 @@ import {
   selectCounter,
 } from '../../../../../domain/redux/ducks/counter';
 import { state, store } from '../../../../../domain/redux/__mocks__/stateMock';
-import { Navigator } from '../../../../navigation';
-jest.mock('../../../../navigation');
+import { Navigator } from '../../../../navigator';
+jest.mock('../../../../navigator');
 
 describe('<HomeScreen />', () => {
   describe('react-redux connection', () => {

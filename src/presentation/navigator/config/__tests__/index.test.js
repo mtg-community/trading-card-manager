@@ -3,14 +3,14 @@
 import _ from 'lodash';
 import * as React from 'react';
 import * as ReactNavigation from 'react-native-navigation';
-import { SCREENS } from '../../screens';
-import { initializeNavigation } from '../index';
-import { setNavigationRoot } from '../listeners';
+import { SCREENS } from '../../../screens';
+import { initializeNavigator } from '../index';
+import { setNavigationRoot } from '../layout';
 import * as ReduxIntegration from '../reduxIntegration';
 
 jest.mock('react-native-navigation');
 jest.mock('../reduxIntegration');
-jest.mock('../listeners');
+jest.mock('../layout');
 
 const mockRegisterAppLaunchedListener = jest.fn();
 
@@ -29,7 +29,7 @@ describe('Navigation initialization', () => {
   });
 
   it('should register all screens', () => {
-    initializeNavigation();
+    initializeNavigator();
 
     expect(ReactNavigation.Navigation.registerComponent).toHaveBeenCalledTimes(
       _.size(SCREENS),
@@ -46,7 +46,7 @@ describe('Navigation initialization', () => {
     });
   });
 
-  it('should set navigation root', () => {
+  it('should set navigator root', () => {
     expect(setNavigationRoot).toHaveBeenCalled();
     expect(mockRegisterAppLaunchedListener).toHaveBeenCalledWith(
       expect.any(Function),

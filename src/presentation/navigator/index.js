@@ -1,6 +1,8 @@
 // @flow strict
 
 import { Navigation } from 'react-native-navigation';
+import { createReactNavigationComponent } from './config/navigationComponent';
+import { createStackLayout } from './config/stackLayout';
 
 type OpenObjectType = {};
 
@@ -16,7 +18,10 @@ export class Navigator {
   };
 
   navigateTo = (name: string, passProps: ?OpenObjectType) => {
-    Navigation.push(this.componentId, createComponent(name, passProps));
+    Navigation.push(
+      this.componentId,
+      createReactNavigationComponent(name, passProps),
+    );
   };
 
   dismissModal = () => {
@@ -36,24 +41,10 @@ export class Navigator {
       },
     };
 
-    Navigation.showModal({
-      stack: {
-        children: [createComponent(name, passProps, options)],
-      },
-    });
+    Navigation.showModal(
+      createStackLayout([
+        createReactNavigationComponent(name, passProps, options),
+      ]),
+    );
   };
 }
-
-const createComponent = (
-  name: string,
-  passProps: ?OpenObjectType = {},
-  options: ?OpenObjectType = {},
-) => {
-  return {
-    component: {
-      name,
-      passProps,
-      options,
-    },
-  };
-};

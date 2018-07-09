@@ -1,12 +1,12 @@
 // @flow strict
 
 import * as React from 'react';
-import { ForgotPasswordScreen } from '../modules/authentication/forgotPasswordScreen';
-import { SignInScreen } from '../modules/authentication/signInScreen';
-import { SignUpScreen } from '../modules/authentication/signUpScreen';
-import { ErrorScreen } from '../modules/error/errorScreen';
-import { HomeScreen } from '../modules/home/homeScreen';
-import { authStateListener } from '../modules/shared/hoc/authenticationHOC';
+import { ForgotPasswordScreen } from './modules/authentication/forgotPasswordScreen';
+import { SignInScreen } from './modules/authentication/signInScreen';
+import { SignUpScreen } from './modules/authentication/signUpScreen';
+import { ErrorScreen } from './modules/error/errorScreen';
+import { HomeScreen } from './modules/home/homeScreen';
+import { authStateListener } from './modules/shared/hoc/authenticationHOC';
 
 export const SCREENS: ScreenType = {
   HOME: {

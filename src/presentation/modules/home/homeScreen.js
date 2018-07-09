@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import type { User } from 'react-native-firebase';
-import { Navigator } from '../../navigation';
-import { SCREENS } from '../../navigation/screens';
+import { Navigator } from '../../navigator';
+import { SCREENS } from '../../screens';
 
 import {
   incrementCounter,
