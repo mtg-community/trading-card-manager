@@ -6,6 +6,7 @@ import * as React from 'react';
 import { ForgotPasswordScreen } from './modules/authentication/forgotPasswordScreen';
 import { SignInScreen } from './modules/authentication/signInScreen';
 import { SignUpScreen } from './modules/authentication/signUpScreen';
+import { CardDetailsScreen } from './modules/cardDetails/cardDetailsScreen';
 import { ErrorScreen } from './modules/error/errorScreen';
 import { HomeScreen } from './modules/home/homeScreen';
 import { authStateListener } from './modules/shared/hoc/authenticationHOC';
@@ -28,6 +29,7 @@ export const SCREENS: ScreenType = {
   SIGN_UP: new Screen('authentication.mtgx.SignUpScreen', SignUpScreen),
   LEFT_MENU: new Screen('navigation.left.menu', LeftSideMenuScreen),
   RIGHT_MENU: new Screen('navigation.right.menu', RightSideMenuScreen),
+  CARD_DETAILS: new Screen('card.details', CardDetailsScreen, 'detalhes'),
 };
 
 export const NAVIGATION_DRAWER_LINKS = _.filter(
