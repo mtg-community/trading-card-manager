@@ -5,26 +5,38 @@ import { SCREENS } from '../screens';
 
 const initialScreen = SCREENS.HOME.route;
 
-export const setNavigationRoot = async () => {
-  const options = {
-    topBar: {
-      hidden: true,
-    },
-  };
+const createReactNavigationComponent = (
+  name: string,
+  options: ?{},
+  passProps: ?{},
+  id: ?string,
+) => ({
+  component: {
+    name,
+    options,
+    passProps,
+    id,
+  },
+});
 
-  const children = [
-    {
-      component: {
-        name: initialScreen,
+const createStackLayout = (initialScreen: string) => ({
+  stack: {
+    options: {
+      topBar: {
+        hidden: true,
       },
     },
-  ];
+    children: [createReactNavigationComponent(initialScreen)],
+  },
+});
 
+export const setNavigationRoot = async () => {
   Navigation.setRoot({
     root: {
-      stack: {
-        options,
-        children,
+      sideMenu: {
+        left: createReactNavigationComponent(SCREENS.HOME.route),
+        right: createReactNavigationComponent(SCREENS.HOME.route),
+        center: createStackLayout(initialScreen),
       },
     },
   });
