@@ -3,7 +3,7 @@
 import _ from 'lodash';
 import { Navigation } from 'react-native-navigation';
 import { SCREENS, type ScreenType } from '../../screens';
-import { setNavigationRoot } from './layout';
+import { setNavigationRoot } from '../layout';
 import { withReduxProvider } from './reduxIntegration';
 
 export const initializeNavigator = async () => {

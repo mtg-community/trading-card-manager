@@ -5,12 +5,12 @@ import * as React from 'react';
 import * as ReactNavigation from 'react-native-navigation';
 import { SCREENS } from '../../../screens';
 import { initializeNavigator } from '../index';
-import { setNavigationRoot } from '../layout';
+import { setNavigationRoot } from '../../layout';
 import * as ReduxIntegration from '../reduxIntegration';
 
 jest.mock('react-native-navigation');
 jest.mock('../reduxIntegration');
-jest.mock('../layout');
+jest.mock('../../layout');
 
 const mockRegisterAppLaunchedListener = jest.fn();
 

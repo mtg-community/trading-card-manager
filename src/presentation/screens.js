@@ -7,6 +7,7 @@ import { SignUpScreen } from './modules/authentication/signUpScreen';
 import { ErrorScreen } from './modules/error/errorScreen';
 import { HomeScreen } from './modules/home/homeScreen';
 import { authStateListener } from './modules/shared/hoc/authenticationHOC';
+import { LeftSideMenuScreen } from './modules/shared/leftSideMenuScreen';
 
 export const SCREENS: ScreenType = {
   HOME: {
@@ -28,6 +29,10 @@ export const SCREENS: ScreenType = {
   FORGOT_PASSWORD: {
     route: 'authentication.mtgx.ForgotPassword',
     component: ForgotPasswordScreen,
+  },
+  LEFT_MENU: {
+    route: 'navigation.left.menu',
+    component: LeftSideMenuScreen,
   },
 };
 

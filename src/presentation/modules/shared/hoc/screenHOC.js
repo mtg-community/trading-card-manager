@@ -7,7 +7,7 @@ import { Navigator } from '../../../navigator';
 
 export const connectReduxAndNavigator = (
   mapStateToProps: ?{},
-  mapDispatchToProps: {},
+  mapDispatchToProps: ?{},
 ) => {
   const withNavigator = mapProps(mapComponentIdToNavigator);
   const reduxConnected = connect(
