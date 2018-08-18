@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import { User } from 'react-native-firebase';
 
