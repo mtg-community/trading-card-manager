@@ -6,9 +6,11 @@ import {
   signInWithEmailAndPassword,
   INVALID_EMAIL_ERROR,
   signUpWithEmailAndPassword,
+  forgotPassword,
+  onAuthStateChanged,
 } from '../authentication';
 import isEmail from 'validator/lib/isEmail';
-import Firebase from 'react-native-firebase';
+import Firebase, { type User } from 'react-native-firebase';
 
 jest.mock('validator/lib/isEmail');
 
@@ -50,5 +52,22 @@ describe('Firebase Authentication Module', () => {
     await expect(
       signInWithEmailAndPassword('INVALID_EMAIL', password),
     ).rejects.toThrow(INVALID_EMAIL_ERROR);
+  });
+
+  it('calls firebase send password reset email', async () => {
+    const email = 'example@email.com';
+
+    await forgotPassword(email);
+
+    expect(Firebase.auth().sendPasswordResetEmail).toHaveBeenCalledWith(email);
+  });
+
+  it('attach a callback on user state and return an unsubscriber function', () => {
+    const callback = (user: ?User) => {};
+    const unsubscriber = onAuthStateChanged(callback);
+    unsubscriber();
+
+    expect(Firebase.auth().onAuthStateChanged).toHaveBeenCalledWith(callback);
+    expect(unsubscriber).toHaveBeenCalled();
   });
 });

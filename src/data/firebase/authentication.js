@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import Firebase, { type User } from 'react-native-firebase';
 import isEmail from 'validator/lib/isEmail';

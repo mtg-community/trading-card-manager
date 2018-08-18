@@ -2,6 +2,8 @@ import type { UserCredential } from 'react-native-firebase';
 
 let Firebase = jest.mock('react-native-firebase');
 
+export const mockUnsubscriberFunction = jest.fn();
+
 export const mockUserCredentials: UserCredential = {
   additionalUserInfo: {
     isNewUser: false,
@@ -20,6 +22,8 @@ const mockAuthModule = {
   createUserAndRetrieveDataWithEmailAndPassword: jest.fn(() =>
     Promise.resolve(mockUserCredentials),
   ),
+  sendPasswordResetEmail: jest.fn(),
+  onAuthStateChanged: jest.fn(() => mockUnsubscriberFunction),
 };
 
 Firebase.auth = () => mockAuthModule;
