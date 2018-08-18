@@ -5,4 +5,5 @@ declare var it: Function;
 declare var xit: Function;
 declare var beforeAll: Function;
 declare var beforeEach: Function;
+declare var afterEach: Function;
 declare var afterAll: Function;

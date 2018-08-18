@@ -1,21 +1,21 @@
-const isProduction = process.env.NODE_ENV === 'production';
-const isTestEnvironment = process.env.NODE_ENV === 'test';
+// @flow
+
 const hasToShowLog = __DEV__ && process.env.NODE_ENV !== 'test';
-const mockLogger = {
-  warn: () => {},
-  log: () => {},
+const mockConsole = {
+  warn: (message: Object | string, ...rest: Array<*>) => {},
+  log: (message: Object | string, ...rest: Array<*>) => {},
 };
 
-export const warn = (message: string, ...rest: Array<*>) => {
-  if (hasToShowLog) {
-    console.warn(message, ...rest);
-  }
-};
+type LogSubject = Object | string;
 
-export const log = (message: string, ...rest: Array<*>) => {
-  if (hasToShowLog) {
-    console.log(message, ...rest);
-  }
-};
+export class Logger {
+  static stdout = hasToShowLog ? console : mockConsole;
 
-export const Logger = isProduction || isTestEnvironment ? mockLogger : console;
+  static warn = (message: LogSubject, ...rest: Array<?LogSubject>) => {
+    Logger.stdout.warn(message, ...rest);
+  };
+
+  static log = (message: LogSubject, ...rest: Array<?LogSubject>) => {
+    Logger.stdout.log(message, ...rest);
+  };
+}
