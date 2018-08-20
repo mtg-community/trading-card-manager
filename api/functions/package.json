@@ -1,0 +1,21 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "firebase serve --only functions",
+    "login": "firebase login --reauth",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "cookie-parser": "1.4.3",
+    "cors": "2.8.4",
+    "express": "4.16.3",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.3",
+    "firebase-tools": "^4.1.2"
+  }
+}
