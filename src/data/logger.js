@@ -2,8 +2,8 @@
 
 const hasToShowLog = __DEV__ && process.env.NODE_ENV !== 'test';
 const mockConsole = {
-  warn: (message: Object | string, ...rest: Array<*>) => {},
-  log: (message: Object | string, ...rest: Array<*>) => {},
+  warn: (message: LogSubject, ...rest: Array<?LogSubject>) => {},
+  log: (message: LogSubject, ...rest: Array<?LogSubject>) => {},
 };
 
 type LogSubject = Object | string;
