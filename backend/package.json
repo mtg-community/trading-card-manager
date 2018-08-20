@@ -1,0 +1,11 @@
+{
+  "name": "firebase",
+  "description": "Firebase Hosting and Functions",
+  "scripts": {
+    "login": "firebase login --reauth",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "firebase-tools": "4.1.2"
+  }
+}
