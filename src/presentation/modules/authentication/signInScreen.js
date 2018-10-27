@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import type { User } from 'react-native-firebase';
 import I18n from 'react-native-i18n';
-import type { StateType } from '../../../../core/adapters/redux/types';
+import type { StateType } from '../../../../domain/adapters/redux/types';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
 import { selectUser, loginAction } from '../../../domain/redux/ducks/user';

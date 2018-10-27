@@ -5,12 +5,12 @@ import { shallow } from 'enzyme';
 import {
   store,
   state,
-} from '../../../../../../core/adapters/redux/__mocks__/stateMock';
+} from '../../../../../../domain/adapters/redux/__mocks__/stateMock';
 import {
   counterSelector,
   decrementCounterAction,
   incrementCounterAction,
-} from '../../../../../../core/adapters/redux/counterReducer';
+} from '../../../../../../domain/adapters/redux/counterReducer';
 
 import { HomeScreen, HomeContainer } from '../../homeScreen';
 import { Home } from '../home';

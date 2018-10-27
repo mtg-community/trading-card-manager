@@ -7,7 +7,7 @@ import {
   counterSelector,
   decrementCounterAction,
   incrementCounterAction,
-} from '../../../../core/adapters/redux/counterReducer';
+} from '../../../../domain/adapters/redux/counterReducer';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
 
