@@ -2,19 +2,19 @@
 
 import React, { Component } from 'react';
 import { Platform } from 'react-native';
-import type { User } from 'react-native-firebase';
 import {
   counterSelector,
   decrementCounterAction,
   incrementCounterAction,
 } from '../../../../domain/adapters/redux/counterReducer';
+import { User } from '../../../../domain/entities/user';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
 
 import {
   logOutAction,
   selectUser,
-} from '../../../../domain/adapters/redux/user';
+} from '../../../../domain/adapters/redux/userReducer';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { Home } from './presentational/home';
 

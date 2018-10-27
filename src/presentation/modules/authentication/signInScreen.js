@@ -1,15 +1,15 @@
 // @flow strict
 
 import React, { Component } from 'react';
-import type { User } from 'react-native-firebase';
 import I18n from 'react-native-i18n';
 import type { StateType } from '../../../../domain/adapters/redux/types';
+import { User } from '../../../../domain/entities/user';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
 import {
   selectUser,
   loginAction,
-} from '../../../../domain/adapters/redux/user';
+} from '../../../../domain/adapters/redux/userReducer';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
 import { SignInFooter } from './presentational/signInFooter';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';

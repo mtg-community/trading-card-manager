@@ -1,28 +1,26 @@
 import I18n from 'react-native-i18n';
 import { call, put } from 'redux-saga/effects';
-import {
-  signInWithEmailAndPassword,
-  signUpWithEmailAndPassword,
-  signOut,
-  forgotPassword,
-} from '../../../../src/data/firebase/authentication';
-import { Navigator } from '../../../../src/presentation/navigator/index';
+import { Navigator } from '../../../../src/presentation/navigator';
 import { SCREENS } from '../../../../src/presentation/screens';
-import { setUserAction } from '../user';
-import type {
-  AuthUserAction,
-  ForgotPasswordAction,
-  ActionType,
-} from '../types';
+import { User } from '../../../entities/user';
+import { setUserAction } from '../userReducer';
+import type { AuthUserAction, ForgotPasswordAction } from '../types';
+
+export type AuthenticationInteractor = {|
+  signInWithEmailAndPassword: (string, string) => Promise<User>,
+  signUpWithEmailAndPassword: (string, string) => Promise<User>,
+  forgotPassword: string => Promise<void>,
+  signOut: () => Promise<void>,
+|};
 
 export function* signInSaga(action: AuthUserAction) {
   try {
     const user = yield call(
-      signInWithEmailAndPassword,
+      ReduxAdapter.authentication.signInWithEmailAndPassword,
       action.email,
       action.password,
     );
-    yield put(setUserAction(user));
+    yield put(setUserAction(user.firebaseUser));
   } catch (error) {
     const title = I18n.t('SIGN_IN/ERROR_TITLE');
     Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
@@ -32,11 +30,11 @@ export function* signInSaga(action: AuthUserAction) {
 export function* signUpSaga(action: AuthUserAction) {
   try {
     const user = yield call(
-      signUpWithEmailAndPassword,
+      ReduxAdapter.authentication.signUpWithEmailAndPassword,
       action.email,
       action.password,
     );
-    yield put(setUserAction(user));
+    yield put(setUserAction(user.firebaseUser));
   } catch (error) {
     const title = I18n.t('SIGN_UP/ERROR_TITLE');
     Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
@@ -45,7 +43,7 @@ export function* signUpSaga(action: AuthUserAction) {
 
 export function* forgotPasswordSaga(action: ForgotPasswordAction) {
   try {
-    yield call(forgotPassword, action.email);
+    yield call(ReduxAdapter.authentication.forgotPassword, action.email);
     alert(I18n.t('PASSWORD_RECOVERY/ALERT/MESSAGE'));
   } catch (error) {
     const title = I18n.t('SIGN_UP/ERROR_TITLE');
@@ -53,9 +51,9 @@ export function* forgotPasswordSaga(action: ForgotPasswordAction) {
   }
 }
 
-export function* logoutSaga(action: ActionType) {
+export function* logoutSaga() {
   try {
-    yield call(signOut);
+    yield call(ReduxAdapter.authentication.signOut);
     yield put(setUserAction(null));
   } catch (error) {
     const title = I18n.t('LOG_OUT/ERROR_TITLE');

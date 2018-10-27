@@ -1,7 +1,8 @@
 // @flow strict
 
-import Firebase, { type User } from 'react-native-firebase';
+import Firebase from 'react-native-firebase';
 import isEmail from 'validator/lib/isEmail';
+import { User } from '../../../domain/entities/user';
 
 export const INVALID_EMAIL_ERROR = 'Invalid Email';
 
@@ -23,7 +24,10 @@ export const signInWithEmailAndPassword = async (
     email,
     password,
   );
-  return userCredentialPromise.user;
+
+  // FIXME: Need to fix
+  // return userCredentialPromise.user;
+  return new User(userCredentialPromise.user);
 };
 
 export const signUpWithEmailAndPassword = async (
@@ -37,7 +41,11 @@ export const signUpWithEmailAndPassword = async (
     password,
   );
 
-  return userCredentialPromise.user;
+  // return userCredentialPromise.user;
+
+  // FIXME: Need to fix
+  // return userCredentialPromise.user;
+  return new User(userCredentialPromise.user);
 };
 
 export const onAuthStateChanged = (

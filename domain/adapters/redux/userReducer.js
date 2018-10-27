@@ -1,6 +1,6 @@
 // @flow strict
 
-import { type User } from 'react-native-firebase';
+import type { User } from '../../entities/user';
 import type { StateType, UserStateSlice } from './types';
 import type {
   ActionType,

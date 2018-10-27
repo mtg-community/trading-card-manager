@@ -16,7 +16,6 @@
     "ios": "react-native run-ios",
     "ios:build": "bundle exec fastlane ios build",
     "postinstall": "scripts/post-install.sh",
-    "preandroid": "scripts/android-emulator.sh start",
     "precommit": "lint-staged",
     "preinstall": "chmod -R +x scripts && scripts/pre-install.sh",
     "prettier": "prettier --write 'src/**/*.js'",
