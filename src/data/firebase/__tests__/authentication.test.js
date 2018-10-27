@@ -5,7 +5,6 @@ import { User } from '../../../../domain/entities/user';
 import { mockUserCredentials } from '../__mocks__/react-native-firebase';
 import {
   signInWithEmailAndPassword,
-  INVALID_EMAIL_ERROR,
   signUpWithEmailAndPassword,
   forgotPassword,
   onAuthStateChanged,
@@ -49,11 +48,11 @@ xdescribe('Firebase Authentication Module', () => {
 
     await expect(
       signUpWithEmailAndPassword('INVALID_EMAIL', password),
-    ).rejects.toThrow(INVALID_EMAIL_ERROR);
+    ).rejects.toThrow('INVALID_EMAIL_ERROR');
 
     await expect(
       signInWithEmailAndPassword('INVALID_EMAIL', password),
-    ).rejects.toThrow(INVALID_EMAIL_ERROR);
+    ).rejects.toThrow('INVALID_EMAIL_ERROR');
   });
 
   it('calls firebase send password reset email', async () => {

@@ -2,6 +2,7 @@
 
 import { Navigation } from 'react-native-navigation';
 import { createReactNavigationComponent, createStackLayout } from './helpers';
+import { Screen } from './helpers/screen';
 
 type OpenObjectType = {};
 
@@ -33,7 +34,7 @@ export class Navigator {
   };
 
   static showModal = (
-    name: string,
+    screen: Screen,
     title: string,
     passProps: ?OpenObjectType,
   ) => {
@@ -47,7 +48,7 @@ export class Navigator {
 
     Navigation.showModal(
       createStackLayout([
-        createReactNavigationComponent(name, passProps, options),
+        createReactNavigationComponent(screen.route, passProps, options),
       ]),
     );
   };

@@ -15,7 +15,7 @@ export function* signInSaga(action: AuthUserAction) {
     yield put(setUserAction(user.firebaseUser));
   } catch (error) {
     const title = I18n.t('SIGN_IN/ERROR_TITLE');
-    Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
+    Navigator.showModal(SCREENS.ERROR, title, { error, title });
   }
 }
 
@@ -29,7 +29,7 @@ export function* signUpSaga(action: AuthUserAction) {
     yield put(setUserAction(user.firebaseUser));
   } catch (error) {
     const title = I18n.t('SIGN_UP/ERROR_TITLE');
-    Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
+    Navigator.showModal(SCREENS.ERROR, title, { error, title });
   }
 }
 
@@ -39,7 +39,7 @@ export function* forgotPasswordSaga(action: ForgotPasswordAction) {
     alert(I18n.t('PASSWORD_RECOVERY/ALERT/MESSAGE'));
   } catch (error) {
     const title = I18n.t('SIGN_UP/ERROR_TITLE');
-    Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
+    Navigator.showModal(SCREENS.ERROR, title, { error, title });
   }
 }
 
@@ -49,6 +49,6 @@ export function* logoutSaga() {
     yield put(setUserAction(null));
   } catch (error) {
     const title = I18n.t('LOG_OUT/ERROR_TITLE');
-    Navigator.showModal(SCREENS.ERROR.route, title, { error, title });
+    Navigator.showModal(SCREENS.ERROR, title, { error, title });
   }
 }
