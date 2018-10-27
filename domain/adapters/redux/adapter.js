@@ -1,4 +1,4 @@
-import type { AuthenticationInteractor } from './sagas/authentication';
+import { AuthenticationInteractor } from '../../useCases/authenticatorInteractor';
 
 export class ReduxAdapter {
   static authentication: AuthenticationInteractor;

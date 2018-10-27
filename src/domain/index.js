@@ -3,6 +3,7 @@
 import { ReduxAdapter } from '../../domain/adapters/redux/adapter';
 import {
   forgotPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
   signUpWithEmailAndPassword,
@@ -12,7 +13,8 @@ export const DomainLayer = async () => {
   ReduxAdapter.authentication = {
     signInWithEmailAndPassword,
     signUpWithEmailAndPassword,
-    forgotPassword,
     signOut,
+    forgotPassword,
+    onAuthStateChanged,
   };
 };

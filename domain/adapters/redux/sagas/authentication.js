@@ -2,21 +2,13 @@ import I18n from 'react-native-i18n';
 import { call, put } from 'redux-saga/effects';
 import { Navigator } from '../../../../src/presentation/navigator';
 import { SCREENS } from '../../../../src/presentation/screens';
-import { User } from '../../../entities/user';
 import { setUserAction } from '../';
 import type { AuthUserAction, ForgotPasswordAction } from '../types';
-
-export type AuthenticationInteractor = {|
-  signInWithEmailAndPassword: (string, string) => Promise<User>,
-  signUpWithEmailAndPassword: (string, string) => Promise<User>,
-  forgotPassword: string => Promise<void>,
-  signOut: () => Promise<void>,
-|};
 
 export function* signInSaga(action: AuthUserAction) {
   try {
     const user = yield call(
-      ReduxAdapter.authentication.signInWithEmailAndPassword,
+      ReduxAdapter.authentication.signIn,
       action.email,
       action.password,
     );
@@ -30,7 +22,7 @@ export function* signInSaga(action: AuthUserAction) {
 export function* signUpSaga(action: AuthUserAction) {
   try {
     const user = yield call(
-      ReduxAdapter.authentication.signUpWithEmailAndPassword,
+      ReduxAdapter.authentication.signUp,
       action.email,
       action.password,
     );
