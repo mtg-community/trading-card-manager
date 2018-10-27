@@ -44,7 +44,7 @@ export class AuthenticationInteractor {
   async forgotPassword(email: string): Promise<void> {
     this.validateEmail(email);
 
-    this.service.forgotPassword(email);
+    return this.service.forgotPassword(email);
   }
 
   onAuthStateChanged(callback: (?User) => void): UnsubscribeFunction {

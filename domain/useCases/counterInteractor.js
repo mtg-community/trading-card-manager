@@ -5,35 +5,29 @@ import { Counter } from '../entities/counter';
 export class CounterInteractor {
   higherBound: number = 10;
   lowerBound: number = 0;
-  counter: Counter;
 
-  constructor(
-    startNumber: number,
-    lowerBound: number = 0,
-    higherBound: number = 10,
-  ) {
-    this.counter = new Counter(startNumber);
+  constructor(lowerBound: number = 0, higherBound: number = 10) {
     this.lowerBound = lowerBound;
     this.higherBound = higherBound;
   }
 
-  increment(qty?: number): Counter {
-    this.counter.increment(qty);
+  increment(counter: Counter, qty?: number): Counter {
+    counter.increment(qty);
 
-    if (this.counter.count >= this.higherBound) {
-      this.counter = new Counter(this.higherBound);
+    if (counter.count >= this.higherBound) {
+      counter = new Counter(this.higherBound);
     }
 
-    return this.counter;
+    return counter;
   }
 
-  decrement(qty?: number): Counter {
-    this.counter.decrement(qty);
+  decrement(counter: Counter, qty?: number): Counter {
+    counter.decrement(qty);
 
-    if (this.counter.count <= this.lowerBound) {
-      this.counter = new Counter(this.lowerBound);
+    if (counter.count <= this.lowerBound) {
+      counter = new Counter(this.lowerBound);
     }
 
-    return this.counter;
+    return counter;
   }
 }

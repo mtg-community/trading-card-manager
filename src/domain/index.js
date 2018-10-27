@@ -1,6 +1,7 @@
 // @flow strict
 
 import { ReduxAdapter } from '../../domain/adapters/redux/adapter';
+import { CounterInteractor } from '../../domain/useCases/counterInteractor';
 import {
   forgotPassword,
   onAuthStateChanged,
@@ -17,4 +18,6 @@ export const DomainLayer = async () => {
     forgotPassword,
     onAuthStateChanged,
   };
+
+  ReduxAdapter.counter = new CounterInteractor(-10, 10);
 };

@@ -1,11 +1,9 @@
 // @flow strict
 
-import type { User as FirebaseUser } from 'react-native-firebase';
-
 export class User {
-  firebaseUser: FirebaseUser;
+  email: ?string;
 
-  constructor(firebaseUser: FirebaseUser) {
-    this.firebaseUser = firebaseUser;
+  constructor(email: ?string) {
+    this.email = email;
   }
 }

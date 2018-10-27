@@ -1,7 +1,6 @@
 // @flow strict
 
 import Firebase from 'react-native-firebase';
-import isEmail from 'validator/lib/isEmail';
 import { User } from '../../../domain/entities/user';
 
 type UnsubscribeFunction = () => void;
@@ -15,25 +14,19 @@ export const signInWithEmailAndPassword = async (
     password,
   );
 
-  // FIXME: Need to fix
-  // return userCredentialPromise.user;
-  return new User(userCredentialPromise.user);
+  return new User(userCredentialPromise.user.email);
 };
 
 export const signUpWithEmailAndPassword = async (
   email: string,
   password: string,
 ): Promise<User> => {
-  const userCredentialPromise = await Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(
+  const userCredential = await Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(
     email,
     password,
   );
 
-  // return userCredentialPromise.user;
-
-  // FIXME: Need to fix
-  // return userCredentialPromise.user;
-  return new User(userCredentialPromise.user);
+  return new User(userCredential.user.email);
 };
 
 export const onAuthStateChanged = (
@@ -44,6 +37,5 @@ export const onAuthStateChanged = (
 
 export const signOut = async (): Promise<void> => Firebase.auth().signOut();
 
-export const forgotPassword = async (email: string): Promise<void> => {
+export const forgotPassword = async (email: string): Promise<void> =>
   Firebase.auth().sendPasswordResetEmail(email);
-};

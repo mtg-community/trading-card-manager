@@ -12,7 +12,7 @@ export function* signInSaga(action: AuthUserAction) {
       action.email,
       action.password,
     );
-    yield put(setUserAction(user.firebaseUser));
+    yield put(setUserAction(user));
   } catch (error) {
     const title = I18n.t('SIGN_IN/ERROR_TITLE');
     Navigator.showModal(SCREENS.ERROR, title, { error, title });
@@ -26,7 +26,7 @@ export function* signUpSaga(action: AuthUserAction) {
       action.email,
       action.password,
     );
-    yield put(setUserAction(user.firebaseUser));
+    yield put(setUserAction(user));
   } catch (error) {
     const title = I18n.t('SIGN_UP/ERROR_TITLE');
     Navigator.showModal(SCREENS.ERROR, title, { error, title });
