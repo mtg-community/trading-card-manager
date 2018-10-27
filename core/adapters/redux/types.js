@@ -1,6 +1,7 @@
 // @flow strict
 
 import { User } from 'react-native-firebase';
+import { Counter } from '../../entities/counter';
 
 export type ActionType = PayloadlessAction;
 
@@ -27,3 +28,11 @@ export type SetUserAction = {
   type: string,
   user: ?User,
 };
+
+export type StateType = {
+  counter: Counter,
+  user: ?User,
+};
+
+export type UserStateSlice = ?User;
+export type CounterStateSlice = number;

@@ -2,10 +2,12 @@
 
 import { type User } from 'react-native-firebase';
 import type {
-  ActionType,
   StateType,
-  SetUserAction,
   UserStateSlice,
+} from '../../../../core/adapters/redux/types';
+import type {
+  ActionType,
+  SetUserAction,
   AuthUserAction,
   ForgotPasswordAction,
 } from '../types';
