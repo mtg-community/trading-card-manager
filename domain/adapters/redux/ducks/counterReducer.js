@@ -1,8 +1,8 @@
 // @flow strict
 
-import { Counter } from '../../entities/counter';
-import { CounterInteractor } from '../../useCases/counterInteractor';
-import type { StateType } from './types';
+import { Counter } from '../../../entities/counter';
+import { CounterInteractor } from '../../../useCases/counterInteractor';
+import type { StateType } from '../types';
 
 type StateSliceType = Counter;
 

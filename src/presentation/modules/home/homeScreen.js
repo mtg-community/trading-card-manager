@@ -6,7 +6,7 @@ import {
   counterSelector,
   decrementCounterAction,
   incrementCounterAction,
-} from '../../../../domain/adapters/redux/counterReducer';
+} from '../../../../domain/adapters/redux';
 import { User } from '../../../../domain/entities/user';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
@@ -14,7 +14,7 @@ import { SCREENS } from '../../screens';
 import {
   logOutAction,
   selectUser,
-} from '../../../../domain/adapters/redux/userReducer';
+} from '../../../../domain/adapters/redux/ducks/userReducer';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { Home } from './presentational/home';
 

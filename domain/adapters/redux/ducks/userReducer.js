@@ -1,14 +1,14 @@
 // @flow strict
 
-import type { User } from '../../entities/user';
-import type { StateType, UserStateSlice } from './types';
+import type { User } from '../../../entities/user';
+import type { StateType, UserStateSlice } from '../types';
 import type {
   ActionType,
   SetUserAction,
   AuthUserAction,
   ForgotPasswordAction,
-} from './types';
-import { SIGN_IN, SIGN_UP, FORGOT_PASSWORD, LOG_OUT } from './sagas/index';
+} from '../types';
+import { SIGN_IN, SIGN_UP, FORGOT_PASSWORD, LOG_OUT } from '../sagas/index';
 
 const INITIAL_STATE = null;
 const SET_USER = 'user/sync/set';

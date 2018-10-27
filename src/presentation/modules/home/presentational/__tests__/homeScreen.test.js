@@ -10,7 +10,7 @@ import {
   counterSelector,
   decrementCounterAction,
   incrementCounterAction,
-} from '../../../../../../domain/adapters/redux/counterReducer';
+} from '../../../../../../domain/adapters/redux';
 
 import { HomeScreen, HomeContainer } from '../../homeScreen';
 import { Home } from '../home';

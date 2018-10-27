@@ -6,10 +6,7 @@ import type { StateType } from '../../../../domain/adapters/redux/types';
 import { User } from '../../../../domain/entities/user';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
-import {
-  selectUser,
-  loginAction,
-} from '../../../../domain/adapters/redux/userReducer';
+import { selectUser, loginAction } from '../../../../domain/adapters/redux';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
 import { SignInFooter } from './presentational/signInFooter';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';

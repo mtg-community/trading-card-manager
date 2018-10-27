@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 import { Navigator } from '../../../../src/presentation/navigator';
 import { SCREENS } from '../../../../src/presentation/screens';
 import { User } from '../../../entities/user';
-import { setUserAction } from '../userReducer';
+import { setUserAction } from '../';
 import type { AuthUserAction, ForgotPasswordAction } from '../types';
 
 export type AuthenticationInteractor = {|
