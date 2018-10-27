@@ -2,16 +2,19 @@
 
 import React, { Component } from 'react';
 import { Platform } from 'react-native';
-import type { User } from 'react-native-firebase';
+import {
+  counterSelector,
+  decrementCounterAction,
+  incrementCounterAction,
+} from '../../../../domain/adapters/redux/ducks/counterReducer';
+import { User } from '../../../../domain/entities/user';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
 
 import {
-  incrementCounter,
-  decrementCounter,
-  selectCounter,
-} from '../../../domain/redux/ducks/counter';
-import { logOutAction, selectUser } from '../../../domain/redux/ducks/user';
+  logOutAction,
+  selectUser,
+} from '../../../../domain/adapters/redux/ducks/userReducer';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { Home } from './presentational/home';
 
@@ -54,13 +57,13 @@ export class HomeContainer extends Component<Props> {
 }
 
 const mapStateToProps = state => ({
-  counter: selectCounter(state),
+  counter: counterSelector(state),
   user: selectUser(state),
 });
 
 const mapDispatchToProps = {
-  increment: incrementCounter,
-  decrement: decrementCounter,
+  increment: incrementCounterAction,
+  decrement: decrementCounterAction,
   logOut: logOutAction,
 };
 

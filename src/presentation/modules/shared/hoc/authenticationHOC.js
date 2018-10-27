@@ -1,11 +1,11 @@
 // @flow strict
 
-import { type User } from 'react-native-firebase';
 import { connect } from 'react-redux';
 import { branch, renderComponent, compose, lifecycle } from 'recompose';
+import { User } from '../../../../../domain/entities/user';
 import { Logger } from '../../../../data/logger';
 import { onAuthStateChanged } from '../../../../data/firebase/authentication';
-import { setUserListenerAction } from '../../../../domain/redux/ducks/user';
+import { setUserListenerAction } from '../../../../../domain/adapters/redux';
 import { SignInScreen } from '../../authentication/signInScreen';
 
 const SET_USER_ACTION = 'userListener';

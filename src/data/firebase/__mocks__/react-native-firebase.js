@@ -1,4 +1,4 @@
-import type { UserCredential } from 'react-native-firebase';
+import type { UserCredential } from '../../../../domain/entities/userCredential';
 
 let Firebase = jest.mock('react-native-firebase');
 

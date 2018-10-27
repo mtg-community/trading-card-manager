@@ -1,12 +1,10 @@
 // @flow strict
 
 import React, { Component } from 'react';
-import type { User } from 'react-native-firebase';
 import I18n from 'react-native-i18n';
-import { connect } from 'react-redux';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
-import { forgotPasswordAction } from '../../../domain/redux/ducks/user';
+import { forgotPasswordAction } from '../../../../domain/adapters/redux';
 import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';
 import { PasswordForm } from './presentational/passwordForm';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';

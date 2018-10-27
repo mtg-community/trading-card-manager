@@ -3,9 +3,9 @@
 import { combineReducers, applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
-import { counterReducer } from './ducks/counter';
-import { userReducer } from './ducks/user';
-import { rootSaga } from './sagas/index';
+import { userReducer } from './ducks/userReducer';
+import { rootSaga } from './sagas';
+import { counterReducer } from './ducks/counterReducer';
 
 const reducers = {
   counter: counterReducer,

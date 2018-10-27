@@ -1,4 +1,7 @@
 [ignore]
+; Ignore backend temporary folder
+<PROJECT_ROOT>/backend/.*
+
 ; We fork some components by platform
 .*/*[.]android.js
 
