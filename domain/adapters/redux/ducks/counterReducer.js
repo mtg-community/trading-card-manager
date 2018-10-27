@@ -15,7 +15,8 @@ const INITIAL_STATE = new Counter(0);
 const INCREMENT = 'counter/increment';
 const DECREMENT = 'counter/decrement';
 
-export const counterSelector = (state: StateType): Counter => state.counter;
+export const counterSelector = (state: StateType): number =>
+  state.counter.count;
 
 export const incrementCounterAction = (qty: number = 1): ActionType => ({
   type: INCREMENT,
