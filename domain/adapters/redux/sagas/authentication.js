@@ -5,10 +5,10 @@ import {
   signUpWithEmailAndPassword,
   signOut,
   forgotPassword,
-} from '../../../data/firebase/authentication';
-import { Navigator } from '../../../presentation/navigator';
-import { SCREENS } from '../../../presentation/screens';
-import { setUserAction } from '../ducks/user';
+} from '../../../../src/data/firebase/authentication';
+import { Navigator } from '../../../../src/presentation/navigator/index';
+import { SCREENS } from '../../../../src/presentation/screens';
+import { setUserAction } from '../user';
 import type {
   AuthUserAction,
   ForgotPasswordAction,

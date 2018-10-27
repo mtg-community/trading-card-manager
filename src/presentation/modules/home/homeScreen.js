@@ -11,7 +11,10 @@ import {
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
 
-import { logOutAction, selectUser } from '../../../domain/redux/ducks/user';
+import {
+  logOutAction,
+  selectUser,
+} from '../../../../domain/adapters/redux/user';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { Home } from './presentational/home';
 
