@@ -1,8 +1,8 @@
 import I18n from 'react-native-i18n';
 import { call, put } from 'redux-saga/effects';
-import { Navigator } from '../../../../src/presentation/navigator';
+import { Navigator } from '../../../../src/presentation/navigator/index';
 import { SCREENS } from '../../../../src/presentation/screens';
-import { setUserAction } from '../';
+import { setUserAction } from '../index';
 import type { AuthUserAction, ForgotPasswordAction } from '../types';
 
 export function* signInSaga(action: AuthUserAction) {

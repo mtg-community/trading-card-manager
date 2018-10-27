@@ -12,20 +12,16 @@ export class CounterInteractor {
   }
 
   increment(counter: Counter, qty?: number): Counter {
-    counter.increment(qty);
-
-    if (counter.count >= this.higherBound) {
-      counter = new Counter(this.higherBound);
+    if (counter.count < this.higherBound) {
+      counter.increment(qty);
     }
 
     return counter;
   }
 
   decrement(counter: Counter, qty?: number): Counter {
-    counter.decrement(qty);
-
-    if (counter.count <= this.lowerBound) {
-      counter = new Counter(this.lowerBound);
+    if (counter.count > this.lowerBound) {
+      counter.decrement(qty);
     }
 
     return counter;
