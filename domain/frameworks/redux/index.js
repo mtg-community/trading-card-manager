@@ -1,4 +1,5 @@
-export * from './ducks/index';
+// @flow strict
+
+export * from './ducks';
 export * from './store';
-export * from '../../adapters/reduxAdapter';
 export * from './types';

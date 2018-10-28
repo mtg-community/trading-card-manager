@@ -1,3 +1,5 @@
+// @flow strict
+
 import { AuthenticationInteractor } from '../useCases/authenticatorInteractor';
 import { CounterInteractor } from '../useCases/counterInteractor';
 

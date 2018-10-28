@@ -1,3 +1,5 @@
+// @flow strict
+
 import isEmail from 'validator/lib/isEmail';
 import { User } from '../entities/user';
 
@@ -9,8 +11,8 @@ export type AuthenticationService = {|
   signIn: (string, string) => Promise<User>,
   signUp: (string, string) => Promise<User>,
   signOut: () => Promise<void>,
-  forgotPassword: string => Promise<void>,
-  onAuthStateChanged: (?User) => void,
+  resetPassword: string => Promise<void>,
+  authStateListener: ((?User) => void) => UnsubscribeFunction,
 |};
 
 export class AuthenticationInteractor {
@@ -44,10 +46,10 @@ export class AuthenticationInteractor {
   async forgotPassword(email: string): Promise<void> {
     this.validateEmail(email);
 
-    return this.service.forgotPassword(email);
+    return this.service.resetPassword(email);
   }
 
   onAuthStateChanged(callback: (?User) => void): UnsubscribeFunction {
-    return this.service.onAuthStateChanged(callback);
+    return this.service.authStateListener(callback);
   }
 }
