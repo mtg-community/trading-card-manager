@@ -24,8 +24,8 @@ install:
 - npm install -g "npm@$(jq -r '.engines.npm' package.json)"
 - npm ci
 after_script:
-- npm run test:coverage
 - npm run danger:ci
+- npm run test:coverage
 matrix:
   include:
   - os: linux
@@ -36,13 +36,13 @@ matrix:
       - build-tools-27.0.3
       - android-27
     script:
-    - "./android/gradlew assembleRelease -p android/"
+#    - "./android/gradlew assembleRelease -p android/"
     - npm run ci:check
   - os: osx
     osx_image: xcode9.3
     podfile: ios/Podfile
     script:
-    - bundle exec fastlane ios test
+#    - bundle exec fastlane ios test
     - npm run ci:check
 env:
   global:
