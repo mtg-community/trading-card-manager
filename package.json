@@ -23,7 +23,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest --verbose",
     "test:coverage": "jest --silent --coverage && codecov",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "danger:ci": "danger ci"
   },
   "dependencies": {
     "lodash": "4.17.10",
@@ -51,6 +52,7 @@
     "babel-preset-flow": "6.23.0",
     "babel-preset-react-native": "4.0.0",
     "codecov": "3.0.3",
+    "danger": "6.0.2",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "5.0.1",

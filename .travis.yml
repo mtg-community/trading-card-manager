@@ -25,6 +25,7 @@ install:
 - npm ci
 after_script:
 - npm run test:coverage
+- npm run danger:ci
 matrix:
   include:
   - os: linux
@@ -43,3 +44,6 @@ matrix:
     script:
     - bundle exec fastlane ios test
     - npm run ci:check
+env:
+  global:
+    secure: etnjBKKI4DusyrOnb7k8xUuBcWQSLe4VBFHmSVDTy/QkWTqq3O2CKxvFjjf/DasQq7js9PHHUwrvcnPS87XOlKKX7tdftnJPc2bDxG4edbPoJg5HIOyARu0GsuESxRizCdBfLgm7o79Ykx9pulwDenaepKOGKo5jUrZky89DClOEItNvyMf4rA0hDrhEeeFLhQiAZakVx1ZQefwIheiiwo5yjXtCFJl990bHa5xUCaFJPFHyaECP/o3r1ENTLy3IfBUnbFyYuYjfyah4NYsS/D0JFTAeH81ygo18M02pQRhCFGIpkWyQnjzeW+o6w00VEYP6IErRLnzI2DZLIW/gngqN/ZHnFaPV3LftUdGXDlhjIBjz6txavPt5UGHwfuU3E6s2AITUY+8wZmydLKJhenWom3OMmHsdxqtxZfyQWi1SrTYIQgdY4Oz1YIr2pYw7Vd7hSiJhW4GV47UJWzoOWpCUI1E/Va6w6BPOjQ9DdwYvMgzbcQwvkNwSy4+NrYcmFX/NRsbaGMzmM7fzM0CdJQAyWZvZf896eRQ0c2LXcUOkruGD3qZQEA8vHHjuaMYhnhgfPOwpWw0R3dgIoU5Qq+czPP9umSF+gWOtUztR8ifmzW7jcpyPAqh2CzwnDCEzlJGz0hGz/d1ApxV5I13TZSS6qkVMBGC6AvvzWpOHU4w=
