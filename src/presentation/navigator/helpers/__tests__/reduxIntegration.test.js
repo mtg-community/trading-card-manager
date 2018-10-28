@@ -10,7 +10,7 @@ const mockStore = {
   getState: jest.fn(),
 };
 
-jest.mock('../../../../../domain/adapters/redux', () => ({
+jest.mock('../../../../../domain/frameworks/redux', () => ({
   configureStore: () => mockStore,
 }));
 
