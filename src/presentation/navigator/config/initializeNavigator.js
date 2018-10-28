@@ -1,4 +1,4 @@
-// flow strict
+// @flow strict
 
 import _ from 'lodash';
 import { Navigation } from 'react-native-navigation';

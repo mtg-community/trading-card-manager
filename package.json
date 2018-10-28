@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
+    "babel-core": "6.26.3",
     "babel-eslint": "8.2.5",
     "babel-jest": "23.2.0",
     "babel-preset-flow": "6.23.0",
@@ -57,6 +58,7 @@
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "5.0.1",
     "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-flowtype": "3.1.1",
     "eslint-plugin-prettier": "2.6.2",
     "flow-bin": "0.67.1",
     "flow-typed": "2.5.1",
