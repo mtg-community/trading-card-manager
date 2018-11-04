@@ -1,0 +1,7 @@
+coverage
+node_modules
+android
+ios
+fastlane
+package.json
+package-lock.json
