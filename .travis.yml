@@ -13,13 +13,14 @@ cache:
   cocoapods: true
   yarn: true
   directories:
-  - node_modules
-  - vendor/bundle
+  - node_modules/
+  - vendor/bundle/
   - "$HOME/.nvm/versions/"
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
-  - "$HOME/.android/build-cache"
+  - "$HOME/.android/build-cache/"
   - "$HOME/.npm"
+  - "$HOME/.cache"
 before_install:
 - chmod -R +x travis-ci/
 - chmod -R +x scripts/

@@ -64,6 +64,7 @@ fastlane/test_output/
 # `pod install` in .travis.yml
 #
 ios/Pods/
+ios/Index/
 
 # Firebase
 ios/GoogleService-Info.plist
