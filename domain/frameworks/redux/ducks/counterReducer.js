@@ -11,7 +11,7 @@ type ActionType = {
   qty?: number,
 };
 
-const INITIAL_STATE = new Counter(0);
+const INITIAL_STATE = new Counter(1);
 const INCREMENT = 'counter/increment';
 const DECREMENT = 'counter/decrement';
 

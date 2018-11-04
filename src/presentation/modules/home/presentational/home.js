@@ -28,8 +28,16 @@ export const Home = (props: PropsType) => (
     <Text style={styles.instructions}>{props.instructions}</Text>
     <Icon name="rocket" size={30} color="#900" />
     <Text style={styles.instructions}>{props.counter}</Text>
-    <Button onPress={props.increment} title="INCREMENT" color="#841584" />
-    <Button onPress={props.decrement} title="DECREMENT" color="#841584" />
+    <Button
+      onPress={() => props.increment(1)}
+      title="INCREMENT"
+      color="#841584"
+    />
+    <Button
+      onPress={() => props.decrement(1)}
+      title="DECREMENT"
+      color="#841584"
+    />
     {props.isLoggedIn ? (
       <Button onPress={props.logOut} title="LOGOUT" color="#841584" />
     ) : (

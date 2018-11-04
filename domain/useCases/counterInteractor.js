@@ -16,7 +16,7 @@ export class CounterInteractor {
       counter.increment(qty);
     }
 
-    return counter;
+    return new Counter(counter.count);
   }
 
   decrement(counter: Counter, qty?: number): Counter {
@@ -24,6 +24,6 @@ export class CounterInteractor {
       counter.decrement(qty);
     }
 
-    return counter;
+    return new Counter(counter.count);
   }
 }
