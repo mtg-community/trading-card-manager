@@ -2,6 +2,7 @@ import I18n from 'react-native-i18n';
 import { call, put } from 'redux-saga/effects';
 import { Navigator } from '../../../../src/presentation/navigator/index';
 import { SCREENS } from '../../../../src/presentation/screens';
+import { ReduxAdapter } from '../../../adapters/reduxAdapter';
 import { setUserAction } from '../index';
 import type { AuthUserAction, ForgotPasswordAction } from '../types';
 

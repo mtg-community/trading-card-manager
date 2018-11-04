@@ -9,8 +9,8 @@ import { Text, View, Button } from 'react-native';
 import { styles } from './styles/home.styles';
 
 export type PropsType = {
-  decrement: () => void,
-  increment: () => void,
+  decrement: number => void,
+  increment: number => void,
   navigateToLogin: () => void,
   logOut: () => void,
   instructions: string,
