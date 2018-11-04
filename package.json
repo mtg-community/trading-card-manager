@@ -69,17 +69,9 @@
     "react-test-renderer": "16.4.1",
     "redux-mock-store": "1.5.3"
   },
-  "jest": {
-    "preset": "react-native",
-    "coverageDirectory": "<rootDir>/coverage/",
-    "setupTestFrameworkScriptFile": "<rootDir>/src/__tests__/setup.js",
-    "testMatch": [
-      "**/__tests__/**/*.test.js?(x)"
-    ]
-  },
   "engines": {
-    "node": "10.1.0",
-    "npm": "6.0.1"
+    "node": "10.13.0",
+    "npm": "6.4.1"
   },
   "lint-staged": {
     "*.js": [
