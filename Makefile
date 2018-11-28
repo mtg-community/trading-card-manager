@@ -1,7 +1,7 @@
 setup-travis-environment:
-	chmod -R +x travis-ci/
+	chmod -R +x .travis-ci/
 	chmod -R +x mobile/scripts/
-	travis-ci/restore-secrets.sh
+	.travis-ci/restore-secrets.sh
 
 mobile_%:
 	$(MAKE) -C mobile $*

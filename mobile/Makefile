@@ -5,7 +5,7 @@ ci-check:
 	npm run ci:check
 
 build-android: ci-check
-	mobile/android/gradlew assembleRelease -p android/
+	android/gradlew assembleRelease -p android/
 
 build-ios: ci-check
 	bundle exec fastlane ios test
