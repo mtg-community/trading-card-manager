@@ -1,19 +1,21 @@
 setup-travis-environment:
 	chmod -R +x travis-ci/
-	chmod -R +x scripts/
+	chmod -R +x mobile/scripts/
 
-setup-js-environment:
-	npm ci
+install:
+	$(MAKE) -C mobile install
 
 ci-check:
-	npm run ci:check
+	$(MAKE) -C mobile ci-check
 
 build-android: ci-check
-	./android/gradlew assembleRelease -p android/
+	$(MAKE) -C mobile build-android
 
 build-ios: ci-check
-	bundle exec fastlane ios test
+	$(MAKE) -C mobile build-ios
 
 sonar-scanner:
-	npm run test:coverage
-	sonar-scanner
+	$(MAKE) -C mobile sonar-scanner
+
+mobile-%:
+	echo $@

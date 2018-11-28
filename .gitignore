@@ -17,8 +17,7 @@ yarn-error.log
 
 # others
 #
-.env
-ENCRYPT_PASSWORD.txt
+*.env
 .vscode/
 coverage/
 .scannerwork/

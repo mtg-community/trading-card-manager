@@ -16,6 +16,6 @@ echo "Cloning secrets repository..."
 REPO_SSH_URL="git@bitbucket.org:eduardomoroni/trading-card-manager-secrets.git"
 SECRETS_PATH="trading-card-manager-secrets/secrets"
 git clone --depth 1 "$REPO_SSH_URL"
-mv "$SECRETS_PATH/google-services.json" android/app/google-services.json
-mv "$SECRETS_PATH/GoogleService-Info.plist" ios/GoogleService-Info.plist
-mv "$SECRETS_PATH/.env" .env
+mv "$SECRETS_PATH/google-services.json" mobile/android/app/google-services.json
+mv "$SECRETS_PATH/GoogleService-Info.plist" mobile/ios/GoogleService-Info.plist
+mv "$SECRETS_PATH/.env" mobile/.env # we should have others
