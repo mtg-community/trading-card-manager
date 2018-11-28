@@ -1,21 +1,16 @@
 setup-travis-environment:
 	chmod -R +x travis-ci/
 	chmod -R +x mobile/scripts/
+	travis-ci/restore-secrets.sh
 
-install:
-	$(MAKE) -C mobile install
+mobile_%:
+	$(MAKE) -C mobile $*
 
-ci-check:
-	$(MAKE) -C mobile ci-check
+domain_%:
+	$(MAKE) -C domain $*
 
-build-android: ci-check
-	$(MAKE) -C mobile build-android
+backend_%:
+	$(MAKE) -C backend $*
 
-build-ios: ci-check
-	$(MAKE) -C mobile build-ios
-
-sonar-scanner:
-	$(MAKE) -C mobile sonar-scanner
-
-mobile-%:
-	echo $@
+web_%:
+	$(MAKE) -C web $*

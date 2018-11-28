@@ -19,9 +19,9 @@ before_install:
 install:
   - nvm install && nvm use
   - npm install -g "npm@$(jq -r '.engines.npm' package.json)"
-  - make install
+  - make mobile_install
 after_script:
-  make sonar-scanner
+  make mobile_sonar-scanner
 matrix:
   include:
   - os: linux
@@ -32,14 +32,14 @@ matrix:
       - build-tools-27.0.3
       - android-27
     script:
-    - make ci-check
-    - make build-android
+    - make mobile_ci-check
+    - make mobile_build-android
   - os: osx
     osx_image: xcode9.3
     podfile: ios/Podfile
     script:
-    - make ci-check
-    - make build-ios
+    - make mobile_ci-check
+    - make mobile_build-ios
 addons:
   ssh_known_hosts:
     - bitbucket.org

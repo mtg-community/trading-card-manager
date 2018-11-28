@@ -10,7 +10,6 @@ fi
 
 if [[ "$CI" != "" ]]; then
   echo 'SETTING UP SECRETS'
-  sh travis-ci/restore-secrets.sh
 else
   echo 'DO NOT FORGET TO SETUP GOOGLE SECRETS ON BOTH ANDROID AND IOS'
 fi
