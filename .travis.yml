@@ -24,7 +24,9 @@ cache:
 before_install:
   make setup-travis-environment
 install:
-  make setup-js-environment
+  - nvm install && nvm use
+  - npm install -g "npm@$(jq -r '.engines.npm' package.json)"
+  - make setup-js-environment
 after_script:
   make sonar-scanner
 matrix:

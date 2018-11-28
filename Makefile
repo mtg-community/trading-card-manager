@@ -3,8 +3,6 @@ setup-travis-environment:
 	chmod -R +x scripts/
 
 setup-js-environment:
-	nvm install && nvm use
-	npm install -g "npm@$(jq -r '.engines.npm' package.json)"
 	npm ci
 
 ci-check:
