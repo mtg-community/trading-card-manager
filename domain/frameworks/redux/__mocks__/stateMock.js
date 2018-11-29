@@ -1,4 +1,6 @@
 // @flow
+declare var jest: any;
+
 let Module = jest.mock('../index');
 
 import configureMockStore from 'redux-mock-store';

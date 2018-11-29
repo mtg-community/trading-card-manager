@@ -1,5 +1,6 @@
 // @flow strict
 
-import type { UserCredential as FirebaseCredential } from 'react-native-firebase';
+// TODO: FIX THIS
+// import type { UserCredential as FirebaseCredential } from 'react-native-firebase';
 
-export type UserCredential = FirebaseCredential;
+export type UserCredential = {};

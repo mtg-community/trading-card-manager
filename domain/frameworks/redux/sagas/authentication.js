@@ -5,7 +5,7 @@ import { ReduxAdapter } from '../../adapters/reduxAdapter';
 import { setUserAction } from '../index';
 import type { AuthUserAction, ForgotPasswordAction } from '../types';
 
-export function* signInSaga(action: AuthUserAction) {
+export function* signInSaga(action: AuthUserAction): Generator<*, *, *> {
   try {
     const user = yield call(
       ReduxAdapter.authentication.signIn,
@@ -19,7 +19,7 @@ export function* signInSaga(action: AuthUserAction) {
   }
 }
 
-export function* signUpSaga(action: AuthUserAction) {
+export function* signUpSaga(action: AuthUserAction): Generator<*, *, *> {
   try {
     const user = yield call(
       ReduxAdapter.authentication.signUp,
@@ -33,17 +33,19 @@ export function* signUpSaga(action: AuthUserAction) {
   }
 }
 
-export function* forgotPasswordSaga(action: ForgotPasswordAction) {
+export function* forgotPasswordSaga(
+  action: ForgotPasswordAction,
+): Generator<*, *, *> {
   try {
     yield call(ReduxAdapter.authentication.forgotPassword, action.email);
-    alert(I18n.t('PASSWORD_RECOVERY/ALERT/MESSAGE'));
+    // alert(I18n.t('PASSWORD_RECOVERY/ALERT/MESSAGE'));
   } catch (error) {
     // const title = I18n.t('SIGN_UP/ERROR_TITLE');
     // Navigator.showModal(SCREENS.ERROR, title, { error, title });
   }
 }
 
-export function* logoutSaga() {
+export function* logoutSaga(): Generator<*, *, *> {
   try {
     yield call(ReduxAdapter.authentication.signOut);
     yield put(setUserAction(null));
