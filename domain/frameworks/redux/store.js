@@ -3,7 +3,7 @@
 import { combineReducers, applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
-import { ReduxAdapter } from '../../adapters/reduxAdapter';
+import { ReduxAdapter } from '../adapters/reduxAdapter';
 import { userReducer } from './ducks/userReducer';
 import { rootSaga } from './sagas/index';
 import { counterReducer } from './ducks/counterReducer';
