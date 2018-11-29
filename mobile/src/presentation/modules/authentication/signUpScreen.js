@@ -5,7 +5,10 @@ import I18n from 'react-native-i18n';
 import type { StateType } from '../../../../../domain/frameworks/redux/types';
 import { User } from '../../../../../domain/entities/user';
 import { Navigator } from '../../navigator';
-import { signUpAction, selectUser } from '../../../../../domain/frameworks/redux';
+import {
+  signUpAction,
+  selectUser,
+} from '../../../../../domain/frameworks/redux';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
 import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';

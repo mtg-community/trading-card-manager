@@ -1,7 +1,7 @@
 // @flow strict
 
 import Firebase from 'react-native-firebase';
-import { User } from '../../../../domain/entities/user';
+import { User } from 'domain/entities/user';
 
 type UnsubscribeFunction = () => void;
 

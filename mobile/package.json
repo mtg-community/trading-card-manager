@@ -26,8 +26,9 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "domain": "file:../domain",
     "lodash": "4.17.10",
-    "moment": "^2.22.2",
+    "moment": "2.22.2",
     "prop-types": "15.6.2",
     "react": "16.3.1",
     "react-native": "0.55.4",
@@ -39,9 +40,6 @@
     "react-native-vector-icons": "4.6.0",
     "react-redux": "5.0.7",
     "recompose": "0.27.1",
-    "redux": "4.0.0",
-    "redux-logger": "3.0.6",
-    "redux-saga": "0.16.0",
     "validator": "10.4.0"
   },
   "devDependencies": {
@@ -50,7 +48,6 @@
     "babel-jest": "23.2.0",
     "babel-preset-flow": "6.23.0",
     "babel-preset-react-native": "4.0.0",
-    "codecov": "3.0.3",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "5.0.1",
@@ -59,11 +56,8 @@
     "flow-bin": "0.67.1",
     "flow-typed": "2.5.1",
     "husky": "0.14.3",
-    "jest": "23.3.0",
+    "jest": "23.6.0",
     "jest-enzyme": "6.0.2",
-    "lint-staged": " 7.2.0",
-    "prettier": "1.13.7",
-    "prettierrc": "0.0.0-5",
     "react-dom": "16.4.1",
     "react-native-cli": "2.0.1",
     "react-test-renderer": "16.4.1",

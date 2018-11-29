@@ -4,6 +4,9 @@ install:
 ci-check:
 	npm run ci:check
 
+clean:
+	scripts/clean.sh
+
 build-android: ci-check
 	android/gradlew assembleRelease -p android/
 
