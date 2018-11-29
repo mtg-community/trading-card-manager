@@ -1,5 +1,6 @@
 install:
-	npm ci
+#	npm ci
+	npm install
 
 ci-check:
 	npm run ci:check
@@ -7,10 +8,10 @@ ci-check:
 clean:
 	scripts/clean.sh
 
-build-android: ci-check
+build-android: clean ci-check
 	android/gradlew assembleRelease -p android/
 
-build-ios: ci-check
+build-ios: clean ci-check
 	bundle exec fastlane ios test
 
 sonar-scanner:

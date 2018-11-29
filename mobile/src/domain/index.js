@@ -1,6 +1,6 @@
 // @flow strict
 
-import { ReduxAdapter } from 'domain/adapters/reduxAdapter';
+import { ReduxAdapter } from 'domain/frameworks/redux';
 import { AuthenticationInteractor } from 'domain/useCases/authenticatorInteractor';
 import { CounterInteractor } from 'domain/useCases/counterInteractor';
 import {

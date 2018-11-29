@@ -1,7 +1,7 @@
 // @flow strict
 
 import { Counter } from '../../../entities/counter';
-import { ReduxAdapter } from '../../adapters/reduxAdapter';
+import { ReduxAdapter } from '../reduxAdapter';
 import type { StateType } from '../types';
 
 type StateSliceType = Counter;

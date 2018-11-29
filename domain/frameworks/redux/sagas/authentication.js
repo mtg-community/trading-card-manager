@@ -1,7 +1,7 @@
 // @flow strict
 
 import { call, put } from 'redux-saga/effects';
-import { ReduxAdapter } from '../../adapters/reduxAdapter';
+import { ReduxAdapter } from '../reduxAdapter';
 import { setUserAction } from '../index';
 import type { AuthUserAction, ForgotPasswordAction } from '../types';
 

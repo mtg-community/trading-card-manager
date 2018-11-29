@@ -44,6 +44,7 @@
     "react-native-vector-icons": "4.6.0",
     "react-redux": "5.0.7",
     "recompose": "0.27.1",
+    "redux": "4.0.1",
     "validator": "10.4.0"
   },
   "devDependencies": {

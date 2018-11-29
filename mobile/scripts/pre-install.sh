@@ -12,9 +12,9 @@ if [[ "$CI" != "" ]];
     yes | sdkmanager "build-tools;27.0.3"
     #y | scripts/android-emulator.sh create
   fi
-fi
 
-. ~/.nvm/nvm.sh
-nvm install
-nvm use
-npm install -g "npm@$(jq -r '.engines.npm' package.json)"
+  . ~/.nvm/nvm.sh
+  nvm install
+  nvm use
+  npm install -g "npm@$(jq -r '.engines.npm' package.json)"
+fi
