@@ -1,7 +1,5 @@
 module.exports = {
   getBlackListRE() {
-    return blacklist([
-      /Pods\/.*/,
-    ]);
+    return blacklist([/Pods\/.*/]);
   },
 };
