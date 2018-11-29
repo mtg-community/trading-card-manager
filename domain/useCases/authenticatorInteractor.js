@@ -8,10 +8,10 @@ export const INVALID_EMAIL_ERROR = 'Invalid Email';
 type UnsubscribeFunction = () => void;
 
 export type AuthenticationService = {|
-  signIn: (string, string) => Promise<User>,
-  signUp: (string, string) => Promise<User>,
-  signOut: () => Promise<void>,
-  resetPassword: string => Promise<void>,
+  signIn: (string, string, (Error) => void) => Promise<User>,
+  signUp: (string, string, (Error) => void) => Promise<User>,
+  signOut: ((Error) => void) => Promise<void>,
+  resetPassword: (string, (Error) => void) => Promise<void>,
   authStateListener: ((?User) => void) => UnsubscribeFunction,
 |};
 
