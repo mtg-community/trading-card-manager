@@ -20,6 +20,7 @@ const registerEventListeners = () => {
 const registerScreens = () => {
   const registerScreen = (screen: ScreenType) => {
     const { route, component } = screen;
+    // $FlowFixMe
     Navigation.registerComponent(route, withReduxProvider(component));
   };
 

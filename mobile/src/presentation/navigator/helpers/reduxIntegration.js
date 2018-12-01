@@ -6,7 +6,7 @@ import type { Store as StoreType } from 'redux';
 import { configureStore } from 'domain/frameworks/redux';
 
 let store: StoreType;
-type AnyPropsTypes = {};
+export type AnyPropsTypes = {};
 
 const getStore = (): StoreType => {
   if (!store) {

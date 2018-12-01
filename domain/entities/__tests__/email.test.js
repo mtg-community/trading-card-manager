@@ -9,6 +9,7 @@ describe('Email Tiny Type', () => {
 
   it('coerces to normal string', () => {
     const email = 'eduardo@email.com';
+    // $FlowFixMe
     expect(new Email(email) == email).toBeTruthy();
   });
 

@@ -24,10 +24,13 @@ export const SCREENS: ScreenType = {
     'authentication.mtgx.ForgotPassword',
     ForgotPasswordScreen,
   ),
+  // $FlowFixMe
   ERROR: new Screen('navigation.mtgx.ErrorScreen', ErrorScreen),
   SIGN_IN: new Screen('authentication.mtgx.SignInScreen', SignInScreen),
   SIGN_UP: new Screen('authentication.mtgx.SignUpScreen', SignUpScreen),
+  // $FlowFixMe
   LEFT_MENU: new Screen('navigation.left.menu', LeftSideMenuScreen),
+  // $FlowFixMe
   RIGHT_MENU: new Screen('navigation.right.menu', RightSideMenuScreen),
   CARD_DETAILS: new Screen('card.details', CardDetailsScreen, 'detalhes'),
 };
