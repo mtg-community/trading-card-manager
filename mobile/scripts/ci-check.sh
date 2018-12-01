@@ -9,7 +9,7 @@ if [[ "$CI" != "" ]];
   then
    npm run test
   # npm run flow
-  # npm run eslint
+   npm run eslint
   echo 'IGNORING FOR NOW'
 fi
 

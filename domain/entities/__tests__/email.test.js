@@ -4,9 +4,7 @@ import { Email, INVALID_EMAIL_ERROR } from '../email';
 
 describe('Email Tiny Type', () => {
   it('does not accept invalid emails', () => {
-    expect(() => new Email('invalid_email')).toThrowError(
-      INVALID_EMAIL_ERROR,
-    );
+    expect(() => new Email('invalid_email')).toThrowError(INVALID_EMAIL_ERROR);
   });
 
   it('coerces to normal string', () => {
