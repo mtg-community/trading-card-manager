@@ -30,7 +30,6 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "babel-preset-env": "1.7.0",
     "domain": "file:../domain",
     "lodash": "4.17.10",
     "moment": "2.22.2",
