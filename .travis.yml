@@ -15,13 +15,11 @@ cache:
   - "$HOME/.npm"
   - "$HOME/.cache"
 before_install:
-  make setup-travis-environment
+  - make setup-travis-environment
 install:
-  - nvm install && nvm use
-  - npm install -g "npm@$(jq -r '.engines.npm' package.json)"
   - make mobile_install
 after_script:
-  make mobile_sonar-scanner
+  - make mobile_sonar-scanner
 matrix:
   include:
   - os: linux
@@ -32,13 +30,11 @@ matrix:
       - build-tools-27.0.3
       - android-27
     script:
-    - make mobile_ci-check
     - make mobile_build-android
   - os: osx
     osx_image: xcode9.3
     podfile: ios/Podfile
     script:
-    - make mobile_ci-check
     - make mobile_build-ios
 addons:
   ssh_known_hosts:
