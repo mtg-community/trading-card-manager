@@ -4,6 +4,12 @@
 set -e
 set -o pipefail
 
-# npm run test
-# npm run flow
-# npm run eslint
+
+if [[ "$CI" != "" ]];
+  then
+  # npm run test
+  # npm run flow
+  # npm run eslint
+  echo 'IGNORING FOR NOW'
+fi
+
