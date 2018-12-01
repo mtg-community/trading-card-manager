@@ -7,7 +7,7 @@ set -o pipefail
 
 if [[ "$CI" != "" ]];
   then
-  # npm run test
+   npm run test
   # npm run flow
   # npm run eslint
   echo 'IGNORING FOR NOW'

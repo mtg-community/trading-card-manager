@@ -19,7 +19,9 @@
   "devDependencies": {
     "babel-core": "6.26.3",
     "babel-jest": "23.2.0",
+    "babel-preset-react-native": "4.0.0",
     "babel-preset-flow": "6.23.0",
-    "jest": "23.6.0"
+    "jest": "23.6.0",
+    "redux-mock-store": "1.5.3"
   }
 }

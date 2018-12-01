@@ -4,10 +4,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import {
   store,
-  state,
 } from '../../../../../../../domain/frameworks/redux/__mocks__/stateMock';
 import {
-  counterSelector,
   decrementCounterAction,
   incrementCounterAction,
 } from '../../../../../../../domain/frameworks/redux';
