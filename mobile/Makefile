@@ -8,10 +8,10 @@ ci-check:
 clean:
 	scripts/clean.sh
 
-build-android: clean ci-check
+build-android: clean
 	android/gradlew assembleRelease -p android/
 
-build-ios: clean ci-check
+build-ios: clean
 	bundle exec fastlane ios test
 
 sonar-scanner:
