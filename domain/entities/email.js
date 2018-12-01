@@ -15,6 +15,10 @@ export class Email {
     this._email = email;
   }
 
+  equals(email: string) {
+    return this._email === email;
+  }
+
   toString() {
     return this._email;
   }

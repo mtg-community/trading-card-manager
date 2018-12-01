@@ -9,8 +9,13 @@ describe('Email Tiny Type', () => {
     );
   });
 
-  it('can be compared with string', () => {
+  it('coerces to normal string', () => {
     const email = 'eduardo@email.com';
-    expect(new Email(email)).toEqual(email)
+    expect(new Email(email) == email).toBeTruthy();
+  });
+
+  it('compares with other strings', () => {
+    const email = 'eduardo@email.com';
+    expect(new Email(email).equals(email)).toBeTruthy();
   });
 });

@@ -4,14 +4,22 @@
   "private": false,
   "scripts": {
     "flow": "flow",
-    "flow:coverage": "flow coverage"
+    "flow:coverage": "flow coverage",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
-    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.7.0",
     "moment": "2.22.2",
     "redux": "4.0.1",
     "redux-logger": "3.0.6",
     "redux-saga": "0.16.2",
     "validator": "10.9.0"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-jest": "23.2.0",
+    "babel-preset-flow": "6.23.0",
+    "jest": "23.6.0"
   }
 }
