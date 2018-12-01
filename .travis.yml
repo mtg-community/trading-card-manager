@@ -17,6 +17,8 @@ cache:
 before_install:
   - make setup-travis-environment
 install:
+  - nvm install && nvm use
+  - npm install -g "npm@$(jq -r '.engines.npm' package.json)"
   - make mobile_install
 after_script:
   - make mobile_sonar-scanner

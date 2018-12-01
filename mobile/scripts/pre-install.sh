@@ -13,10 +13,10 @@ if [[ "$CI" != "" ]];
     #y | scripts/android-emulator.sh create
   fi
 
-  . ~/.nvm/nvm.sh
-  nvm install
-  nvm use
-  npm install -g "npm@$(jq -r '.engines.npm' package.json)"
+#  . ~/.nvm/nvm.sh
+#  nvm install
+#  nvm use
+#  npm install -g "npm@$(jq -r '.engines.npm' package.json)"
 fi
 
 npm install ../domain
