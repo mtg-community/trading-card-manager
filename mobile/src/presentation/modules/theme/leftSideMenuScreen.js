@@ -13,5 +13,6 @@ export const LeftSideMenuScreen = (props: PropTypes) => (
   <LeftSideMenu
     navigator={new Navigator(CENTER_COMPONENT_ID)}
     screens={NAVIGATION_DRAWER_LINKS}
+    {...props}
   />
 );

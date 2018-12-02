@@ -1,16 +1,15 @@
-// @flow strict
+// @flow
 
 import * as React from 'react';
-import type { AnyPropsTypes } from './reduxIntegration';
 
 export class Screen {
   route: string;
-  component: React.ComponentType<AnyPropsTypes>;
+  component: React.ComponentType<any>;
   title: ?string;
 
   constructor(
     route: string,
-    component: React.ComponentType<AnyPropsTypes>,
+    component: React.ComponentType<any>,
     title: ?string,
   ) {
     this.component = component;
