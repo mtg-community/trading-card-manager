@@ -1,6 +1,6 @@
 // @flow strict
 
-import Firebase from 'react-native-firebase';
+import Firebase, { type UserCredential } from 'react-native-firebase';
 import { User } from 'domain/entities/user';
 
 type UnsubscribeFunction = () => void;
@@ -11,7 +11,7 @@ export const signInWithEmailAndPassword = async (
 ): Promise<User> => {
   const {
     user,
-  } = await Firebase.auth().signInAndRetrieveDataWithEmailAndPassword(
+  }: UserCredential = await Firebase.auth().signInAndRetrieveDataWithEmailAndPassword(
     email,
     password,
   );
@@ -25,7 +25,7 @@ export const signUpWithEmailAndPassword = async (
 ): Promise<User> => {
   const {
     user,
-  } = await Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(
+  }: UserCredential = await Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(
     email,
     password,
   );
