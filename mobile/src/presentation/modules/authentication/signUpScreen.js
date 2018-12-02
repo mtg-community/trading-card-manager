@@ -9,6 +9,7 @@ import {
   signUpAction,
   selectUser,
 } from '../../../../../domain/frameworks/redux';
+import { SCREENS } from '../../screens';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
 import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';
@@ -17,12 +18,17 @@ type PropsTypes = {
   user: ?User,
   redirectTo: string,
   navigator: Navigator,
-  signUpUser: (string, string) => void,
+  signUpUser: (string, string, (Error) => void) => void,
 };
 
 export class SignUpContainer extends Component<PropsTypes> {
   signUp = async (email: string, password: string): Promise<void> => {
-    await this.props.signUpUser(email, password);
+    const onError = (error: Error) => {
+      const title = I18n.t('SIGN_UP/ERROR_TITLE');
+      Navigator.showModal(SCREENS.ERROR, title, { error, title });
+    };
+
+    await this.props.signUpUser(email, password, onError);
   };
 
   navigateBack = () => {
