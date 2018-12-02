@@ -4,6 +4,13 @@ import { Legality } from './legality';
 import { ForeignName } from './foreignName';
 import { Ruling } from './ruling';
 
+type Type = String;
+type SubType = String;
+type SuperType = String;
+type ColorIdentity = String;
+type Color = String;
+type Printing = String;
+
 export class Card {
   multiverseId: number = 272761;
   artist: string;
@@ -22,12 +29,12 @@ export class Card {
   originalType: string;
   flavor: string;
   text: string;
-  types: Array<String>;
-  subtypes: Array<String>;
-  colors: Array<String>;
-  colorIdentity: Array<String>;
-  superTypes: Array<String>;
-  printings: Array<string>;
+  types: Array<Type>;
+  subtypes: Array<SubType>;
+  superTypes: Array<SuperType>;
+  colors: Array<Color>;
+  colorIdentity: Array<ColorIdentity>;
+  printings: Array<Printing>;
   rulings: Array<Ruling>;
   legalities: Array<Legality>;
   foreignNames: Array<ForeignName>;

@@ -1,11 +1,13 @@
 // @flow strict
 
-export class User {
-  email: ?string;
-  emailVerified: ?boolean;
+import { Email } from './email';
 
-  constructor(email: ?string, emailVerified: ?boolean) {
-    this.email = email;
+export class User {
+  email: Email;
+  emailVerified: boolean;
+
+  constructor(email: string | Email, emailVerified?: boolean = false) {
+    this.email = new Email(email.toString());
     this.emailVerified = emailVerified;
   }
 }

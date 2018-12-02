@@ -7,11 +7,11 @@ export class Counter {
     this.count = startNumber;
   }
 
-  increment(qty?: number) {
-    this.count += qty || 1;
+  increment(qty?: number = 1) {
+    this.count += qty;
   }
 
-  decrement(qty?: number) {
-    this.count -= qty || 1;
+  decrement(qty?: number = 1) {
+    this.count -= qty;
   }
 }
