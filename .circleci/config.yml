@@ -11,12 +11,13 @@ jobs:
     executor: my-executor
     steps:
       - checkout
-#      - restore_cache:
-#        keys:
-#          - v1-dependencies-{{ checksum "package.json" }}
-#          - v1-dependencies-
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ .Revision }}-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run:
-          name: 'NPM INSTALL'
+          name: 'Npm Install'
           command: make web_install
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
@@ -34,7 +35,7 @@ jobs:
       - attach_workspace:
           at: /tmp/trading-card-manager
       - run:
-          name: 'CI CHECK'
+          name: 'CI Check'
           command: make web_ci-check
       - run:
           name: 'Sonar'

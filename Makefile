@@ -14,3 +14,6 @@ backend_%:
 
 web_%:
 	$(MAKE) -C web $*
+
+sonar-scanner:
+	sonar-scanner

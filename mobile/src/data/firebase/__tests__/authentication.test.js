@@ -11,7 +11,7 @@ import {
 } from '../authentication';
 import Firebase from 'react-native-firebase';
 
-const email = 'email';
+const email = 'email@email.com';
 const password = 'password';
 
 describe('Firebase Authentication Module', () => {
@@ -21,7 +21,9 @@ describe('Firebase Authentication Module', () => {
     expect(
       Firebase.auth().signInAndRetrieveDataWithEmailAndPassword,
     ).toHaveBeenCalledWith(email, password);
-    expect(user).toEqual(mockUserCredentials.user);
+    expect(user).toEqual(
+      new User(mockUserCredentials.user, mockUserCredentials.emailVerified),
+    );
   });
 
   it('calls signUpWithEmailAndPassword correctly', async () => {
@@ -30,7 +32,9 @@ describe('Firebase Authentication Module', () => {
     expect(
       Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword,
     ).toHaveBeenCalledWith(email, password);
-    expect(user).toEqual(mockUserCredentials.user);
+    expect(user).toEqual(
+      new User(mockUserCredentials.user, mockUserCredentials.emailVerified),
+    );
   });
 
   it('calls firebase send password reset email', async () => {
