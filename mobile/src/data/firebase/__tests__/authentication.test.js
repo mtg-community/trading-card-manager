@@ -18,7 +18,7 @@ const email = 'email';
 const password = 'password';
 
 // FIXME: remove coupling between auth and redux
-xdescribe('Firebase Authentication Module', () => {
+describe('Firebase Authentication Module', () => {
   beforeEach(() => {
     isEmail.mockReturnValue(true);
   });

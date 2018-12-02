@@ -9,6 +9,7 @@
   "scripts": {
     "android": "react-native run-android",
     "android:build": "bundle exec fastlane android build",
+    "android:dev-menu": "adb shell input keyevent 82",
     "ci:check": "scripts/ci-check.sh",
     "clean": "scripts/clean.sh",
     "eslint": "eslint src/**",

@@ -15,7 +15,7 @@ type PropsTypes = {
   user: ?User,
   redirectTo: string,
   navigator: Navigator,
-  loginUser: (string, string) => void,
+  loginUser: (string, string, (Error) => void) => void,
 };
 
 export class SignInContainer extends Component<PropsTypes> {
@@ -24,7 +24,12 @@ export class SignInContainer extends Component<PropsTypes> {
   };
 
   signIn = async (email: string, password: string): Promise<void> => {
-    await this.props.loginUser(email, password);
+    const onError = (error: Error) => {
+      const title = I18n.t('SIGN_IN/ERROR_TITLE');
+      Navigator.showModal(SCREENS.ERROR, title, { error, title });
+    };
+
+    await this.props.loginUser(email, password, onError);
   };
 
   navigateTo = (screenName: string, passProps: ?{}) => () => {
