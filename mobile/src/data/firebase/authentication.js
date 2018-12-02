@@ -9,24 +9,28 @@ export const signInWithEmailAndPassword = async (
   email: string,
   password: string,
 ): Promise<User> => {
-  const userCredentialPromise = await Firebase.auth().signInAndRetrieveDataWithEmailAndPassword(
+  const {
+    user,
+  } = await Firebase.auth().signInAndRetrieveDataWithEmailAndPassword(
     email,
     password,
   );
 
-  return new User(userCredentialPromise.user.email);
+  return new User(user.email, user.emailVerified);
 };
 
 export const signUpWithEmailAndPassword = async (
   email: string,
   password: string,
 ): Promise<User> => {
-  const userCredential = await Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(
+  const {
+    user,
+  } = await Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(
     email,
     password,
   );
 
-  return new User(userCredential.user.email);
+  return new User(user.email, user.emailVerified);
 };
 
 export const onAuthStateChanged = (
