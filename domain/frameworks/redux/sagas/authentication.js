@@ -3,7 +3,11 @@
 import { call, put } from 'redux-saga/effects';
 import { ReduxAdapter } from '../reduxAdapter';
 import { setUserAction } from '../index';
-import type { AuthUserAction, ForgotPasswordAction } from '../types';
+import type {
+  AuthUserAction,
+  ForgotPasswordAction,
+  LogOutAction,
+} from '../types';
 
 export function* signInSaga(action: AuthUserAction): Generator<*, *, *> {
   try {
@@ -14,8 +18,7 @@ export function* signInSaga(action: AuthUserAction): Generator<*, *, *> {
     );
     yield put(setUserAction(user));
   } catch (error) {
-    // const title = I18n.t('SIGN_IN/ERROR_TITLE');
-    // Navigator.showModal(SCREENS.ERROR, title, { error, title });
+    action.onError(error);
   }
 }
 
@@ -28,29 +31,28 @@ export function* signUpSaga(action: AuthUserAction): Generator<*, *, *> {
     );
     yield put(setUserAction(user));
   } catch (error) {
-    // const title = I18n.t('SIGN_UP/ERROR_TITLE');
-    // Navigator.showModal(SCREENS.ERROR, title, { error, title });
+    action.onError(error);
   }
 }
 
+// FIXME: ACTION THAT DOESN'T CHANGE THE STATE
 export function* forgotPasswordSaga(
   action: ForgotPasswordAction,
 ): Generator<*, *, *> {
   try {
     yield call(ReduxAdapter.authentication.forgotPassword, action.email);
-    // alert(I18n.t('PASSWORD_RECOVERY/ALERT/MESSAGE'));
+    action.onSuccess();
   } catch (error) {
-    // const title = I18n.t('SIGN_UP/ERROR_TITLE');
-    // Navigator.showModal(SCREENS.ERROR, title, { error, title });
+    action.onError(error);
   }
 }
 
-export function* logoutSaga(): Generator<*, *, *> {
+export function* logoutSaga(action: LogOutAction): Generator<*, *, *> {
   try {
     yield call(ReduxAdapter.authentication.signOut);
     yield put(setUserAction(null));
+    action.onSuccess && action.onSuccess();
   } catch (error) {
-    // const title = I18n.t('LOG_OUT/ERROR_TITLE');
-    // Navigator.showModal(SCREENS.ERROR, title, { error, title });
+    action.onError && action.onError(error);
   }
 }

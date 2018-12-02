@@ -10,13 +10,18 @@ import { PasswordForm } from './presentational/passwordForm';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 
 type PropsTypes = {
-  forgotPassword: string => void,
+  forgotPassword: (string, () => void, (Error) => void) => void,
   navigator: Navigator,
 };
 
 export class ForgotPasswordContainer extends Component<PropsTypes> {
   forgotPassword = async (email: string): Promise<void> => {
-    this.props.forgotPassword(email);
+    const onSuccess = () => alert(I18n.t('PASSWORD_RECOVERY/ALERT/MESSAGE'));
+    const onError = (error: Error) => {
+      const title = I18n.t('SIGN_UP/ERROR_TITLE');
+      Navigator.showModal(SCREENS.ERROR, title, { error, title });
+    };
+    this.props.forgotPassword(email, onSuccess, onError);
   };
 
   navigateBack = () => {
