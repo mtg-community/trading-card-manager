@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.13
+      - image: circleci/node:10.13@sha256:991bcf4d64fb0038ba55dc0660f9ecd2dc4482bcdf5197fa99df360e28b9fe3e
     working_directory: ~/trading-card-manager
     steps:
       - checkout
@@ -10,10 +10,19 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run: make web_install
+      - run:
+          name: 'NPM INSTALL'
+          command: make web_install
       - save_cache:
           paths:
-            - node_modules
+            - web/node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: make web_ci-check
-      - run: make sonar-scanner
+      - run:
+          name: 'CI CHECK'
+          command: make web_ci-check
+      - run:
+          name: 'Sonar'
+          command: make web_sonar-scanner
+      - store_artifacts:
+          path: web/coverage
+          prefix: web/coverage
