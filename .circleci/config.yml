@@ -17,6 +17,11 @@ jobs:
           paths:
             - web/node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+  test:
+    docker:
+      - image: circleci/node:10.13@sha256:991bcf4d64fb0038ba55dc0660f9ecd2dc4482bcdf5197fa99df360e28b9fe3e
+    working_directory: ~/trading-card-manager
+    steps:
       - run:
           name: 'CI CHECK'
           command: make web_ci-check
@@ -26,3 +31,9 @@ jobs:
       - store_artifacts:
           path: web/coverage
           prefix: web/coverage
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
