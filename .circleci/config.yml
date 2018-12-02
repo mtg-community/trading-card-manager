@@ -1,27 +1,38 @@
-version: 2
-jobs:
-  build:
+version: 2.1
+
+executors:
+  my-executor:
     docker:
       - image: circleci/node:10.13@sha256:991bcf4d64fb0038ba55dc0660f9ecd2dc4482bcdf5197fa99df360e28b9fe3e
-    working_directory: ~/trading-card-manager
+    working_directory: /tmp/trading-card-manager
+
+jobs:
+  build:
+    executor: my-executor
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+#      - restore_cache:
+#        keys:
+#          - v1-dependencies-{{ checksum "package.json" }}
+#          - v1-dependencies-
       - run:
           name: 'NPM INSTALL'
           command: make web_install
       - save_cache:
-          paths:
-            - web/node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+          paths:
+            - domain/node_modules
+            - web/node_modules
+            - node_modules
+      - persist_to_workspace:
+          root: /tmp/trading-card-manager
+          paths: .
+
   test:
-    docker:
-      - image: circleci/node:10.13@sha256:991bcf4d64fb0038ba55dc0660f9ecd2dc4482bcdf5197fa99df360e28b9fe3e
-    working_directory: ~/trading-card-manager
+    executor: my-executor
     steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
       - run:
           name: 'CI CHECK'
           command: make web_ci-check
@@ -31,9 +42,12 @@ jobs:
       - store_artifacts:
           path: web/coverage
           prefix: web/coverage
+
 workflows:
-  version: 2
+  version: 2.1
   build_and_test:
     jobs:
       - build
-      - test
+      - test:
+          requires:
+            - build
