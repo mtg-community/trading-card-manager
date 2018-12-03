@@ -1,3 +1,4 @@
+// @flow
 
 import React from 'react';
 import { User } from 'domain/entities/user';
@@ -21,7 +22,10 @@ describe('Firebase Authentication Module', () => {
       Firebase.auth().signInAndRetrieveDataWithEmailAndPassword,
     ).toHaveBeenCalledWith(email, password);
     expect(user).toEqual(
-      new User(mockUserCredentials.user, mockUserCredentials.emailVerified),
+      new User(
+        mockUserCredentials.user.email,
+        mockUserCredentials.user.emailVerified,
+      ),
     );
   });
 
@@ -32,7 +36,10 @@ describe('Firebase Authentication Module', () => {
       Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword,
     ).toHaveBeenCalledWith(email, password);
     expect(user).toEqual(
-      new User(mockUserCredentials.user, mockUserCredentials.emailVerified),
+      new User(
+        mockUserCredentials.user.email,
+        mockUserCredentials.user.emailVerified,
+      ),
     );
   });
 

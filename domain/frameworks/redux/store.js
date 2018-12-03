@@ -15,7 +15,8 @@ const reducers = {
 
 export const configureStore = () => {
   if (!ReduxAdapter.hasBeenInitialized()) {
-    throw new Error('Please, make sure you have initialized ReduxAdapter');
+    throw new Error
+    ('Please, make sure you have initialized ReduxAdapter');
   }
 
   const sagaMiddleware = createSagaMiddleware();

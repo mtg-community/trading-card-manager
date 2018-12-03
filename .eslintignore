@@ -1,1 +1,7 @@
-node_modules/
+**/coverage
+**/node_modules
+mobile/android
+mobile/ios
+mobile/fastlane
+**/package.json
+**/package-lock.json

@@ -27,7 +27,7 @@
     "prettier": "prettier --write 'src/**/*.js'",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest --verbose",
-    "test:coverage": "jest --silent --coverage && codecov",
+    "test:coverage": "jest --silent --coverage",
     "test:watch": "jest --watch"
   },
   "dependencies": {

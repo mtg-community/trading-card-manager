@@ -1,7 +1,7 @@
-coverage
-node_modules
-android
-ios
-fastlane
-package.json
-package-lock.json
+**/coverage
+**/node_modules
+mobile/android
+mobile/ios
+mobile/fastlane
+**/package.json
+**/package-lock.json

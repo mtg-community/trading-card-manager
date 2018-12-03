@@ -1,6 +1,6 @@
 // @flow strict
 
-import isEmail from 'validator/lib/isEmail';
+import { isEmail } from 'validator';
 
 export const INVALID_EMAIL_ERROR = 'Invalid Email';
 
@@ -9,7 +9,7 @@ export class Email {
 
   constructor(email: string) {
     if (!isEmail(email)) {
-      throw new Error(INVALID_EMAIL_ERROR);
+      throw new Error(`${INVALID_EMAIL_ERROR} ${email}`);
     }
 
     this._email = email;
