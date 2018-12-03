@@ -1,4 +1,3 @@
-// @flow
 
 import React from 'react';
 import { User } from 'domain/entities/user';
