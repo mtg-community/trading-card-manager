@@ -15,8 +15,7 @@ describe('Logger', () => {
 
   it('shows logs based on stdout', async () => {
     Logger.log(message);
-    expect(mockStdout.log)
-      .toHaveBeenCalledWith(message);
+    expect(mockStdout.log).toHaveBeenCalledWith(message);
   });
 
   it('shows warnings based on stdout', async () => {

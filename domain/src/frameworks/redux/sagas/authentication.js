@@ -2,7 +2,7 @@
 
 import { call, put } from 'redux-saga/effects';
 import { ReduxAdapter } from '../reduxAdapter';
-import { setUserAction } from '../index';
+import { setUserAction } from '..';
 import type {
   AuthUserAction,
   ForgotPasswordAction,

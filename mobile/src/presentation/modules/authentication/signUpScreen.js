@@ -2,13 +2,13 @@
 
 import React, { Component } from 'react';
 import I18n from 'react-native-i18n';
-import type { StateType } from '../../../../../domain/frameworks/redux/types';
-import { User } from '../../../../../domain/entities/user';
+import type { StateType } from '../../../../../domain/src/frameworks/redux/types';
+import { User } from '../../../../../domain/src/entities/user';
 import { Navigator } from '../../navigator';
 import {
   signUpAction,
   selectUser,
-} from '../../../../../domain/frameworks/redux';
+} from '../../../../../domain/src/frameworks/redux';
 import { SCREENS } from '../../screens';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';

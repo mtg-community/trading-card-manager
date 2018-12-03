@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView } from 'react-native';
 import I18n from 'react-native-i18n';
-import { Card } from '../../../../../../domain/entities';
+import { Card } from '../../../../../../domain/src/entities';
 import { CardImage } from './cardImage';
 import {
   FloatingActionButton,

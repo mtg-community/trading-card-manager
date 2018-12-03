@@ -6,8 +6,8 @@ import {
   counterSelector,
   decrementCounterAction,
   incrementCounterAction,
-} from 'domain/frameworks/redux/ducks/counterReducer';
-import { User } from 'domain/entities/user';
+} from 'domain/src/frameworks/redux/ducks/counterReducer';
+import { User } from 'domain/src/entities/user';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
 

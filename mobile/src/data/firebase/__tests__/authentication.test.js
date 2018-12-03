@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { User } from 'domain/entities/user';
+import { User } from 'domain/src/entities/user';
 import { mockUserCredentials } from '../__mocks__/react-native-firebase';
 import {
   signInWithEmailAndPassword,

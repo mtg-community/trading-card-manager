@@ -1,8 +1,8 @@
 // @flow strict
 
-import { ReduxAdapter } from 'domain/frameworks/redux';
-import { AuthenticationInteractor } from 'domain/useCases/authenticatorInteractor';
-import { CounterInteractor } from 'domain/useCases/counterInteractor';
+import { ReduxAdapter } from 'domain/src/frameworks/redux';
+import { AuthenticationInteractor } from 'domain/src/useCases/authenticatorInteractor';
+import { CounterInteractor } from 'domain/src/useCases/counterInteractor';
 import {
   forgotPassword,
   onAuthStateChanged,
