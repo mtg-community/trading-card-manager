@@ -14,7 +14,7 @@ import { SCREENS } from '../../screens';
 import {
   logOutAction,
   selectUser,
-} from 'domain/frameworks/redux/ducks/userReducer';
+} from 'domain/src/frameworks/redux/ducks/userReducer';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { Home } from './presentational/home';
 

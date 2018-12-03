@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import { store } from 'domain/frameworks/redux/__mocks__/stateMock';
+import { store } from 'domain/src/frameworks/redux/__mocks__/stateMock';
 import {
   decrementCounterAction,
   incrementCounterAction,
-} from 'domain/frameworks/redux';
+} from 'domain/src/frameworks/redux';
 
 import { HomeScreen, HomeContainer } from '../../homeScreen';
 import { Home } from '../home';
