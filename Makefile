@@ -2,6 +2,7 @@ setup-travis-environment:
 	chmod -R +x .travis-ci/
 	chmod -R +x mobile/scripts/
 	.travis-ci/restore-secrets.sh
+	npm install -g "npm@$(jq -r '.engines.npm' package.json)"
 	make install
 
 mobile_%:

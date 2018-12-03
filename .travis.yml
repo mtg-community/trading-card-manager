@@ -15,10 +15,9 @@ cache:
   - "$HOME/.npm"
   - "$HOME/.cache"
 before_install:
+  - nvm install && nvm use
   - make setup-travis-environment
 install:
-  - nvm install && nvm use
-  - npm install -g "npm@$(jq -r '.engines.npm' package.json)"
   - make mobile_install
 after_script:
   - make code-coverage
