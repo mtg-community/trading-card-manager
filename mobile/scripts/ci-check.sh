@@ -4,6 +4,6 @@
 set -e
 set -o pipefail
 
-npm run test
+npm run test:coverage
 npm run flow
 npm run eslint

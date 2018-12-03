@@ -3,7 +3,7 @@
 [include]
 
 [libs]
-
+../.flow-typed/global/
 
 [lints]
 sketchy-null=warn

@@ -15,5 +15,4 @@ build-ios: clean
 	bundle exec fastlane ios test
 
 sonar-scanner:
-	npm run test:coverage
 	sonar-scanner
