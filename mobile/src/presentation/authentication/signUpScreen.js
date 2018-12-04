@@ -9,8 +9,8 @@ import {
   signUpAction,
   selectUser,
 } from '../../../../domain/src/frameworks/redux';
-import { SCREENS } from '../screens';
-import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
+import { SCREENS } from '../navigation/screens';
+import { connectReduxAndNavigator } from '../navigation/hoc/screenHOC';
 import { EmailAndPasswordForm } from './dumb/emailAndPasswordForm';
 import { GoBackToSignInFooter } from './dumb/goBackToSignInFooter';
 

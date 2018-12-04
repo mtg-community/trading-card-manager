@@ -4,8 +4,8 @@ import React from 'react';
 import { Button, Text } from 'react-native';
 import { shallow } from 'enzyme';
 import { FormHeader } from '../../../authentication/dumb/formHeader';
-import { FormButton } from '../../../shared/dumb/buttons';
-import { BackButtonFloating } from '../../../shared/dumb/buttons/backButtonFloating';
+import { FormButton } from '../../../components/buttons';
+import { BackButtonFloating } from '../../../components/buttons/backButtonFloating';
 
 import { ErrorComponent } from '../errorComponent';
 

@@ -1,8 +1,8 @@
 // @flow strict strict
 
 import { StyleSheet } from 'react-native';
-import { Fonts } from '../../constants';
-import { Metrics } from '../../constants/metrics';
+import { Fonts } from '../../../../theme';
+import { Metrics } from '../../../../theme/metrics';
 
 export const styles = StyleSheet.create({
   container: {

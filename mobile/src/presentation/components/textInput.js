@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { TextInput as RNTextInput, StyleSheet } from 'react-native';
-import { Colors } from '../../theme/constants';
+import { Colors } from '../theme';
 
 import { styles } from './styles/textInput.style';
 

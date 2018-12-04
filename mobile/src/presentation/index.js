@@ -1,7 +1,7 @@
 // @flow strict
 
 import { initializeI18n } from './i18n';
-import { initializeNavigator } from './navigation/config';
+import { initializeNavigator } from './navigation';
 
 export const PresentationLayer = async () => {
   initializeI18n();

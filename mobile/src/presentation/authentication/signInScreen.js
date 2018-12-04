@@ -5,14 +5,14 @@ import I18n from 'react-native-i18n';
 import type { StateType } from '../../../../domain/src/frameworks/redux/types';
 import { User } from '../../../../domain/src/entities/user';
 import { Navigator } from '../navigation';
-import { SCREENS } from '../screens';
+import { SCREENS } from '../navigation/screens';
 import {
   selectUser,
   loginAction,
 } from '../../../../domain/src/frameworks/redux';
 import { EmailAndPasswordForm } from './dumb/emailAndPasswordForm';
 import { SignInFooter } from './dumb/signInFooter';
-import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
+import { connectReduxAndNavigator } from '../navigation/hoc/screenHOC';
 
 type PropsTypes = {
   user: ?User,

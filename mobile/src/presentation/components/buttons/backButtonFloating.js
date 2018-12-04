@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import { bool, func } from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Metrics, Colors } from '../../../theme/constants';
+import { Metrics, Colors } from '../../theme';
 import { Touchable } from '../touchable';
 
 const [backButtonName, backButtonSize, backButtonStyle] =

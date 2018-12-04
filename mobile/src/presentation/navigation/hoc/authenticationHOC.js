@@ -2,10 +2,10 @@
 
 import { connect } from 'react-redux';
 import { branch, renderComponent, compose, lifecycle } from 'recompose';
-import { User } from '../../../../../domain/src/entities/user';
-import { setUserListenerAction } from '../../../../../domain/src/frameworks/redux';
-import { Logger } from '../../../data/logger';
-import { onAuthStateChanged } from '../../../data/firebase/authentication';
+import { User } from 'domain/src/entities/user';
+import { setUserListenerAction } from 'domain/src/frameworks/redux';
+import { Logger } from 'data/logger';
+import { onAuthStateChanged } from 'data/firebase/authentication';
 import { SignInScreen } from 'presentation/authentication/signInScreen';
 
 const SET_USER_ACTION = 'userListener';

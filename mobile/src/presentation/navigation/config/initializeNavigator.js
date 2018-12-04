@@ -2,7 +2,7 @@
 
 import _ from 'lodash';
 import { Navigation } from 'react-native-navigation';
-import { SCREENS, type ScreenType } from 'presentation/screens';
+import { SCREENS, type ScreenType } from '../screens';
 import { setAppLayout } from './layout';
 import { withReduxProvider } from '../helpers/reduxIntegration';
 

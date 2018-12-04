@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Metrics, Colors } from '../../../theme/constants';
+import { Metrics, Colors } from '../../theme';
 import { styles } from './styles/buttons.style';
 import { func } from 'prop-types';
 import { StyleSheet, TouchableHighlight, Text, View } from 'react-native';

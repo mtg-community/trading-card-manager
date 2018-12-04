@@ -1,7 +1,7 @@
 // @flow strict
 
 import { Navigation } from 'react-native-navigation';
-import { SCREENS, INITIAL_SCREEN } from 'presentation/screens';
+import { SCREENS, INITIAL_SCREEN } from '../screens';
 import { createReactNavigationComponent } from '../helpers/navigationComponent';
 import { createStackLayout } from '../helpers/stackLayout';
 import {
