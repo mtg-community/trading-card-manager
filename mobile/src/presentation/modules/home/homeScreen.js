@@ -8,8 +8,8 @@ import {
   incrementCounterAction,
 } from 'domain/src/frameworks/redux/ducks/counterReducer';
 import { User } from 'domain/src/entities/user';
-import { Navigator } from '../../navigator';
-import { SCREENS } from '../../screens';
+import { Navigator } from 'presentation/navigator';
+import { SCREENS } from 'presentation/screens';
 
 import {
   logOutAction,

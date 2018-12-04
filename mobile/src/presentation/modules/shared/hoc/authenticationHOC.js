@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { branch, renderComponent, compose, lifecycle } from 'recompose';
 import { User } from 'domain/src/entities/user';
 import { setUserListenerAction } from 'domain/src/frameworks/redux';
-import { Logger } from '../../../../data/logger';
-import { onAuthStateChanged } from '../../../../data/firebase/authentication';
-import { SignInScreen } from '../../authentication/signInScreen';
+import { Logger } from 'data/logger';
+import { onAuthStateChanged } from 'data/firebase/authentication';
+import { SignInScreen } from 'presentation/modules/authentication/signInScreen';
 
 const SET_USER_ACTION = 'userListener';
 

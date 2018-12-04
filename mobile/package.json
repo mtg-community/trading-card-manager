@@ -31,9 +31,11 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "data": "file:src/data",
     "domain": "file:../domain",
     "lodash": "4.17.10",
     "moment": "2.22.2",
+    "presentation": "file:src/presentation",
     "prop-types": "15.6.2",
     "react": "16.3.1",
     "react-native": "0.55.4",

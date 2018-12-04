@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import I18n from 'react-native-i18n';
-import { Navigator } from '../../navigator';
+import { Navigator } from 'presentation/navigator';
 import { ErrorComponent } from './presentational/errorComponent';
-import { Logger } from '../../../data/logger';
+import { Logger } from 'data/logger';
 
 type PropsType = {
   title: string,

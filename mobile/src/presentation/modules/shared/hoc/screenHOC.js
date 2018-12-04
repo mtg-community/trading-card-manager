@@ -3,7 +3,7 @@
 import { connect } from 'react-redux';
 import mapProps from 'recompose/mapProps';
 import compose from 'recompose/compose';
-import { Navigator } from '../../../navigator';
+import { Navigator } from 'presentation/navigator';
 
 export const connectReduxAndNavigator = (
   mapStateToProps: ?{},
