@@ -16,7 +16,7 @@ import {
   selectUser,
 } from 'domain/src/frameworks/redux/ducks/userReducer';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
-import { Home } from './presentational/home';
+import { Home } from './dumb/home';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',

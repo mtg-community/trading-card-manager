@@ -8,7 +8,7 @@ import { CardImage } from './cardImage';
 import {
   FloatingActionButton,
   type ItemType,
-} from '../../shared/presentational/floatingActionButton';
+} from '../../shared/dumb/floatingActionButton';
 
 import { styles } from './styles/cardDetails.styles';
 

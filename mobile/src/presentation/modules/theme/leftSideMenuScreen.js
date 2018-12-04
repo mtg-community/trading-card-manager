@@ -3,7 +3,7 @@
 import React from 'react';
 import { Navigator, CENTER_COMPONENT_ID } from 'presentation/navigator';
 import { NAVIGATION_DRAWER_LINKS } from 'presentation/screens';
-import { LeftSideMenu } from './presentational/leftSideMenu';
+import { LeftSideMenu } from './dumb/leftSideMenu';
 
 type PropTypes = {
   navigator: Navigator,

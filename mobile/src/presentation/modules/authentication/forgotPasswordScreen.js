@@ -5,8 +5,8 @@ import I18n from 'react-native-i18n';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
 import { forgotPasswordAction } from '../../../../../domain/src/frameworks/redux';
-import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';
-import { PasswordForm } from './presentational/passwordForm';
+import { GoBackToSignInFooter } from './dumb/goBackToSignInFooter';
+import { PasswordForm } from './dumb/passwordForm';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 
 type PropsTypes = {

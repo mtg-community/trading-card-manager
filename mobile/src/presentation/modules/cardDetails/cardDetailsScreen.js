@@ -3,9 +3,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Card } from 'domain/src/entities';
-import { type ItemType } from '../shared/presentational/floatingActionButton';
+import { type ItemType } from '../shared/dumb/floatingActionButton';
 
-import { CardDetails } from './presentational/cardDetails';
+import { CardDetails } from './dumb/cardDetails';
 
 const fabItems: Array<ItemType> = [
   {

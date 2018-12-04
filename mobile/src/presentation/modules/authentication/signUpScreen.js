@@ -8,8 +8,8 @@ import { Navigator } from 'presentation/navigator';
 import { signUpAction, selectUser } from 'domain/src/frameworks/redux';
 import { SCREENS } from 'presentation/screens';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
-import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
-import { GoBackToSignInFooter } from './presentational/goBackToSignInFooter';
+import { EmailAndPasswordForm } from './dumb/emailAndPasswordForm';
+import { GoBackToSignInFooter } from './dumb/goBackToSignInFooter';
 
 type PropsTypes = {
   user: ?User,

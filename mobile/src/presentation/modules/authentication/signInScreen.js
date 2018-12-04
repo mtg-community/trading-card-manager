@@ -7,8 +7,8 @@ import { User } from 'domain/src/entities/user';
 import { Navigator } from '../../navigator';
 import { SCREENS } from '../../screens';
 import { selectUser, loginAction } from 'domain/src/frameworks/redux';
-import { EmailAndPasswordForm } from './presentational/emailAndPasswordForm';
-import { SignInFooter } from './presentational/signInFooter';
+import { EmailAndPasswordForm } from './dumb/emailAndPasswordForm';
+import { SignInFooter } from './dumb/signInFooter';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 
 type PropsTypes = {

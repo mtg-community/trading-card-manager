@@ -6,13 +6,10 @@ import PropTypes, { func } from 'prop-types';
 import I18n from 'react-native-i18n';
 
 import { FormHeader } from './formHeader';
-import {
-  TextInput,
-  type TextInputRefType,
-} from '../../shared/presentational/textInput';
-import { FormButton } from '../../shared/presentational/buttons';
-import { LoadingOverlay } from '../../shared/presentational/loadingOverlay';
-import { BackButtonFloating } from '../../shared/presentational/buttons/backButtonFloating';
+import { TextInput, type TextInputRefType } from '../../shared/dumb/textInput';
+import { FormButton } from '../../shared/dumb/buttons';
+import { LoadingOverlay } from '../../shared/dumb/loadingOverlay';
+import { BackButtonFloating } from '../../shared/dumb/buttons/backButtonFloating';
 
 import { styles } from './styles/form.style';
 import { Colors } from '../../theme/constants';
