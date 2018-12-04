@@ -12,7 +12,7 @@ import { HomeScreen } from './modules/home/homeScreen';
 import { authStateListener } from './modules/shared/hoc/authenticationHOC';
 import { LeftSideMenuScreen } from './modules/theme/leftSideMenuScreen';
 import { RightSideMenuScreen } from './modules/theme/rightSideMenuScreen';
-import { Screen } from './navigator/helpers/screen';
+import { Screen } from './navigation/helpers/screen';
 
 export const SCREENS: ScreenType = {
   HOME: new Screen(

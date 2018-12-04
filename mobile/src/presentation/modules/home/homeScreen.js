@@ -8,7 +8,7 @@ import {
   incrementCounterAction,
 } from 'domain/src/frameworks/redux/ducks/counterReducer';
 import { User } from 'domain/src/entities/user';
-import { Navigator } from 'presentation/navigator';
+import { Navigator } from '../../navigation';
 import { SCREENS } from 'presentation/screens';
 
 import {

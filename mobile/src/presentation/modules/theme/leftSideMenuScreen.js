@@ -1,7 +1,7 @@
 // @flow strict
 
 import React from 'react';
-import { Navigator, CENTER_COMPONENT_ID } from 'presentation/navigator';
+import { Navigator, CENTER_COMPONENT_ID } from '../../navigation';
 import { NAVIGATION_DRAWER_LINKS } from 'presentation/screens';
 import { LeftSideMenu } from './dumb/leftSideMenu';
 

@@ -4,7 +4,11 @@ import { Navigation } from 'react-native-navigation';
 import { SCREENS, INITIAL_SCREEN } from 'presentation/screens';
 import { createReactNavigationComponent } from '../helpers/navigationComponent';
 import { createStackLayout } from '../helpers/stackLayout';
-import { CENTER_COMPONENT_ID, LEFT_DRAWER_ID, RIGHT_DRAWER_ID } from '..';
+import {
+  CENTER_COMPONENT_ID,
+  LEFT_DRAWER_ID,
+  RIGHT_DRAWER_ID,
+} from 'presentation/navigation';
 
 export const setAppLayout = async () => {
   Navigation.setRoot({

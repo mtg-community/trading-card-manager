@@ -1,7 +1,7 @@
 // @flow strict
 
 import React from 'react';
-import { Navigator } from 'presentation/navigator';
+import { Navigator } from '../../navigation';
 
 type PropTypes = {
   navigator: Navigator,

@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import I18n from 'react-native-i18n';
-import { Navigator } from 'presentation/navigator';
+import { Navigator } from '../../navigation';
 import { SCREENS } from 'presentation/screens';
 import { forgotPasswordAction } from 'domain/src/frameworks/redux';
 import { GoBackToSignInFooter } from './dumb/goBackToSignInFooter';
