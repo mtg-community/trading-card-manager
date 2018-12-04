@@ -3,15 +3,15 @@
 import _ from 'lodash';
 import * as React from 'react';
 
-import { ForgotPasswordScreen } from './modules/authentication/forgotPasswordScreen';
-import { SignInScreen } from './modules/authentication/signInScreen';
-import { SignUpScreen } from './modules/authentication/signUpScreen';
-import { CardDetailsScreen } from './modules/cardDetails/cardDetailsScreen';
-import { ErrorScreen } from './modules/error/errorScreen';
-import { HomeScreen } from './modules/home/homeScreen';
-import { authStateListener } from './modules/shared/hoc/authenticationHOC';
-import { LeftSideMenuScreen } from './modules/theme/leftSideMenuScreen';
-import { RightSideMenuScreen } from './modules/theme/rightSideMenuScreen';
+import { ForgotPasswordScreen } from './authentication/forgotPasswordScreen';
+import { SignInScreen } from './authentication/signInScreen';
+import { SignUpScreen } from './authentication/signUpScreen';
+import { CardDetailsScreen } from './cardDetails/cardDetailsScreen';
+import { ErrorScreen } from './error/errorScreen';
+import { HomeScreen } from './home/homeScreen';
+import { authStateListener } from './shared/hoc/authenticationHOC';
+import { LeftSideMenuScreen } from './theme/leftSideMenuScreen';
+import { RightSideMenuScreen } from './theme/rightSideMenuScreen';
 import { Screen } from './navigation/helpers/screen';
 
 export const SCREENS: ScreenType = {

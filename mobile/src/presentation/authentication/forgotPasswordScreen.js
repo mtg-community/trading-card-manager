@@ -2,9 +2,9 @@
 
 import React, { Component } from 'react';
 import I18n from 'react-native-i18n';
-import { Navigator } from '../../navigation';
-import { SCREENS } from 'presentation/screens';
-import { forgotPasswordAction } from 'domain/src/frameworks/redux';
+import { Navigator } from '../navigation';
+import { SCREENS } from '../screens';
+import { forgotPasswordAction } from '../../../../domain/src/frameworks/redux';
 import { GoBackToSignInFooter } from './dumb/goBackToSignInFooter';
 import { PasswordForm } from './dumb/passwordForm';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';

@@ -6,15 +6,15 @@ import {
   counterSelector,
   decrementCounterAction,
   incrementCounterAction,
-} from 'domain/src/frameworks/redux/ducks/counterReducer';
-import { User } from 'domain/src/entities/user';
-import { Navigator } from '../../navigation';
-import { SCREENS } from 'presentation/screens';
+} from '../../../../domain/src/frameworks/redux/ducks/counterReducer';
+import { User } from '../../../../domain/src/entities/user';
+import { Navigator } from '../navigation';
+import { SCREENS } from '../screens';
 
 import {
   logOutAction,
   selectUser,
-} from 'domain/src/frameworks/redux/ducks/userReducer';
+} from '../../../../domain/src/frameworks/redux/ducks/userReducer';
 import { connectReduxAndNavigator } from '../shared/hoc/screenHOC';
 import { Home } from './dumb/home';
 

@@ -2,11 +2,8 @@
 
 import React from 'react';
 import { View, Text } from 'react-native';
-import { FormHeader } from 'presentation/modules/authentication/dumb/formHeader';
-import {
-  FormButton,
-  BackButtonFloating,
-} from 'presentation/modules/shared/dumb';
+import { FormHeader } from 'presentation/authentication/dumb/formHeader';
+import { FormButton, BackButtonFloating } from '../../shared/dumb';
 
 import { styles } from './styles/errorComponent.style';
 
