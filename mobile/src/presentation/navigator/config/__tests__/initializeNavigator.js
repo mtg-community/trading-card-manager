@@ -3,7 +3,7 @@
 import _ from 'lodash';
 import * as React from 'react';
 import * as ReactNavigation from 'react-native-navigation';
-import { SCREENS } from '../../../screens';
+import { SCREENS } from 'presentation/screens';
 import { initializeNavigator } from '../initializeNavigator';
 import { setAppLayout } from '../layout';
 import * as ReduxIntegration from '../../helpers/reduxIntegration';
