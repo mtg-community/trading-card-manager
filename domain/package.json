@@ -2,7 +2,7 @@
   "name": "domain",
   "version": "0.0.1",
   "private": false,
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "flow": "flow",
     "flow:coverage": "flow coverage",
