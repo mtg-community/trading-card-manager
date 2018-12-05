@@ -3,7 +3,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { FormHeader } from 'presentation/authentication/dumb/formHeader';
-import { FormButton, BackButtonFloating } from '../../components';
+import { FormButton, BackButtonFloating } from '../../shared/components';
 
 import { styles } from './styles/errorComponent.style';
 

@@ -1,8 +1,8 @@
 // @flow strict
 
 import I18n from 'react-native-i18n';
-import { en } from './en';
-import { pt } from './pt';
+import { en } from './languagues/english';
+import { pt } from './languagues/portuguese';
 
 export const initializeI18n = () => {
   I18n.fallbacks = true;

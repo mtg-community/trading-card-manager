@@ -2,12 +2,12 @@
 
 import React, { Component } from 'react';
 import I18n from 'react-native-i18n';
-import { Navigator } from '../navigation';
-import { SCREENS } from '../navigation/screens';
+import { Navigator } from '../shared/navigation';
+import { SCREENS } from '../shared/navigation/screens';
 import { forgotPasswordAction } from '../../../../domain/src/frameworks/redux';
 import { GoBackToSignInFooter } from './dumb/goBackToSignInFooter';
 import { PasswordForm } from './dumb/passwordForm';
-import { connectReduxAndNavigator } from '../navigation/hoc/screenHOC';
+import { connectReduxAndNavigator } from '../shared/navigation/hoc/screenHOC';
 
 type PropsTypes = {
   forgotPassword: (string, () => void, (Error) => void) => void,

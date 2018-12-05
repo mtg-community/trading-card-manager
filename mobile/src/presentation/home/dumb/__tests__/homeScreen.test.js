@@ -11,8 +11,8 @@ import {
 import { HomeScreen, HomeContainer } from '../../homeScreen';
 import { Home } from '../home';
 
-import { Navigator } from '../../../navigation';
-jest.mock('presentation/navigation');
+import { Navigator } from '../../../shared/navigation';
+jest.mock('../../../shared/navigation');
 
 describe('<HomeScreen />', () => {
   describe('react-redux connection', () => {

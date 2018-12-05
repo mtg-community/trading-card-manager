@@ -3,12 +3,12 @@
 import _ from 'lodash';
 import * as React from 'react';
 
-import { ForgotPasswordScreen } from '../authentication/forgotPasswordScreen';
-import { SignInScreen } from '../authentication/signInScreen';
-import { SignUpScreen } from '../authentication/signUpScreen';
-import { CardDetailsScreen } from '../cardDetails/cardDetailsScreen';
-import { ErrorScreen } from '../error/errorScreen';
-import { HomeScreen } from '../home/homeScreen';
+import { ForgotPasswordScreen } from '../../authentication/forgotPasswordScreen';
+import { SignInScreen } from '../../authentication/signInScreen';
+import { SignUpScreen } from '../../authentication/signUpScreen';
+import { CardDetailsScreen } from '../../cardDetails/cardDetailsScreen';
+import { ErrorScreen } from '../../error/errorScreen';
+import { HomeScreen } from '../../home/homeScreen';
 import { authStateListener } from './hoc/authenticationHOC';
 import { LeftSideMenuScreen } from './layout/leftSideMenuScreen';
 import { RightSideMenuScreen } from './layout/rightSideMenuScreen';

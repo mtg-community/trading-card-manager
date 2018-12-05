@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { Navigator } from 'presentation/navigation';
-import { Screen } from 'presentation/navigation/screens';
+import { Navigator } from '../..';
+import { Screen } from '../../screens';
 import { styles } from './styles/leftSideMenu.styles';
 
 type PropTypes = {

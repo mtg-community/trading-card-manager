@@ -6,13 +6,16 @@ import PropTypes, { func } from 'prop-types';
 import I18n from 'react-native-i18n';
 
 import { FormHeader } from './formHeader';
-import { TextInput, type TextInputRefType } from '../../components/textInput';
-import { FormButton } from '../../components/buttons';
-import { LoadingOverlay } from '../../components/loadingOverlay';
-import { BackButtonFloating } from '../../components/buttons/backButtonFloating';
+import {
+  TextInput,
+  type TextInputRefType,
+} from '../../shared/components/textInput';
+import { FormButton } from '../../shared/components/buttons';
+import { LoadingOverlay } from '../../shared/components/loadingOverlay';
+import { BackButtonFloating } from '../../shared/components/buttons/backButtonFloating';
 
 import { styles } from './styles/form.style';
-import { Colors } from '../../theme';
+import { Colors } from '../../shared/theme';
 
 type PropsType = {
   footer: ?React.Node,

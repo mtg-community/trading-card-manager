@@ -1,7 +1,7 @@
 // @flow strict
 
 import { StyleSheet } from 'react-native';
-import { Colors, Fonts } from '../../../theme';
+import { Colors, Fonts } from '../../../shared/theme';
 
 export const styles = StyleSheet.create({
   container: {

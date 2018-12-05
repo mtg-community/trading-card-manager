@@ -4,11 +4,11 @@ import PropTypes, { func } from 'prop-types';
 import * as React from 'react';
 import { View } from 'react-native';
 import I18n from 'react-native-i18n';
-import { BackButtonFloating } from '../../components/buttons/backButtonFloating';
-import { FormButton } from '../../components/buttons';
-import { LoadingOverlay } from '../../components/loadingOverlay';
-import { TextInput } from '../../components/textInput';
-import { Colors } from '../../theme';
+import { BackButtonFloating } from '../../shared/components/buttons/backButtonFloating';
+import { FormButton } from '../../shared/components/buttons';
+import { LoadingOverlay } from '../../shared/components/loadingOverlay';
+import { TextInput } from '../../shared/components/textInput';
+import { Colors } from '../../shared/theme';
 
 import { FormHeader } from './formHeader';
 
