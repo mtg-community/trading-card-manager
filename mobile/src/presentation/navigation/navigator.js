@@ -2,7 +2,7 @@
 
 import { Navigation } from 'react-native-navigation';
 import { createReactNavigationComponent, createStackLayout } from './helpers';
-import { Screen } from './helpers/screen';
+import { Screen } from './screens';
 
 type OpenObjectType = {};
 

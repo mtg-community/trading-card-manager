@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import _ from 'lodash';
 import * as React from 'react';
@@ -12,7 +12,22 @@ import { HomeScreen } from '../home/homeScreen';
 import { authStateListener } from './hoc/authenticationHOC';
 import { LeftSideMenuScreen } from './layout/leftSideMenuScreen';
 import { RightSideMenuScreen } from './layout/rightSideMenuScreen';
-import { Screen } from './helpers/screen';
+
+export class Screen {
+  route: string;
+  component: React.ComponentType<any>;
+  title: ?string;
+
+  constructor(
+    route: string,
+    component: React.ComponentType<any>,
+    title: ?string,
+  ) {
+    this.component = component;
+    this.route = route;
+    this.title = title;
+  }
+}
 
 export const SCREENS: ScreenType = {
   HOME: new Screen(

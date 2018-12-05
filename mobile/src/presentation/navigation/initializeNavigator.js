@@ -2,9 +2,9 @@
 
 import _ from 'lodash';
 import { Navigation } from 'react-native-navigation';
-import { SCREENS, type ScreenType } from '../screens';
-import { setAppLayout } from './layout';
-import { withReduxProvider } from '../helpers/reduxIntegration';
+import { SCREENS, type ScreenType } from './screens';
+import { setAppLayout } from './layout/layout';
+import { withReduxProvider } from './helpers/reduxIntegration';
 
 export const initializeNavigator = async () => {
   registerScreens();
