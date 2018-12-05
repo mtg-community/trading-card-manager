@@ -17,9 +17,9 @@ if [[ "$CI" != "" ]];
 #  nvm install
 #  nvm use
 #  npm install -g "npm@$(jq -r '.engines.npm' package.json)"
-    cd ../domain
+    cd ../core
     npm install
     cd ../mobile
 fi
 
-npm install ../domain
+npm install ../core

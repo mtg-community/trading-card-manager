@@ -31,8 +31,8 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "core": "file:../core",
     "data": "file:src/data",
-    "domain": "file:../domain",
     "lodash": "4.17.10",
     "moment": "2.22.2",
     "presentation": "file:src/presentation",

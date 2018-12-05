@@ -24,6 +24,6 @@ module.exports = {
   projects: [
     // esLintProject,
     mobileProject,
-    '<rootDir>/../domain/jest.config.js',
+    '<rootDir>/../core/jest.config.js',
   ],
 };

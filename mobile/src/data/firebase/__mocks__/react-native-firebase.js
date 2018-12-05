@@ -1,6 +1,6 @@
 // @flow
 
-import type { UserCredential } from 'domain/src/entities/userCredential';
+import type { UserCredential } from 'core/src/entities/userCredential';
 
 let Firebase = jest.mock('react-native-firebase');
 
