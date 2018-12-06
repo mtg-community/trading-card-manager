@@ -9,15 +9,15 @@ Ao comparar com diagrams tradicionais de arquitetura limpa, podemos explicar mel
 
 ### Módulo Core:
 Este módulo contem basicamente três diferentes conceitos que são brevemente explicados a seguir:
-*Entidades*, as regras de negócio do sistema, estão contidas aqui. 
+*Entidades*, as regras de negócio do sistema, estão contidas aqui.
 *Casos de uso*, as regras de negócio da aplicação (web e mobile), descritos neste módulo na forma de interfaces ~~apesar de javascript não dar suporte a interfaces~~. Cabendo à aplicação criar e manter a implementação concreta.
 *Adaptadores de Frameworks*, os módulos web e mobile precisam de "Glue code" para conectar os casos de uso com suas respectivas implementações e conectar as implementações com as framework usadas.
 
 ***Exemplos:***
-A **entidade** usuário precisa conter um email associado, isto é uma regra independente de aplicação. Não importa como um usuário vai ser criado no sistema, ele vai precisar de um email. Ao tratar esta lógica de negócio na entidade a gente evita de ter que verificar o email do usuário a cada interação com a entidade.  
+A **entidade** usuário precisa conter um email associado, isto é uma regra independente de aplicação. Não importa como um usuário vai ser criado no sistema, ele vai precisar de um email. Ao tratar esta lógica de negócio na entidade a gente evita de ter que verificar o email do usuário a cada interação com a entidade.
 O **caso de uso** de registrar um novo usuário é o mesmo, independente da plataforma que o usuário irá utilizar. As aplicações usam diferentes SDKs do Firebase para lidar com autenticação, Logo as implementações serão diferentes, mas isto não implica que a regra de negócio seja diferente.
-Os casos de uso do modulo core endereçam este tipo de situação. Vale lembrar que existirão casos de uso que somente serão usados em cenários específicos da aplicação não existindo intersecção entre aplicações. Estes casos de uso devem ser mantidos dentro do domínio da aplicação.  
-Para **adaptar os casos de uso ao framework** redux, é necessário uma certa lógica adicional e um tanto quando obscura. Certamente esta é a parte mais incomum e estranha em se adaptar Arquitetura Limpa e Reutilização de código à aplicações React-Redux.  
+Os casos de uso do modulo core endereçam este tipo de situação. Vale lembrar que existirão casos de uso que somente serão usados em cenários específicos da aplicação não existindo intersecção entre aplicações. Estes casos de uso devem ser mantidos dentro do domínio da aplicação.
+Para **adaptar os casos de uso ao framework** redux, é necessário uma certa lógica adicional e um tanto quanto obscura. Certamente esta é a parte mais incomum e estranha em se adaptar Arquitetura Limpa e Reutilização de código à aplicações React-Redux.
 
 ### Módulo Backend:
 O sistema irá necessitar de algumas funcionalidades em que necessitaremos de um backend. Apesar de seguirmos uma arquitetura backend-less suportado por Firebase, damos este nome ao módulo para facilitar o entendimento.
@@ -31,7 +31,7 @@ Os módulos consistem em três camadas: `domain`, `data`, `presentation`.
 ##### domain
 A camada de domínio é responsável por conectar o módulo core à aplicação, conectando os casos de usos com as respectivas implementações concretas e os frameworks com à aplicação. Caso algum caso de uso seja específico da aplicação aqui é o lugar.
 ##### data
-A cada de dados é responsável por criar as conexões com o mundo exterior, todos os dados que são acessados ou enviados para fora da aplicação passam por aqui.
+A camada de dados é responsável por criar as conexões com o mundo exterior, todos os dados que são acessados ou enviados para fora da aplicação passam por aqui.
 ##### presentation
 A camada de apresentação é aonde criamos a interface gráfica e por onde recebemos as interações com o usuário.
 Esta camada deve conter o mínimo de lógica possível, sendo expressamente proibido se comunicar diretamente com a camada de dados e/ou conter regras de negócio, e.g., Ao fazer um cadastro o usuário precisa preencher o email, logo se faz necessário uma validação de campo, esta validação é uma regra de negócio do sistema e deve ser corretamente modelada.
