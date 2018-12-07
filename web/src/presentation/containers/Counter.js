@@ -4,7 +4,7 @@ import {
   counterSelector,
   decrementCounterAction,
   incrementCounterAction,
-} from '../../core/frameworks/redux/ducks';
+} from 'core/src/frameworks/redux/ducks';
 import CounterComponent from '../components/Counter';
 
 export function CounterContainer(props) {
