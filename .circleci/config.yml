@@ -7,24 +7,21 @@ executors:
     working_directory: /tmp/trading-card-manager
 
 jobs:
-  build:
+  gitclone:
     executor: my-executor
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ .Revision }}-{{ checksum "package.json" }}
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+      - persist_to_workspace:
+          root: /tmp/trading-card-manager
+          paths: .
+  build:
+    executor: my-executor
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
       - run:
           name: 'Npm Install'
           command: make web_install
-      - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
-          paths:
-            - domain/node_modules
-            - web/node_modules
-            - node_modules
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths: .
@@ -47,6 +44,8 @@ jobs:
   deploy_firebase:
     executor: my-executor
     steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
       - run:
           name: 'Install'
           command: make backend_install
@@ -58,10 +57,16 @@ workflows:
   version: 2.1
   build_and_test-web:
     jobs:
-      - build
+      - gitclone
+      - build:
+          requires:
+            - gitclone
       - test:
           requires:
             - build
   build_and_deploy-backend:
     jobs:
-      - deploy_firebase
+      - gitclone
+      - deploy_firebase:
+          requires:
+            - gitclone
