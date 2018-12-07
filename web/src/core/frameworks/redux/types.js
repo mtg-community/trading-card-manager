@@ -3,11 +3,11 @@
 import { Counter } from '../../entities/counter';
 import { User } from '../../entities/user';
 
-export type ActionType = PayloadlessAction;
-
 export type PayloadlessAction = {
   type: string,
 };
+
+export type ActionType = PayloadlessAction;
 
 export type AuthUserAction = {
   type: string,

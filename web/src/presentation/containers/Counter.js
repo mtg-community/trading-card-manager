@@ -8,7 +8,6 @@ import {
 import CounterComponent from '../components/Counter';
 
 export function CounterContainer(props) {
-  console.log('this.props', props);
   return (
     <CounterComponent
       handleIncrement={() => props.increment(1)}

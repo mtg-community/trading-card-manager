@@ -18,8 +18,8 @@ export const configureStore = () => {
     throw new Error('Please, make sure you have initialized ReduxAdapter');
   }
 
-  // const sagaMiddleware = createSagaMiddleware();
-  const middleware = [];
+  const sagaMiddleware = createSagaMiddleware();
+  const middleware = [sagaMiddleware];
 
   if (process.env.NODE_ENV !== 'production') {
     middleware.push(createLogger());
@@ -29,6 +29,6 @@ export const configureStore = () => {
     combineReducers(reducers),
     applyMiddleware(...middleware),
   );
-  // sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
   return store;
 };

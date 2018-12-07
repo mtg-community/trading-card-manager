@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { InitializeDomainLayer } from './domain';
 import { App } from './presentation/App';
 import * as ServiceWorker from './serviceWorker';
-
-InitializeDomainLayer();
 
 ReactDOM.render(<App />, document.getElementById('react-app'));
 
