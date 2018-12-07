@@ -1,5 +1,5 @@
-
 install:
+	$(MAKE) -C ../core install
 	npm ci
 
 ci-check:
