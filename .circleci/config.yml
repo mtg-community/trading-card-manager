@@ -44,11 +44,24 @@ jobs:
           path: web/coverage
           prefix: web/coverage
 
+  deploy_firebase:
+    executor: my-executor
+    steps:
+      - run:
+          name: 'Install'
+          command: make backend_install
+      - run:
+          name: 'Deploy'
+          command: make backend_deploy
+
 workflows:
   version: 2.1
-  build_and_test:
+  build_and_test-web:
     jobs:
       - build
       - test:
           requires:
             - build
+  build_and_deploy-backend:
+    jobs:
+      - deploy_firebase
