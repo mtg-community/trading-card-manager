@@ -3,7 +3,8 @@
 import { Counter } from '../../entities/counter';
 import { User } from '../../entities/user';
 
-// eslint-disable-next-line
+export type ActionType = PayloadlessAction;
+
 export type PayloadlessAction = {
   type: string,
 };
