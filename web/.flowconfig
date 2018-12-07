@@ -1,0 +1,15 @@
+[ignore]
+
+[include]
+
+[libs]
+../.flow-typed/global/
+
+[lints]
+
+[options]
+
+[strict]
+
+[version]
+0.67.1

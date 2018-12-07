@@ -1,9 +1,12 @@
 
 install:
-	echo 'INSTALL'
+	npm ci
 
 ci-check:
-	echo 'CI CHECK'
+	npm run test
+
+build:
+	npm run build
 
 clean:
 	echo 'CLEAN'
