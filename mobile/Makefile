@@ -11,6 +11,9 @@ clean:
 build-android: clean
 	android/gradlew assembleRelease -p android/
 
+run-android:
+	npm run android
+
 build-ios: clean
 	bundle exec fastlane ios test
 
