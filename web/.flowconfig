@@ -3,11 +3,13 @@
 [include]
 
 [libs]
+;../core/
 ../.flow-typed/global/
 
 [lints]
 
 [options]
+;module.name_mapper='^core/src/\([-a-zA-Z0-9$_/]+\)$' -> '<PROJECT_ROOT>/../core/dist/\1'
 
 [strict]
 

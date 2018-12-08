@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import I18n from 'react-native-i18n';
-import type { StateType } from '../../../../core/src/frameworks/redux/types';
+import { type StateType } from '../../../../core/src/frameworks/redux/types';
 import { User } from '../../../../core/src/entities/user';
 import { Navigator } from '../shared/navigation';
 import { SCREENS } from '../shared/navigation/screens';

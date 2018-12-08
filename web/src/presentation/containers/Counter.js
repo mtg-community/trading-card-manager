@@ -1,10 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-  counterSelector,
-  decrementCounterAction,
-  incrementCounterAction,
-} from '../../core/frameworks/redux/ducks';
+import { Actions, Selectors } from 'core';
 import { CounterComponent } from '../components/Counter';
 
 export function CounterContainer({increment,decrement, counter}) {
@@ -18,12 +14,12 @@ export function CounterContainer({increment,decrement, counter}) {
 }
 
 const mapStateToProps = state => ({
-  counter: counterSelector(state),
+  counter: Selectors.counter(state),
 });
 
 const mapDispatchToProps = {
-  increment: incrementCounterAction,
-  decrement: decrementCounterAction,
+  increment: Actions.increment,
+  decrement: Actions.decrement,
 };
 
 export const Counter = connect(

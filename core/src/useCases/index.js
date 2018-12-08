@@ -1,2 +1,2 @@
-export * from './counterInteractor';
-export * from './authenticatorInteractor';
+export { CounterInteractor } from './counterInteractor';
+export { AuthenticationInteractor } from './authenticatorInteractor';
