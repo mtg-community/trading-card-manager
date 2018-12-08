@@ -5,14 +5,14 @@ import {
   decrementCounterAction,
   incrementCounterAction,
 } from '../../core/frameworks/redux/ducks';
-import CounterComponent from '../components/Counter';
+import { CounterComponent } from '../components/Counter';
 
-export function CounterContainer(props) {
+export function CounterContainer({increment,decrement, counter}) {
   return (
     <CounterComponent
-      handleIncrement={() => props.increment(1)}
-      handleDecrement={() => props.decrement(1)}
-      counter={props.counter}
+      handleIncrement={() => increment(1)}
+      handleDecrement={() => decrement(1)}
+      counter={counter}
     />
   );
 }
