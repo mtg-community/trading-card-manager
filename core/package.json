@@ -7,7 +7,8 @@
     "flow": "flow",
     "flow:coverage": "flow coverage",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --silent --coverage"
   },
   "dependencies": {
     "moment": "2.22.2",
