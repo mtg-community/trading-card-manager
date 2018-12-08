@@ -1,6 +1,3 @@
-const { resolve } = require('path');
-const root = resolve(__dirname, '..');
-
 const mobileProject = {
   preset: 'react-native',
   displayName: 'MOBILE',
@@ -12,18 +9,4 @@ const mobileProject = {
   modulePaths: ['<rootDir>/'],
 };
 
-const esLintProject = {
-  rootDir: root,
-  displayName: 'ESLINT',
-  runner: 'jest-runner-eslint',
-  testMatch: mobileProject.testMatch,
-  watchPlugins: ['jest-runner-eslint/watch-fix'],
-};
-
-module.exports = {
-  projects: [
-    // esLintProject,
-    mobileProject,
-    '<rootDir>/../core/jest.config.js',
-  ],
-};
+module.exports = mobileProject;
