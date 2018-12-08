@@ -8,6 +8,9 @@ ci-check:
 build:
 	npm run build
 
+deploy:
+	npm run deploy
+
 clean:
 	echo 'CLEAN'
 
