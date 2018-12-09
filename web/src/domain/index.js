@@ -1,5 +1,8 @@
-import { ReduxAdapter } from '../core/frameworks/redux';
-import { AuthenticationInteractor, CounterInteractor } from '../core/useCases';
+import {
+  ReduxAdapter,
+  AuthenticationInteractor,
+  CounterInteractor,
+} from 'core';
 
 export const InitializeDomainLayer = () => {
   ReduxAdapter.authentication = new AuthenticationInteractor({

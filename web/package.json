@@ -11,12 +11,13 @@
     "test:coverage": "jest --silent --coverage"
   },
   "dependencies": {
+    "core": "file:../core",
+    "moment": "2.22.2",
     "prop-types": "15.6.2",
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-redux": "6.0.0",
     "react-scripts": "2.1.1",
-    "moment": "2.22.2",
     "redux": "4.0.1",
     "redux-logger": "3.0.6",
     "redux-saga": "0.16.2",
@@ -26,6 +27,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "flow-bin": "0.67.1"
+    "flow-bin": "0.67.1",
+    "redux-mock-store": "1.5.3"
   }
 }
