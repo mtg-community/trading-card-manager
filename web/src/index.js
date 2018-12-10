@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './presentation/App';
 import * as ServiceWorker from './serviceWorker';
+require('dotenv').config();
 
 ReactDOM.render(<App />, document.getElementById('react-app'));
 
