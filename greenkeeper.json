@@ -1,15 +1,28 @@
 {
   "groups": {
-    "default": {
+    "ignore": ["flow-bin"],
+    "web": {
       "packages": [
-        "backend/functions/package.json",
-        "backend/package.json",
+        "core/package.json",
+        "package.json",
+        "web/package.json"
+      ]
+    },
+    "mobile": {
+      "packages": [
         "core/package.json",
         "mobile/package.json",
         "mobile/src/data/package.json",
         "mobile/src/presentation/package.json",
-        "package.json",
-        "web/package.json"
+        "package.json"
+      ],
+      "ignore": ["react", "react-native", "react-native-navigation"]
+    },
+    "backend": {
+      "packages": [
+        "backend/functions/package.json",
+        "backend/package.json",
+        "package.json"
       ]
     }
   }
