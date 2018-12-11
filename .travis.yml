@@ -1,6 +1,7 @@
 branches:
   only:
   - master
+  - /^greenkeeper/.*$/
 cache:
   bundler: true
   cocoapods: true
