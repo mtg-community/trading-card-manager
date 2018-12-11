@@ -5,7 +5,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
     "deploy": "firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
