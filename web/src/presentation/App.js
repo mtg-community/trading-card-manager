@@ -4,8 +4,11 @@ import { configureStore } from 'core';
 import './App.css';
 import { InitializeDomainLayer } from '../domain';
 import { Counter } from './containers/Counter';
+import {SignIn} from "./containers/SignIn";
+import {initializeFirebase} from "../config/firebase";
 
 InitializeDomainLayer();
+initializeFirebase();
 
 export function App() {
   const store = configureStore();
@@ -13,6 +16,7 @@ export function App() {
   return (
     <Provider store={store}>
       <Counter />
+        <SignIn/>
     </Provider>
   );
 }
