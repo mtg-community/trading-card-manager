@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "firebase-tools": "6.1.2",
-    "flow-bin": "0.67.1",
+    "flow-bin": "0.88.0",
     "redux-mock-store": "1.5.3"
   }
 }
