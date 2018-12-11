@@ -1,5 +1,7 @@
 # trading-card-manager
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mtg-community/trading-card-manager.svg)](https://greenkeeper.io/)
+
 ## Arquitetura
 O sistema consiste em quatro módulos: backend, core, mobile e web. Os módulos web e mobile seguem as camadas propostas por [Arquitetura Limpa](https://www.google.de/search?q=arquitetura+limpa&oq=arquitetura+limpa).
 ![module-explanation](https://user-images.githubusercontent.com/823150/49565897-1ff62300-f929-11e8-9e7c-bdbf05e236c4.png)
