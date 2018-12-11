@@ -1,0 +1,16 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "backend/functions/package.json",
+        "backend/package.json",
+        "core/package.json",
+        "mobile/package.json",
+        "mobile/src/data/package.json",
+        "mobile/src/presentation/package.json",
+        "package.json",
+        "web/package.json"
+      ]
+    }
+  }
+}
