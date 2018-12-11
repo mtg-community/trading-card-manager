@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -o xtrace
+
+npm cache clean --force
+rm -rf ./core/node_modules
+rm -rf ./core/package-lock.json
+rm -rf ./web/node_modules
+rm -rf ./web/package-lock.json
+# rm -rf ./mobile/node_modules
+# rm -rf ./mobile/package-lock.json
