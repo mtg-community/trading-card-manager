@@ -26,3 +26,6 @@ code-coverage:
 
 install:
 	npm ci
+
+clean:
+	./scripts/clean
