@@ -1,0 +1,10 @@
+.*
+*.md
+.git
+.idea
+.vscode
+.scannerwork
+mobile
+**/node_modules
+**/coverage
+**/dist

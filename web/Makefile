@@ -8,6 +8,9 @@ ci-check:
 build:
 	npm run build
 
+start:
+	npm start
+
 deploy:
 	npm run build
 	@npx firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}

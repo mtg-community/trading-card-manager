@@ -8,8 +8,8 @@ setup-travis-environment:
 mobile_%:
 	$(MAKE) -C mobile $*
 
-domain_%:
-	$(MAKE) -C domain $*
+core_%:
+	$(MAKE) -C core $*
 
 backend_%:
 	$(MAKE) -C backend $*
@@ -29,3 +29,9 @@ install:
 
 clean:
 	./scripts/clean
+
+docker_build-web:
+	docker build -t mtgx_web_image .
+
+docker_run-web:
+	docker run -v $(pwd):/usr/projects/trading-card-manager/ -p 3000:3000 --name mtgx_web_container mtgx_web_image
