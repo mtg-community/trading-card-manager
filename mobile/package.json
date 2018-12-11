@@ -1,11 +1,7 @@
 {
-  "name": "app",
+  "name": "mobile",
   "version": "0.0.1",
   "private": false,
-  "engines": {
-    "node": "10.13.0",
-    "npm": "6.4.1"
-  },
   "scripts": {
     "android": "react-native run-android",
     "android:build": "bundle exec fastlane android build",
@@ -31,7 +27,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "core": "file:../core",
+    "core": "0.0.1",
     "data": "file:src/data",
     "lodash": "4.17.10",
     "moment": "2.22.2",

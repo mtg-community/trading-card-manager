@@ -1,13 +1,10 @@
 {
   "name": "mtgx",
   "version": "0.0.1",
-  "private": false,
+  "private": true,
+  "workspaces": ["core", "web", "mobile", "backend"],
   "scripts": {
     "codecov": "codecov"
-  },
-  "engines": {
-    "node": "10.13.0",
-    "npm": "6.4.1"
   },
   "devDependencies": {
     "babel-eslint": "9.0.0",

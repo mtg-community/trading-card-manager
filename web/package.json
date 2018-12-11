@@ -1,5 +1,5 @@
 {
-  "name": "trading-card-manager",
+  "name": "web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "test:coverage": "jest --silent --coverage"
   },
   "dependencies": {
-    "core": "file:../core",
+    "core": "0.0.1",
     "moment": "2.22.2",
     "prop-types": "15.6.2",
     "react": "16.6.3",
