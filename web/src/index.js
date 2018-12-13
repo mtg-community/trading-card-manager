@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './presentation/App';
 import * as ServiceWorker from './serviceWorker';
-import {config} from "dotenv";
+import { config } from 'dotenv';
 
 config();
 

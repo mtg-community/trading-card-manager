@@ -1,13 +1,15 @@
-import {
+export {
   counterSelector,
   decrementCounterAction,
-  forgotPasswordAction,
   incrementCounterAction,
+} from './frameworks/redux/ducks/counterReducer';
+export {
+  forgotPasswordAction,
   loginAction,
   logOutAction,
   selectUser,
   signUpAction,
-} from './frameworks/redux/ducks';
+} from './frameworks/redux/ducks/userReducer';
 
 export { CounterInteractor, AuthenticationInteractor } from './useCases';
 export { ReduxAdapter } from './frameworks/redux/reduxAdapter';
@@ -22,17 +24,3 @@ export {
   Counter,
   Card,
 } from './entities';
-
-export const Actions = {
-  signIn: loginAction,
-  signUp: signUpAction,
-  logout: logOutAction,
-  forgotPassword: forgotPasswordAction,
-  increment: incrementCounterAction,
-  decrement: decrementCounterAction,
-};
-
-export const Selectors = {
-  counter: counterSelector,
-  user: selectUser,
-};
