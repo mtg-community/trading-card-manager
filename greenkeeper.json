@@ -1,12 +1,12 @@
 {
   "groups": {
-    "ignore": ["flow-bin"],
     "web": {
       "packages": [
         "core/package.json",
         "package.json",
         "web/package.json"
-      ]
+      ],
+      "ignore": ["flow-bin"]
     },
     "mobile": {
       "packages": [
@@ -16,7 +16,7 @@
         "mobile/src/presentation/package.json",
         "package.json"
       ],
-      "ignore": ["react", "react-native", "react-native-navigation"]
+      "ignore": ["react", "react-native", "react-native-navigation", "flow-bin"]
     },
     "backend": {
       "packages": [
