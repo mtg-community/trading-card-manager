@@ -3,10 +3,12 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/mtg-community/trading-card-manager.svg)](https://greenkeeper.io/)
 
 ## Arquitetura
-O sistema consiste em quatro módulos: backend, core, mobile e web. Os módulos web e mobile seguem as camadas propostas por [Arquitetura Limpa](https://www.google.de/search?q=arquitetura+limpa&oq=arquitetura+limpa).
+O sistema consiste em quatro módulos: backend, core, mobile e web. Os módulos
+ web e mobile seguem as camadas propostas por [Arquitetura Limpa](https://www.google.de/search?q=arquitetura+limpa&oq=arquitetura+limpa).  
 ![module-explanation](https://user-images.githubusercontent.com/823150/49565897-1ff62300-f929-11e8-9e7c-bdbf05e236c4.png)
 
-Ao comparar com diagrams tradicionais de arquitetura limpa, podemos explicar melhor como a nossa arquitetura se encaixa na original.
+Ao comparar com diagrams tradicionais de arquitetura limpa, podemos explicar 
+melhor como a nossa arquitetura se encaixa na original.  
 ![clean-architecture-diagram](https://user-images.githubusercontent.com/823150/49566359-a3644400-f92a-11e8-9486-e48003bfb7d7.png)
 
 ### Módulo Core:

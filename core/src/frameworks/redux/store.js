@@ -3,20 +3,20 @@
 import { combineReducers, applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
-import { ReduxAdapter } from './reduxAdapter';
-import { userReducer } from './ducks/userReducer';
-import { rootSaga } from './sagas';
 import { counterReducer } from './ducks/counterReducer';
-
-const reducers = {
-  counter: counterReducer,
-  user: userReducer,
-};
+import { userReducer } from './ducks/userReducer';
+import { ReduxAdapter } from './reduxAdapter';
+import { rootSaga } from './sagas';
 
 export const configureStore = () => {
   if (!ReduxAdapter.hasBeenInitialized()) {
     throw new Error('Please, make sure you have initialized ReduxAdapter');
   }
+
+  const reducers = {
+    counter: counterReducer,
+    user: userReducer,
+  };
 
   const sagaMiddleware = createSagaMiddleware();
   const middleware = [sagaMiddleware];

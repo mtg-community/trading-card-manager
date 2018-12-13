@@ -4,7 +4,6 @@
   "private": false,
   "main": "dist/index.js",
   "scripts": {
-    "postinstall": "npm run build",
     "flow": "flow",
     "flow:coverage": "flow coverage",
     "test": "jest",

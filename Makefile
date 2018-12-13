@@ -30,11 +30,19 @@ clean:
 install:
 	npm ci
 
-clean:
-	./scripts/clean
-
 docker_build-web:
 	docker build -t mtgx_web_image .
 
 docker_run-web:
-	docker run -v $(pwd):/usr/projects/trading-card-manager/ -p 3000:3000 --name mtgx_web_container mtgx_web_image
+	docker run \
+		-v $(pwd):/usr/projects/trading-card-manager/ \
+		-p 3000:3000 \
+		--tty --interactive \
+		--rm \
+		mtgx_web_image
+
+docker_remove-all-stopped:
+	docker rm $(docker ps -a -q)
+
+docker_delete-all-stopped:
+	docker rm $(docker ps -a -q)

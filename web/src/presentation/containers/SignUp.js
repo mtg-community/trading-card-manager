@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { Actions, Selectors } from 'core';
+import { signUpAction } from 'core';
 import {SignUpComponent} from '../components/SignUp';
 
 export class SignUpContainer extends Component{
@@ -32,7 +32,7 @@ export class SignUpContainer extends Component{
 }
 
 const mapDispatchToProps = {
-    signUp:Actions.signUpAction,
+    signUp: signUpAction,
 };
 
 export const SignUp = connect(

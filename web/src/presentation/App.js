@@ -1,14 +1,14 @@
+import { configureStore } from 'core';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { configureStore } from 'core';
-import './App.css';
+import { InitializeDataLayer } from '../data';
 import { InitializeDomainLayer } from '../domain';
+import './App.css';
 import { Counter } from './containers/Counter';
-import {SignIn} from "./containers/SignIn";
-import {initializeFirebase} from "../config/firebase";
+import { SignIn } from './containers/SignIn';
 
+InitializeDataLayer();
 InitializeDomainLayer();
-initializeFirebase();
 
 export function App() {
   const store = configureStore();
@@ -16,7 +16,7 @@ export function App() {
   return (
     <Provider store={store}>
       <Counter />
-        <SignIn/>
+      <SignIn />
     </Provider>
   );
 }

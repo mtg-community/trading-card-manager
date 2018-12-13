@@ -7,7 +7,6 @@ COPY ./Makefile ./
 COPY ./core ./core
 RUN make core_install
 
-
 # Checkout Web
 COPY ./web ./web
 RUN make web_install

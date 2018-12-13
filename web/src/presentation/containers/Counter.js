@@ -1,9 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Actions, Selectors } from 'core';
+import {
+  counterSelector,
+  incrementCounterAction,
+  decrementCounterAction,
+} from 'core';
 import { CounterComponent } from '../components/Counter';
 
-export function CounterContainer({increment,decrement, counter}) {
+export function CounterContainer({ increment, decrement, counter }) {
   return (
     <CounterComponent
       handleIncrement={() => increment(1)}
@@ -14,12 +18,12 @@ export function CounterContainer({increment,decrement, counter}) {
 }
 
 const mapStateToProps = state => ({
-  counter: Selectors.counter(state),
+  counter: counterSelector(state),
 });
 
 const mapDispatchToProps = {
-  increment: Actions.increment,
-  decrement: Actions.decrement,
+  increment: incrementCounterAction,
+  decrement: decrementCounterAction,
 };
 
 export const Counter = connect(
