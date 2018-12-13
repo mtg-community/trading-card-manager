@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Install Core
+cd ../core
+npm ci
+npm run build
+
+# Install Web
+npm install ../core

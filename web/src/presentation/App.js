@@ -2,7 +2,6 @@ import { configureStore } from 'core';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { InitializeDataLayer } from '../data';
-import { initializeFirebase } from '../data/firebase/firebase';
 import { InitializeDomainLayer } from '../domain';
 import './App.css';
 import { Counter } from './containers/Counter';
