@@ -10,6 +10,7 @@ export const signInWithEmailAndPassword = async (email, password) => {
   if (user && user.email) {
     return new User(user.email, user.emailVerified);
   } else {
+    console.log('user', user);
     throw new Error('Firebase return user without email');
   }
 };

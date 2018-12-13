@@ -4,14 +4,15 @@ import {
   CounterInteractor,
 } from 'core';
 import {
-    sendPasswordResetEmail,
-    signInWithEmailAndPassword, signOut,
-    signUpWithEmailAndPassword
-} from "../data/firebase/authentication";
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signOut,
+  signUpWithEmailAndPassword,
+} from '../data/firebase/authentication';
 
 export const InitializeDomainLayer = () => {
   ReduxAdapter.authentication = new AuthenticationInteractor({
-    signOut: signOut ,
+    signOut: signOut,
     signIn: signInWithEmailAndPassword,
     signUp: signUpWithEmailAndPassword,
     resetPassword: sendPasswordResetEmail,
