@@ -62,7 +62,7 @@
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-flowtype": "3.2.0",
     "eslint-plugin-prettier": "2.6.2",
-    "flow-bin": "0.67.1",
+    "flow-bin": "0.89.0",
     "flow-typed": "2.5.1",
     "jest": "23.6.0",
     "jest-enzyme": "6.0.2",
