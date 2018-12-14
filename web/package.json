@@ -24,7 +24,7 @@
     "redux-logger": "3.0.6",
     "redux-saga": "0.16.2",
     "validator": "10.9.0",
-    "firebase": "latest"
+    "firebase": "5.7.0"
   },
   "eslintConfig": {
     "extends": "react-app"
