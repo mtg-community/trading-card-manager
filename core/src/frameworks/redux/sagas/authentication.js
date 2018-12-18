@@ -7,7 +7,7 @@ import type {
   ForgotPasswordAction,
   LogOutAction,
 } from '../types';
-import {setUserAction} from "../ducks/userReducer";
+import { setUserAction } from '../ducks/userReducer';
 
 export function* signInSaga(action: AuthUserAction): Generator<*, *, *> {
   try {

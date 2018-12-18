@@ -1,7 +1,7 @@
 import { configureStore } from 'core';
 import React from 'react';
 import { Provider } from 'react-redux';
-import {Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { InitializeDataLayer } from '../data';
 import { InitializeDomainLayer } from '../domain';
 import './App.css';
@@ -19,10 +19,14 @@ export function App() {
 
   return (
     <Provider store={store}>
-      <Route exact path="/" component={Counter} ></Route>
-      <Route exact path="/signIn" component={SignIn} />
-      <Route exact path="/signUp" component={SignUp} />
-      <Route exact path="/private" component={Private}/>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Counter} ></Route>
+          <Route exact path="/signIn" component={SignIn} />
+          <Route exact path="/signUp" component={SignUp} />
+          <Route exact path="/private" component={Private}/>
+        </Switch>
+      </Router>
     </Provider>
   );
 }
