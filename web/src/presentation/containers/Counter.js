@@ -7,7 +7,7 @@ import {
 } from 'core';
 import { CounterComponent } from '../components/Counter';
 
-export function CounterContainer({ increment, decrement, counter }) {
+function CounterContainer({ increment, decrement, counter }) {
   return (
     <CounterComponent
       handleIncrement={() => increment(1)}

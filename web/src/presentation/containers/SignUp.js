@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { signUpAction } from 'core';
 import {SignUpComponent} from '../components/SignUp';
 
-export class SignUpContainer extends Component{
+class SignUpContainer extends Component{
     state = {
         email:"",
         password: ""
