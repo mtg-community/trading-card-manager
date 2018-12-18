@@ -2,12 +2,12 @@
 
 import { call, put } from 'redux-saga/effects';
 import { ReduxAdapter } from '../reduxAdapter';
-import { setUserAction } from '..';
 import type {
   AuthUserAction,
   ForgotPasswordAction,
   LogOutAction,
 } from '../types';
+import { setUserAction } from '../ducks/userReducer';
 
 export function* signInSaga(action: AuthUserAction): Generator<*, *, *> {
   try {

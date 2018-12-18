@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { loginAction, selectUser } from 'core';
 import { SignInComponent } from '../components/SignIn';
 
-export class SignInContainer extends Component {
+class SignInContainer extends Component {
   state = {
     email: '',
     password: '',
