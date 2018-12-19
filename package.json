@@ -17,7 +17,7 @@
     "eslint-plugin-flowtype": "3.2.0",
     "eslint-plugin-prettier": "3.0.0",
     "flow-bin": "0.67.1",
-    "husky": "1.2.0",
+    "husky": "1.2.1",
     "lint-staged": "8.1.0",
     "prettier": "1.15.3",
     "prettierrc": "0.0.0"
