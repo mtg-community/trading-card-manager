@@ -31,6 +31,7 @@ class SignInContainer extends Component {
         handleSubmit={this.handleSubmit}
         email={this.state.email}
         password={this.state.password}
+        user={this.props.user}
       />
     );
   }

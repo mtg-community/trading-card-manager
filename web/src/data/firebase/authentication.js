@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import { User } from 'core';
 
 export const signInWithEmailAndPassword = async (email, password) => {
+  await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
   const userCredential = await firebase
     .auth()
     .signInWithEmailAndPassword(email, password);
@@ -17,10 +18,10 @@ export const signUpWithEmailAndPassword = async (email, password) => {
   return new User(user.email, user.emailVerified);
 };
 
-export const sendPasswordResetEmail = async (email) => {
-  await firebase.auth().sendPasswordResetEmail(email);
-};
+export const sendPasswordResetEmail = async (email) => await firebase.auth().sendPasswordResetEmail(email);
 
-export const signOut = async () => {
-  firebase.auth().signOut();
+export const signOut = async () => await firebase.auth().signOut();
+
+export const onAuthStateChanged =  async (callback) => {
+  return firebase.auth().onAuthStateChanged(callback)
 };
