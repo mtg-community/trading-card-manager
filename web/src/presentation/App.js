@@ -21,9 +21,9 @@ export function App() {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/" component={Counter} ></Route>
-          <Route exact path="/signIn" component={SignIn} />
-          <Route exact path="/signUp" component={SignUp} />
+          <Route exact path="/" render={() => <Counter/>} />
+          <Route exact path="/signIn" render={() => <SignIn/>} />
+          <Route exact path="/signUp" render={() => <SignUp/>} />
           <Route exact path="/private" component={withAuthentication(Private)}/>
         </Switch>
       </Router>
