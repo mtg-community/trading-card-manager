@@ -15,10 +15,8 @@ const getStore = (): StoreType => {
   return store;
 };
 
-export function withReduxProvider<Props: {}>(
-  Component: React.ComponentType<Props>,
-): () => React.ComponentType<Props> {
-  const wrappedComponent = class extends React.Component<Props> {
+export function withReduxProvider(Component) {
+  const wrappedComponent = class extends React.Component {
     render() {
       return (
         <Provider store={getStore()}>
