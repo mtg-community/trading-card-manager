@@ -32,14 +32,14 @@ matrix:
       - build-tools-27.0.3
       - android-27
     script:
-    - make mobile_ci-check
-    - make mobile_build-android
+    # - make mobile_ci-check
+    # - make mobile_build-android
   - os: osx
     osx_image: xcode9.3
     podfile: ios/Podfile
     script:
-    - make mobile_ci-check
-    - make mobile_build-ios
+    # - make mobile_ci-check
+    # - make mobile_build-ios
 addons:
   ssh_known_hosts:
     - bitbucket.org
