@@ -7,7 +7,7 @@ KEY_PATH=".travis-ci/bitbucket_key"
 
 echo "Decrypting bitbucket ssh key..."
 openssl aes-256-cbc \
-  -k $bitbucket_key \
+  - k $bitbucket_key \
   # -K $encrypted_385968bf931c_key \
   # -iv $encrypted_385968bf931c_iv \
   -in "$KEY_PATH.enc" \
