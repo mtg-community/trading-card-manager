@@ -1,11 +1,12 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 export const SignInComponent = ({
   handleEmail,
   handlePassword,
   handleSubmit,
   password,
-  email,
+  email
 }) => {
   return (
     <form onSubmit={event => handleSubmit(event)}>
@@ -22,6 +23,7 @@ export const SignInComponent = ({
         onChange={event => handlePassword(event.target.value)}
       />
       <button type="submit">Submit</button>
+      <Link to="/private">Go to private</Link>
     </form>
   );
 };
