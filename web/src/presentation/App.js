@@ -8,8 +8,8 @@ import './App.css';
 import { Counter } from './containers/Counter';
 import { SignIn } from './containers/SignIn';
 import {SignUp} from "./containers/SignUp";
-import {Private} from "./containers/Private";
-
+import {Private} from "./components/Private";
+import { withAuthentication } from './hocs/withAuthentication';
 
 InitializeDataLayer();
 InitializeDomainLayer();
@@ -24,7 +24,7 @@ export function App() {
           <Route exact path="/" component={Counter} ></Route>
           <Route exact path="/signIn" component={SignIn} />
           <Route exact path="/signUp" component={SignUp} />
-          <Route exact path="/private" component={Private}/>
+          <Route exact path="/private" component={withAuthentication(Private)}/>
         </Switch>
       </Router>
     </Provider>
