@@ -4,14 +4,13 @@
 REPO_SSH_URL="git@bitbucket.org:eduardomoroni/trading-card-manager-secrets.git"
 SECRETS_PATH="trading-card-manager-secrets/secrets"
 KEY_PATH=".travis-ci/bitbucket_key"
+KEY_ENCODING_EXTENSION=".enc"
 
 echo "Decrypting bitbucket ssh key..."
-openssl aes-256-cbc \
+openssl aes-256-cbc -md md5 \
   -k $bitbucket_key \
-  # -K $encrypted_385968bf931c_key \
-  # -iv $encrypted_385968bf931c_iv \
-  -in "$KEY_PATH.enc" \
-  -out "$KEY_PATH" -d
+  -in "$KEY_PATH$KEY_ENCODING_EXTENSION" \
+  -out ${KEY_PATH}
 
 echo "Setting up SSH keys..."
 eval "$(ssh-agent)"

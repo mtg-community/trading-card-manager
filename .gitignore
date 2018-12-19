@@ -21,3 +21,6 @@ yarn-error.log
 .vscode/
 coverage/
 .scannerwork/
+
+
+.travis-ci/bitbucket_key
