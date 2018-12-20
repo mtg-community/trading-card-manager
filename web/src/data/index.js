@@ -1,7 +1,7 @@
 import { initializeFirebase } from './firebase';
 import { config } from 'dotenv';
 
-export const InitializeDataLayer = () => {
+export const initializeDataLayer = () => {
   config();
   initializeFirebase()
 };

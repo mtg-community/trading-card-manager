@@ -11,7 +11,7 @@ import {
   signUpWithEmailAndPassword,
 } from '../data/firebase/authentication';
 
-export const InitializeDomainLayer = () => {
+export const initializeDomainLayer = () => {
   ReduxAdapter.authentication = new AuthenticationInteractor({
     signOut: signOut,
     signIn: signInWithEmailAndPassword,

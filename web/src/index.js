@@ -1,7 +1,11 @@
-import { InitializeDataLayer } from './data';
-import { InitializeDomainLayer } from './domain';
-import { InitializePresentationLayer } from './presentation';
+import { initializeDataLayer } from './data';
+import { initializeDomainLayer } from './domain';
+import { initializePresentationLayer } from './presentation';
 
-InitializeDataLayer();
-const { store } = InitializeDomainLayer();
-InitializePresentationLayer(store);
+const initializeApplication = () => {
+  initializeDataLayer();
+  const { store } = initializeDomainLayer();
+  initializePresentationLayer(store);
+};
+
+initializeApplication();
