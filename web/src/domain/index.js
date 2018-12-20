@@ -2,6 +2,7 @@ import {
   ReduxAdapter,
   AuthenticationInteractor,
   CounterInteractor,
+  configureStore,
 } from 'core';
 import {
   sendPasswordResetEmail,
@@ -10,7 +11,7 @@ import {
   signUpWithEmailAndPassword,
 } from '../data/firebase/authentication';
 
-export const InitializeDomainLayer = () => {
+export const initializeDomainLayer = () => {
   ReduxAdapter.authentication = new AuthenticationInteractor({
     signOut: signOut,
     signIn: signInWithEmailAndPassword,
@@ -19,4 +20,8 @@ export const InitializeDomainLayer = () => {
     authStateListener: () => ({}),
   });
   ReduxAdapter.counter = new CounterInteractor(-5, 5);
+
+  const store = configureStore();
+
+  return { store }
 };

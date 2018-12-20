@@ -21,7 +21,7 @@ before_install:
 install:
   - make mobile_install
 after_script:
-  - make code-coverage
+#  - make code-coverage
 matrix:
   include:
   - os: linux
