@@ -1,14 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { App } from './presentation/App';
-import * as ServiceWorker from './serviceWorker';
-import { config } from 'dotenv';
+import { InitializeDataLayer } from './data';
+import { InitializeDomainLayer } from './domain';
+import { InitializePresentationLayer } from './presentation';
 
-config();
-
-ReactDOM.render(<App />, document.getElementById('react-app'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-ServiceWorker.unregister();
+InitializeDataLayer();
+const { store } = InitializeDomainLayer();
+InitializePresentationLayer(store);
