@@ -12,16 +12,21 @@ import {
 } from '../data/firebase/authentication';
 
 export const initializeDomainLayer = () => {
-  ReduxAdapter.authentication = new AuthenticationInteractor({
+  const counterInteractor = new CounterInteractor(-5, 5);
+  const authenticationInteractor = new AuthenticationInteractor({
     signOut: signOut,
     signIn: signInWithEmailAndPassword,
     signUp: signUpWithEmailAndPassword,
     resetPassword: sendPasswordResetEmail,
     authStateListener: () => ({}),
   });
-  ReduxAdapter.counter = new CounterInteractor(-5, 5);
 
-  const store = configureStore();
+  const reduxAdapter = new ReduxAdapter(
+    authenticationInteractor,
+    counterInteractor,
+  );
 
-  return { store }
+  const store = configureStore(reduxAdapter);
+
+  return { store };
 };
