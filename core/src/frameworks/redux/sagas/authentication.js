@@ -1,7 +1,7 @@
 // @flow strict
 
 import { call, put } from 'redux-saga/effects';
-import { ReduxAdapter } from '../reduxAdapter';
+import { reduxAdapter } from '../store';
 import type {
   AuthUserAction,
   ForgotPasswordAction,
@@ -12,7 +12,7 @@ import { setUserAction } from '../ducks/userReducer';
 export function* signInSaga(action: AuthUserAction): Generator<*, *, *> {
   try {
     const user = yield call(
-      ReduxAdapter.authentication.signIn,
+      reduxAdapter.authentication.signIn,
       action.email,
       action.password,
     );
@@ -25,7 +25,7 @@ export function* signInSaga(action: AuthUserAction): Generator<*, *, *> {
 export function* signUpSaga(action: AuthUserAction): Generator<*, *, *> {
   try {
     const user = yield call(
-      ReduxAdapter.authentication.signUp,
+      reduxAdapter.authentication.signUp,
       action.email,
       action.password,
     );
@@ -40,7 +40,7 @@ export function* forgotPasswordSaga(
   action: ForgotPasswordAction,
 ): Generator<*, *, *> {
   try {
-    yield call(ReduxAdapter.authentication.forgotPassword, action.email);
+    yield call(reduxAdapter.authentication.forgotPassword, action.email);
     action.onSuccess();
   } catch (error) {
     action.onError(error);
@@ -49,7 +49,7 @@ export function* forgotPasswordSaga(
 
 export function* logoutSaga(action: LogOutAction): Generator<*, *, *> {
   try {
-    yield call(ReduxAdapter.authentication.signOut);
+    yield call(reduxAdapter.authentication.signOut);
     yield put(setUserAction(null));
     action.onSuccess && action.onSuccess();
   } catch (error) {

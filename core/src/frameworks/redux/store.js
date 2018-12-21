@@ -8,27 +8,43 @@ import { userReducer } from './ducks/userReducer';
 import { ReduxAdapter } from './reduxAdapter';
 import { rootSaga } from './sagas';
 
-export const configureStore = () => {
-  if (!ReduxAdapter.hasBeenInitialized()) {
-    throw new Error('Please, make sure you have initialized ReduxAdapter');
+export let reduxAdapter = {};
+
+export const configureStore = (
+  adapter,
+  appSpecificReducers = {},
+  appSpecificMiddleware = [],
+) => {
+  if (adapter instanceof ReduxAdapter) {
+    reduxAdapter = adapter;
+  } else {
+    throw new Error('ReduxAdapter is required.');
   }
 
-  const reducers = {
+  const sharedReducers = {
     counter: counterReducer,
     user: userReducer,
   };
 
+  const reducers = {
+    ...sharedReducers,
+    ...appSpecificReducers,
+  };
+
   const sagaMiddleware = createSagaMiddleware();
-  const middleware = [sagaMiddleware];
+  const sharedMiddleware = [sagaMiddleware];
 
   if (process.env.NODE_ENV !== 'production') {
-    middleware.push(createLogger());
+    sharedMiddleware.push(createLogger());
   }
+
+  const middleware = [...sharedMiddleware, ...appSpecificMiddleware];
 
   const store = createStore(
     combineReducers(reducers),
     applyMiddleware(...middleware),
   );
+
   sagaMiddleware.run(rootSaga);
   return store;
 };

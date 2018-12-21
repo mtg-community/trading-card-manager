@@ -1,7 +1,7 @@
 // @flow strict
 
 import { Counter } from '../../../entities/counter';
-import { ReduxAdapter } from '../reduxAdapter';
+import { reduxAdapter } from '../store';
 import type { StateType } from '../types';
 
 type StateSliceType = Counter;
@@ -32,14 +32,14 @@ const incrementReducer = (
   counter: StateSliceType,
   action: ActionType,
 ): StateSliceType => {
-  return ReduxAdapter.counter.increment(counter, action.qty);
+  return reduxAdapter.counter.increment(counter, action.qty);
 };
 
 const decrementReducer = (
   counter: StateSliceType,
   action: ActionType,
 ): StateSliceType => {
-  return ReduxAdapter.counter.decrement(counter, action.qty);
+  return reduxAdapter.counter.decrement(counter, action.qty);
 };
 
 export const counterReducer = (
