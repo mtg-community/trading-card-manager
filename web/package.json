@@ -13,6 +13,7 @@
     "test:coverage": "jest --silent --coverage"
   },
   "dependencies": {
+    "@eduardomoroni/react-scripts": "2.1.1",
     "core": "file:../core",
     "firebase": "5.7.1",
     "moment": "2.22.2",
@@ -21,7 +22,6 @@
     "react-dom": "16.7.0",
     "react-redux": "6.0.0",
     "react-router-dom": "4.3.1",
-    "react-scripts": "2.1.1",
     "redux": "4.0.1"
   },
   "eslintConfig": {
