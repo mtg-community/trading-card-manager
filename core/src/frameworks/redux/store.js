@@ -1,6 +1,6 @@
 // @flow strict
 
-import { combineReducers, applyMiddleware, createStore } from 'redux';
+import { combineReducers, applyMiddleware, createStore, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
 import { counterReducer } from './ducks/counterReducer';
@@ -12,8 +12,8 @@ export let reduxAdapter = {};
 
 export const configureStore = (
   adapter,
-  appSpecificReducers = {},
   appSpecificMiddleware = [],
+  appSpecificReducers = {},
 ) => {
   if (adapter instanceof ReduxAdapter) {
     reduxAdapter = adapter;
@@ -40,9 +40,12 @@ export const configureStore = (
 
   const middleware = [...sharedMiddleware, ...appSpecificMiddleware];
 
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     combineReducers(reducers),
-    applyMiddleware(...middleware),
+    composeEnhancers(
+      applyMiddleware(...middleware),
+    ),
   );
 
   sagaMiddleware.run(rootSaga);
