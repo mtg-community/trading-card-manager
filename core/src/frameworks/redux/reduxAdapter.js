@@ -9,7 +9,7 @@ export class ReduxAdapter {
 
   constructor(
     authentication: AuthenticationInteractor,
-    counter: CounterInteractor,
+    counter: CounterInteractor = new CounterInteractor(-10, 10),
   ) {
     this.authentication = authentication;
     this.counter = counter;
