@@ -5,14 +5,11 @@ import { User } from '../entities/user';
 
 export const INVALID_EMAIL_ERROR = 'Invalid Email';
 
-type UnsubscribeFunction = () => void;
-
 export type AuthenticationService = {|
   signIn: (string, string) => Promise<User>,
   signUp: (string, string) => Promise<User>,
   signOut: () => Promise<void>,
   resetPassword: string => Promise<void>,
-  authStateListener: ((?User) => void) => UnsubscribeFunction,
 |};
 
 const validateEmail = (email: string) => {
@@ -44,7 +41,4 @@ export class AuthenticationInteractor {
     validateEmail(email);
     return this.service.resetPassword(email);
   };
-
-  onAuthStateChanged = (callback: (?User) => void): UnsubscribeFunction =>
-    this.service.authStateListener(callback);
 }
