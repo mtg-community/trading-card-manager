@@ -6,10 +6,16 @@ import './App.css';
 import {onAuthStateChanged} from "../data/firebase/authentication";
 
 export class App extends Component<{}> {
-  async componentDidMount(){
-    const teste = await onAuthStateChanged();
-    console.log(teste)
+  unsubscribe = () => {};
+
+  componentDidMount() {
+    this.unsubscribe = onAuthStateChanged((user) => console.log(user), console.error, console.info)
   }
+
+  componentWillUnmount () {
+    this.unsubscribe()
+  }
+
   render() {
     const {store} = this.props;
     return (
