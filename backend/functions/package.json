@@ -18,6 +18,6 @@
     "firebase-functions": "2.1.0"
   },
   "devDependencies": {
-    "firebase-tools": "6.1.2"
+    "firebase-tools": "6.2.0"
   }
 }
