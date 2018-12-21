@@ -1,15 +1,23 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { Router } from './Router';
 import { Provider } from 'react-redux';
 import './App.css';
+import {onAuthStateChanged} from "../data/firebase/authentication";
 
-export function App(props) {
-  return (
-    <Provider store={props.store}>
-      <Router />
-    </Provider>
-  );
+export class App extends Component<{}> {
+  async componentDidMount(){
+    const teste = await onAuthStateChanged();
+    console.log(teste)
+  }
+  render() {
+    const {store} = this.props;
+    return (
+      <Provider store={store}>
+        <Router/>
+      </Provider>
+    );
+  }
 }
 
 App.propTypes = {
