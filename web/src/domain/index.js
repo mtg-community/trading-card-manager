@@ -4,7 +4,7 @@ import {
   configureStore,
 } from 'core';
 import {
-  onAuthStateChanged, sendPasswordResetEmail,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut,
   signUpWithEmailAndPassword,
@@ -16,7 +16,6 @@ export const initializeDomainLayer = () => {
     signIn: signInWithEmailAndPassword,
     signUp: signUpWithEmailAndPassword,
     resetPassword: sendPasswordResetEmail,
-    authStateListener: onAuthStateChanged,
   });
 
   const reduxAdapter = new ReduxAdapter(
