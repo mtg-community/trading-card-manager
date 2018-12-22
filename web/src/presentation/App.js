@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Router } from './Router';
 import { Provider } from 'react-redux';
 import './App.css';
-import {onAuthStateChanged} from "../data/firebase/authentication";
+import { onAuthStateChanged } from '../data/firebase/authentication';
 
 export class App extends Component<{}> {
+
   unsubscribe = () => {};
 
   componentDidMount() {
@@ -17,7 +18,7 @@ export class App extends Component<{}> {
   }
 
   render() {
-    const {store} = this.props;
+    const { store } = this.props;
     return (
       <Provider store={store}>
         <Router/>
