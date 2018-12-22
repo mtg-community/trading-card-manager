@@ -28,7 +28,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "firebase-tools": "6.2.0",
+    "firebase-tools": "6.2.1",
     "flow-bin": "0.67.1",
     "redux-mock-store": "1.5.3"
   }
