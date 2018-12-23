@@ -9,6 +9,7 @@ import {
   signOut,
   signUpWithEmailAndPassword,
 } from '../data/firebase/authentication';
+import { logRocketMiddleware } from '../data/log-rocket';
 
 export const initializeDomainLayer = () => {
   const authenticationInteractor = new AuthenticationInteractor({
@@ -22,7 +23,8 @@ export const initializeDomainLayer = () => {
     authenticationInteractor,
   );
 
-  const store = configureStore(reduxAdapter);
+  const middleware = [logRocketMiddleware()];
+  const store = configureStore(reduxAdapter, middleware);
 
   return { store };
 };

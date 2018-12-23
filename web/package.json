@@ -16,6 +16,8 @@
     "@eduardomoroni/react-scripts": "2.1.1",
     "core": "file:../core",
     "firebase": "5.7.1",
+    "logrocket": "0.6.17",
+    "logrocket-react": "3.0.0",
     "moment": "2.22.2",
     "prop-types": "15.6.2",
     "react": "16.7.0",
