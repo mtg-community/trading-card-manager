@@ -22,7 +22,7 @@ yarn-error.log
 coverage/
 .scannerwork/
 
-
+trading-card-manager-secrets
 .travis-ci/bitbucket_key
 .circleci/bitbucket_key
 *bitbucket_key

@@ -7,11 +7,10 @@ KEY_PATH=".circleci/bitbucket_key"
 KEY_ENCODING_EXTENSION=".enc"
 
 echo "Decrypting bitbucket ssh key..."
-echo "$test_key"
-openssl enc -aes-256-cbc -d \
+openssl aes-256-cbc -d \
   -in "$KEY_PATH$KEY_ENCODING_EXTENSION" \
-  -out ${KEY_PATH} \
-  -k $bitbucket_key
+  -out "$KEY_PATH" \
+  -k "$BITBUCKET"
 
 echo "Setting up SSH keys..."
 eval "$(ssh-agent)"
