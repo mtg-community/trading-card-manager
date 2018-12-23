@@ -46,3 +46,6 @@ docker_remove-all-stopped:
 
 docker_delete-all-stopped:
 	docker rm $(docker ps -a -q)
+
+recover_web_secrets:
+	sh ./circleci/restore-secrets.sh

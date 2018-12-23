@@ -11,6 +11,9 @@ jobs:
     executor: my-executor
     steps:
       - checkout
+      - run:
+          name: 'Recovering Secrets'
+          command: make recover_web_secrets
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths: .
@@ -20,6 +23,9 @@ jobs:
       - attach_workspace:
           at: /tmp/trading-card-manager
       - run:
+          name: 'Print files on file system'
+          command: ls -la
+      - run:
           name: 'Npm Install'
           command: make web_install
       - run:
@@ -28,7 +34,6 @@ jobs:
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths: .
-
   test:
     executor: my-executor
     steps:
@@ -58,6 +63,7 @@ workflows:
   build_and_test-web:
     jobs:
       - gitclone
+          context: mtgx-web-context
       - build:
           requires:
             - gitclone
