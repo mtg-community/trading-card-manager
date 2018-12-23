@@ -24,3 +24,5 @@ coverage/
 
 
 .travis-ci/bitbucket_key
+.circleci/bitbucket_key
+*bitbucket_key

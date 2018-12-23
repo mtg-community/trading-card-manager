@@ -13,7 +13,7 @@ jobs:
       - checkout
       - run:
           name: 'Recovering Secrets'
-          command: make recover_web_secrets
+          command: sh ./.circleci/restore-secrets.sh
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths: .
@@ -62,7 +62,7 @@ workflows:
   version: 2.1
   build_and_test-web:
     jobs:
-      - gitclone
+      - gitclone:
           context: mtgx-web-context
       - build:
           requires:
