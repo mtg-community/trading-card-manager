@@ -42,7 +42,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  logIn: loginAction,
+  logIn: loginAction
 };
 
 export const SignIn = connect(

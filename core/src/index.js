@@ -9,6 +9,8 @@ export {
   logOutAction,
   selectUser,
   signUpAction,
+  setUserAction,
+  setUserListenerAction
 } from './frameworks/redux/ducks/userReducer';
 
 export { CounterInteractor, AuthenticationInteractor } from './useCases';
