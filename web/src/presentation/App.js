@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Router } from './Router';
 import { Provider } from 'react-redux';
 import './App.css';
+import { identifyUser } from '../data/log-rocket';
 import { onAuthStateChanged } from '../data/firebase/authentication';
 import { setUserListenerAction, User } from 'core';
 
@@ -10,9 +11,10 @@ export class App extends Component {
 
   unsubscribe = () => {};
 
-  setUser = ({email, emailVerified}) => {
-    const authedUser = new User(email, emailVerified);
+  setUser = (user) => {
+    const authedUser = new User(user.uid, user.email, { emailVerified: user.emailVerified});
     this.props.store.dispatch(setUserListenerAction(authedUser));
+    identifyUser(authedUser);
   };
 
   componentDidMount() {
