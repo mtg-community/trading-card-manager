@@ -1,4 +1,4 @@
-const api = require('./express');
+const api = require('./api');
 
 const initializePresentationLayer = () => {
   return { api }
