@@ -2,7 +2,7 @@ const { Router } = require('express');
 const router = Router();
 
 const { notFound } = require('./notFound');
-const { cardsRouter } = require('./cards');
+const { cardsRouter } = require('./card.route');
 const { errorHandler } = require('./errorHandler');
 
 const welcome = {

@@ -1,4 +1,4 @@
-const { CardModel } = require('../mongoose/models/card');
+const { CardModel } = require('../mongoose/models/card.model');
 
 const ALL = {};
 
