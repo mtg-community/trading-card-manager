@@ -1,5 +1,3 @@
-// @flow
-
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
@@ -14,7 +12,7 @@ const welcome = {
   message: 'If this is your first time? <br /> <b>Enjoy it!</b>',
 };
 
-app.get('/', (req, res) => res.send('Hello World'));
+app.get('/', (req, res) => res.send(process.env.TEST_SECRET || 'Failed'));
 app.get('/welcome', (req, res) => res.send(welcome));
 app.get('/:userId/welcome', (req, res) => res.send(welcome));
 
