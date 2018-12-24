@@ -6,6 +6,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
+    "@google-cloud/logging": "4.1.1",
     "firebase-tools": "6.2.1"
   }
 }
