@@ -20,10 +20,16 @@ cardsRouter.post('/cards/:multiverseId', async (req, res) => {
   }
 });
 
-cardsRouter.get('/cards/:multiverseId', (req, res) => {
-  const { multiverseId } = req.params;
-
-  res.status(200).json({ card: multiverseId });
+cardsRouter.get('/cards', async (req, res) => {
+  try {
+    const cards = await CardService.findAll();
+    res.status(200).json(cards);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error, message: "I'm too lazy to properly handle" + ' error' });
+  }
 });
 
 module.exports = { cardsRouter };
