@@ -9,10 +9,19 @@ const colors = [
   },
 ];
 
+const foreignDataSchema = new Schema({
+  flavorText: String,
+  language: String,
+  multiverseId: Number,
+  name: String,
+  text: String,
+  type: String,
+},);
+
 // https://mtgjson.com/docs.html
 const schema = new Schema({
   convertedManaCost: Number,
-  manaCost: Number,
+  manaCost: String,
   faceConvertedManaCost: Number,
   name: String,
   names: [String],
@@ -71,16 +80,7 @@ const schema = new Schema({
       enum: ['a', 'b', 'c'],
     },
   ],
-  foreignData: [
-    {
-      flavorText: String,
-      language: String,
-      multiverseId: Number,
-      name: String,
-      text: String,
-      type: String,
-    },
-  ],
+  foreignData: [foreignDataSchema],
   layout: [
     {
       type: String,

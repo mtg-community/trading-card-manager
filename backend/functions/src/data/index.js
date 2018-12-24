@@ -4,7 +4,7 @@ const FirebaseAdmin = require('./firebase/admin');
 
 const initializeDataLayer = () => {
   FirebaseAdmin.initialize();
-  // Mongoose.connect();
+  Mongoose.connect();
 };
 
 module.exports = {

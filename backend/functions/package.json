@@ -1,12 +1,13 @@
 {
   "name": "functions",
   "description": "Cloud Functions for Firebase",
+  "engines": { "node": "8" },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "firebase serve --only functions",
     "login": "firebase login --reauth",
     "shell": "firebase functions:shell",
-    "start": "npm run shell",
+    "start": "npm run serve",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },

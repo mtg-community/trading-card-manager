@@ -1,20 +1,10 @@
 const mongoose = require('mongoose');
 const Models = require('./models');
 
-let instance = null;
-
 const connect = () => {
-  const db = mongoose.connect(process.env.MONGO_URL);
-
-  db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', () => {
-    instance = db;
-  });
-  db.once('close', () => {
-    instance = null;
-  });
-
-  return db;
+  const url = process.env.MONGO_URL;
+  const options = { useNewUrlParser: true, useCreateIndex: true };
+  mongoose.connect(url, options);
 };
 
 const parserOptions = {
@@ -29,4 +19,4 @@ const parserOptions = {
   },
 };
 
-module.exports = { connect, parserOptions, instance, Models };
+module.exports = { connect, parserOptions, Models };
