@@ -1,6 +1,7 @@
 {
   "name": "firebase",
   "description": "Firebase Hosting and Functions",
+  "engines": { "node": "8" },
   "scripts": {
     "login": "firebase login --reauth",
     "deploy": "firebase deploy"

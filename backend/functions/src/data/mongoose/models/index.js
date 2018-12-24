@@ -1,4 +1,4 @@
-const { CardModel } = require('./card');
+const { CardModel } = require('./card.model');
 
 module.exports = {
   CardModel,
