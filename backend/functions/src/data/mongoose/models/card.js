@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { parserOptions } = require('../');
 const Schema = mongoose.Schema;
 
 const colors = [

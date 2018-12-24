@@ -5,6 +5,7 @@ let instance = null;
 
 const connect = () => {
   const db = mongoose.connect(process.env.MONGO_URL);
+
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', () => {
     instance = db;
@@ -28,4 +29,4 @@ const parserOptions = {
   },
 };
 
-module.exports = { connect, parserOptions, Models };
+module.exports = { connect, parserOptions, instance, Models };
