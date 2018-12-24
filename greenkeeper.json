@@ -3,7 +3,6 @@
     "web": {
       "packages": [
         "core/package.json",
-        "package.json",
         "web/package.json"
       ],
       "ignore": ["flow-bin"]
@@ -11,17 +10,18 @@
     "mobile": {
       "packages": [
         "core/package.json",
-        "mobile/package.json",
-        "mobile/src/data/package.json",
-        "mobile/src/presentation/package.json",
-        "package.json"
+        "mobile/package.json"
       ],
       "ignore": ["react", "react-native", "react-native-navigation", "flow-bin"]
     },
     "backend": {
       "packages": [
         "backend/functions/package.json",
-        "backend/package.json",
+        "backend/package.json"
+      ]
+    },
+    "root": {
+      "packages": [
         "package.json"
       ]
     }
