@@ -18,12 +18,14 @@
       "packages": [
         "backend/functions/package.json",
         "backend/package.json"
-      ]
+      ],
+      "ignore": ["flow-bin"]
     },
     "root": {
       "packages": [
         "package.json"
-      ]
+      ],
+      "ignore": ["flow-bin"]
     }
   }
 }
