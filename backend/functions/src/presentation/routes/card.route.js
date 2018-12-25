@@ -22,6 +22,18 @@ cardsRouter.post('/cards/:uuid', async (req, res) => {
   }
 });
 
+cardsRouter.post('/cards', async (req, res) => {
+  try {
+    const card = await CardService.saveAll(req.body);
+    res.status(201).json(card);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error, message: "I'm too lazy to properly handle" + ' error' });
+  }
+});
+
 cardsRouter.get('/cards', async (req, res) => {
   try {
     const cards = await CardService.findAll();
