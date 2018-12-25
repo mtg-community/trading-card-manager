@@ -4,8 +4,8 @@ const save = async card => {
   return CardRepository.save(card);
 };
 
-const findAll = async () => {
-  return CardRepository.findAll();
+const findAll = async (page, pageSize) => {
+  return CardRepository.findAll(page, pageSize);
 };
 
 // This method expects to receive https://mtgjson.com/json/AllCards.json

@@ -6,9 +6,7 @@ cardsRouter.post('/cards/:uuid', async (req, res) => {
   const { uuid } = req.params;
 
   if (!uuid || uuid !== req.body.uuid) {
-    res
-      .status(500)
-      .json({ message: 'Please, verify the UUID.' });
+    res.status(500).json({ message: 'Please, verify the UUID.' });
   }
 
   try {
@@ -36,7 +34,11 @@ cardsRouter.post('/cards', async (req, res) => {
 
 cardsRouter.get('/cards', async (req, res) => {
   try {
-    const cards = await CardService.findAll();
+    const { page, pageSize } = req.query;
+    const cards = await CardService.findAll(
+      page && Number(page),
+      pageSize && Number(pageSize),
+    );
     res.status(200).json(cards);
   } catch (error) {
     console.error(error);
