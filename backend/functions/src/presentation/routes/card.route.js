@@ -2,11 +2,13 @@ const CardService = require('../../domain/services/card.service');
 const { Router } = require('express');
 const cardsRouter = Router();
 
-cardsRouter.post('/cards/:multiverseId', async (req, res) => {
-  const { multiverseId } = req.params;
+cardsRouter.post('/cards/:uuid', async (req, res) => {
+  const { uuid } = req.params;
 
-  if (!req.body.multiverseId) {
-    req.body.multiverseId = multiverseId;
+  if (!uuid || uuid !== req.body.uuid) {
+    res
+      .status(500)
+      .json({ message: 'Please, verify the UUID.' });
   }
 
   try {
