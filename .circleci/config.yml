@@ -4,20 +4,23 @@ executors:
   sonar-scaner:
     docker:
       - image: eduardomoroni/sonar-scanner:ALPHA
-    working_directory: /tmp/trading-card-manager
+    working_directory: /tmp/trading-card-manager/web
   main:
     docker:
       - image: circleci/node:10.13@sha256:991bcf4d64fb0038ba55dc0660f9ecd2dc4482bcdf5197fa99df360e28b9fe3e
-    working_directory: /tmp/trading-card-manager
+    working_directory: /tmp/trading-card-manager/web
 
 jobs:
   gitclone:
+    working_directory: /tmp/trading-card-manager
     executor: main
     steps:
       - checkout
       - persist_to_workspace:
           root: /tmp/trading-card-manager
-          paths: .
+          paths:
+            - web
+            - core
 
   build:
     executor: main
@@ -26,13 +29,15 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'Npm Install'
-          command: make web_install
+          command: make install
       - run:
           name: 'Build'
-          command: make web_build
+          command: make build
       - persist_to_workspace:
           root: /tmp/trading-card-manager
-          paths: .
+          paths:
+            - web
+            - core
 
   sonar:
     executor: sonar-scaner
@@ -41,7 +46,7 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'Sonar'
-          command: make web_sonarqube
+          command: make sonarqube
 
   test:
     executor: main
@@ -50,13 +55,13 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'CI Check'
-          command: make web_ci-check
+          command: make ci-check
       - store_artifacts:
-          path: web/coverage
-          prefix: web/coverage
+          path: coverage
+          prefix: coverage
       - persist_to_workspace:
-          root: /tmp/trading-card-manager/
-          paths: web
+          root: /tmp/trading-card-manager/web
+          paths: coverage
 
   deploy:
     executor: main
@@ -65,7 +70,7 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'Deploy'
-          command: make web_deploy
+          command: make deploy
 
 workflows:
   version: 2.1
@@ -78,11 +83,12 @@ workflows:
       - test:
           requires:
             - build
-      - sonar:
-          context: mtgx-web-context
-          requires:
-            - test
+#      - sonar:
+#          context: mtgx-web-context
+#          requires:
+#            - test
       - deploy:
+          context: mtgx-web-context
           requires:
             - test
           filters:
