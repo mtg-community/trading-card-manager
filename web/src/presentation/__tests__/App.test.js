@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { initializeDomainLayer } from '../../domain';
+import { initializeTranslationLayer } from '../../translation';
 import { App } from '../App';
-import { initializeTranslationLayer } from '../internalization';
 
 jest.mock('../../data/firebase/authentication', () => ({
   onAuthStateChanged: jest.fn(() => () => {}),
