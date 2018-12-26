@@ -18,5 +18,7 @@ deploy:
 clean:
 	echo 'CLEAN'
 
-sonar-scanner:
-	echo 'SONAR SCANNER'
+sonarqube:
+	sonar-scanner \
+		-Dproject.settings=sonar-scanner.properties \
+    -Dsonar.login=${SONAR_CLOUD_TOKEN}
