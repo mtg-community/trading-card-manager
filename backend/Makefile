@@ -6,10 +6,13 @@ deploy:
 	@npx firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}
 
 deploy-functions:
-	cd functions && npm run deploy
+	# cd functions && npm run deploy
 
 ci-check:
 	$(MAKE) -C ./functions ci-check
 
 install:
 	$(MAKE) -C ./functions install
+
+sonarqube:
+	$(MAKE) -C ./functions sonarqube

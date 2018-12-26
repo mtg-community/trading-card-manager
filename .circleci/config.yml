@@ -60,7 +60,7 @@ executors:
     environment:
       - CI: true
     docker:
-      - image: circleci/node:8.14.1
+      - image: circleci/node@sha256:c6881bf3c9365341052e09f98fa61c0246810023787cbf1480ac30ba347ef033
     working_directory: /tmp/trading-card-manager/backend
 
 jobs:
@@ -127,7 +127,6 @@ jobs:
           name: 'Deploy'
           command: make deploy
 
-
   build-backend:
     executor: backend
     steps:
@@ -154,16 +153,17 @@ jobs:
           prefix: coverage
       - persist_to_workspace:
           root: /tmp/trading-card-manager
-          paths: backend/coverage
+          paths: backend/functions/coverage
 
   sonar-backend:
     executor: sonar-scaner
+    working_directory: /tmp/trading-card-manager/backend
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
       - run:
           name: 'Sonar'
-          command: make backend_sonarqube
+          command: make sonarqube
 
   deploy-backend:
     executor: backend
@@ -172,4 +172,4 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'Deploy'
-          command: deploy-functions
+          command: make deploy-functions
