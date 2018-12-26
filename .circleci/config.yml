@@ -60,7 +60,7 @@ executors:
     environment:
       - CI: true
     docker:
-      - image: circleci/node:6.11
+      - image: circleci/node:8.14.1
     working_directory: /tmp/trading-card-manager/backend
 
 jobs:
