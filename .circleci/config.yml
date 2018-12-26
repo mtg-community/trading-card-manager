@@ -39,7 +39,7 @@ jobs:
           command: make web_ci-check
       - run:
           name: 'Sonar'
-          command: make web_sonar-scanner
+          command: make web_sonarqube
       - store_artifacts:
           path: web/coverage
           prefix: web/coverage

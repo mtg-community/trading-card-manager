@@ -18,6 +18,6 @@ build-ios: clean
 	bundle exec fastlane ios test
 
 sonarqube:
-	sonar-scanner \
+	@sonar-scanner \
 		-Dproject.settings=sonar-scanner.properties \
     -Dsonar.login=${SONAR_CLOUD_TOKEN}
