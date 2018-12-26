@@ -4,18 +4,24 @@ executors:
   sonar-scaner:
     docker:
       - image: eduardomoroni/sonar-scanner:ALPHA
-    working_directory: /tmp/trading-card-manager/web
-  main:
+    working_directory: /tmp/trading-card-manager
+  frontend:
     environment:
       - CI: true
     docker:
       - image: circleci/node:10.13@sha256:991bcf4d64fb0038ba55dc0660f9ecd2dc4482bcdf5197fa99df360e28b9fe3e
     working_directory: /tmp/trading-card-manager/web
+  backend:
+    environment:
+      - CI: true
+    docker:
+      - image: circleci/node:6.11
+    working_directory: /tmp/trading-card-manager/backend
 
 jobs:
   gitclone:
     working_directory: /tmp/trading-card-manager
-    executor: main
+    executor: frontend
     steps:
       - checkout
       - persist_to_workspace:
@@ -25,7 +31,7 @@ jobs:
             - core
 
   build-frontend:
-    executor: main
+    executor: frontend
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
@@ -42,7 +48,7 @@ jobs:
             - core
 
   test-frontend:
-    executor: main
+    executor: frontend
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
@@ -63,10 +69,43 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'Sonar'
-          command: make sonarqube
+          command: make web_sonarqube
 
   deploy-frontend:
-    executor: main
+    executor: frontend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Deploy'
+          command: make deploy
+
+  test-backend:
+    executor: backend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'CI Check'
+          command: make ci-check
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - persist_to_workspace:
+          root: /tmp/trading-card-manager
+          paths: backend/coverage
+
+  sonar-backend:
+    executor: sonar-scaner
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Sonar'
+          command: make backend_sonarqube
+
+  deploy-backend:
+    executor: backend
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
@@ -93,6 +132,24 @@ workflows:
           context: mtgx-web-context
           requires:
             - test-frontend
+          filters:
+            branches:
+              only:
+                - master
+  Backend-Build-Pipeline:
+    jobs:
+      - gitclone
+      - test-backend:
+          requires:
+            - gitclone
+      - sonar-backend:
+          context: mtgx-web-context
+          requires:
+            - test-backend
+      - deploy-backend:
+          context: mtgx-web-context
+          requires:
+            - test-backend
           filters:
             branches:
               only:
