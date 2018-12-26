@@ -24,7 +24,7 @@ jobs:
             - web
             - core
 
-  build:
+  build-frontend:
     executor: main
     steps:
       - attach_workspace:
@@ -41,7 +41,7 @@ jobs:
             - web
             - core
 
-  test:
+  test-frontend:
     executor: main
     steps:
       - attach_workspace:
@@ -56,7 +56,7 @@ jobs:
           root: /tmp/trading-card-manager
           paths: web/coverage
 
-  sonar:
+  sonar-frontend:
     executor: sonar-scaner
     steps:
       - attach_workspace:
@@ -65,7 +65,7 @@ jobs:
           name: 'Sonar'
           command: make sonarqube
 
-  deploy:
+  deploy-frontend:
     executor: main
     steps:
       - attach_workspace:
@@ -76,23 +76,23 @@ jobs:
 
 workflows:
   version: 2.1
-  build_and_test-web:
+  Frontend-Build-Pipeline:
     jobs:
       - gitclone
-      - build:
+      - build-frontend:
           requires:
             - gitclone
-      - test:
+      - test-frontend:
           requires:
-            - build
-      - sonar:
+            - build-frontend
+      - sonar-frontend:
           context: mtgx-web-context
           requires:
-            - test
-      - deploy:
+            - test-frontend
+      - deploy-frontend:
           context: mtgx-web-context
           requires:
-            - test
+            - test-frontend
           filters:
             branches:
               only:
