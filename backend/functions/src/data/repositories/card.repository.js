@@ -2,8 +2,10 @@ const { CardModel } = require('../mongoose/models/card.model');
 
 const ALL = {};
 
-const save = async card => {
-  return new CardModel(card).save();
+const upsert = async card => {
+  const options = { upsert: true, new: true };
+  const query = { uuid: card.uuid };
+  return CardModel.findOneAndUpdate(query, card, options);
 };
 
 const findAll = async () => {
@@ -11,6 +13,6 @@ const findAll = async () => {
 };
 
 module.exports = {
-  save,
+  save: upsert,
   findAll,
 };
