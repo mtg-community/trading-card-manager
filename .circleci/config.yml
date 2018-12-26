@@ -41,15 +41,6 @@ jobs:
             - web
             - core
 
-  sonar:
-    executor: sonar-scaner
-    steps:
-      - attach_workspace:
-          at: /tmp/trading-card-manager
-      - run:
-          name: 'Sonar'
-          command: make sonarqube
-
   test:
     executor: main
     steps:
@@ -62,8 +53,17 @@ jobs:
           path: coverage
           prefix: coverage
       - persist_to_workspace:
-          root: /tmp/trading-card-manager/web
-          paths: coverage
+          root: /tmp/trading-card-manager
+          paths: web/coverage
+
+  sonar:
+    executor: sonar-scaner
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Sonar'
+          command: make sonarqube
 
   deploy:
     executor: main
@@ -85,10 +85,10 @@ workflows:
       - test:
           requires:
             - build
-#      - sonar:
-#          context: mtgx-web-context
-#          requires:
-#            - test
+      - sonar:
+          context: mtgx-web-context
+          requires:
+            - test
       - deploy:
           context: mtgx-web-context
           requires:
