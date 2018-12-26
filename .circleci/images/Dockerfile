@@ -24,7 +24,3 @@ RUN mv sonar-scanner-3.2.0.1227-linux sonar-scanner
 
 ENV SONAR_RUNNER_HOME=/root/sonar-scanner
 ENV PATH $PATH:/root/sonar-scanner/bin
-
-LABEL com.circleci.preserve-entrypoint=true
-
-ENTRYPOINT root

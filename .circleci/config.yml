@@ -1,25 +1,26 @@
 version: 2.1
 
 executors:
-  sonar-scanner-executor:
+  sonar-scaner:
     docker:
       - image: eduardomoroni/sonar-scanner:ALPHA
     working_directory: /tmp/trading-card-manager
-  my-executor:
+  main:
     docker:
       - image: circleci/node:10.13@sha256:991bcf4d64fb0038ba55dc0660f9ecd2dc4482bcdf5197fa99df360e28b9fe3e
     working_directory: /tmp/trading-card-manager
 
 jobs:
   gitclone:
-    executor: my-executor
+    executor: main
     steps:
       - checkout
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths: .
+
   build:
-    executor: my-executor
+    executor: main
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
@@ -34,7 +35,7 @@ jobs:
           paths: .
 
   sonar:
-    executor: sonar-scanner-executor
+    executor: sonar-scaner
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
@@ -43,7 +44,7 @@ jobs:
           command: make web_sonarqube
 
   test:
-    executor: my-executor
+    executor: main
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
@@ -58,7 +59,7 @@ jobs:
           paths: .
 
   deploy:
-    executor: my-executor
+    executor: main
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
@@ -77,6 +78,10 @@ workflows:
       - test:
           requires:
             - build
+      - sonar:
+          context: mtgx-web-context
+          requires:
+            - test
       - deploy:
           requires:
             - test
