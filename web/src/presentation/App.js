@@ -6,6 +6,7 @@ import './App.css';
 import { identifyUser } from '../data/log-rocket';
 import { onAuthStateChanged } from '../data/firebase/authentication';
 import { setUserListenerAction, User } from 'core';
+import { IntlProvider } from 'react-intl';
 
 export class App extends Component {
 
@@ -26,10 +27,13 @@ export class App extends Component {
   }
 
   render() {
-    const { store } = this.props;
+    const { store, locale, messages } = this.props;
+    console.log(messages);
     return (
       <Provider store={store}>
-        <Router/>
+        <IntlProvider locale={locale} messages={messages} >
+          <Router/>
+        </IntlProvider>
       </Provider>
     );
   }
