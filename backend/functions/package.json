@@ -4,6 +4,7 @@
   "engines": { "node": "8" },
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "serve": "firebase serve --only functions",
     "login": "firebase login --reauth",
