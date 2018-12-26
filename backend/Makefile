@@ -10,3 +10,6 @@ deploy-functions:
 
 ci-check:
 	$(MAKE) -C ./functions ci-check
+
+install:
+	$(MAKE) -C ./functions install

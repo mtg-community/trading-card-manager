@@ -1,5 +1,50 @@
 version: 2.1
 
+workflows:
+  version: 2.1
+  Frontend-Build-Pipeline:
+    jobs:
+      - gitclone
+      - build-frontend:
+          requires:
+            - gitclone
+      - test-frontend:
+          requires:
+            - build-frontend
+      - sonar-frontend:
+          context: mtgx-web-context
+          requires:
+            - test-frontend
+      - deploy-frontend:
+          context: mtgx-web-context
+          requires:
+            - test-frontend
+          filters:
+            branches:
+              only:
+                - master
+  Backend-Build-Pipeline:
+    jobs:
+      - gitclone
+      - build-backend:
+          requires:
+            - gitclone
+      - test-backend:
+          requires:
+            - build-backend
+      - sonar-backend:
+          context: mtgx-web-context
+          requires:
+            - test-backend
+      - deploy-backend:
+          context: mtgx-web-context
+          requires:
+            - test-backend
+          filters:
+            branches:
+              only:
+                - master
+
 executors:
   sonar-scaner:
     docker:
@@ -59,11 +104,6 @@ jobs:
       - store_artifacts:
           path: coverage
           prefix: coverage
-#      - persist_to_workspace:
-#          root: /tmp/trading-card-manager
-#          paths:
-#            - web
-#            - core
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths: web/coverage
@@ -87,14 +127,25 @@ jobs:
           name: 'Deploy'
           command: make deploy
 
-  test-backend:
+
+  build-backend:
     executor: backend
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
       - run:
-          name: 'ls'
-          command: ls -la
+          name: 'Npm Install'
+          command: make install
+      - persist_to_workspace:
+          root: /tmp/trading-card-manager
+          paths:
+            - backend
+
+  test-backend:
+    executor: backend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
       - run:
           name: 'CI Check'
           command: make ci-check
@@ -121,46 +172,4 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'Deploy'
-          command: make deploy
-
-workflows:
-  version: 2.1
-  Frontend-Build-Pipeline:
-    jobs:
-      - gitclone
-      - build-frontend:
-          requires:
-            - gitclone
-      - test-frontend:
-          requires:
-            - build-frontend
-      - sonar-frontend:
-          context: mtgx-web-context
-          requires:
-            - test-frontend
-      - deploy-frontend:
-          context: mtgx-web-context
-          requires:
-            - test-frontend
-          filters:
-            branches:
-              only:
-                - master
-  Backend-Build-Pipeline:
-    jobs:
-      - gitclone
-      - test-backend:
-          requires:
-            - gitclone
-      - sonar-backend:
-          context: mtgx-web-context
-          requires:
-            - test-backend
-      - deploy-backend:
-          context: mtgx-web-context
-          requires:
-            - test-backend
-          filters:
-            branches:
-              only:
-                - master
+          command: deploy-functions
