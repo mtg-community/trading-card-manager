@@ -29,6 +29,7 @@ jobs:
           paths:
             - web
             - core
+            - backend
 
   build-frontend:
     executor: frontend
@@ -75,7 +76,7 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'Sonar'
-          command: make web_sonarqube
+          command: make sonarqube
 
   deploy-frontend:
     executor: frontend
@@ -91,6 +92,9 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
+      - run:
+          name: 'ls'
+          command: ls -la
       - run:
           name: 'CI Check'
           command: make ci-check
