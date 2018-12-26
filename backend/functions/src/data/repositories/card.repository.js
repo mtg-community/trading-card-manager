@@ -8,8 +8,22 @@ const upsert = async card => {
   return CardModel.findOneAndUpdate(query, card, options);
 };
 
-const findAll = async () => {
-  return CardModel.find(ALL);
+const findAll = async (page = 1, pageSize = 25, sort = {}) => {
+  const { docs, total, limit, pages } = await CardModel.paginate(ALL, {
+    limit: pageSize,
+    sort,
+    page,
+  });
+
+  return {
+    data: docs,
+    metadata: {
+      pageSize: limit,
+      total,
+      page,
+      pages,
+    },
+  };
 };
 
 module.exports = {

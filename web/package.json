@@ -8,9 +8,9 @@
     "build": "react-scripts build",
     "deploy": "firebase deploy",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
-    "flow": "flow",
-    "test:coverage": "jest --silent --coverage"
+    "flow": "flow"
   },
   "dependencies": {
     "@eduardomoroni/react-scripts": "2.1.1",

@@ -3,7 +3,7 @@ install:
 	npm ci
 
 ci-check:
-	npm run test
+	npm run test:coverage
 
 build:
 	npm run build
