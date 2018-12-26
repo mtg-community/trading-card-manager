@@ -3,7 +3,8 @@
   "description": "Cloud Functions for Firebase",
   "engines": { "node": "8" },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "serve": "firebase serve --only functions",
     "login": "firebase login --reauth",
     "shell": "firebase functions:shell",
@@ -21,6 +22,7 @@
     "mongoose": "5.4.0"
   },
   "devDependencies": {
-    "firebase-tools": "6.2.1"
+    "firebase-tools": "6.2.1",
+    "jest": "23.6.0"
   }
 }
