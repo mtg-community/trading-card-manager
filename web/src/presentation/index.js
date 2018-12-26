@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
+import { addLocaleData } from 'react-intl';
+import en from 'react-intl/locale-data/en';
+import pt from 'react-intl/locale-data/pt'
 import * as ServiceWorker from './serviceWorker';
+import { allMessages } from './internalization/messages';
 
-export const initializePresentationLayer = (store,locale,messages) => {
+export const initializePresentationLayer = (store) => {
+  addLocaleData([...en, ...pt]);
+  const locale = window.navigator.language.split('-')[0];
+  const messages =  allMessages[locale];
   ReactDOM.render(<App store={store} locale={locale} messages={messages} />, document.getElementById('react-app'));
 
   // If you want your app to work offline and load faster, you can change
