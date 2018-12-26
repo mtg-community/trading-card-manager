@@ -58,12 +58,18 @@ jobs:
       - store_artifacts:
           path: coverage
           prefix: coverage
+#      - persist_to_workspace:
+#          root: /tmp/trading-card-manager
+#          paths:
+#            - web
+#            - core
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths: web/coverage
 
   sonar-frontend:
     executor: sonar-scaner
+    working_directory: /tmp/trading-card-manager/web
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager

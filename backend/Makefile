@@ -7,3 +7,6 @@ deploy:
 
 deploy-functions:
 	cd functions && npm run deploy
+
+ci-check:
+	$(MAKE) -C ./functions ci-check
