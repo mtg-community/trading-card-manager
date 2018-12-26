@@ -3,7 +3,11 @@ const Models = require('./models');
 
 const connect = () => {
   const url = process.env.MONGO_URL;
-  const options = { useNewUrlParser: true, useCreateIndex: true };
+  const options = {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  };
   mongoose.connect(
     url,
     options,

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 const { parserOptions } = require('../');
 const Schema = mongoose.Schema;
 
@@ -124,6 +125,7 @@ const schema = new Schema(
 );
 
 const collectionName = 'Card';
+schema.plugin(mongoosePaginate);
 
 module.exports = {
   CardModel: mongoose.model(collectionName, schema),
