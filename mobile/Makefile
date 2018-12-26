@@ -17,5 +17,7 @@ run-android:
 build-ios: clean
 	bundle exec fastlane ios test
 
-sonar-scanner:
-	sonar-scanner
+sonarqube:
+	@sonar-scanner \
+		-Dproject.settings=sonar-scanner.properties \
+    -Dsonar.login=${SONAR_CLOUD_TOKEN}

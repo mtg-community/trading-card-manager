@@ -46,3 +46,8 @@ docker_remove-all-stopped:
 
 docker_delete-all-stopped:
 	docker rm $(docker ps -a -q)
+
+sonarqube:
+	@sonar-scanner \
+		-Dproject.settings=sonar-scanner.properties \
+    -Dsonar.login=${SONAR_CLOUD_TOKEN}
