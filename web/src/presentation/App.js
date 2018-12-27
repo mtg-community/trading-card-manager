@@ -37,7 +37,7 @@ export class App extends Component {
   render() {
     const { store, messages } = this.props;
     const { locale } = this.state;
-    console.log(messages[locale]);
+
     return (
       <Provider store={store}>
         <IntlProvider locale={locale} messages={messages[locale]} >
