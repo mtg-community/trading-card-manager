@@ -21,7 +21,12 @@ export class App extends Component {
   unsubscribe = () => {};
 
   setUser = (user) => {
-    const authedUser = new User(user.uid, user.email, { emailVerified: user.emailVerified});
+    let authedUser;
+
+    if (user) {
+      authedUser = new User(user.uid, user.email, { emailVerified: user.emailVerified});
+    }
+
     this.props.store.dispatch(setUserListenerAction(authedUser));
     identifyUser(authedUser);
   };
