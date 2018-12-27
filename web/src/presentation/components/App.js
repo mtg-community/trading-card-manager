@@ -5,7 +5,7 @@ import { IntlProvider } from 'react-intl';
 import { Router } from '../Router';
 import PropTypes from 'prop-types';
 import React,{ Component } from 'react';
-import '../App.css'
+import './styles/App.css'
 
 export class AppComponent extends Component {
 
