@@ -6,14 +6,15 @@ import {
   decrementCounterAction,
 } from 'core';
 import { CounterComponent } from '../components/Counter';
+import { setLocaleAction } from '../../domain/redux/ducks/localeReducer';
 
-function CounterContainer({ increment, decrement, counter, handleChangeLocale }) {
+function CounterContainer({ increment, decrement, counter, changeLocale }) {
   return (
     <CounterComponent
       handleIncrement={() => increment(1)}
       handleDecrement={() => decrement(1)}
       counter={counter}
-      handleChangeLocale={() => handleChangeLocale('en')}
+      handleChangeLocaleToPt = { () => changeLocale('pt')}
     />
   );
 }
@@ -25,6 +26,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   increment: incrementCounterAction,
   decrement: decrementCounterAction,
+  changeLocale: setLocaleAction
 };
 
 export const Counter = connect(

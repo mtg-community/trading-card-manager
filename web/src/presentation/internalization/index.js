@@ -5,7 +5,5 @@ import { allMessages } from './messages';
 
 export const initializeInternalization = () => {
   addLocaleData([...en, ...pt]);
-  const locale = window.navigator.language.split('-')[0];
-
-  return { locale, messages: allMessages };
+  return { messages: allMessages };
 };
