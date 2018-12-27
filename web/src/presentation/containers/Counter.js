@@ -7,12 +7,13 @@ import {
 } from 'core';
 import { CounterComponent } from '../components/Counter';
 
-function CounterContainer({ increment, decrement, counter }) {
+function CounterContainer({ increment, decrement, counter, handleChangeLocale }) {
   return (
     <CounterComponent
       handleIncrement={() => increment(1)}
       handleDecrement={() => decrement(1)}
       counter={counter}
+      handleChangeLocale={() => handleChangeLocale('en')}
     />
   );
 }

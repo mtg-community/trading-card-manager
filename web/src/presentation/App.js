@@ -10,6 +10,14 @@ import { IntlProvider } from 'react-intl';
 
 export class App extends Component {
 
+  state = {
+    locale: this.props.locale
+  };
+
+  handleChangeLocale = (locale) => {
+    this.setState({locale})
+  };
+
   unsubscribe = () => {};
 
   setUser = (user) => {
@@ -27,12 +35,13 @@ export class App extends Component {
   }
 
   render() {
-    const { store, locale, messages } = this.props;
-    console.log(messages);
+    const { store, messages } = this.props;
+    const { locale } = this.state;
+    console.log(messages[locale]);
     return (
       <Provider store={store}>
-        <IntlProvider locale={locale} messages={messages} >
-          <Router/>
+        <IntlProvider locale={locale} messages={messages[locale]} >
+          <Router handleChangeLocale={this.handleChangeLocale}/>
         </IntlProvider>
       </Provider>
     );
