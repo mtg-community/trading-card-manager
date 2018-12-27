@@ -4,8 +4,8 @@ import pt from 'react-intl/locale-data/pt'
 import { allMessages } from './messages';
 
 export const initializeInternalization = () => {
+  const defaultLocale = 'en';
   addLocaleData([...en, ...pt]);
-  const locale = window.navigator.language.split('-')[0];
 
-  return { locale, messages: allMessages };
+  return { defaultLocale, messages: allMessages };
 };

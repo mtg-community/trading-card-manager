@@ -5,8 +5,8 @@ import { App } from './App';
 import { initializeInternalization } from './internalization';
 
 export const initializePresentationLayer = (store) => {
-  const { locale, messages } = initializeInternalization();
-  ReactDOM.render(<App store={store} locale={locale} messages={messages} />, document.getElementById('react-app'));
+  const { defaultLocale, messages } = initializeInternalization();
+  ReactDOM.render(<App store={store} locale={defaultLocale} messages={messages} />, document.getElementById('react-app'));
 
   // If you want your app to work offline and load faster, you can change
   // unregister() to register() below. Note this comes with some pitfalls.
