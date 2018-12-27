@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as ServiceWorker from './serviceWorker';
-import { App } from './App';
+import { Provider } from 'react-redux';
 import { initializeInternalization } from './internalization';
+import { App } from './containers/App';
 
 export const initializePresentationLayer = (store) => {
-  const { defaultLocale, messages } = initializeInternalization();
-  ReactDOM.render(<App store={store} locale={defaultLocale} messages={messages} />, document.getElementById('react-app'));
+  const { messages } = initializeInternalization();
+  ReactDOM.render(
+    <Provider store={store}>
+      <App messages={messages} />
+    </Provider>,
+    document.getElementById('react-app'));
 
   // If you want your app to work offline and load faster, you can change
   // unregister() to register() below. Note this comes with some pitfalls.

@@ -6,7 +6,7 @@ import {
   decrementCounterAction,
 } from 'core';
 import { CounterComponent } from '../components/Counter';
-import { setLocaleAction } from "../../domain/redux/ducks/localeReducer";
+import { setLocaleAction } from '../../domain/redux/ducks/localeReducer';
 
 function CounterContainer({ increment, decrement, counter, changeLocale }) {
   return (

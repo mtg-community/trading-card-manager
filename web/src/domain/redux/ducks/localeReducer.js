@@ -8,14 +8,14 @@ export const setLocaleAction = ( locale ) => ({
   locale:locale
 });
 
-export const setLocaleReducer = ( state, action ) => {
+export const setLocaleHandle = ( state, action ) => {
   return action.locale
 };
 
 export default function localeReducer( state = INITIAL_STATE ,action ) {
   switch (action.type) {
     case(SET_LOCALE):
-      return setLocaleReducer( state, action );
+      return setLocaleHandle( state, action );
     default:
       return state;
   }
