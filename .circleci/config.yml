@@ -199,14 +199,17 @@ jobs:
       - attach_workspace:
           at: /tmp/trading-card-manager
       - run:
-          name: 'Npm Install'
+          name: 'NPM install'
           command: make install
+      - run:
+          name: 'Babel build'
+          command: make build
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:
             - core
 
-  test-backend:
+  test-core:
     executor: core
     steps:
       - attach_workspace:
@@ -222,9 +225,9 @@ jobs:
           paths:
            - core/coverage
 
-  sonar-backend:
+  sonar-core:
     executor: sonar-scaner
-    working_directory: /tmp/trading-card-manager/backend
+    working_directory: /tmp/trading-card-manager/core
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
