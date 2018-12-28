@@ -1,5 +1,5 @@
 import { User } from 'core';
-import { identifyUser } from '../../data/log-rocket';
+import { updateLoggedInUser } from '../../domain/services/monitoring';
 import { onAuthStateChanged } from '../../data/firebase/authentication';
 import { IntlProvider } from 'react-intl';
 import { Router } from '../Router';
@@ -19,7 +19,7 @@ export class AppComponent extends Component {
     }
 
     this.props.setUserListener(authedUser);
-    identifyUser(authedUser);
+    updateLoggedInUser(authedUser);
   };
 
   componentDidMount() {
