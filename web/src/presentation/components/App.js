@@ -39,7 +39,8 @@ export class AppComponent extends Component {
 
 AppComponent.propTypes = {
   messages: PropTypes.object.isRequired,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
+  setUserListener: PropTypes.func.isRequired
 };
 
 AppComponent.displayName = 'App';

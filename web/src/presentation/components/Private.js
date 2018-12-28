@@ -1,5 +1,6 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types';
 
 export const Private = ({user}) =>{
     return (
@@ -11,3 +12,9 @@ export const Private = ({user}) =>{
       </h1>
     );
 };
+
+Private.propTypes = {
+  user: PropTypes.object
+};
+
+Private.displayName = 'Private';

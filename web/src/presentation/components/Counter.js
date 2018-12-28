@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const CounterComponent = ({ handleDecrement, handleIncrement, counter, handleChangeLocaleToPt }) => {
     return (
@@ -12,3 +13,12 @@ export const CounterComponent = ({ handleDecrement, handleIncrement, counter, ha
         </React.Fragment>
     );
 };
+
+CounterComponent.propTypes = {
+  handleDecrement: PropTypes.func.isRequired,
+  handleIncrement: PropTypes.func.isRequired,
+  handleChangeLocaleToPt: PropTypes.func.isRequired,
+  counter: PropTypes.number.isRequired
+};
+
+CounterComponent.displayName = 'Counter';
