@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const SignInComponent = ({
   handleEmail,
@@ -27,3 +28,13 @@ export const SignInComponent = ({
     </form>
   );
 };
+
+SignInComponent.propTypes ={
+  handleEmail: PropTypes.func.isRequired,
+  handlePassword: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  password: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired
+};
+
+SignInComponent.displayName = 'SignIn';

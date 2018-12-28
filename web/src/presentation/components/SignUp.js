@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const SignUpComponent = ({handleEmail,handlePassword,handleSubmit,password,email}) => {
     return (
@@ -8,4 +9,14 @@ export const SignUpComponent = ({handleEmail,handlePassword,handleSubmit,passwor
             <button type="submit">Submit</button>
         </form>
     );
-}
+};
+
+SignUpComponent.propTypes = {
+  handleEmail: PropTypes.func.isRequired,
+  handlePassword: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  password: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired
+};
+
+SignUpComponent.displayName = 'SignUp';

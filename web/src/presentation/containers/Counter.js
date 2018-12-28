@@ -7,6 +7,7 @@ import {
 } from 'core';
 import { CounterComponent } from '../components/Counter';
 import { setLocaleAction } from '../../domain/redux/ducks/localeReducer';
+import PropTypes from 'prop-types';
 
 function CounterContainer({ increment, decrement, counter, changeLocale }) {
   return (
@@ -27,6 +28,13 @@ const mapDispatchToProps = {
   increment: incrementCounterAction,
   decrement: decrementCounterAction,
   changeLocale: setLocaleAction
+};
+
+CounterContainer.propType = {
+  increment: PropTypes.func.isRequired,
+  decrement: PropTypes.func.isRequired,
+  counter: PropTypes.number.isRequired,
+  changeLocale: PropTypes.func.isRequired
 };
 
 export const Counter = connect(
