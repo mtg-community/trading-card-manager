@@ -1,13 +1,15 @@
-import { User } from 'core';
-import { identifyUser } from '../../data/log-rocket';
-import { onAuthStateChanged } from '../../data/firebase/authentication';
+import { identifyUser } from '../data/log-rocket';
+import { onAuthStateChanged } from '../data/firebase/authentication';
 import { IntlProvider } from 'react-intl';
-import { Router } from '../Router';
+import { Router } from './Router';
 import PropTypes from 'prop-types';
 import React,{ Component } from 'react';
-import './styles/App.css'
+import './App.css'
+import { connect } from 'react-redux';
+import { localeSelector } from '../domain/redux/ducks/localeReducer';
+import { User, setUserListenerAction } from 'core';
 
-export class AppComponent extends Component {
+class AppContainer extends Component {
 
   unsubscribe = () => {};
 
@@ -37,10 +39,23 @@ export class AppComponent extends Component {
   }
 }
 
-AppComponent.propTypes = {
+const mapStateToProps = state => ({
+  locale: localeSelector(state)
+});
+
+const mapDispatchToProps = {
+  setUserListener : setUserListenerAction
+};
+
+AppContainer.propTypes = {
   messages: PropTypes.object.isRequired,
   locale: PropTypes.string.isRequired,
   setUserListener: PropTypes.func.isRequired
 };
 
-AppComponent.displayName = 'App';
+AppContainer.displayName = 'App';
+
+export const App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppContainer);

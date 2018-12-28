@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { initializeDomainLayer } from '../../../domain';
+import { Provider } from 'react-redux';
+import { initializeDomainLayer } from '../../domain';
+import { initializeInternalization }  from './internalization';
 import { App } from '../App';
-import { initializeInternalization } from '../../internalization';
-import {Provider} from "react-redux";
 
-jest.mock('../../../data/firebase/authentication', () => ({
+jest.mock('../../data/firebase/authentication', () => ({
   onAuthStateChanged: jest.fn(() => () => {}),
 }));
 const { store } = initializeDomainLayer();
