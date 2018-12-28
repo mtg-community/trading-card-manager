@@ -4,7 +4,10 @@ import { initializeLogRocket } from './log-rocket';
 
 export const initializeDataLayer = () => {
   config();
-
-  initializeLogRocket();
   initializeFirebase();
+
+  if (process.env.NODE_ENV !== "development") {
+    initializeLogRocket();
+  }
+
 };
