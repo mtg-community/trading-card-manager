@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signUpAction } from 'core';
-import {SignUpComponent} from '../components/SignUp';
+import { SignUpComponent } from '../components/SignUp';
+import PropTypes from 'prop-types';
 
 class SignUpContainer extends Component{
     state = {
@@ -33,6 +34,10 @@ class SignUpContainer extends Component{
 
 const mapDispatchToProps = {
     signUp: signUpAction,
+};
+
+SignUpContainer.propTypes = {
+  signUp: PropTypes.func.isRequired
 };
 
 export const SignUp = connect(

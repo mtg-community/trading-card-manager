@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginAction, selectUser } from 'core';
 import { SignInComponent } from '../components/SignIn';
+import PropTypes from 'prop-types';
 
 class SignInContainer extends Component {
   state = {
@@ -43,6 +44,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   logIn: loginAction
+};
+
+SignInContainer.propTypes = {
+  user: PropTypes.object,
+  logIn: PropTypes.func.isRequired
 };
 
 export const SignIn = connect(

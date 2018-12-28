@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import * as ServiceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { initializeInternalization } from './internalization';
-import { App } from './containers/App';
+import { App } from './App';
 
 export const initializePresentationLayer = (store) => {
   const { messages } = initializeInternalization();
