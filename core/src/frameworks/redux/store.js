@@ -34,18 +34,17 @@ export const configureStore = (
   const sagaMiddleware = createSagaMiddleware();
   const sharedMiddleware = [sagaMiddleware];
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV === 'development') {
     sharedMiddleware.push(createLogger());
   }
 
   const middleware = [...sharedMiddleware, ...appSpecificMiddleware];
 
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const composeEnhancers =
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     combineReducers(reducers),
-    composeEnhancers(
-      applyMiddleware(...middleware),
-    ),
+    composeEnhancers(applyMiddleware(...middleware)),
   );
 
   sagaMiddleware.run(rootSaga);

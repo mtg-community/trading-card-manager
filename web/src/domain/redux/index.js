@@ -18,3 +18,5 @@ export const createStore = reduxAdapter => {
 };
 
 export const dispatch = action => store.dispatch(action);
+
+export const select = selector => selector(store.getState());
