@@ -1,5 +1,7 @@
 import { identifyUser } from '../../data/log-rocket';
 
-export const updateLoggedInUser = (user) => {
-  identifyUser(user);
+export const trackUser = (user) => {
+  if (user) {
+    identifyUser(user);
+  }
 };
