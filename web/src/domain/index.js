@@ -1,7 +1,6 @@
 import {
   ReduxAdapter,
   AuthenticationInteractor,
-  configureStore,
 } from 'core';
 import {
   sendPasswordResetEmail,
@@ -9,9 +8,7 @@ import {
   signOut,
   signUpWithEmailAndPassword,
 } from '../data/firebase/authentication';
-import { logRocketMiddleware } from '../data/log-rocket';
-import { isProduction } from './services/environment';
-import locale from "./redux/ducks/localeReducer";
+import { createStore } from './redux';
 
 export const initializeDomainLayer = () => {
   const authenticationInteractor = new AuthenticationInteractor({
@@ -25,13 +22,5 @@ export const initializeDomainLayer = () => {
     authenticationInteractor,
   );
 
-  const middleware = [];
-
-  if (isProduction()) {
-    middleware.push(logRocketMiddleware());
-  }
-
-  const store = configureStore(reduxAdapter, middleware, { locale });
-
-  return { store };
+  return { store: createStore(reduxAdapter) };
 };
