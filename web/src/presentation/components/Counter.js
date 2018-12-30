@@ -16,7 +16,10 @@ export const CounterComponent = ({
       <button onClick={handleDecrement}>Decrement</button>
       <button onClick={handleChangeLocaleToPt}>Pt</button>
       <Link to="private">Go to private</Link>
-      <Modal Trigger={<button className="c-btn">Open Modal</button>}>
+      <Modal
+        Trigger={<button>Open Modal</button>}
+        title="Counter Modal"
+      >
         Modal Content
       </Modal>
     </React.Fragment>
