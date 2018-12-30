@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { loginAction, selectUser } from 'core';
 import { SignInComponent } from '../components/SignIn';
 import PropTypes from 'prop-types';
+import { showModal } from '../components/Modal';
 
 class SignInContainer extends Component {
   state = {
@@ -18,7 +19,10 @@ class SignInContainer extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     const { email, password } = this.state;
-    await this.props.logIn(email, password, console.error);
+    const onError = (error) => {
+      showModal("SignIn Error", error.message)
+    }
+    await this.props.logIn(email, password, onError);
     this.setState({
       email: '',
       password: '',
