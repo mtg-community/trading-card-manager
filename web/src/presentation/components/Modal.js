@@ -12,7 +12,7 @@ export class Modal extends React.Component {
     Trigger: PropTypes.node.isRequired,
     children: PropTypes.node.isRequired,
     title: PropTypes.string,
-  }
+  };
 
   onTrigger = event => {
     // Prevent event to bubble up to Modal, which cause it to close;
@@ -94,27 +94,27 @@ class ModalContent extends React.Component {
 
     return (
       <div
-        id="modal-portal"
         role="dialog"
+        id="modal-portal"
         aria-modal="true"
+        className="modal__backdrop"
         aria-labelledby="dialog_label"
         aria-describedby="dialog_desc"
-        className="c-modal-backdrop"
       >
-        <div className="c-modal" ref={this.containerRef}>
+        <div className="modal" ref={this.containerRef}>
           <h2 id="dialog_label">{title}</h2>
           <button
-            className="c-modal__close"
+            className="modal__close-button"
             aria-label="Close Modal"
             onClick={onClose}
             onKeyDown={onClose}
           >
             <span className="u--hide-visually">Close</span>
-            <svg className="c-modal__close-icon" viewBox="0 0 40 40">
+            <svg className="modal__close-button-icon" viewBox="0 0 40 40">
               <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
             </svg>
           </button>
-          <div id="dialog_desc" className="c-modal__body">
+          <div id="dialog_desc" className="modal__body">
             {content}
           </div>
         </div>
