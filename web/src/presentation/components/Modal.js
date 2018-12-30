@@ -102,18 +102,8 @@ class ModalContent extends React.Component {
         aria-describedby="dialog_desc"
       >
         <div className="modal" ref={this.containerRef}>
+          <CloseButton onClick={onClose} />
           <h2 id="dialog_label">{title}</h2>
-          <button
-            className="modal__close-button"
-            aria-label="Close Modal"
-            onClick={onClose}
-            onKeyDown={onClose}
-          >
-            <span className="u--hide-visually">Close</span>
-            <svg className="modal__close-button-icon" viewBox="0 0 40 40">
-              <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
-            </svg>
-          </button>
           <div id="dialog_desc" className="modal__body">
             {content}
           </div>
@@ -122,3 +112,18 @@ class ModalContent extends React.Component {
     );
   }
 }
+
+const CloseButton = ({ onClick }) => (
+  <button
+    className="modal__close-button"
+    aria-label="Close Modal"
+    onClick={onClick}
+  >
+    <span className="u--hide-visually">Close</span>
+    <svg className="modal__close-button-icon" viewBox="0 0 40 40">
+      <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
+    </svg>
+  </button>
+);
+
+CloseButton.displayName = 'CloseButton';
