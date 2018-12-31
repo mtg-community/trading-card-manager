@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
+import { FormattedMessage } from 'react-intl';
 import './styles/Modal.css';
 
 function removeElement(id) {
@@ -135,9 +136,11 @@ class ModalContent extends React.Component {
       >
         <div className="modal" ref={this.containerRef}>
           <CloseButton onClick={onClose} />
-          <h2 id="dialog_label">{title}</h2>
+          <h2 id="dialog_label">
+            <FormattedMessage id={title}/>
+          </h2>
           <div id="dialog_desc" className="modal__body">
-            {content}
+            <FormattedMessage id={content}/>
           </div>
         </div>
       </div>

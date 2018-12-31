@@ -6,9 +6,8 @@ export const Private = ({user}) =>{
     return (
       <h1>
         <FormattedMessage
-          id='private.title'
-        >
-        </FormattedMessage>
+            id='private.title'
+        />
       </h1>
     );
 };
