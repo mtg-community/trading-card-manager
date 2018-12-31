@@ -3,6 +3,38 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import './styles/Modal.css';
 
+function removeElement(id) {
+  const elem = document.getElementById(id);
+  return elem.parentNode.removeChild(elem);
+}
+
+function createElement(id) {
+  const element = document.createElement('div');
+  element.setAttribute('id', id);
+  return element;
+}
+
+export const showModal = (title, content) => {
+  const id = 'dinamically-generated-modal';
+  const element = createElement(id);
+
+  const unMountAndRemoveElement = () => {
+    ReactDOM.unmountComponentAtNode(element);
+    removeElement(id);
+  };
+
+  ReactDOM.render(
+    <ModalContent
+      title={title}
+      content={content}
+      onClose={unMountAndRemoveElement}
+    />,
+    element,
+  );
+
+  document.body.append(element);
+};
+
 export class Modal extends React.Component {
   state = {
     isOpen: false,
@@ -127,3 +159,6 @@ const CloseButton = ({ onClick }) => (
 );
 
 CloseButton.displayName = 'CloseButton';
+CloseButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
