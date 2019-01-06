@@ -41,7 +41,7 @@
     "react-native": "0.55.4",
     "react-native-action-button": "2.8.4",
     "react-native-config": "0.11.5",
-    "react-native-firebase": "4.2.0",
+    "react-native-firebase": "5.2.0",
     "react-native-i18n": "2.0.12",
     "react-native-navigation": "2.0.2295",
     "react-native-vector-icons": "4.6.0",
