@@ -15,7 +15,7 @@
   "dependencies": {
     "@eduardomoroni/react-scripts": "2.1.1",
     "core": "file:../core",
-    "firebase": "5.7.2",
+    "firebase": "5.7.3",
     "logrocket": "0.6.19",
     "logrocket-react": "3.0.0",
     "moment": "2.22.2",
