@@ -11,9 +11,9 @@ export function Router() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" render={() => <Counter />} />
-        <Route exact path="/signIn" render={() => <SignIn/>} />
-        <Route exact path="/signUp" render={() => <SignUp/>} />
-        <Route exact path="/private" component={withAuthentication(Private)}/>
+        <Route exact path="/signIn" render={() => <SignIn />} />
+        <Route exact path="/signUp" render={() => <SignUp />} />
+        <Route exact path="/private" component={withAuthentication(Private)} />
       </Switch>
     </BrowserRouter>
   );

@@ -5,13 +5,14 @@ import { Provider } from 'react-redux';
 import { initializeInternalization } from './internalization';
 import { App } from './App';
 
-export const initializePresentationLayer = (store) => {
+export const initializePresentationLayer = store => {
   const { messages } = initializeInternalization();
   ReactDOM.render(
     <Provider store={store}>
       <App messages={messages} />
     </Provider>,
-    document.getElementById('react-app'));
+    document.getElementById('react-app'),
+  );
 
   // If you want your app to work offline and load faster, you can change
   // unregister() to register() below. Note this comes with some pitfalls.

@@ -16,7 +16,7 @@ export const initializeLogRocket = () => {
 // If you use other middlewares, LogRocket should be the final middleware:
 export const logRocketMiddleware = () => LogRocket.reduxMiddleware();
 
-export const identifyUser = (user) => {
+export const identifyUser = user => {
   LogRocket.identify(user.id, user);
 };
 

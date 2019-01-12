@@ -137,10 +137,10 @@ class ModalContent extends React.Component {
         <div className="modal" ref={this.containerRef}>
           <CloseButton onClick={onClose} />
           <h2 id="dialog_label">
-            <FormattedMessage id={title}/>
+            <FormattedMessage id={title} />
           </h2>
           <div id="dialog_desc" className="modal__body">
-            <FormattedMessage id={content}/>
+            <FormattedMessage id={content} />
           </div>
         </div>
       </div>

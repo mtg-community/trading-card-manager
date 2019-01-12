@@ -1,7 +1,4 @@
-import {
-  ReduxAdapter,
-  AuthenticationInteractor,
-} from 'core';
+import { ReduxAdapter, AuthenticationInteractor } from 'core';
 import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
@@ -18,9 +15,7 @@ export const initializeDomainLayer = () => {
     resetPassword: sendPasswordResetEmail,
   });
 
-  const reduxAdapter = new ReduxAdapter(
-    authenticationInteractor,
-  );
+  const reduxAdapter = new ReduxAdapter(authenticationInteractor);
 
   return { store: createStore(reduxAdapter) };
 };

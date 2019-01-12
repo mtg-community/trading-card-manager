@@ -1,11 +1,11 @@
 import { messagesPt } from './pt';
-import {messagesEn} from "./en";
+import { messagesEn } from './en';
 
 export const allMessages = {
-  'pt':{
-    ...messagesPt
+  pt: {
+    ...messagesPt,
   },
-  'en':{
-    ...messagesEn
-  }
+  en: {
+    ...messagesEn,
+  },
 };

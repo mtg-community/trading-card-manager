@@ -19,9 +19,9 @@ class SignInContainer extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     const { email, password } = this.state;
-    const onError = (error) => {
-      showModal("SignIn Error", error.message)
-    }
+    const onError = error => {
+      showModal('SignIn Error', error.message);
+    };
     await this.props.logIn(email, password, onError);
     this.setState({
       email: '',
@@ -47,12 +47,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  logIn: loginAction
+  logIn: loginAction,
 };
 
 SignInContainer.propTypes = {
   user: PropTypes.object,
-  logIn: PropTypes.func.isRequired
+  logIn: PropTypes.func.isRequired,
 };
 
 export const SignIn = connect(

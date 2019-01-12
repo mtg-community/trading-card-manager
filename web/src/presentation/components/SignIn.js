@@ -7,7 +7,7 @@ export const SignInComponent = ({
   handlePassword,
   handleSubmit,
   password,
-  email
+  email,
 }) => {
   return (
     <form onSubmit={event => handleSubmit(event)}>
@@ -23,18 +23,18 @@ export const SignInComponent = ({
         value={password}
         onChange={event => handlePassword(event.target.value)}
       />
-      <button type="submit">Submit</button>
-      <Link to="/private">Go to private</Link>
+      <button type="submit">Submit!</button>
+      <Link to="/private">Go to private!</Link>
     </form>
   );
 };
 
-SignInComponent.propTypes ={
+SignInComponent.propTypes = {
   handleEmail: PropTypes.func.isRequired,
   handlePassword: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   password: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired
+  email: PropTypes.string.isRequired,
 };
 
 SignInComponent.displayName = 'SignIn';

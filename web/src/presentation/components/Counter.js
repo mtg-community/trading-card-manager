@@ -15,11 +15,8 @@ export const CounterComponent = ({
       <p>{counter}</p>
       <button onClick={handleDecrement}>Decrement</button>
       <button onClick={handleChangeLocaleToPt}>Pt</button>
-      <Link to='private'>Go to private</Link>
-      <Modal
-        Trigger={<button>Open Modal</button>}
-        title='modal.title'
-      >
+      <Link to="private">Go to private!</Link>
+      <Modal Trigger={<button>Open Modal</button>} title="modal.title">
         modal.content
       </Modal>
     </React.Fragment>

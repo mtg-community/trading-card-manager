@@ -10,5 +10,4 @@ export const initializeDataLayer = () => {
   if (isProduction()) {
     initializeLogRocket();
   }
-
 };

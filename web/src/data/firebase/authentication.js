@@ -7,7 +7,7 @@ export const signInWithEmailAndPassword = async (email, password) => {
     .auth()
     .signInWithEmailAndPassword(email, password);
   const user = userCredential.user;
-  return new User(user.uid, user.email, { emailVerified: user.emailVerified});
+  return new User(user.uid, user.email, { emailVerified: user.emailVerified });
 };
 
 export const signUpWithEmailAndPassword = async (email, password) => {
@@ -15,11 +15,13 @@ export const signUpWithEmailAndPassword = async (email, password) => {
     .auth()
     .createUserWithEmailAndPassword(email, password);
   const user = userCredential.user;
-  return new User(user.uid, user.email, { emailVerified: user.emailVerified});
+  return new User(user.uid, user.email, { emailVerified: user.emailVerified });
 };
 
-export const sendPasswordResetEmail = async (email) => await firebase.auth().sendPasswordResetEmail(email);
+export const sendPasswordResetEmail = async email =>
+  await firebase.auth().sendPasswordResetEmail(email);
 
 export const signOut = async () => await firebase.auth().signOut();
 
-export const onAuthStateChanged = (callback, onError, onCompleted) => firebase.auth().onAuthStateChanged(callback, onError, onCompleted);
+export const onAuthStateChanged = (callback, onError, onCompleted) =>
+  firebase.auth().onAuthStateChanged(callback, onError, onCompleted);
