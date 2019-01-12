@@ -7,7 +7,8 @@
     "start-and-wait": "npm start & wait-on http://localhost:3030",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "percy:run": "percy exec -- cypress run --browser chrome --spec 'cypress/integration/percy/*.spec.js'",
+    "cypress:record": "cypress run --record",
+    "percy:run": "percy exec -- cypress run --record false --browser chrome --spec 'cypress/integration/percy/*.spec.js'",
     "qa": "npm run start-and-wait && npm run percy:run",
     "test": "npm run start-and-wait && npm run cypress:run"
   },
