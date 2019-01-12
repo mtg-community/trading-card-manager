@@ -127,6 +127,15 @@ jobs:
           root: /tmp/trading-card-manager
           paths: web/coverage
 
+  qa-frontend:
+    executor: frontend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'CI Check'
+          command: make qa
+
   sonar-frontend:
     executor: sonar-scaner
     working_directory: /tmp/trading-card-manager/web

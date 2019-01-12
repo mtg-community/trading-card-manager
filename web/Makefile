@@ -22,3 +22,7 @@ sonarqube:
 	@sonar-scanner \
 		-Dproject.settings=sonar-scanner.properties \
     -Dsonar.login=${SONAR_CLOUD_TOKEN}
+
+qa:
+	$(MAKE) -C ./qa install
+	$(MAKE) -C ./qa end-to-end-test

@@ -1,2 +1,5 @@
+install:
+	npm ci
+
 end-to-end-test:
-	@npx cypress run --record --key ${CYPRESS_RECORD_KEY}
+	npm run qa
