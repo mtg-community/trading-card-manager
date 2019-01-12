@@ -15,6 +15,10 @@ workflows:
           context: mtgx-web-context
           requires:
             - test-frontend
+      - qa-frontend:
+          context: mtgx-web-context
+          requires:
+            - test-frontend
       - deploy-frontend:
           context: mtgx-web-context
           requires:
@@ -133,8 +137,8 @@ jobs:
       - attach_workspace:
           at: /tmp/trading-card-manager
       - run:
-          name: 'CI Check'
-          command: make qa
+          name: 'End to end tests'
+          command: make end-to-end
 
   sonar-frontend:
     executor: sonar-scaner

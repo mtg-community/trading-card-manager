@@ -8,8 +8,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "percy:run": "percy exec -- cypress run --browser chrome --spec 'cypress/integration/percy/*.spec.js'",
-    "qa": "start-and-wait && percy:run",
-    "test": "start-and-wait && cypress:run"
+    "qa": "npm run start-and-wait && npm run percy:run",
+    "test": "npm run start-and-wait && npm run cypress:run"
   },
   "dependencies": {},
   "devDependencies": {
