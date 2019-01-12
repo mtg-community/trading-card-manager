@@ -1,0 +1,21 @@
+{
+  "name": "web-qa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "cd .. && PORT=3030 npm start",
+    "start-and-wait": "npm start & wait-on http://localhost:3030",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:record": "cypress run --record",
+    "percy:run": "percy exec -- cypress run --record false --browser chrome --spec 'cypress/integration/percy/*.spec.js'",
+    "qa": "npm run start-and-wait && npm run percy:run",
+    "test": "npm run start-and-wait && npm run cypress:run"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@percy/cypress": "0.2.3",
+    "cypress": "3.1.4",
+    "wait-on": "3.2.0"
+  }
+}

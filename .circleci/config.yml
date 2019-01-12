@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.3.0
 
 workflows:
   version: 2.1
@@ -12,6 +14,10 @@ workflows:
           requires:
             - build-frontend
       - sonar-frontend:
+          context: mtgx-web-context
+          requires:
+            - test-frontend
+      - qa-frontend:
           context: mtgx-web-context
           requires:
             - test-frontend
@@ -127,6 +133,19 @@ jobs:
           root: /tmp/trading-card-manager
           paths: web/coverage
 
+  qa-frontend:
+    executor: cypress/browsers-chrome69
+    working_directory: /tmp/trading-card-manager/web
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Install'
+          command: make install-e2e
+      - run:
+          name: 'End to end tests'
+          command: make end-to-end
+
   sonar-frontend:
     executor: sonar-scaner
     working_directory: /tmp/trading-card-manager/web
@@ -234,3 +253,4 @@ jobs:
       - run:
           name: 'Sonar'
           command: make sonarqube
+
