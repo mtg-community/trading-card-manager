@@ -24,5 +24,7 @@ sonarqube:
     -Dsonar.login=${SONAR_CLOUD_TOKEN}
 
 end-to-end:
-	$(MAKE) -C ./qa install
 	$(MAKE) -C ./qa end-to-end-test
+
+install-e2e:
+	$(MAKE) -C ./qa install
