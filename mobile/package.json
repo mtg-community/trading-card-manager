@@ -59,7 +59,7 @@
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "5.0.1",
-    "eslint-config-prettier": "2.9.0",
+    "eslint-config-prettier": "3.4.0",
     "eslint-plugin-flowtype": "3.2.0",
     "eslint-plugin-prettier": "3.0.1",
     "flow-bin": "0.67.1",
