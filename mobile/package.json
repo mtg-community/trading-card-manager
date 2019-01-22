@@ -67,7 +67,7 @@
     "jest": "23.6.0",
     "jest-enzyme": "6.0.2",
     "jest-runner-eslint": "0.7.1",
-    "prettier": "1.13.7",
+    "prettier": "1.16.1",
     "prettierrc": "0.0.0-5",
     "react-dom": "16.4.1",
     "react-native-cli": "2.0.1",
