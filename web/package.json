@@ -15,14 +15,14 @@
   "dependencies": {
     "@eduardomoroni/react-scripts": "2.1.1",
     "core": "file:../core",
-    "firebase": "5.7.2",
+    "firebase": "5.8.0",
     "logrocket": "0.6.19",
     "logrocket-react": "3.0.0",
     "moment": "2.22.2",
     "prop-types": "15.6.2",
     "react": "16.7.0",
     "react-dom": "16.7.0",
-    "react-intl": "2.7.2",
+    "react-intl": "2.8.0",
     "react-redux": "6.0.0",
     "react-router-dom": "4.3.1",
     "redux": "4.0.1"
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "enzyme": "3.8.0",
-    "enzyme-adapter-react-16": "1.7.1",
+    "enzyme-adapter-react-16": "1.8.0",
     "firebase-tools": "6.2.1",
     "flow-bin": "0.67.1",
     "jest-enzyme": "7.0.1",
