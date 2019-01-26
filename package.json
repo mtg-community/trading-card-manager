@@ -13,7 +13,7 @@
     "babel-eslint": "10.0.1",
     "codecov": "3.1.0",
     "eslint": "5.10.0",
-    "eslint-config-prettier": "3.6.0",
+    "eslint-config-prettier": "4.0.0",
     "eslint-config-react-app": "3.0.6",
     "eslint-plugin-flowtype": "3.2.0",
     "eslint-plugin-import": "2.14.0",
