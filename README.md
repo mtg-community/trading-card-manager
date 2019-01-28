@@ -9,7 +9,10 @@
 ## Arquitetura
 O sistema consiste em quatro módulos: backend, core, mobile e web. Os módulos
  web e mobile seguem as camadas propostas por [Arquitetura Limpa](https://www.google.de/search?q=arquitetura+limpa&oq=arquitetura+limpa).  
-![module-explanation](https://user-images.githubusercontent.com/823150/49565897-1ff62300-f929-11e8-9e7c-bdbf05e236c4.png)
+A seguir, dois diagramas que representam a nossa arquitetura de duas maneira 
+diferentes.
+![module-explanation-a](https://github.com/mtg-community/trading-card-manager/blob/master/docs/assets/Clean-Architecture-Shared-Modules-part-one.png?raw=true)
+![module-explanatiob](https://github.com/mtg-community/trading-card-manager/blob/master/docs/assets/Clean-Architecture-Shared-Modules-part-two.png?raw=true)
 
 Ao comparar com diagrams tradicionais de arquitetura limpa, podemos explicar 
 melhor como a nossa arquitetura se encaixa na original.  
