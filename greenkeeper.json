@@ -7,13 +7,6 @@
       ],
       "ignore": ["flow-bin"]
     },
-    "mobile": {
-      "packages": [
-        "core/package.json",
-        "mobile/package.json"
-      ],
-      "ignore": ["react", "react-native", "react-native-navigation", "flow-bin"]
-    },
     "backend": {
       "packages": [
         "backend/functions/package.json",
