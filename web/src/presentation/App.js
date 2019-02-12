@@ -1,4 +1,3 @@
-import { User } from 'core/src/entities';
 import { selectUser } from 'core/src/frameworks/redux/ducks/userReducer';
 import { onAuthStateChanged } from '../data/firebase/authentication';
 import { IntlProvider } from 'react-intl';
