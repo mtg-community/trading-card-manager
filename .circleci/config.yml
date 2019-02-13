@@ -50,19 +50,6 @@ workflows:
             branches:
               only:
                 - master
-  Core-Build-Pipeline:
-    jobs:
-      - gitclone
-      - build-core:
-          requires:
-            - gitclone
-      - test-core:
-          requires:
-            - build-core
-      - sonar-core:
-          context: mtgx-web-context
-          requires:
-            - test-core
 
 executors:
   sonar-scaner:
@@ -81,12 +68,6 @@ executors:
     docker:
       - image: circleci/node@sha256:c6881bf3c9365341052e09f98fa61c0246810023787cbf1480ac30ba347ef033
     working_directory: /tmp/trading-card-manager/backend
-  core:
-    environment:
-      - CI: true
-    docker:
-      - image: circleci/node@sha256:c6881bf3c9365341052e09f98fa61c0246810023787cbf1480ac30ba347ef033
-    working_directory: /tmp/trading-card-manager/core
 
 jobs:
   gitclone:
@@ -98,7 +79,6 @@ jobs:
           root: /tmp/trading-card-manager
           paths:
             - web
-            - core
             - backend
 
   build-frontend:
@@ -116,7 +96,6 @@ jobs:
           root: /tmp/trading-card-manager
           paths:
             - web
-            - core
 
   test-frontend:
     executor: frontend
@@ -211,46 +190,3 @@ jobs:
       - run:
           name: 'Deploy'
           command: make deploy-functions
-
-  build-core:
-    executor: core
-    steps:
-      - attach_workspace:
-          at: /tmp/trading-card-manager
-      - run:
-          name: 'NPM install'
-          command: make install
-      - run:
-          name: 'Babel build'
-          command: make build
-      - persist_to_workspace:
-          root: /tmp/trading-card-manager
-          paths:
-            - core
-
-  test-core:
-    executor: core
-    steps:
-      - attach_workspace:
-          at: /tmp/trading-card-manager
-      - run:
-          name: 'CI Check'
-          command: make ci-check
-      - store_artifacts:
-          path: coverage
-          prefix: coverage
-      - persist_to_workspace:
-          root: /tmp/trading-card-manager
-          paths:
-           - core/coverage
-
-  sonar-core:
-    executor: sonar-scaner
-    working_directory: /tmp/trading-card-manager/core
-    steps:
-      - attach_workspace:
-          at: /tmp/trading-card-manager
-      - run:
-          name: 'Sonar'
-          command: make sonarqube
-
