@@ -30,7 +30,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "enzyme": "3.8.0",
+    "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.9.0",
     "firebase-tools": "6.2.1",
     "flow-bin": "0.67.1",
