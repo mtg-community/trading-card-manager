@@ -15,7 +15,7 @@ function CounterContainer({ increment, decrement, counter, changeLocale }) {
       handleIncrement={() => increment(1)}
       handleDecrement={() => decrement(1)}
       counter={counter}
-      handleChangeLocaleToPt = { () => changeLocale('pt')}
+      handleChangeLocaleToPt={() => changeLocale('pt')}
     />
   );
 }
@@ -27,14 +27,14 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   increment: incrementCounterAction,
   decrement: decrementCounterAction,
-  changeLocale: setLocaleAction
+  changeLocale: setLocaleAction,
 };
 
 CounterContainer.propType = {
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
   counter: PropTypes.number.isRequired,
-  changeLocale: PropTypes.func.isRequired
+  changeLocale: PropTypes.func.isRequired,
 };
 
 export const Counter = connect(

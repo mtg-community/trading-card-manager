@@ -1,58 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { loginAction, selectUser } from 'core';
 import { SignInComponent } from '../components/SignIn';
 import PropTypes from 'prop-types';
 import { showModal } from '../components/Modal';
+import { useCredentialsHook } from './hooks';
 
-class SignInContainer extends Component {
-  state = {
-    email: '',
-    password: '',
-  };
-  handleEmail = email => {
-    this.setState({ email });
-  };
-  handlePassword = password => {
-    this.setState({ password });
-  };
-  handleSubmit = async event => {
-    event.preventDefault();
-    const { email, password } = this.state;
-    const onError = (error) => {
-      showModal("SignIn Error", error.message)
-    }
-    await this.props.logIn(email, password, onError);
-    this.setState({
-      email: '',
-      password: '',
-    });
-  };
-  render() {
-    return (
-      <SignInComponent
-        handleEmail={this.handleEmail}
-        handlePassword={this.handlePassword}
-        handleSubmit={this.handleSubmit}
-        email={this.state.email}
-        password={this.state.password}
-        user={this.props.user}
-      />
-    );
-  }
-}
+const onError = error => {
+  showModal('SignIn Error', error.message);
+};
+
+const SignInContainer = props => {
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleSubmit,
+  } = useCredentialsHook(props.logIn, onError);
+
+  return (
+    <SignInComponent
+      handleEmail={setEmail}
+      handlePassword={setPassword}
+      handleSubmit={handleSubmit}
+      email={email}
+      password={password}
+      user={props.user}
+    />
+  );
+};
 
 const mapStateToProps = state => ({
   user: selectUser(state),
 });
 
 const mapDispatchToProps = {
-  logIn: loginAction
+  logIn: loginAction,
 };
 
 SignInContainer.propTypes = {
   user: PropTypes.object,
-  logIn: PropTypes.func.isRequired
+  logIn: PropTypes.func.isRequired,
 };
 
 export const SignIn = connect(

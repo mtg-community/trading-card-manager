@@ -7,11 +7,11 @@ export const whenUserLogsIn = user => {
     emailVerified: user.emailVerified,
   });
 
-  dispatch(setUserListenerAction(authedUser))
+  dispatch(setUserListenerAction(authedUser));
   trackUser(authedUser);
 };
 
 export const whenUserLogsOut = () => {
-  dispatch(setUserListenerAction(null))
+  dispatch(setUserListenerAction(null));
   trackUser(null);
 };
