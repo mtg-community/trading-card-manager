@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { IntlProvider } from 'react-intl';
-import { selectUser } from 'core';
+import { selectUser, User } from 'core';
 
 import { onAuthStateChanged } from '../data/firebase/authentication';
 import { Router } from './Router';
@@ -20,15 +20,15 @@ const userHasChangedCallback = user => {
 };
 
 const AppContainer = props => {
-  const { messages, locale, user } = props;
+  const { messages, locale } = props;
 
   useEffect(() => {
     const unSubscriber = onAuthStateChanged(userHasChangedCallback);
 
-    return function componentWillUnmount() {
-      return unSubscriber();
+    return () => {
+      unSubscriber();
     };
-  }, [user]);
+  }, []);
 
   return (
     <IntlProvider key={locale} locale={locale} messages={messages[locale]}>
@@ -45,7 +45,7 @@ const mapStateToProps = state => ({
 AppContainer.propTypes = {
   messages: PropTypes.object.isRequired,
   locale: PropTypes.string.isRequired,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.PropTypes.instanceOf(User),
 };
 
 AppContainer.displayName = 'App';

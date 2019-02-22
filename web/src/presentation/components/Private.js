@@ -1,19 +1,20 @@
-import React from 'react'
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 
-export const Private = ({user}) =>{
-    return (
+export const Private = ({ user }) => {
+  return (
+    <>
       <h1>
-        <FormattedMessage
-            id='private.title'
-        />
+        <FormattedMessage id="private.title" />
       </h1>
-    );
+      <h1>{JSON.stringify(user.email)}</h1>
+    </>
+  );
 };
 
 Private.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
 };
 
 Private.displayName = 'Private';

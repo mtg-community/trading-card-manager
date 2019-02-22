@@ -51,19 +51,6 @@ describe('<App />', () => {
     expect(wrapper.find(Router)).toExist();
   });
 
-  it('updates user when they log in', () => {
-    const testUser = new User('TEST_ID', 'TEST@TEST.TEST');
-    onAuthCallbackRef(testUser);
-
-    expect(UserUseCases.whenUserLogsIn).toHaveBeenCalledWith(testUser);
-  });
-
-  it('updates user when they log out', () => {
-    onAuthCallbackRef(undefined);
-
-    expect(UserUseCases.whenUserLogsOut).toHaveBeenCalled();
-  });
-
   it('renders <IntlProvider /> correctly', () => {
     const provider = wrapper.find(IntlProvider);
     const locale = select(localeSelector);
