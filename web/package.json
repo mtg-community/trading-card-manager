@@ -12,7 +12,7 @@
     "flow": "flow"
   },
   "dependencies": {
-    "react-scripts": "2.1.2",
+    "react-scripts": "2.1.6",
     "core": "file:src/core",
     "firebase": "5.8.0",
     "logrocket": "0.6.19",
