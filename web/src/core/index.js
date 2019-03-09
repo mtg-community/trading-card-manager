@@ -6,11 +6,7 @@ export {
   incrementCounterAction,
 } from './frameworks/redux/ducks/counterReducer';
 export {
-  forgotPasswordAction,
-  loginAction,
-  logOutAction,
   selectUser,
-  signUpAction,
   setUserAction,
   setUserListenerAction,
 } from './frameworks/redux/ducks/userReducer';
@@ -28,3 +24,7 @@ export {
   Counter,
   Card,
 } from './entities';
+export { forgotPasswordAction } from './frameworks/redux/sagas/authentication';
+export { logOutAction } from './frameworks/redux/sagas/authentication';
+export { signUpAction } from './frameworks/redux/sagas/authentication';
+export { loginAction } from './frameworks/redux/sagas/authentication';

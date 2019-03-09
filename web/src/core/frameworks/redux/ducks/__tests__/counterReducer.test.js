@@ -1,4 +1,3 @@
-import cloneDeep from 'lodash/cloneDeep';
 import { configureTestStore } from '../../__mocks__/store';
 import {
   counterSelector,
@@ -7,14 +6,14 @@ import {
 } from '../counterReducer';
 import { resetStateAction } from '../../store';
 
-describe('Store', () => {
+describe('Counter Reducer', () => {
   const aNumber = 5;
   let store;
   let initialState;
 
   beforeAll(() => {
     store = configureTestStore();
-    initialState = cloneDeep(store.getState());
+    initialState = store.getState();
   });
 
   beforeEach(() => {

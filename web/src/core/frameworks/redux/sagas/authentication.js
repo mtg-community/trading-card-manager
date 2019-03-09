@@ -10,6 +10,18 @@ import type {
 import type { Saga } from 'redux-saga';
 import { setUserAction } from '../ducks/userReducer';
 import { AuthenticationInteractor } from '../../../useCases';
+import { FORGOT_PASSWORD, LOG_OUT, SIGN_IN, SIGN_UP } from './index';
+
+export const loginAction = (
+  email: string,
+  password: string,
+  onError: Error => void,
+): AuthUserAction => ({
+  type: SIGN_IN,
+  email,
+  password,
+  onError,
+});
 
 export function* signInSaga(
   interactor: AuthenticationInteractor,
@@ -23,6 +35,17 @@ export function* signInSaga(
   }
 }
 
+export const signUpAction = (
+  email: string,
+  password: string,
+  onError: Error => void,
+): AuthUserAction => ({
+  type: SIGN_UP,
+  email,
+  password,
+  onError,
+});
+
 export function* signUpSaga(
   interactor: AuthenticationInteractor,
   action: AuthUserAction,
@@ -34,6 +57,17 @@ export function* signUpSaga(
     action.onError(error);
   }
 }
+
+export const forgotPasswordAction = (
+  email: string,
+  onSuccess: () => void,
+  onError: Error => void,
+): ForgotPasswordAction => ({
+  type: FORGOT_PASSWORD,
+  email,
+  onSuccess,
+  onError,
+});
 
 // FIXME: ACTION THAT DOESN'T CHANGE THE STATE
 export function* forgotPasswordSaga(
@@ -47,6 +81,15 @@ export function* forgotPasswordSaga(
     action.onError(error);
   }
 }
+
+export const logOutAction = (
+  onSuccess?: () => void,
+  onError?: Error => void,
+): LogOutAction => ({
+  type: LOG_OUT,
+  onSuccess,
+  onError,
+});
 
 export function* logoutSaga(
   interactor: AuthenticationInteractor,
