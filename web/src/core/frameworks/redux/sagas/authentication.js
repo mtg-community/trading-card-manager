@@ -10,7 +10,11 @@ import type {
 import type { Saga } from 'redux-saga';
 import { setUserAction } from '../ducks/userReducer';
 import { AuthenticationInteractor } from '../../../useCases';
-import { FORGOT_PASSWORD, LOG_OUT, SIGN_IN, SIGN_UP } from './index';
+
+export const SIGN_IN = 'user/saga/sign_in';
+export const SIGN_UP = 'user/saga/sign_up';
+export const LOG_OUT = 'user/saga/log_out';
+export const FORGOT_PASSWORD = 'user/saga/forgot_password';
 
 export const loginAction = (
   email: string,
