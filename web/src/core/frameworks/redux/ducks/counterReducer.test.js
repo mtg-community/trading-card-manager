@@ -1,10 +1,10 @@
-import { configureTestStore } from '../../__mocks__/store';
+import { configureTestStore } from '../__mocks__/store';
 import {
   counterSelector,
   decrementCounterAction,
   incrementCounterAction,
-} from '../counterReducer';
-import { resetStateAction } from '../../store';
+} from './counterReducer';
+import { resetStateAction } from '../store';
 
 describe('Counter Reducer', () => {
   const aNumber = 5;

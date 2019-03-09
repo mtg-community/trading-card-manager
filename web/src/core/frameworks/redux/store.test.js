@@ -1,5 +1,5 @@
-import { configureStore } from '../store';
-import { mockReduxAdapter } from '../__mocks__/reduxAdapter';
+import { configureStore } from './store';
+import { mockReduxAdapter } from './__mocks__/reduxAdapter';
 
 describe('Store', () => {
   it('fails when initialized without ReduxAdapter', () => {

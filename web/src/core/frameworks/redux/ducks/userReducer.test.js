@@ -1,11 +1,11 @@
-import { configureTestStore } from '../../__mocks__/store';
-import { resetStateAction } from '../../store';
+import { configureTestStore } from '../__mocks__/store';
+import { resetStateAction } from '../store';
 import {
   selectUser,
   setUserAction,
   setUserListenerAction,
-} from '../userReducer';
-import { User } from '../../../../entities';
+} from './userReducer';
+import { User } from '../../../entities';
 
 describe('User Reducer', () => {
   const aUser = new User('ID', 'email@email.com');
