@@ -9,7 +9,7 @@ import type {
 } from '../types';
 import { SIGN_IN, SIGN_UP, FORGOT_PASSWORD, LOG_OUT } from '../sagas';
 
-const INITIAL_STATE = null;
+export const INITIAL_STATE = null;
 const SET_USER = 'user/sync/set';
 const SET_USER_LISTENER = 'user/listener/set';
 
