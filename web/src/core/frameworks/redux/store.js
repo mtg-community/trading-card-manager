@@ -7,21 +7,17 @@ import { userReducer } from './ducks/userReducer';
 import { ReduxAdapter } from './reduxAdapter';
 import { rootSaga } from './sagas';
 
-export let reduxAdapter = {};
-
 export const configureStore = (
-  adapter,
-  appSpecificMiddleware = [],
-  appSpecificReducers = {},
+  adapter: ReduxAdapter,
+  appSpecificMiddleware: Array<Function> = [],
+  appSpecificReducers: { [string]: Function } = {},
 ) => {
-  if (adapter instanceof ReduxAdapter) {
-    reduxAdapter = adapter;
-  } else {
+  if (!adapter.hasBeenInitialized()) {
     throw new Error('ReduxAdapter is required.');
   }
 
   const sharedReducers = {
-    counter: counterReducer,
+    counter: counterReducer(adapter.counter),
     user: userReducer,
   };
 
@@ -42,6 +38,6 @@ export const configureStore = (
     composeEnhancers(applyMiddleware(...middleware)),
   );
 
-  sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga, adapter);
   return store;
 };

@@ -1,34 +1,34 @@
 // @flow strict
 
 import { call, put } from 'redux-saga/effects';
-import { reduxAdapter } from '../store';
 import type {
   AuthUserAction,
   ForgotPasswordAction,
   LogOutAction,
+  SetUserAction,
 } from '../types';
+import type { Saga } from 'redux-saga';
 import { setUserAction } from '../ducks/userReducer';
+import { AuthenticationInteractor } from '../../../useCases';
 
-export function* signInSaga(action: AuthUserAction): Generator<*, *, *> {
+export function* signInSaga(
+  interactor: AuthenticationInteractor,
+  action: AuthUserAction,
+): Saga<SetUserAction> {
   try {
-    const user = yield call(
-      reduxAdapter.authentication.signIn,
-      action.email,
-      action.password,
-    );
+    const user = yield call(interactor.signIn, action.email, action.password);
     yield put(setUserAction(user));
   } catch (error) {
     action.onError(error);
   }
 }
 
-export function* signUpSaga(action: AuthUserAction): Generator<*, *, *> {
+export function* signUpSaga(
+  interactor: AuthenticationInteractor,
+  action: AuthUserAction,
+): Saga<SetUserAction> {
   try {
-    const user = yield call(
-      reduxAdapter.authentication.signUp,
-      action.email,
-      action.password,
-    );
+    const user = yield call(interactor.signUp, action.email, action.password);
     yield put(setUserAction(user));
   } catch (error) {
     action.onError(error);
@@ -37,19 +37,23 @@ export function* signUpSaga(action: AuthUserAction): Generator<*, *, *> {
 
 // FIXME: ACTION THAT DOESN'T CHANGE THE STATE
 export function* forgotPasswordSaga(
+  interactor: AuthenticationInteractor,
   action: ForgotPasswordAction,
-): Generator<*, *, *> {
+): Saga<SetUserAction> {
   try {
-    yield call(reduxAdapter.authentication.forgotPassword, action.email);
+    yield call(interactor.forgotPassword, action.email);
     action.onSuccess();
   } catch (error) {
     action.onError(error);
   }
 }
 
-export function* logoutSaga(action: LogOutAction): Generator<*, *, *> {
+export function* logoutSaga(
+  interactor: AuthenticationInteractor,
+  action: LogOutAction,
+): Saga<SetUserAction> {
   try {
-    yield call(reduxAdapter.authentication.signOut);
+    yield call(interactor.signOut);
     yield put(setUserAction(null));
     action.onSuccess && action.onSuccess();
   } catch (error) {

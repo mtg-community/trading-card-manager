@@ -3,22 +3,27 @@
 import { Email } from './email';
 
 type optionalFields = {
-  name: String,
+  name: string,
   emailVerified: boolean,
 };
 
+const defaultOptionalFields = {
+  name: '',
+  emailVerified: false,
+};
+
 export class User {
-  id: String;
+  id: string;
   email: Email;
   emailVerified: boolean;
-  name: String;
+  name: string;
 
-  constructor(id: string, email: string | Email, opt: optionalFields = {}) {
+  constructor(id: string, email: string | Email, opt: optionalFields = defaultOptionalFields) {
     this.id = id;
     this.email = new Email(email.toString());
 
-    this.emailVerified = opt.emailVerified || false;
-    this.name = opt.name || '';
+    this.emailVerified = opt.emailVerified;
+    this.name = opt.name;
 
     if (!this.id) {
       throw Error('User must have an Id');
