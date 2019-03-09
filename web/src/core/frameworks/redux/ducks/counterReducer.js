@@ -1,8 +1,8 @@
 // @flow strict
 
 import { Counter } from '../../../entities/counter';
-import { reduxAdapter } from '../store';
 import type { StateType } from '../types';
+import { CounterInteractor } from '../../../useCases';
 
 type StateSliceType = Counter;
 
@@ -31,26 +31,28 @@ export const decrementCounterAction = (qty: number = 1): ActionType => ({
 const incrementReducer = (
   counter: StateSliceType,
   action: ActionType,
+  interactor: CounterInteractor,
 ): StateSliceType => {
-  return reduxAdapter.counter.increment(counter, action.qty);
+  return interactor.increment(counter, action.qty);
 };
 
 const decrementReducer = (
   counter: StateSliceType,
   action: ActionType,
+  interactor: CounterInteractor,
 ): StateSliceType => {
-  return reduxAdapter.counter.decrement(counter, action.qty);
+  return interactor.decrement(counter, action.qty);
 };
 
-export const counterReducer = (
+export const counterReducer = (interactor: CounterInteractor) => (
   state: StateSliceType = INITIAL_STATE,
   action: ActionType,
 ): StateSliceType => {
   switch (action.type) {
     case INCREMENT:
-      return incrementReducer(state, action);
+      return incrementReducer(state, action, interactor);
     case DECREMENT:
-      return decrementReducer(state, action);
+      return decrementReducer(state, action, interactor);
     default:
       return state;
   }
