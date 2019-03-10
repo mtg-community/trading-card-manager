@@ -1,9 +1,6 @@
 import { ReduxAdapter } from '../reduxAdapter';
 import { configureStore, resetStateAction } from '../store';
 import { mockReduxAdapter } from './reduxAdapter';
-import memoize from 'lodash/memoize';
-
-const memoizedConfigureStore = memoize(configureStore);
 
 export const configureTestStore = (
   adapter: ReduxAdapter,
@@ -17,12 +14,12 @@ export const configureTestStore = (
   );
 
   store.getActions = function() {
-    return StoreHistory.actions;
+    return actionHistoryMiddleware.getActions();
   };
 
   store.reset = function() {
     store.dispatch(resetStateAction());
-    StoreHistory.clearHistory();
+    actionHistoryMiddleware.clearHistory();
   };
 
   store.adapter = mockReduxAdapter;
@@ -30,21 +27,19 @@ export const configureTestStore = (
   return store;
 };
 
-class StoreHistory {
-  static actions = [];
-
-  static record(action) {
-    this.actions.push(action);
-  }
-
-  static clearHistory() {
-    this.actions = [];
-  }
-}
-
 function actionHistoryMiddleware(store) {
+  let actions = [];
+
+  actionHistoryMiddleware.clearHistory = function() {
+    actions = [];
+  };
+
+  actionHistoryMiddleware.getActions = function() {
+    return actions;
+  };
+
   return next => action => {
-    StoreHistory.record(action);
+    actions.push(action);
     return next(action);
   };
 }
