@@ -10,31 +10,41 @@ export const configureTestStore = (
   appSpecificMiddleware: Array<Function> = [],
   appSpecificReducers: { [string]: Function } = {},
 ) => {
-  const store = memoizedConfigureStore(
+  const store = configureStore(
     mockReduxAdapter,
-    appSpecificMiddleware,
+    [actionHistoryMiddleware],
     appSpecificReducers,
   );
 
-  if (!store.actions) {
-    const dispatchRef = store.dispatch;
+  store.getActions = function() {
+    return StoreHistory.actions;
+  };
 
-    store.actions = [];
-    store.getActions = () => store.actions;
-    store.clearActions = () => {
-      store.actions = [];
-    };
+  store.reset = function() {
+    store.dispatch(resetStateAction());
+    StoreHistory.clearHistory();
+  };
 
-    store.dispatch = action => {
-      store.actions.push(action);
-      dispatchRef(action);
-    };
-
-    store.reset = () => {
-      store.dispatch(resetStateAction());
-      store.clearActions();
-    };
-  }
+  store.adapter = mockReduxAdapter;
 
   return store;
 };
+
+class StoreHistory {
+  static actions = [];
+
+  static record(action) {
+    this.actions.push(action);
+  }
+
+  static clearHistory() {
+    this.actions = [];
+  }
+}
+
+function actionHistoryMiddleware(store) {
+  return next => action => {
+    StoreHistory.record(action);
+    return next(action);
+  };
+}
