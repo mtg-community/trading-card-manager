@@ -1,40 +1,41 @@
-import { ReduxAdapter } from '../reduxAdapter';
 import { configureStore, resetStateAction } from '../store';
 import { mockReduxAdapter } from './reduxAdapter';
-import memoize from 'lodash/memoize';
+import cloneDeep from 'lodash/cloneDeep';
 
-const memoizedConfigureStore = memoize(configureStore);
+export const configureTestStore = () => {
+  const adapter = cloneDeep(mockReduxAdapter);
+  const actionMiddleware = actionRepository();
+  const store = configureStore(adapter, [actionMiddleware]);
 
-export const configureTestStore = (
-  adapter: ReduxAdapter,
-  appSpecificMiddleware: Array<Function> = [],
-  appSpecificReducers: { [string]: Function } = {},
-) => {
-  const store = memoizedConfigureStore(
-    mockReduxAdapter,
-    appSpecificMiddleware,
-    appSpecificReducers,
-  );
+  store.getActions = function() {
+    return actionMiddleware.getActions();
+  };
 
-  if (!store.actions) {
-    const dispatchRef = store.dispatch;
+  store.reset = function() {
+    store.dispatch(resetStateAction());
+    actionMiddleware.clearHistory();
+  };
 
-    store.actions = [];
-    store.getActions = () => store.actions;
-    store.clearActions = () => {
-      store.actions = [];
-    };
-
-    store.dispatch = action => {
-      store.actions.push(action);
-      dispatchRef(action);
-    };
-
-    store.reset = () => {
-      store.dispatch(resetStateAction());
-      store.clearActions();
-    };
-  }
+  store.adapter = adapter;
 
   return store;
 };
+
+function actionRepository() {
+  // We keep this variable in the outer scope to ensure that we won't share same instance when jest run tests parallelly
+  let actions = [];
+  return function actionHistoryMiddleware(store) {
+    actionHistoryMiddleware.clearHistory = function() {
+      actions = [];
+    };
+
+    actionHistoryMiddleware.getActions = function() {
+      return actions;
+    };
+
+    return next => action => {
+      actions.push(action);
+      return next(action);
+    };
+  };
+}

@@ -18,7 +18,7 @@ describe('User Reducer', () => {
   });
 
   beforeEach(() => {
-    store.dispatch(resetStateAction());
+    store.reset();
   });
 
   it('selects logged in user', () => {

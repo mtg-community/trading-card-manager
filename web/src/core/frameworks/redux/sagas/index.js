@@ -17,9 +17,9 @@ const ONE_SECOND = 1000;
 
 export function* rootSaga(adapter: ReduxAdapter): Generator<*, *, *> {
   yield all([
-    takeLatest(SIGN_IN, signInSaga, adapter),
-    takeLatest(SIGN_UP, signUpSaga, adapter),
-    takeLatest(FORGOT_PASSWORD, forgotPasswordSaga, adapter),
-    throttle(ONE_SECOND, LOG_OUT, logoutSaga, adapter),
+    takeLatest(SIGN_IN, signInSaga, adapter.authentication),
+    takeLatest(SIGN_UP, signUpSaga, adapter.authentication),
+    takeLatest(FORGOT_PASSWORD, forgotPasswordSaga, adapter.authentication),
+    throttle(ONE_SECOND, LOG_OUT, logoutSaga, adapter.authentication),
   ]);
 }
