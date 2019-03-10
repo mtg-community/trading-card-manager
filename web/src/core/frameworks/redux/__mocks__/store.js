@@ -1,5 +1,5 @@
 import { ReduxAdapter } from '../reduxAdapter';
-import { configureStore } from '../store';
+import { configureStore, resetStateAction } from '../store';
 import { mockReduxAdapter } from './reduxAdapter';
 import memoize from 'lodash/memoize';
 
@@ -10,9 +10,31 @@ export const configureTestStore = (
   appSpecificMiddleware: Array<Function> = [],
   appSpecificReducers: { [string]: Function } = {},
 ) => {
-  return memoizedConfigureStore(
+  const store = memoizedConfigureStore(
     mockReduxAdapter,
     appSpecificMiddleware,
     appSpecificReducers,
   );
+
+  if (!store.actions) {
+    const dispatchRef = store.dispatch;
+
+    store.actions = [];
+    store.getActions = () => store.actions;
+    store.clearActions = () => {
+      store.actions = [];
+    };
+
+    store.dispatch = action => {
+      store.actions.push(action);
+      dispatchRef(action);
+    };
+
+    store.reset = () => {
+      store.dispatch(resetStateAction());
+      store.clearActions();
+    };
+  }
+
+  return store;
 };
