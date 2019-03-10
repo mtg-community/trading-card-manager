@@ -1,4 +1,4 @@
-export const getAction = async (store, input) => {
+export const findActionByType = async (store, input) => {
   let type = '';
 
   if (typeof input === 'string' || input instanceof String) {
@@ -23,12 +23,11 @@ function findDispatchedAction(store, type) {
 function waitUntilActionIsDispatched(store, type) {
   return new Promise((resolve, reject) => {
     const timeout = 1000;
-    const timerId = setTimeout(
-      reject,
+    const timerId = setTimeout(reject, timeout, {
+      type,
       timeout,
-      `Action ${type} wasn't dispatched in ${timeout} ms.
-         Dispatched actions ${JSON.stringify(store.getActions())}`,
-    );
+      actions: store.getActions(),
+    });
 
     const unSubscriber = store.subscribe(() => {
       const action = findDispatchedAction(store, type);

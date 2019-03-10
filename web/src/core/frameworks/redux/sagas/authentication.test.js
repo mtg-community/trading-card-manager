@@ -7,7 +7,6 @@ import {
 import { setUserAction } from '../../..';
 import { User } from '../../../entities';
 import { configureTestStore } from '../__mocks__/store';
-import { getAction } from '../__mocks__/asyncActions';
 
 describe('Authentication Sagas', function() {
   const email = 'email@email.com';
@@ -41,7 +40,7 @@ describe('Authentication Sagas', function() {
         email,
         password,
       );
-      expect(await getAction(store, expectedAction)).toEqual(expectedAction);
+      await expect(store).toEventuallyDispatch(expectedAction);
       expect(store.getState()).toEqual({ ...initialState, user: mockUser });
     });
 
@@ -75,7 +74,7 @@ describe('Authentication Sagas', function() {
         email,
         password,
       );
-      expect(await getAction(store, expectedAction)).toEqual(expectedAction);
+      await expect(store).toEventuallyDispatch(expectedAction);
       expect(store.getState()).toEqual({ ...initialState, user: mockUser });
     });
 
@@ -104,7 +103,7 @@ describe('Authentication Sagas', function() {
       store.dispatch(action);
 
       expect(store.adapter.authentication.signOut).toHaveBeenCalledWith();
-      expect(await getAction(store, expectedAction)).toEqual(expectedAction);
+      await expect(store).toEventuallyDispatch(expectedAction);
       expect(action.onSuccess).toHaveBeenCalled();
       expect(store.getState()).toEqual({ ...initialState, user: null });
     });
