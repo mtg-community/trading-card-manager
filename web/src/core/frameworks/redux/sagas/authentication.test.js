@@ -14,11 +14,9 @@ describe('Authentication Sagas', function() {
   const mockUser = new User('ID', email);
 
   let store;
-  let initialState;
 
   beforeAll(() => {
     store = configureTestStore();
-    initialState = store.getState();
   });
 
   beforeEach(() => {
@@ -41,7 +39,6 @@ describe('Authentication Sagas', function() {
         password,
       );
       await expect(store).toEventuallyDispatch(expectedAction);
-      expect(store.getState()).toEqual({ ...initialState, user: mockUser });
     });
 
     it('Failure', async function() {
@@ -75,7 +72,6 @@ describe('Authentication Sagas', function() {
         password,
       );
       await expect(store).toEventuallyDispatch(expectedAction);
-      expect(store.getState()).toEqual({ ...initialState, user: mockUser });
     });
 
     test('Failure', async function() {
@@ -105,7 +101,6 @@ describe('Authentication Sagas', function() {
       expect(store.adapter.authentication.signOut).toHaveBeenCalledWith();
       await expect(store).toEventuallyDispatch(expectedAction);
       expect(action.onSuccess).toHaveBeenCalled();
-      expect(store.getState()).toEqual({ ...initialState, user: null });
     });
 
     xit('Failure', async function() {
