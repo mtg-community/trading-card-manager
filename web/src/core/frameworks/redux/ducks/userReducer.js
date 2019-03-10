@@ -1,59 +1,11 @@
 // @flow strict
 
 import type { User } from '../../../entities/user';
-import type { LogOutAction, StateType, UserStateSlice } from '../types';
-import type {
-  SetUserAction,
-  AuthUserAction,
-  ForgotPasswordAction,
-} from '../types';
-import { SIGN_IN, SIGN_UP, FORGOT_PASSWORD, LOG_OUT } from '../sagas';
+import type { SetUserAction, StateType, UserStateSlice } from '../types';
 
-const INITIAL_STATE = null;
+export const INITIAL_STATE = null;
 const SET_USER = 'user/sync/set';
 const SET_USER_LISTENER = 'user/listener/set';
-
-export const loginAction = (
-  email: string,
-  password: string,
-  onError: Error => void,
-): AuthUserAction => ({
-  type: SIGN_IN,
-  email,
-  password,
-  onError,
-});
-
-export const signUpAction = (
-  email: string,
-  password: string,
-  onError: Error => void,
-): AuthUserAction => ({
-  type: SIGN_UP,
-  email,
-  password,
-  onError,
-});
-
-export const logOutAction = (
-  onSuccess?: () => void,
-  onError?: Error => void,
-): LogOutAction => ({
-  type: LOG_OUT,
-  onSuccess,
-  onError,
-});
-
-export const forgotPasswordAction = (
-  email: string,
-  onSuccess: () => void,
-  onError: Error => void,
-): ForgotPasswordAction => ({
-  type: FORGOT_PASSWORD,
-  email,
-  onSuccess,
-  onError,
-});
 
 export const selectUser = (state: StateType): ?User => state.user;
 

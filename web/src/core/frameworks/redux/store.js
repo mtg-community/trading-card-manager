@@ -7,6 +7,9 @@ import { userReducer } from './ducks/userReducer';
 import { ReduxAdapter } from './reduxAdapter';
 import { rootSaga } from './sagas';
 
+const RESET_STATE = 'rootReducer/resetState';
+export const resetStateAction = () => ({ type: RESET_STATE });
+
 export const configureStore = (
   adapter: ReduxAdapter,
   appSpecificMiddleware: Array<Function> = [],
@@ -21,9 +24,18 @@ export const configureStore = (
     user: userReducer,
   };
 
-  const reducers = {
+  const reducers = combineReducers({
     ...sharedReducers,
     ...appSpecificReducers,
+  });
+
+  const rootReducer = (state, action) => {
+    if (action.type === RESET_STATE) {
+      // https://stackoverflow.com/questions/35622588/how-to-reset-the-state-of-a-redux-store/35641992#35641992
+      return reducers(undefined, action);
+    }
+
+    return reducers(state, action);
   };
 
   const sagaMiddleware = createSagaMiddleware();
@@ -34,7 +46,7 @@ export const configureStore = (
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
-    combineReducers(reducers),
+    rootReducer,
     composeEnhancers(applyMiddleware(...middleware)),
   );
 
