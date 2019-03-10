@@ -1,0 +1,7 @@
+diff a/web/src/core/frameworks/redux/sagas/authentication.test.js b/web/src/core/frameworks/redux/sagas/authentication.test.js	(rejected hunks)
+@@ -35 +37,4 @@ describe('Authentication Sagas', function() {
+-    expect(store.adapter.authentication.signIn).toHaveBeenCalledWith(email, password)
++    expect(store.adapter.authentication.signIn).toHaveBeenCalledWith(
++      email,
++      password,
++    );

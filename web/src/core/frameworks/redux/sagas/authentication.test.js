@@ -1,4 +1,4 @@
-import { loginAction } from './authentication';
+import { loginAction, logOutAction, signUpAction } from './authentication';
 import { setUserAction } from '../../..';
 import { User } from '../../../entities';
 import { configureTestStore } from '../__mocks__/store';
@@ -9,6 +9,8 @@ describe('Authentication Sagas', function() {
   const password = 'super_secret';
   const mockUser = new User('ID', email);
   const mockOnError = jest.fn();
+  const mockOnSuccess = jest.fn();
+
   let mockInteractor;
   let store;
   let initialState;
@@ -21,10 +23,11 @@ describe('Authentication Sagas', function() {
   beforeEach(() => {
     mockInteractor = { signIn: jest.fn() };
     mockOnError.mockReset();
+    mockOnSuccess.mockReset();
     store.reset();
   });
 
-  fit('logs in and update user on the state', async function() {
+  it('logs in and update user on the state', async function() {
     store.adapter.authentication.signIn = jest.fn(() =>
       Promise.resolve(mockUser),
     );
@@ -41,26 +44,32 @@ describe('Authentication Sagas', function() {
     expect(await getAction(store, expectedAction)).toEqual(expectedAction);
   });
 
-  // describe('Login Saga', function() {
-  //   test('success', async () => {
-  //     const action = loginAction(email, password, mockOnError);
-  //     const generator = signInSaga(mockInteractor, action);
-  //
-  //     expect(await generator.next().value).toEqual(
-  //       call(mockInteractor.signIn, action.email, action.password),
-  //     );
-  //     expect(await generator.next(mockUser).value).toEqual(
-  //       put(setUserAction(mockUser)),
-  //     );
-  //     expect(generator.next().done).toBe(true);
-  //   });
-  //
-  //   test('failure', async () => {
-  //     const action = loginAction(email, password, mockOnError);
-  //     const generator = signInSaga(undefined, action);
-  //
-  //     expect(generator.next().done).toBe(true);
-  //     expect(action.onError).toHaveBeenCalled();
-  //   });
-  // });
+  it('sign up', async function() {
+    store.adapter.authentication.signUp = jest.fn(() =>
+      Promise.resolve(mockUser),
+    );
+    const action = signUpAction(email, password, mockOnError);
+    const expectedAction = setUserAction(mockUser);
+
+    store.dispatch(action);
+
+    expect(action.onError).not.toHaveBeenCalled();
+    expect(store.adapter.authentication.signUp).toHaveBeenCalledWith(
+      email,
+      password,
+    );
+    expect(await getAction(store, expectedAction)).toEqual(expectedAction);
+  });
+
+  it('logs out', async function() {
+    store.adapter.authentication.signOut = jest.fn();
+    const action = logOutAction(mockOnSuccess, mockOnError);
+    const expectedAction = setUserAction(null);
+
+    store.dispatch(action);
+
+    expect(store.adapter.authentication.signOut).toHaveBeenCalledWith();
+    expect(mockOnSuccess).toHaveBeenCalledWith();
+    expect(await getAction(store, expectedAction)).toEqual(expectedAction);
+  });
 });
