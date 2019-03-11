@@ -11,19 +11,23 @@ export class CounterInteractor {
     this.higherBound = higherBound;
   }
 
-  increment(counter: Counter, qty?: number): Counter {
-    if (counter.count < this.higherBound) {
-      counter.increment(qty);
-    }
+  increment(counter: Counter, qty?: number = 1): Counter {
+    counter.increment(qty);
 
-    return new Counter(counter.count);
+    if (counter.count > this.higherBound) {
+      return new Counter(this.higherBound);
+    } else {
+      return new Counter(counter.count);
+    }
   }
 
-  decrement(counter: Counter, qty?: number): Counter {
-    if (counter.count > this.lowerBound) {
-      counter.decrement(qty);
-    }
+  decrement(counter: Counter, qty?: number = 1): Counter {
+    counter.decrement(qty);
 
-    return new Counter(counter.count);
+    if (counter.count < this.lowerBound) {
+      return new Counter(this.lowerBound);
+    } else {
+      return new Counter(counter.count);
+    }
   }
 }

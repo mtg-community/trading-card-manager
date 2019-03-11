@@ -3,7 +3,7 @@
 export class Counter {
   count: number;
 
-  constructor(startNumber: number) {
+  constructor(startNumber: number = 0) {
     this.count = startNumber;
   }
 
