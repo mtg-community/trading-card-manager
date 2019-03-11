@@ -1,6 +1,6 @@
 // @flow strict
 
-export class Legality {
-  format: string;
-  legality: string;
-}
+export type Legality = {
+  format: string,
+  legality: string,
+};

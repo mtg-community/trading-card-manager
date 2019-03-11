@@ -2,7 +2,7 @@
 
 import Moment from 'moment';
 
-export class Ruling {
-  date: Moment;
-  text: string;
-}
+export type Ruling = {
+  date: Moment,
+  text: string,
+};

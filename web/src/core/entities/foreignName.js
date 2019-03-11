@@ -1,7 +1,7 @@
 // @flow strict
 
-export class ForeignName {
-  language: string;
-  name: string;
-  multiverseId: string;
-}
+export type ForeignName = {
+  language: string,
+  name: string,
+  multiverseId: string,
+};
