@@ -1,25 +1,36 @@
-import firebase from 'firebase/app';
+import { auth } from 'firebase/app';
 import { User } from 'core';
 
 export const signInWithEmailAndPassword = async (email, password) => {
-  await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-  const userCredential = await firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password);
-  const user = userCredential.user;
-  return new User(user.uid, user.email, { emailVerified: user.emailVerified});
+  setPersistence();
+  const userCredential = await auth().signInWithEmailAndPassword(
+    email,
+    password,
+  );
+  return mapFirebaseUserToUser(userCredential);
 };
 
 export const signUpWithEmailAndPassword = async (email, password) => {
-  const userCredential = await firebase
-    .auth()
-    .createUserWithEmailAndPassword(email, password);
-  const user = userCredential.user;
-  return new User(user.uid, user.email, { emailVerified: user.emailVerified});
+  setPersistence();
+  const userCredential = await auth().createUserWithEmailAndPassword(
+    email,
+    password,
+  );
+  return mapFirebaseUserToUser(userCredential);
 };
 
-export const sendPasswordResetEmail = async (email) => await firebase.auth().sendPasswordResetEmail(email);
+export const sendPasswordResetEmail = async email =>
+  auth().sendPasswordResetEmail(email);
 
-export const signOut = async () => await firebase.auth().signOut();
+export const signOut = async () => auth().signOut();
 
-export const onAuthStateChanged = (callback, onError, onCompleted) => firebase.auth().onAuthStateChanged(callback, onError, onCompleted);
+export const onAuthStateChanged = (callback, onError, onCompleted) =>
+  auth().onAuthStateChanged(callback, onError, onCompleted);
+
+function mapFirebaseUserToUser({ user }) {
+  return new User(user.uid, user.email, { emailVerified: user.emailVerified });
+}
+
+function setPersistence() {
+  return auth().setPersistence(auth.Auth.Persistence.LOCAL);
+}

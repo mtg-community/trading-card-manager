@@ -14,16 +14,14 @@ export {
 export { CounterInteractor, AuthenticationInteractor } from './useCases';
 export { ReduxAdapter } from './frameworks/redux/reduxAdapter';
 export { configureStore } from './frameworks/redux/store';
-export {
+export type {
   UserCredential,
-  User,
   Ruling,
   Legality,
   ForeignName,
-  Email,
-  Counter,
   Card,
 } from './entities';
+export { User, Email, Counter } from './entities';
 export { forgotPasswordAction } from './frameworks/redux/sagas/authentication';
 export { logOutAction } from './frameworks/redux/sagas/authentication';
 export { signUpAction } from './frameworks/redux/sagas/authentication';
