@@ -1,4 +1,4 @@
-import localeReducer, { setLocaleAction } from '../localeReducer';
+import localeReducer, { setLocaleAction } from './localeReducer';
 
 it('should change locale', function() {
   const INITIAL_STATE = '';

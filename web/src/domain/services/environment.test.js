@@ -1,4 +1,4 @@
-import { isTest, isDevelopment, isProduction } from '../environment';
+import { isTest, isDevelopment, isProduction } from './environment';
 
 describe('Environment', () => {
   it('returns false for non test environments', () => {
