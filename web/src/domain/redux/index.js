@@ -10,8 +10,8 @@ import {
 } from '../../data/firebase/authentication';
 
 let store = {};
-export const appSpecificReducers = { locale };
 const adapter = initializeReduxAdapter();
+export const appSpecificReducers = { locale };
 
 export const createStore = () => {
   const middleware = [];
