@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 import { initializeFirebase } from './firebase';
-import { initializeLogRocket } from './log-rocket';
+import { initializeLogRocket } from './logRocket';
 import { isProduction } from '../domain/services/environment';
 
 export const initializeDataLayer = () => {
@@ -10,5 +10,4 @@ export const initializeDataLayer = () => {
   if (isProduction()) {
     initializeLogRocket();
   }
-
 };

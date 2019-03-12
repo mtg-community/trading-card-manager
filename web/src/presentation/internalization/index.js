@@ -1,9 +1,7 @@
-import {addLocaleData} from 'react-intl';
-import en from 'react-intl/locale-data/en';
-import pt from 'react-intl/locale-data/pt'
-import { allMessages } from './messages';
+import { addLocaleData } from 'react-intl';
+import { allLocaleData, allMessages } from './messages';
 
 export const initializeInternalization = () => {
-  addLocaleData([...en, ...pt]);
+  addLocaleData(allLocaleData);
   return { messages: allMessages };
 };

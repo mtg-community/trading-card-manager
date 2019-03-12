@@ -1,4 +1,4 @@
-import * as LogRocket from '../../data/log-rocket';
+import * as LogRocket from '../../data/logRocket';
 import { trackUser } from './monitoring';
 import { User } from 'core';
 jest.mock('../../data/log-rocket');

@@ -1,5 +1,5 @@
 import { AuthenticationInteractor, configureStore, ReduxAdapter } from 'core';
-import { logRocketMiddleware } from '../../data/log-rocket';
+import { logRocketMiddleware } from '../../data/logRocket';
 import { isProduction } from '../services/environment';
 import locale from './ducks/localeReducer';
 import {

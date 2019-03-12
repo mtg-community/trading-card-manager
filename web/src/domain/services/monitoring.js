@@ -1,4 +1,4 @@
-import { identifyUser } from '../../data/log-rocket';
+import { identifyUser } from '../../data/logRocket';
 
 export const trackUser = user => {
   if (user) {
