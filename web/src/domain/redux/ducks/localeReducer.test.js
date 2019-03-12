@@ -1,11 +1,21 @@
-import localeReducer, { setLocaleAction } from './localeReducer';
+import localeReducer, {
+  localeSelector,
+  setLocaleAction,
+} from './localeReducer';
+import { configureTestStore } from '../testUtils';
 
-it('should change locale', function() {
-  const INITIAL_STATE = '';
+describe('Locale', function() {
+  const store = configureTestStore({ locale: localeReducer });
+  const initialState = store.getState();
 
-  const expectedState = 'en';
+  it('changes i18n locale', function() {
+    const locale = 'pt-br';
 
-  expect(localeReducer(INITIAL_STATE, setLocaleAction('en'))).toEqual(
-    expectedState,
-  );
+    const state = store.dispatch(setLocaleAction(locale));
+    expect(localeSelector(state)).toEqual(locale);
+  });
+
+  it('has english as initial locale', function() {
+    expect(localeSelector(initialState)).toEqual('en');
+  });
 });
