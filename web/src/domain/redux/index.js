@@ -3,7 +3,7 @@ import { logRocketMiddleware } from '../../data/log-rocket';
 import { isProduction } from '../services/environment';
 import locale from './ducks/localeReducer';
 
-let store = {}
+let store = {};
 
 export const createStore = reduxAdapter => {
   const middleware = [];

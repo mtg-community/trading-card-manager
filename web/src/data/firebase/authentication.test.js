@@ -83,17 +83,4 @@ describe('Firebase Auth Module', function() {
     await signOut(email);
     expect(firebase.auth().signOut).toHaveBeenCalled();
   });
-
-  it("exposes firebase's onAuthStateChanged", async function() {
-    const callback = () => {};
-    const onError = () => {};
-    const onCompleted = () => {};
-
-    await onAuthStateChanged(callback, onError, onCompleted);
-    expect(firebase.auth().onAuthStateChanged).toHaveBeenCalledWith(
-      callback,
-      onError,
-      onCompleted,
-    );
-  });
 });

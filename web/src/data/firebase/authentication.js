@@ -24,8 +24,11 @@ export const sendPasswordResetEmail = async email =>
 
 export const signOut = async () => auth().signOut();
 
-export const onAuthStateChanged = (callback, onError, onCompleted) =>
-  auth().onAuthStateChanged(callback, onError, onCompleted);
+export const onAuthStateChanged = (callback, onError, onCompleted) => {
+  const mappedCallback = firebaseUser =>
+    callback(mapFirebaseUserToUser(firebaseUser));
+  return auth().onAuthStateChanged(mappedCallback, onError, onCompleted);
+};
 
 function mapFirebaseUserToUser({ user }) {
   return new User(user.uid, user.email, { emailVerified: user.emailVerified });
