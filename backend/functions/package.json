@@ -21,7 +21,7 @@
     "dotenv": "6.2.0",
     "express": "4.16.4",
     "firebase-admin": "6.5.1",
-    "firebase-functions": "2.2.0",
+    "firebase-functions": "2.2.1",
     "mongoose": "5.4.15",
     "mongoose-paginate": "5.0.3"
   },
