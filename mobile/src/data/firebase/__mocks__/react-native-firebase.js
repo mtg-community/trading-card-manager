@@ -14,14 +14,15 @@ export const mockUserCredentials: UserCredential = {
   user: {
     email: 'eduardo@email.com',
     emailVerified: true,
+    uid: 'HakunaMatata',
   },
 };
 
 const mockAuthModule = {
-  signInAndRetrieveDataWithEmailAndPassword: jest.fn(() =>
+  signInWithEmailAndPassword: jest.fn(() =>
     Promise.resolve(mockUserCredentials),
   ),
-  createUserAndRetrieveDataWithEmailAndPassword: jest.fn(() =>
+  createUserWithEmailAndPassword: jest.fn(() =>
     Promise.resolve(mockUserCredentials),
   ),
   sendPasswordResetEmail: jest.fn(),

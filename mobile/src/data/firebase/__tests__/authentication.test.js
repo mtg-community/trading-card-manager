@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { User } from 'core/src/entities/user';
+import { User } from 'core';
 import { mockUserCredentials } from '../__mocks__/react-native-firebase';
 import {
   signInWithEmailAndPassword,
@@ -11,6 +11,7 @@ import {
 } from '../authentication';
 import Firebase from 'react-native-firebase';
 
+
 const email = 'email@email.com';
 const password = 'password';
 
@@ -19,10 +20,11 @@ describe('Firebase Authentication Module', () => {
     const user = await signInWithEmailAndPassword(email, password);
 
     expect(
-      Firebase.auth().signInAndRetrieveDataWithEmailAndPassword,
+      Firebase.auth().signInWithEmailAndPassword,
     ).toHaveBeenCalledWith(email, password);
     expect(user).toEqual(
       new User(
+        mockUserCredentials.user.uid,
         mockUserCredentials.user.email,
         mockUserCredentials.user.emailVerified,
       ),
@@ -33,10 +35,11 @@ describe('Firebase Authentication Module', () => {
     const user = await signUpWithEmailAndPassword(email, password);
 
     expect(
-      Firebase.auth().createUserAndRetrieveDataWithEmailAndPassword,
+      Firebase.auth().createUserWithEmailAndPassword,
     ).toHaveBeenCalledWith(email, password);
     expect(user).toEqual(
       new User(
+        mockUserCredentials.user.uid,
         mockUserCredentials.user.email,
         mockUserCredentials.user.emailVerified,
       ),

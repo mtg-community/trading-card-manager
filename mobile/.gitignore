@@ -21,6 +21,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+ios/GoogleService-Info.plist
 
 # Android/IntelliJ
 #
@@ -29,6 +30,7 @@ build/
 .gradle
 local.properties
 *.iml
+android/app/google-services.json
 
 # node.js
 #
@@ -48,33 +50,10 @@ buck-out/
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/
 
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
-fastlane/test_output/
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
 
 # Bundle artifact
 *.jsbundle
-
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
-#
-# Note: if you ignore the Pods directory, make sure to uncomment
-# `pod install` in .travis.yml
-#
-ios/Pods/
-ios/Index/
-
-# Firebase
-ios/GoogleService-Info.plist
-android/app/google-services.json
-firebase-debug.log
-
 .env
-ENCRYPT_PASSWORD.txt
-.vscode/
-
-coverage/
-
-.scannerwork/

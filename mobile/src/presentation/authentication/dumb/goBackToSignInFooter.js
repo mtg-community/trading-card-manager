@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
-import { View, TouchableWithoutFeedback, Text } from 'react-native';
+import { View } from 'react-native';
 import I18n from 'react-native-i18n';
 
 import { styles } from './styles/footer.style';

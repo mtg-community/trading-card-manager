@@ -2,8 +2,8 @@
 
 import { connect } from 'react-redux';
 import { branch, renderComponent, compose, lifecycle } from 'recompose';
-import { User } from '../../../../../../core/src/entities/user';
-import { setUserListenerAction } from '../../../../../../core/src/frameworks/redux';
+import { User } from 'core';
+import { setUserListenerAction } from 'core';
 import { Logger } from '../../../../data/logger';
 import { onAuthStateChanged } from '../../../../data/firebase/authentication';
 import { SignInScreen } from '../../../authentication/signInScreen';

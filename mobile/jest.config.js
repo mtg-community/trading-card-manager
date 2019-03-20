@@ -4,7 +4,7 @@ const mobileProject = {
   transform: { '^.+\\.js$': '<rootDir>/jestPreprocess.js' },
   coverageDirectory: '<rootDir>/coverage/',
   collectCoverage: process.env.CI === true,
-  setupTestFrameworkScriptFile: '<rootDir>/src/__tests__/setup.js',
+  setupFilesAfterEnv: ['<rootDir>/src/__tests__/setup.js'],
   testMatch: ['**/__tests__/**/*.test.js?(x)'],
   modulePaths: ['<rootDir>/'],
 };

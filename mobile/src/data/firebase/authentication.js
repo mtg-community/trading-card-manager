@@ -1,7 +1,7 @@
 // @flow strict
 
 import Firebase, { type UserCredential } from 'react-native-firebase';
-import { User } from 'core/src/entities/user';
+import { User } from 'core';
 
 type UnsubscribeFunction = () => void;
 
@@ -16,7 +16,7 @@ export const signInWithEmailAndPassword = async (
 
   const user = userCredential.user;
 
-  return new User(user.email, user.emailVerified);
+  return new User(user.uid, user.email, user.emailVerified);
 };
 
 export const signUpWithEmailAndPassword = async (
@@ -30,7 +30,7 @@ export const signUpWithEmailAndPassword = async (
 
   const user = userCredential.user;
 
-  return new User(user.email, user.emailVerified);
+  return new User(user.uid, user.email, user.emailVerified);
 };
 
 export const onAuthStateChanged = (

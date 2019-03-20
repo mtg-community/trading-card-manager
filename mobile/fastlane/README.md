@@ -16,60 +16,11 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios clean
-```
-fastlane ios clean
-```
-Clean project medatata
 ### ios test
 ```
 fastlane ios test
 ```
 Runs all the tests
-### ios certificates
-```
-fastlane ios certificates
-```
-Fetch certificates and provisioning profiles
-### ios build
-```
-fastlane ios build
-```
-Build the iOS application.
-### ios test_build
-```
-fastlane ios test_build
-```
-
-### ios beta
-```
-fastlane ios beta
-```
-Push a new beta build to TestFlight
-
-----
-
-## Android
-### android clean
-```
-fastlane android clean
-```
-Clean Android project.
-### android build
-```
-fastlane android build
-```
-Build the Android application.
-### android test
-```
-fastlane android test
-```
-Runs all the tests
-### android deploy
-```
-fastlane android deploy
-```
-Deploy a new version to the Google Play
 
 ----
 

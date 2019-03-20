@@ -1,4 +1,4 @@
-app_identifier("com.eduardomoroni.example.app")
-apple_id("emoroni@thoughtworks.com")
-itc_team_id("287082")
-team_id("LL62P32G5C")
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
+
+app_identifier("org.reactjs.native.example.mtgx")

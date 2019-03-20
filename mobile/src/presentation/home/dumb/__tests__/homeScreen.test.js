@@ -2,35 +2,16 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import { store } from 'core/src/frameworks/redux/__mocks__/stateMock';
 import {
   decrementCounterAction,
   incrementCounterAction,
-} from 'core/src/frameworks/redux';
+} from 'core';
 
 import { HomeScreen, HomeContainer } from '../../homeScreen';
 import { Home } from '../home';
 
 import { Navigator } from '../../../shared/navigation';
 jest.mock('../../../shared/navigation');
-
-describe('<HomeScreen />', () => {
-  describe('react-redux connection', () => {
-    const wrapper = shallow(<HomeScreen store={store} />);
-
-    xit('should map state to props', () => {
-      expect(wrapper.prop('counter')).toEqual(2);
-    });
-
-    xit('should map dispatch to props', () => {
-      wrapper.prop('increment')();
-      expect(store.getActions()).toContainEqual(incrementCounterAction());
-
-      wrapper.prop('decrement')();
-      expect(store.getActions()).toContainEqual(decrementCounterAction());
-    });
-  });
-});
 
 describe('<HomeContainer />', () => {
   const props = {
