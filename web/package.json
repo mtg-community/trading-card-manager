@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "core": "file:src/core",
-    "firebase": "5.8.5",
+    "firebase": "5.9.1",
     "lodash": "4.17.11",
     "logrocket": "0.6.19",
     "logrocket-react": "3.0.0",
