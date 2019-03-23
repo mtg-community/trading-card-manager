@@ -21,7 +21,6 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
-ios/GoogleService-Info.plist
 
 # Android/IntelliJ
 #
@@ -30,7 +29,6 @@ build/
 .gradle
 local.properties
 *.iml
-android/app/google-services.json
 
 # node.js
 #
@@ -56,6 +54,7 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+.env
 
 # We recommend against adding the Pods directory to your .gitignore. However
 # you should judge for yourself, the pros and cons are mentioned at:
@@ -71,11 +70,3 @@ buck-out/
 ios/GoogleService-Info.plist
 android/app/google-services.json
 firebase-debug.log
-
-.env
-ENCRYPT_PASSWORD.txt
-.vscode/
-
-coverage/
-
-.scannerwork/
