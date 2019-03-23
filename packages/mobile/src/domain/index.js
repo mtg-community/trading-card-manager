@@ -15,12 +15,12 @@ const createStore = () => {
   const middleware = [];
   const adapter = initializeReduxAdapter();
 
-  store = configureStore(adapter, middleware); 
+  store = configureStore(adapter, middleware);
 
   return store;
 };
 
-function initializeReduxAdapter (){
+function initializeReduxAdapter() {
   const authenticationInteractor = new AuthenticationInteractor({
     signOut,
     signIn: signInWithEmailAndPassword,

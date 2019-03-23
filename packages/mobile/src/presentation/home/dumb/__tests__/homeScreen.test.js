@@ -2,10 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import {
-  decrementCounterAction,
-  incrementCounterAction,
-} from 'core';
+import { decrementCounterAction, incrementCounterAction } from 'core';
 
 import { HomeScreen, HomeContainer } from '../../homeScreen';
 import { Home } from '../home';

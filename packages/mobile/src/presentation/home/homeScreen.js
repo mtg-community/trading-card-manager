@@ -11,10 +11,7 @@ import { User } from 'core';
 import { Navigator } from '../shared/navigation';
 import { SCREENS } from '../shared/navigation/screens';
 
-import {
-  logOutAction,
-  selectUser,
-} from 'core';
+import { logOutAction, selectUser } from 'core';
 import { connectReduxAndNavigator } from '../shared/navigation/hoc/screenHOC';
 import { Home } from './dumb/home';
 

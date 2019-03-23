@@ -5,10 +5,7 @@ import I18n from 'react-native-i18n';
 import type { StateType } from 'core';
 import { User } from 'core';
 import { Navigator } from '../shared/navigation';
-import {
-  signUpAction,
-  selectUser,
-} from 'core';
+import { signUpAction, selectUser } from 'core';
 import { SCREENS } from '../shared/navigation/screens';
 import { connectReduxAndNavigator } from '../shared/navigation/hoc/screenHOC';
 import { EmailAndPasswordForm } from './dumb/emailAndPasswordForm';
