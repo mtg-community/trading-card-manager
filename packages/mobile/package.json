@@ -18,7 +18,6 @@
     "core": "file:../web/src/core",
     "data": "file:src/data",
     "domain": "file:src/domain",
-    "get-dev-paths": "0.1.1",
     "lodash": "4.17.11",
     "moment": "2.24.0",
     "presentation": "file:src/presentation",
@@ -38,6 +37,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.3.4",
+    "get-dev-paths": "0.1.1",
     "@babel/runtime": "7.3.4",
     "babel-cli": "6.26.0",
     "babel-eslint": "10.0.1",

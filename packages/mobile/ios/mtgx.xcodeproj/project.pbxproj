@@ -59,7 +59,7 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C2F4E762E6DC3D1188CD016D /* libPods-mtgx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 617C5819553241064ACAA619 /* libPods-mtgx.a */; };
 		D2248641223E5F41009BCA92 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D224863B223E5F3A009BCA92 /* libReactNativeNavigation.a */; };
-		D24B2FAB224635AD002D7BC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D24B2FAA224635AD002D7BC8 /* GoogleService-Info.plist */; };
+		D2314B7B2246B78F00B9969D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2314B7A2246B78F00B9969D /* GoogleService-Info.plist */; };
 		D6A8804FA059E80349F92062 /* libPods-mtgx-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02EE35CDBC2C02C1F7433C /* libPods-mtgx-tvOSTests.a */; };
 		DE3AC28B8EE04DBE9E2574E1 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A704901EFEFD4E79A4641853 /* FontAwesome.ttf */; };
 		E03A6C6B8007A9A0FF4CB8CC /* libPods-mtgxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E7A88D4D1F937ECC5D522C /* libPods-mtgxTests.a */; };
@@ -453,7 +453,7 @@
 		C3B60DD9BB5B412F8F281F24 /* libRNI18n.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNI18n.a; sourceTree = "<group>"; };
 		CFCFDE2C6A7F4C84B053F2F6 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		D224860E223E5F3A009BCA92 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
-		D24B2FAA224635AD002D7BC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D2314B7A2246B78F00B9969D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2BC0988DF344420A3D68573 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		EAFB4EA6CAC0449DBDBB2304 /* libReactNativeConfig-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libReactNativeConfig-tvOS.a"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -609,7 +609,7 @@
 		13B07FAE1A68108700A75B9A /* mtgx */ = {
 			isa = PBXGroup;
 			children = (
-				D24B2FAA224635AD002D7BC8 /* GoogleService-Info.plist */,
+				D2314B7A2246B78F00B9969D /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -1353,7 +1353,7 @@
 				3C7B892998BA46DD8FA0F2D6 /* FontAwesome5_Regular.ttf in Resources */,
 				93203DED49ED4F75A06E01B5 /* FontAwesome5_Solid.ttf in Resources */,
 				9E1588DC5F0A4B7988190A49 /* Foundation.ttf in Resources */,
-				D24B2FAB224635AD002D7BC8 /* GoogleService-Info.plist in Resources */,
+				D2314B7B2246B78F00B9969D /* GoogleService-Info.plist in Resources */,
 				7149C2AFD026462FBE9FBA1D /* Ionicons.ttf in Resources */,
 				FF7CE1D7C10345869AECE759 /* MaterialCommunityIcons.ttf in Resources */,
 				A665BC4544A04EA0A4EA4097 /* MaterialIcons.ttf in Resources */,
