@@ -21,7 +21,6 @@ sonar-scanner:
 	sonar-scanner
 
 code-coverage:
-	npm run codecov
 	$(MAKE) -C mobile sonar-scanner
 
 install:

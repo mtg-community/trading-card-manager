@@ -2,7 +2,7 @@
   "name": "core",
   "version": "0.0.1",
   "private": false,
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "flow": "flow",
     "flow:coverage": "flow coverage",
@@ -13,10 +13,9 @@
     "build:watch": "cross-env NODE_ENV=development npm run build:src -- --watch --source-maps",
     "build": "cross-env NODE_ENV=production npm run build:src"
   },
-  "dependencies": {
+  "peerDependencies": {
     "moment": "2.22.2",
     "redux": "4.0.1",
-    "redux-logger": "3.0.6",
     "redux-saga": "1.0.2",
     "validator": "10.11.0"
   }

@@ -25,9 +25,15 @@
     "react-redux": "6.0.0",
     "react-router-dom": "5.0.0",
     "react-scripts": "2.1.8",
-    "redux": "4.0.1"
+    "redux-saga": "1.0.2",
+    "validator": "10.11.0"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "enzyme": "3.9.0",
+    "enzyme-adapter-react-16": "1.10.0",
+    "firebase-tools": "6.2.1",
+    "flow-bin": "0.67.1",
+    "jest-enzyme": "7.0.2",
+    "redux-mock-store": "1.5.3"
   }
 }
