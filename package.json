@@ -4,7 +4,7 @@
   "private": false,
   "scripts": {
     "codecov": "codecov",
-    "bootstrap": "lerna bootstrap"
+    "lerna:bootstrap": "lerna bootstrap"
   },
   "engines": {
     "node": "10.13.0",

@@ -75,6 +75,8 @@ jobs:
     executor: frontend
     steps:
       - checkout
+      - npm ci
+      - npm run lerna:bootstrap
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:
@@ -155,7 +157,7 @@ jobs:
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:
-            - backend
+            - packages/backend
 
   test-backend:
     executor: backend
