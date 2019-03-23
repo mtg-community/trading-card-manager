@@ -87,9 +87,9 @@ jobs:
             paths:
               - ~/usr/local/lib/node_modules
             key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - run:
-          name: 'Lerna Bootstrap'
-          command: npm run lerna:bootstrap
+      # - run:
+      #     name: 'Lerna Bootstrap'
+      #     command: npm run lerna:bootstrap
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:
