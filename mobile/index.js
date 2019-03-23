@@ -1,5 +1,5 @@
 // @flow strict
 
-import { initializeApplication } from './src';
+import { initializeApplication } from './src/index';
 
 initializeApplication();

@@ -5,20 +5,20 @@
         "core/package.json",
         "web/package.json"
       ],
-      "ignore": ["flow-bin"]
+      "ignore": ["flow-bin", "@babel/core"]
     },
     "backend": {
       "packages": [
         "backend/functions/package.json",
         "backend/package.json"
       ],
-      "ignore": ["flow-bin"]
+      "ignore": ["flow-bin", "@babel/core"]
     },
     "root": {
       "packages": [
         "package.json"
       ],
-      "ignore": ["flow-bin"]
+      "ignore": ["flow-bin", "@babel/core"]
     }
   }
 }
