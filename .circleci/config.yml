@@ -78,8 +78,8 @@ jobs:
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:
-            - web
-            - backend
+            - packages/web
+            - packages/backend
 
   build-frontend:
     executor: frontend
@@ -95,7 +95,7 @@ jobs:
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:
-            - web
+            - packages/web
 
   test-frontend:
     executor: frontend
@@ -110,7 +110,7 @@ jobs:
           prefix: coverage
       - persist_to_workspace:
           root: /tmp/trading-card-manager
-          paths: web/coverage
+          paths: packages/web/coverage
 
   qa-frontend:
     executor: cypress/browsers-chrome69
