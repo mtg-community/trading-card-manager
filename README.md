@@ -1,18 +1,18 @@
 # trading-card-manager
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/mtg-community/trading-card-manager.svg)](https://greenkeeper.io/)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 ## Links úteis
 [SonarCloud](https://sonarcloud.io/organizations/mtg-community/projects)
-
 
 ## Arquitetura
 O sistema consiste em quatro módulos: backend, core, mobile e web. Os módulos
  web e mobile seguem as camadas propostas por [Arquitetura Limpa](https://www.google.de/search?q=arquitetura+limpa&oq=arquitetura+limpa).  
 A seguir, dois diagramas que representam a nossa arquitetura de duas maneira 
 diferentes.
-![module-explanation-a](https://github.com/mtg-community/trading-card-manager/blob/master/docs/assets/Clean-Architecture-Shared-Modules-part-one.png?raw=true)
-![module-explanatiob](https://github.com/mtg-community/trading-card-manager/blob/master/docs/assets/Clean-Architecture-Shared-Modules-part-two.png?raw=true)
+![module-explanation-a](https://github.com/mtg-community/trading-card-manager/blob/master/.docs/assets/Clean-Architecture-Shared-Modules-part-one.png?raw=true)
+![module-explanatiob](https://github.com/mtg-community/trading-card-manager/blob/master/.docs/assets/Clean-Architecture-Shared-Modules-part-two.png?raw=true)
 
 Ao comparar com diagrams tradicionais de arquitetura limpa, podemos explicar 
 melhor como a nossa arquitetura se encaixa na original.  
@@ -46,3 +46,7 @@ A camada de dados é responsável por criar as conexões com o mundo exterior, t
 ##### presentation
 A camada de apresentação é aonde criamos a interface gráfica e por onde recebemos as interações com o usuário.
 Esta camada deve conter o mínimo de lógica possível, sendo expressamente proibido se comunicar diretamente com a camada de dados e/ou conter regras de negócio, e.g., Ao fazer um cadastro o usuário precisa preencher o email, logo se faz necessário uma validação de campo, esta validação é uma regra de negócio do sistema e deve ser corretamente modelada.
+
+## Rodando a aplicação
+- `npm install`
+- `npm run bootstrap`

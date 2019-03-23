@@ -1,5 +1,6 @@
 {
-  "name": "firebase",
+  "name": "backend",
+  "version": "0.0.1",
   "description": "Firebase Hosting and Functions",
   "engines": {
     "node": "8"

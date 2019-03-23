@@ -24,9 +24,6 @@ code-coverage:
 	npm run codecov
 	$(MAKE) -C mobile sonar-scanner
 
-clean:
-	./scripts/clean
-
 install:
 	npm ci
 

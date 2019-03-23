@@ -2,15 +2,15 @@
   "groups": {
     "web": {
       "packages": [
-        "core/package.json",
-        "web/package.json"
+        "packages/core/package.json",
+        "packages/web/package.json"
       ],
       "ignore": ["flow-bin", "@babel/core"]
     },
     "backend": {
       "packages": [
-        "backend/functions/package.json",
-        "backend/package.json"
+        "packages/backend/functions/package.json",
+        "packages/backend/package.json"
       ],
       "ignore": ["flow-bin", "@babel/core"]
     },
