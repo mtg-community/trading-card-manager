@@ -3,7 +3,6 @@
 import { Counter } from '../../../entities/counter';
 import type { StateType } from '../types';
 import { CounterInteractor } from '../../../useCases';
-import cloneDeep from 'lodash/cloneDeep';
 
 type StateSliceType = Counter;
 
@@ -12,7 +11,6 @@ type ActionType = {
   qty?: number,
 };
 
-export const INITIAL_STATE = new Counter(0);
 const INCREMENT = 'counter/increment';
 const DECREMENT = 'counter/decrement';
 
@@ -46,7 +44,7 @@ const decrementReducer = (
 };
 
 export const counterReducer = (interactor: CounterInteractor) => (
-  state: StateSliceType = cloneDeep(INITIAL_STATE),
+  state: StateSliceType = new Counter(0),
   action: ActionType,
 ): StateSliceType => {
   switch (action.type) {

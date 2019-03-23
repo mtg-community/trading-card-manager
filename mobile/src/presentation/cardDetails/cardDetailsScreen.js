@@ -6,6 +6,7 @@ import { Card } from 'core';
 import { type ItemType } from '../shared/components/floatingActionButton';
 
 import { CardDetails } from './dumb/cardDetails';
+import type { ForeignName, Legality, Ruling } from 'core';
 
 const fabItems: Array<ItemType> = [
   {
@@ -33,7 +34,34 @@ type PropTypes = {
   card: Card,
 };
 
-const cardStub = new Card();
+const cardStub = {
+  multiverseId: '00',
+  artist: 'something',
+  id: 'something',
+  name: 'something',
+  number: 'something',
+  rarity: 'something',
+  type: 'something',
+  cmc: 0,
+  power: 'something',
+  toughness: 'something',
+  imageName: 'something',
+  layout: 'something',
+  manaCost: 'something',
+  originalText: 'something',
+  originalType: 'something',
+  flavor: 'something',
+  text: 'something',
+  types: ['something'],
+  subtypes: ['something'],
+  superTypes: ['something'],
+  colors: ['something'],
+  colorIdentity: ['something'],
+  printings: ['something'],
+  rulings: ['something'],
+  legalities: ['something'],
+  foreignNames: ['something'],
+};
 
 const CardDetailsContainer = (props: PropTypes) => (
   <CardDetails card={props.card || cardStub} fabItems={fabItems} />
