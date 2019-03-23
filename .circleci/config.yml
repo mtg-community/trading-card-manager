@@ -185,7 +185,7 @@ jobs:
           prefix: coverage
       - persist_to_workspace:
           root: /tmp/trading-card-manager
-          paths: backend/functions/coverage
+          paths: packages/backend/functions/coverage
 
   sonar-backend:
     executor: sonar-scaner
