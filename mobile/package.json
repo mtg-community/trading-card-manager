@@ -6,6 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "info": "node node_modules/react-native/local-cli/cli.js info",
     "android": "react-native run-android",
+    "preandroid": "npm run emulator:start",
     "android:dev-menu": "adb shell input keyevent 82",
     "ios": "react-native run-ios --simulator=\"iPhone SE\"",
     "test": "jest",
