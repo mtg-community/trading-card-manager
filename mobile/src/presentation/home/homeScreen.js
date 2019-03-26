@@ -17,6 +17,7 @@ import {
 } from 'core';
 import { connectReduxAndNavigator } from '../shared/navigation/hoc/screenHOC';
 import { Home } from './dumb/home';
+import SplashScreen from 'react-native-splash-screen';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -35,6 +36,10 @@ type Props = {
 };
 
 export class HomeContainer extends Component<Props> {
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+
   navigateToLogin = () => {
     this.props.navigator.navigateTo(SCREENS.SIGN_IN.route, {
       redirectTo: SCREENS.HOME.route,
