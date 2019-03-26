@@ -48,8 +48,7 @@ public class MainApplication extends NavigationApplication {
             new RNFirebasePackage(),
             new RNFirebaseAuthPackage(),
             new ReactNativeConfigPackage(),
-            new RNI18nPackage(),
-            new SplashScreenReactPackage()
+            new RNI18nPackage()
     );
   }
 

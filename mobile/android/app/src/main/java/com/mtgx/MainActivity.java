@@ -1,5 +1,6 @@
 package com.mtgx;
 
+import android.os.Bundle;
 import com.reactnativenavigation.NavigationActivity;
 import org.devio.rn.splashscreen.SplashScreen;
 
