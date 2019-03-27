@@ -1,15 +1,11 @@
 // @flow strict
 
 import React, { useState} from 'react';
-import { View, Alert } from 'react-native';
-import PropTypes, { func } from 'prop-types';
+import { Alert } from 'react-native';
 import I18n from 'react-native-i18n';
 
 import { FormHeader } from './formHeader';
-import {
-  TextInput,
-  type TextInputRefType,
-} from '../../shared/components/textInput';
+import { TextInput } from '../../shared/components/textInput';
 import { FormButton } from '../../shared/components/buttons';
 import { LoadingOverlay } from '../../shared/components/loadingOverlay';
 import { BackButtonFloating } from '../../shared/components/buttons/backButtonFloating';
@@ -31,6 +27,11 @@ export const EmailAndPasswordForm = (props: PropsType) => {
   const [loading, setLoading] = useState(false);
   const handleChangeEmail = (email: string) => setEmail(email);
   const handleChangePassword = (password: string) => setPassword(password);
+  const onButtonPress = async () => {
+    setLoading(true);
+    await props.onButtonPress(email, password);
+    setLoading(false);
+  };
   return (
     <LoadingOverlay style={styles.screen} isLoading={loading}>
       <FormHeader title={props.title} />
@@ -48,7 +49,7 @@ export const EmailAndPasswordForm = (props: PropsType) => {
       />
       <TextInput
         onChangeText={handleChangePassword}
-        // onSubmitEditing={this.onButtonPress}
+        onSubmitEditing={onButtonPress}
         placeholder={I18n.t('WORDS/PASSWORD')}
         returnKeyType={'done'}
         secureTextEntry
@@ -58,11 +59,11 @@ export const EmailAndPasswordForm = (props: PropsType) => {
       />
       <FormButton
         title={props.buttonText}
-        onPress={() => Alert.alert('Apertou')}
+        onPress={onButtonPress}
         style={styles.itemSpacing}
       />
       {props.footer}
       <BackButtonFloating onPress={props.navigateBack} />
     </LoadingOverlay>
-  )
+  );
 };

@@ -3,7 +3,7 @@
 import Config from 'react-native-config';
 import I18n from 'react-native-i18n';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View, Button } from 'react-native';
 
 import { styles } from './styles/home.styles';
