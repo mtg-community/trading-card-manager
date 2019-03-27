@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View, ScrollView } from 'react-native';
 import I18n from 'react-native-i18n';
 import { Card } from 'core';
@@ -17,8 +17,8 @@ type PropTypes = {
   fabItems: Array<ItemType>,
 };
 
-export class CardDetails extends Component<PropTypes> {
-  renderRow = (rowName: string, rowText: string) => {
+export const CardDetails = (props: PropTypes) => {
+  const renderRow = (rowName: string, rowText: string) => {
     if (rowText === null) {
       return null;
     }
@@ -32,22 +32,20 @@ export class CardDetails extends Component<PropTypes> {
       </View>
     );
   };
+  const { card } = props;
 
-  render() {
-    const { card } = this.props;
+  return (
+    <ScrollView style={styles.container}>
+      <CardImage style={styles.card} multiverseId={card.multiverseId} />
+      {renderRow('CARD_NAME', card.name)}
+      {renderRow('TYPE', card.type)}
+      {renderRow('POWER_TOUGHNESS', `${card.power}/${card.toughness}`)}
+      {renderRow('MANA_COST', `${card.manaCost} (${card.cmc})`)}
+      {renderRow('RARITY', card.rarity)}
+      {renderRow('CARD_TEXT', card.text)}
+      {renderRow('FLAVOR_TEXT', card.flavor)}
+      <FloatingActionButton items={props.fabItems} />
+    </ScrollView>
+  );
+};
 
-    return (
-      <ScrollView style={styles.container}>
-        <CardImage style={styles.card} multiverseId={card.multiverseId} />
-        {this.renderRow('CARD_NAME', card.name)}
-        {this.renderRow('TYPE', card.type)}
-        {this.renderRow('POWER_TOUGHNESS', `${card.power}/${card.toughness}`)}
-        {this.renderRow('MANA_COST', `${card.manaCost} (${card.cmc})`)}
-        {this.renderRow('RARITY', card.rarity)}
-        {this.renderRow('CARD_TEXT', card.text)}
-        {this.renderRow('FLAVOR_TEXT', card.flavor)}
-        <FloatingActionButton items={this.props.fabItems} />
-      </ScrollView>
-    );
-  }
-}

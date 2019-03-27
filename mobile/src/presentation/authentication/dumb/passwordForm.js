@@ -12,7 +12,7 @@ import { FormHeader } from './formHeader';
 
 import { styles } from './styles/form.style';
 
-type PropsType = {
+type PropTypes = {
   footer: ?React.Node,
   onButtonPress: string => Promise<void>,
   buttonText: string,
@@ -20,7 +20,7 @@ type PropsType = {
   navigateBack: () => void,
 };
 
-export const PasswordForm = (props: PropsType) => {
+export const PasswordForm = (props: PropTypes) => {
   const [loading, setLoading] = useState(false);
   const [email, handleChangeEmail] = useState('');
   const onButtonPress = async () => {
