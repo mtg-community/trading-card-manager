@@ -2,16 +2,13 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import {
-  decrementCounterAction,
-  incrementCounterAction,
-} from 'core';
 
-import { HomeScreen, HomeContainer } from '../../homeScreen';
+import { HomeContainer } from '../../homeScreen';
 import { Home } from '../home';
 
 import { Navigator } from '../../../shared/navigation';
 jest.mock('../../../shared/navigation');
+jest.mock('../../../../__mocks__/react-native-splash-screen');
 
 describe('<HomeContainer />', () => {
   const props = {
