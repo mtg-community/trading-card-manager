@@ -1,7 +1,6 @@
 // @flow strict
 
 import React, { useState} from 'react';
-import { Alert } from 'react-native';
 import I18n from 'react-native-i18n';
 
 import { FormHeader } from './formHeader';
@@ -13,7 +12,7 @@ import { BackButtonFloating } from '../../shared/components/buttons/backButtonFl
 import { styles } from './styles/form.style';
 import { Colors } from '../../shared/theme';
 
-export type PropsType = {
+type PropsType = {
   footer: ?React.Node,
   onButtonPress: (string, string) => Promise<void>,
   buttonText: string,
@@ -22,11 +21,9 @@ export type PropsType = {
 };
 
 export const EmailAndPasswordForm = (props: PropsType) => {
-  const [email, setEmail] = useState('eduardomoroni@gmail.com');
-  const [password, setPassword] = useState('123456');
+  const [email, handleChangeEmail] = useState('eduardomoroni@gmail.com');
+  const [password, handleChangePassword] = useState('123456');
   const [loading, setLoading] = useState(false);
-  const handleChangeEmail = (email: string) => setEmail(email);
-  const handleChangePassword = (password: string) => setPassword(password);
   const onButtonPress = async () => {
     setLoading(true);
     await props.onButtonPress(email, password);

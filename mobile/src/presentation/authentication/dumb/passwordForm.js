@@ -12,7 +12,7 @@ import { FormHeader } from './formHeader';
 
 import { styles } from './styles/form.style';
 
-export type PropsType = {
+type PropsType = {
   footer: ?React.Node,
   onButtonPress: string => Promise<void>,
   buttonText: string,
@@ -22,8 +22,7 @@ export type PropsType = {
 
 export const PasswordForm = (props: PropsType) => {
   const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState('');
-  const handleChangeEmail = (email: string) => setEmail(email);
+  const [email, handleChangeEmail] = useState('');
   const onButtonPress = async () => {
     setLoading(true);
     await props.onButtonPress(email);
