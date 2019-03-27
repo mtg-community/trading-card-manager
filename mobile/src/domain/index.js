@@ -20,7 +20,7 @@ const createStore = () => {
   return store;
 };
 
-function initializeReduxAdapter(){
+function initializeReduxAdapter() {
   const authenticationInteractor = new AuthenticationInteractor({
     signOut,
     signIn: signInWithEmailAndPassword,

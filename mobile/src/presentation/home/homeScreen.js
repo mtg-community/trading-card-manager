@@ -11,13 +11,11 @@ import { User } from 'core';
 import { Navigator } from '../shared/navigation';
 import { SCREENS } from '../shared/navigation/screens';
 
-import {
-  logOutAction,
-  selectUser,
-} from 'core';
+import { logOutAction, selectUser } from 'core';
 import { connectReduxAndNavigator } from '../shared/navigation/hoc/screenHOC';
 import { Home } from './dumb/home';
 import SplashScreen from 'react-native-splash-screen';
+import { getCardPage } from 'domain/service/cardsService';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -36,8 +34,10 @@ type Props = {
 };
 
 export class HomeContainer extends Component<Props> {
-  componentDidMount() {
+  async componentDidMount() {
     SplashScreen.hide();
+    const cards = await getCardPage(350, 15);
+    console.log(cards);
   }
 
   navigateToLogin = () => {
