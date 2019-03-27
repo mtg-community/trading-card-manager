@@ -44,7 +44,7 @@ export const SCREENS: ScreenType = {
   SIGN_UP: new Screen('authentication.mtgx.SignUpScreen', SignUpScreen),
   LEFT_MENU: new Screen('navigation.left.menu', LeftSideMenuScreen),
   RIGHT_MENU: new Screen('navigation.right.menu', RightSideMenuScreen),
-  CARD_DETAILS: new Screen('card.details', CardDetailsScreen, 'detalhes'),
+  CARD_DETAILS: new Screen('card.details', CardDetailsScreen, 'Details'),
 };
 
 export const NAVIGATION_DRAWER_LINKS = _.filter(
