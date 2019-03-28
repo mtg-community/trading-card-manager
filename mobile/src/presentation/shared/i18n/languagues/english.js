@@ -18,4 +18,11 @@ export const en = {
   'SIGN_IN/FOOTER/RECOVER_TEXT': 'Forgot your password?',
   'SIGN_IN/FOOTER/RECOVER_LINK': 'Recover it HERE',
   'PASSWORD_RECOVERY/ALERT/MESSAGE': 'Take a look at your email.',
+  'CARD_NAME': 'Card Name',
+  'TYPE': 'Type',
+  'POWER_TOUGHNESS': 'Power/Toughness',
+  'MANA_COST': 'Mana Cost',
+  'RARITY': 'Rarity',
+  'CARD_TEXT': 'Card Text',
+  'FLAVOR_TEXT': 'Flavor Text',
 };
