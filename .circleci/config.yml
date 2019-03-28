@@ -61,13 +61,13 @@ executors:
       - CI: true
     docker:
       - image: circleci/node:10.13@sha256:991bcf4d64fb0038ba55dc0660f9ecd2dc4482bcdf5197fa99df360e28b9fe3e
-    working_directory: /tmp/trading-card-manager/web
+    working_directory: /tmp/trading-card-manager/packages/web
   backend:
     environment:
       - CI: true
     docker:
       - image: circleci/node@sha256:c6881bf3c9365341052e09f98fa61c0246810023787cbf1480ac30ba347ef033
-    working_directory: /tmp/trading-card-manager/backend
+    working_directory: /tmp/trading-card-manager/packages/backend
 
 jobs:
   gitclone:
@@ -75,11 +75,26 @@ jobs:
     executor: frontend
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - node-v1-{{ .Branch }}-
+            - node-v1-
+      - run:
+          name: 'Npm Install'
+          command: npm ci
+      - save_cache:
+            paths:
+              - ~/usr/local/lib/node_modules
+            key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      # - run:
+      #     name: 'Lerna Bootstrap'
+      #     command: npm run lerna:bootstrap
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:
-            - web
-            - backend
+            - packages/web
+            - packages/backend
 
   build-frontend:
     executor: frontend
@@ -95,7 +110,7 @@ jobs:
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:
-            - web
+            - packages/web
 
   test-frontend:
     executor: frontend
@@ -110,11 +125,11 @@ jobs:
           prefix: coverage
       - persist_to_workspace:
           root: /tmp/trading-card-manager
-          paths: web/coverage
+          paths: packages/web/coverage
 
   qa-frontend:
     executor: cypress/browsers-chrome69
-    working_directory: /tmp/trading-card-manager/web
+    working_directory: /tmp/trading-card-manager/packages/web
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
@@ -127,7 +142,7 @@ jobs:
 
   sonar-frontend:
     executor: sonar-scaner
-    working_directory: /tmp/trading-card-manager/web
+    working_directory: /tmp/trading-card-manager/packages/web
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
@@ -155,7 +170,7 @@ jobs:
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:
-            - backend
+            - packages/backend
 
   test-backend:
     executor: backend
@@ -170,11 +185,11 @@ jobs:
           prefix: coverage
       - persist_to_workspace:
           root: /tmp/trading-card-manager
-          paths: backend/functions/coverage
+          paths: packages/backend/functions/coverage
 
   sonar-backend:
     executor: sonar-scaner
-    working_directory: /tmp/trading-card-manager/backend
+    working_directory: /tmp/trading-card-manager/packages/backend
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager

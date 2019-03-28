@@ -6,26 +6,22 @@ setup-travis-environment:
 	make install
 
 mobile_%:
-	$(MAKE) -C mobile $*
+	$(MAKE) -C packages/mobile $*
 
 core_%:
-	$(MAKE) -C core $*
+	$(MAKE) -C packages/core $*
 
 backend_%:
-	$(MAKE) -C backend $*
+	$(MAKE) -C packages/backend $*
 
 web_%:
-	$(MAKE) -C web $*
+	$(MAKE) -C packages/web $*
 
 sonar-scanner:
 	sonar-scanner
 
 code-coverage:
-	npm run codecov
 	$(MAKE) -C mobile sonar-scanner
-
-clean:
-	./scripts/clean
 
 install:
 	npm ci
