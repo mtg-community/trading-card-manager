@@ -38,7 +38,7 @@ export class HomeContainer extends Component<Props> {
   }
 
   navigateToLogin = () => {
-    this.props.navigator.navigateTo(SCREENS.CARD_DETAILS.route, {
+    this.props.navigator.navigateTo(SCREENS.SIGN_IN.route, {
       redirectTo: SCREENS.HOME.route,
     });
   };

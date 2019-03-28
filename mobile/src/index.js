@@ -1,9 +1,9 @@
 // @flow strict
 
 import { PresentationLayer } from './presentation';
-import { initializeAxios } from 'data/service';
+import { DataLayer } from './data';
 
 export const initializeApplication = async () => {
-  initializeAxios();
+  DataLayer();
   await PresentationLayer();
 };
