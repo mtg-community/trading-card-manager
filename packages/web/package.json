@@ -1,6 +1,6 @@
 {
-  "name": "trading-card-manager",
-  "version": "0.1.0",
+  "name": "web",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -29,13 +29,5 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "devDependencies": {
-    "enzyme": "3.9.0",
-    "enzyme-adapter-react-16": "1.10.0",
-    "firebase-tools": "6.2.1",
-    "flow-bin": "0.67.1",
-    "jest-enzyme": "7.0.2",
-    "redux-mock-store": "1.5.3"
   }
 }
