@@ -17,4 +17,11 @@ export const pt = {
   'SIGN_IN/FOOTER/SIGN_UP_BUTTON': 'CRIAR CONTA',
   'SIGN_IN/FOOTER/RECOVER_TEXT': 'Esqueceu sua senha?',
   'SIGN_IN/FOOTER/RECOVER_LINK': 'Recupere-a AQUI',
+  'CARD_NAME': 'Nome da Carta',
+  'TYPE': 'Tipo',
+  'POWER_TOUGHNESS': 'Poder/Resistência',
+  'MANA_COST': 'Custo de Mana',
+  'RARITY': 'Raridade',
+  'CARD_TEXT': 'Texto da Carta',
+  'FLAVOR_TEXT': 'Flavor Text',
 };
