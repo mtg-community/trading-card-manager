@@ -2,7 +2,7 @@
 # https://docs.travis-ci.com/user/encrypting-files/
 
 REPO_SSH_URL="git@bitbucket.org:eduardomoroni/trading-card-manager-secrets.git"
-SECRETS_PATH="trading-card-manager-secrets/src/mobile"
+SECRETS_PATH="trading-card-manager-secrets/mobile"
 KEY_PATH=".travis-ci/bitbucket_key"
 KEY_ENCODING_EXTENSION=".enc"
 
