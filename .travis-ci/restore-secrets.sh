@@ -8,8 +8,8 @@ KEY_ENCODING_EXTENSION=".enc"
 
 echo "Setting up SSH keys..."
 eval "$(ssh-agent)"
-chmod 600 "$KEY_PATH"
-ssh-add "$KEY_PATH"
+chmod 600 "$KEY_PATH$KEY_ENCODING_EXTENSION"
+ssh-add "$KEY_PATH$KEY_ENCODING_EXTENSION"
 
 echo "Cloning secrets repository..."
 git clone --depth 1 "$REPO_SSH_URL"
