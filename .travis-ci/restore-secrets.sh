@@ -7,10 +7,11 @@ KEY_PATH=".travis-ci/bitbucket_key"
 KEY_ENCODING_EXTENSION=".enc"
 
 echo "Decrypting bitbucket ssh key..."
-openssl enc -aes-256-cbc -d \
+openssl enc -aes-256-cbc \
+  -K $encrypted_43f02176fa37_key \
+  -iv encrypted_43f02176fa37_iv \
   -in "$KEY_PATH$KEY_ENCODING_EXTENSION" \
-  -out ${KEY_PATH} \
-  -k $bitbucket_key
+  -out ${KEY_PATH} -d \
 
 echo "Setting up SSH keys..."
 eval "$(ssh-agent)"
