@@ -6,6 +6,11 @@ SECRETS_PATH="trading-card-manager-secrets/mobile"
 KEY_PATH=".travis-ci/bitbucket_key"
 KEY_ENCODING_EXTENSION=".enc"
 
+echo "Setting up SSH keys..."
+eval "$(ssh-agent)"
+chmod 600 "$KEY_PATH"
+ssh-add "$KEY_PATH"
+
 echo "Cloning secrets repository..."
 git clone --depth 1 "$REPO_SSH_URL"
 
