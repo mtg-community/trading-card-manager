@@ -3,7 +3,7 @@
 
 REPO_SSH_URL="git@bitbucket.org:eduardomoroni/trading-card-manager-secrets.git"
 SECRETS_PATH="trading-card-manager-secrets/mobile"
-KEY_PATH=".travis-ci/bitbucket_key"
+KEY_PATH=".travis-ci/bitbucket_key.pub"
 KEY_ENCODING_EXTENSION=".enc"
 
 echo "Setting up SSH keys..."
