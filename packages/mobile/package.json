@@ -12,6 +12,9 @@
     "ios": "react-native run-ios --simulator=\"iPhone SE\"",
     "test": "jest",
     "test:watch": "jest --watch",
+    "flow": "flow",
+    "eslint": "eslint src/**",
+    "test:coverage": "jest --silent --coverage",
     "emulator:start": "scripts/android-emulator.sh start",
     "emulator:create": "scripts/android-emulator.sh create"
   },
