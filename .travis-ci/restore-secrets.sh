@@ -14,8 +14,8 @@ openssl enc -aes-256-cbc -d \
 
 echo "Setting up SSH keys..."
 eval "$(ssh-agent)"
-chmod 600 "$KEY_PATH$KEY_ENCODING_EXTENSION"
-ssh-add "$KEY_PATH$KEY_ENCODING_EXTENSION"
+chmod 600 "$KEY_PATH"
+ssh-add "$KEY_PATH"
 
 echo "Cloning secrets repository..."
 git clone --depth 1 "$REPO_SSH_URL"
