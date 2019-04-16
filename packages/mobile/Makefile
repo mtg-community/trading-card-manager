@@ -1,12 +1,11 @@
 install:
-#	npm ci
-	npm install
+	npm ci
 
 ci-check:
 	npm run ci:check
 
 clean:
-	scripts/clean.sh
+	scripts/clean
 
 build-android: clean
 	android/gradlew assembleRelease -p android/
