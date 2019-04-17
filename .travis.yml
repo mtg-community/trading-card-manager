@@ -35,19 +35,16 @@ matrix:
     - yes | sdkmanager "platforms;android-28"
     - yes | sdkmanager "build-tools;28.0.3"
     - yes | sdkmanager "platforms;android-26"
-    - ls -la packages/mobile/android/app
-    - tree .secrets/
     - make mobile_ci-check
     - make mobile_build-android
-  - os: osx
-    osx_image: xcode9.3
-    podfile: packages/mobile/ios/Podfile
-    script:
-    # https://docs.travis-ci.com/user/languages/ruby/#bundler-20
-    - gem update --system
-    - gem install bundler
-    - make mobile_ci-check
-    - make mobile_build-ios
+  # - os: osx
+  #   osx_image: xcode9.3
+  #   podfile: packages/mobile/ios/Podfile
+  #   script:
+  #   - gem update --system
+  #   - gem install bundler
+  #   - make mobile_ci-check
+  #   - make mobile_build-ios
 addons:
   ssh_known_hosts:
   - bitbucket.org

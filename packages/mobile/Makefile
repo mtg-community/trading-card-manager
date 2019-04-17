@@ -7,13 +7,13 @@ ci-check:
 clean:
 	scripts/clean
 
-build-android: clean
+build-android:
 	android/gradlew assembleRelease -p android/
 
 run-android:
 	npm run android
 
-build-ios: clean
+build-ios:
 	bundle exec fastlane ios test
 
 sonarqube:
