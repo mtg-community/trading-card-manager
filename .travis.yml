@@ -16,11 +16,7 @@ cache:
   - "$HOME/.npm"
   - "$HOME/.cache"
 before_install:
-- nvm install && nvm use
 - make setup-travis-environment
-- yes | sdkmanager "platforms;android-28"
-- yes | sdkmanager "build-tools;28.0.3"
-- yes | sdkmanager "platforms;android-26"
 install:
 - make mobile_install
 after_script:
@@ -35,6 +31,9 @@ matrix:
       - build-tools-28.0.3
       - android-28
     script:
+    - yes | sdkmanager "platforms;android-28"
+    - yes | sdkmanager "build-tools;28.0.3"
+    - yes | sdkmanager "platforms;android-26"
     - make mobile_ci-check
     - make mobile_build-android
   - os: osx
