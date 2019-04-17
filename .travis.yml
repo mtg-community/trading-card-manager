@@ -16,12 +16,12 @@ cache:
   - "$HOME/.npm"
   - "$HOME/.cache"
 before_install:
-  - nvm install && nvm use
-  - make setup-travis-environment
+- nvm install && nvm use
+- make setup-travis-environment
 install:
-  - make mobile_install
+- make mobile_install
 after_script:
-#  - make code-coverage
+- make code-coverage
 matrix:
   include:
   - os: linux
@@ -29,20 +29,25 @@ matrix:
     jdk: oraclejdk8
     android:
       components:
-      - build-tools-27.0.3
-      - android-27
+      - build-tools-28.0.3
+      - android-28
     script:
-    # - make mobile_ci-check
-    # - make mobile_build-android
-  - os: osx
-    osx_image: xcode9.3
-    podfile: ios/Podfile
-    script:
-    # - make mobile_ci-check
-    # - make mobile_build-ios
+    - yes | sdkmanager "platforms;android-28"
+    - yes | sdkmanager "build-tools;28.0.3"
+    - yes | sdkmanager "platforms;android-26"
+    - make mobile_ci-check
+    - make mobile_build-android
+  # - os: osx
+  #   osx_image: xcode9.3
+  #   podfile: packages/mobile/ios/Podfile
+  #   script:
+  #   - gem update --system
+  #   - gem install bundler
+  #   - make mobile_ci-check
+  #   - make mobile_build-ios
 addons:
   ssh_known_hosts:
-    - bitbucket.org
+  - bitbucket.org
 env:
   global:
     secure: WIJ6vwbzEA4q6d6b6ls35GoQuCezCB/Y60xvKj0N8ls7AaALcpmOhdhKHYD6wWvxwXvNJhX5DCZWQEIIgXmpn1r8HgF29h2amgsL9mWM9aAKXclCPH82E52mTiwrdxyIv9WZShxI5O2uScnaGHr7cef4cUfMsUkAtkQwDZoa/kTLQRNTnXSYpW/3y99BPUW37LXv+qHd0/vE7vLYA2eEFVxzVORS2l8F74iuhOXu0lJ3SUj0eq9PnE3sHOQ3iFuJFnQSUVy4EvBEu7DMScuD0BmzF1wcVEt7HDdefdZjfKYqpJn1ABQndIuRmaHi+6rAbPvL0KylJGyjL+padzKn8wfnPTpgBv+Y6E7/NwU7PsOLh0+iIgtxkJLhV/QMoXz5MM+c8kwrSApGn9pCJfoFIcO5cniX7bR3NjzIPgczUfA0kBaG/vBh27xHTSaotljC2cmp+88+327bv99Fcuh4yaYGjbb9ddcfzK4vd0jYd/3a+9VkbTLC0WRvfVJ4OQ7aaW1qIn0s12xt/nkQl937ocp9zS9ozDS5Yvhg8NBbEnxhpoQ6c3ezUPxyAPWqx9IhsBoFZpt4LdpjBup1kT3VrlvDkrfTj+aZtoMriMospyqC1eARxSc2zJHIsHD1U/LHctzFbcaSRuMB/n8mgR6+VMSuiD8hbdd1q9TIQHVlxxQ=

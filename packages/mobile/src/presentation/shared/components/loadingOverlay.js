@@ -8,6 +8,7 @@ import { styles } from './styles/loadingOverlay.style';
 type PropsType = {
   children: React.Node,
   style: View.propTypes.style,
+  isLoading: boolean,
 };
 
 export const LoadingOverlay = (props: PropsType) => {

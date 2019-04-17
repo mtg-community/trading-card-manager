@@ -1,20 +1,19 @@
 install:
-#	npm ci
-	npm install
+	npm ci
 
 ci-check:
 	npm run ci:check
 
 clean:
-	scripts/clean.sh
+	scripts/clean
 
-build-android: clean
-	android/gradlew assembleRelease -p android/
+build-android:
+	android/gradlew app:assembleRelease -p android/
 
 run-android:
 	npm run android
 
-build-ios: clean
+build-ios:
 	bundle exec fastlane ios test
 
 sonarqube:
