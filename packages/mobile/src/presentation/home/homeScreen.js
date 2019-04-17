@@ -10,7 +10,7 @@ import {
 import { User } from 'core';
 import { Navigator } from '../shared/navigation';
 import { SCREENS } from '../shared/navigation/screens';
-
+import SQLite from 'react-native-sqlite-storage';
 import { logOutAction, selectUser } from 'core';
 import { connectReduxAndNavigator } from '../shared/navigation/hoc/screenHOC';
 import { Home } from './dumb/home';
@@ -35,6 +35,15 @@ type Props = {
 export class HomeContainer extends Component<Props> {
   componentDidMount() {
     SplashScreen.hide();
+    SQLite.DEBUG(true);
+    SQLite.enablePromise(true);
+
+    SQLite.openDatabase({
+      name: 'TestDatabase',
+      location: 'default',
+    }).then(db => {
+      console.log('Database open!');
+    });
   }
 
   navigateToLogin = () => {
