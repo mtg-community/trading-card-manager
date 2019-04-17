@@ -25,4 +25,4 @@ mv "$SECRETS_PATH/mobile/google-services.json" \
   packages/mobile/android/app/google-services.json
 mv "$SECRETS_PATH/mobile/GoogleService-Info.plist" \
   packages/mobile/ios/GoogleService-Info.plist
-mv "$SECRETS_PATH/.env" packages/mobile/.env
+mv "$SECRETS_PATH/mobile/.env" packages/mobile/.env
