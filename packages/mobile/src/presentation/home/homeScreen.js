@@ -33,17 +33,20 @@ type Props = {
 };
 
 export class HomeContainer extends Component<Props> {
-  componentDidMount() {
+  async componentDidMount() {
     SplashScreen.hide();
     SQLite.DEBUG(true);
     SQLite.enablePromise(true);
-
-    SQLite.openDatabase({
-      name: 'TestDatabase',
-      location: 'default',
-    }).then(db => {
-      console.log('Database open!');
-    });
+    const db = await SQLite.openDatabase(
+      {
+        name: 'WoS',
+        readOnly: true,
+        location: 'default',
+      },
+      () => console.log('Conseguiu ler o db'),
+      () => console.log('Não conseguiu ler o db'),
+    );
+    console.log('War of the Spark database', db);
   }
 
   navigateToLogin = () => {
