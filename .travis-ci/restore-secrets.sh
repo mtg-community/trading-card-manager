@@ -18,7 +18,7 @@ chmod 600 "$KEY_PATH"
 ssh-add "$KEY_PATH"
 
 echo "Cloning secrets repository..."
-git clone --depth 1 "$REPO_SSH_URL"
+git clone --depth 1 "$REPO_SSH_URL" "$SECRETS_PATH"
 
 echo "Moving the secrets to the right folder..."
 mv "$SECRETS_PATH/mobile/google-services.json" \
