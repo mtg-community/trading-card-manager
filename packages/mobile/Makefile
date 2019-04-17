@@ -8,7 +8,7 @@ clean:
 	scripts/clean
 
 build-android:
-	android/gradlew app:assembleDebug -p android/
+	android/gradlew app:assembleRelease -p android/
 
 run-android:
 	npm run android
