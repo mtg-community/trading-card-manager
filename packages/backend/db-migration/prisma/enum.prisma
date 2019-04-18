@@ -1,0 +1,27 @@
+
+enum Color {
+  G,
+  R,
+  W,
+  B,
+  U
+}
+
+enum Layout {
+  NORMAL,
+}
+
+enum BorderColor {
+  BLACK,
+}
+
+enum SetType {
+  EXPANSION,
+}
+
+enum Rarity {
+  COMMON,
+  UNCOMMON,
+  RARE,
+  MYTHIC
+}

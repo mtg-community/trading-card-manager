@@ -1,0 +1,28 @@
+type Set {
+  id: ID! @id
+  code: String! @unique
+  block: String
+  name: String
+  releaseDate: DateTime
+  type: SetType
+  tokens: [Token!]! @relation(link: INLINE)
+  cards:  [Card!]! @relation(link: INLINE)
+}
+
+type Token {
+  id: ID! @id
+  set: Set!
+  artist: String!
+  borderColor: BorderColor!
+  colorIdentities: [Color!]!
+  colors: [Color!]!
+  layout: Layout!
+  name: String!
+  number: String!
+  power: String
+  text: String
+  toughness: String
+  type: String!
+  uuid: String! @unique
+  watermark: String
+}
