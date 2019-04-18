@@ -12,6 +12,7 @@ export type PropsType = {
   decrement: number => void,
   increment: number => void,
   navigateToLogin: () => void,
+  navigateToCardDetails: () => void,
   logOut: () => void,
   instructions: string,
   counter: number,
@@ -43,5 +44,10 @@ export const Home = (props: PropsType) => (
     ) : (
       <Button onPress={props.navigateToLogin} title="LOGIN" color="#841584" />
     )}
+    <Button
+      onPress={props.navigateToCardDetails}
+      title="CARD"
+      color="#841584"
+    />
   </View>
 );
