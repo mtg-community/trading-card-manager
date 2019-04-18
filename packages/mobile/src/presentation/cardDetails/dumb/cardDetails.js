@@ -17,34 +17,26 @@ type PropTypes = {
   fabItems: Array<ItemType>,
 };
 
-export const CardDetails = (props: PropTypes) => {
-  const renderRow = (rowName: string, rowText: string) => {
-    if (rowText === null) {
-      return null;
-    }
+const renderRow = (rowName: string, rowText: string) =>
+  rowText ? (
+    <View style={styles.rowContainer}>
+      <Text style={styles.rowText}>
+        <Text style={styles.rowName}>{`${I18n.t(rowName)}: `}</Text>
+        {rowText}
+      </Text>
+    </View>
+  ) : null;
 
-    return (
-      <View style={styles.rowContainer}>
-        <Text style={styles.rowText}>
-          <Text style={styles.rowName}>{`${I18n.t(rowName)}: `}</Text>
-          {rowText}
-        </Text>
-      </View>
-    );
-  };
-  const { card } = props;
-
-  return (
-    <ScrollView style={styles.container}>
-      <CardImage style={styles.card} multiverseId={card.multiverseId} />
-      {renderRow('CARD_NAME', card.name)}
-      {renderRow('TYPE', card.type)}
-      {renderRow('POWER_TOUGHNESS', `${card.power}/${card.toughness}`)}
-      {renderRow('MANA_COST', `${card.manaCost} (${card.cmc})`)}
-      {renderRow('RARITY', card.rarity)}
-      {renderRow('CARD_TEXT', card.text)}
-      {renderRow('FLAVOR_TEXT', card.flavor)}
-      <FloatingActionButton items={props.fabItems} />
-    </ScrollView>
-  );
-};
+export const CardDetails = ({ card, fabItems }: PropTypes) => (
+  <ScrollView style={styles.container}>
+    <CardImage style={styles.card} multiverseId={card.multiverseId} />
+    {renderRow('CARD_NAME', card.name)}
+    {renderRow('TYPE', card.type)}
+    {renderRow('POWER_TOUGHNESS', `${card.power}/${card.toughness}`)}
+    {renderRow('MANA_COST', `${card.manaCost} (${card.cmc})`)}
+    {renderRow('RARITY', card.rarity)}
+    {renderRow('CARD_TEXT', card.text)}
+    {renderRow('FLAVOR_TEXT', card.flavor)}
+    <FloatingActionButton items={fabItems} />
+  </ScrollView>
+);

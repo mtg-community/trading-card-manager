@@ -9,9 +9,8 @@ type PropTypes = {
   style: View.propTypes.style,
 };
 
-export const CardImage = (props: PropTypes) => {
+export const CardImage = ({ multiverseId, style }: PropTypes) => {
   const [loading, setLoading] = useState(false);
-  const { multiverseId, style } = props;
   const IMG_URL = `http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=${multiverseId}&type=card`;
   const renderSpinner = () =>
     loading ? (
