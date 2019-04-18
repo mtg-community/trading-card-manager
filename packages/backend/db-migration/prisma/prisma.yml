@@ -1,0 +1,14 @@
+endpoint: http://localhost:4466
+databaseType: document
+datamodel:
+  - set.prisma
+  - card.prisma
+  - enum.prisma
+generate:
+  - generator: typescript-client
+    output: ./generated/prisma-client/
+hooks:
+  post-deploy:
+    - npx prisma generate
+seed:
+  run: yarn ts-node ./index.ts

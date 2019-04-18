@@ -1,0 +1,65 @@
+type Card {
+  id: ID! @id
+  set: Set!
+  uuid: String! @unique
+  artist: String!
+  colorIdentities: [Color!]!
+  colors: [Color!]!
+  layout: Layout!
+  name: String!
+  number: String!
+  power: String
+  toughness: String
+  text: String
+  type: String!
+  watermark: String
+  convertedManaCost: Float! @default(value: 0)
+  flavorText: String
+  foreignData: [ForeignData!]
+  manaCost: String! @default(value: "")
+  multiverseId: Int!
+  rarity: Rarity!
+  rulings: [Ruling!]
+  printings: [Printing!]! @relation(link: INLINE)
+  subTypes: [SubType!] @relation(link: INLINE)
+  superTypes: [SuperType!] @relation(link: INLINE)
+  types: [Type!] @relation(link: INLINE)
+  legalities: Json
+}
+
+type ForeignData @embedded {
+  id: ID! @id
+  multiverseId: Int!
+  flavorText: String
+  language: String!
+  name: String!
+  text: String
+  type: String
+  layout: Layout
+}
+
+type Ruling @embedded {
+  id: ID! @id
+  date: DateTime!
+  text: String!
+}
+
+type Printing {
+  id: ID! @id
+  name: String! @unique
+}
+
+type SubType {
+  id: ID! @id
+  name: String! @unique
+}
+
+type SuperType {
+  id: ID! @id
+  name: String! @unique
+}
+
+type Type {
+  id: ID! @id
+  name: String! @unique
+}
