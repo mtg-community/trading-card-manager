@@ -7,7 +7,7 @@ import { type ItemType } from '../shared/components/floatingActionButton';
 
 import { CardDetails } from './dumb/cardDetails';
 import type { ForeignName, Legality, Ruling } from 'core';
-import { cards } from '../../data/cards/cardStubs';
+import { snapMage } from '../../data/cards/cardStubs';
 
 const fabItems: Array<ItemType> = [
   {
@@ -64,10 +64,9 @@ const cardStub = {
   foreignNames: ['something'],
 };
 
-const [lordOfAtlantis] = cards;
 
 const CardDetailsContainer = (props: PropTypes) => (
-  <CardDetails card={props.card || lordOfAtlantis} fabItems={fabItems} />
+  <CardDetails card={snapMage} fabItems={fabItems} />
 );
 
 const mapStateToProps = state => {

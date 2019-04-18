@@ -1,5 +1,5 @@
 export const lordOfAtlantis = {
-  multiverseid: 131676,
+  multiverseId: 131676,
   artist: 'Melissa A. Benson',
   cmc: 2,
   colorIdentity: ['U'],
@@ -96,7 +96,7 @@ export const lordOfAtlantis = {
 };
 
 export const liliana = {
-  multiverseid: 272761,
+  multiverseId: 272761,
   artist: 'Steve Argyle',
   cmc: 3,
   colorIdentity: ['B'],
@@ -203,7 +203,7 @@ export const liliana = {
 };
 
 export const snapMage = {
-  multiverseid: 272709,
+  multiverseId: 272709,
   artist: 'Joseph Meehan',
   cmc: 2,
   colorIdentity: ['U'],
