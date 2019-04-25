@@ -3,4 +3,4 @@ install:
 
 end-to-end-test:
 	npm run qa
-	npm run cypress:record
+	# npm run cypress:record
