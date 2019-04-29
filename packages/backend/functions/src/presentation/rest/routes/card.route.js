@@ -1,4 +1,4 @@
-const CardService = require('../../domain/services/card.service');
+const CardService = require('../../../domain/services/card.service');
 const { Router } = require('express');
 const cardsRouter = Router();
 

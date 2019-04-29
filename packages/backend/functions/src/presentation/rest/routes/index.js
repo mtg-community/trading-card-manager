@@ -10,7 +10,9 @@ const welcome = {
   message: 'If this is your first time? <br /> <b>Enjoy it!</b>',
 };
 
-router.get('/', (req, res) => res.send(process.env.TEST_SECRET || 'Failed'));
+router.get('/', (req, res) =>
+  res.send(process.env.TEST_SECRET || 'Failed to find .env'),
+);
 router.get('/welcome', (req, res) => res.send(welcome));
 router.get('/:userId/welcome', (req, res) => res.send(welcome));
 
