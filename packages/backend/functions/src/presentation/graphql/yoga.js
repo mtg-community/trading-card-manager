@@ -1,20 +1,13 @@
 const { GraphQLServer } = require('graphql-yoga');
-
-const typeDefs = `
-  type Query {
-    hello(name: String): String!
-  }
-`;
+const { typeDefs } = require('./typeDefs');
+const { queries } = require('./queries');
 
 const resolvers = {
-  Query: {
-    hello: (_, { name }) => `Hello ${name || 'World'}`,
-  },
+  Query: queries,
 };
 
 const graphQLServer = new GraphQLServer({ typeDefs, resolvers });
-const express = graphQLServer.createHttpServer({
+graphQLServer.createHttpServer({
   cors: true,
-}).express;
-
-module.exports = express;
+});
+module.exports = graphQLServer.express;
