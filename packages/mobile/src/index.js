@@ -1,5 +1,3 @@
-// @flow strict
-
 import { PresentationLayer } from './presentation';
 import { DataLayer } from './data';
 
