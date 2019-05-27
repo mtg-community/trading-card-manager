@@ -7,6 +7,8 @@
     "info": "node node_modules/react-native/local-cli/cli.js info",
     "android": "react-native run-android",
     "android:dev-menu": "adb shell input keyevent 82",
+    "android:create": "scripts/android-emulator create",
+    "android:start": "scripts/android-emulator start",
     "ci:check": "scripts/ci-check",
     "clean": "scripts/clean",
     "ios": "react-native run-ios --simulator=\"iPhone SE\"",
@@ -20,13 +22,9 @@
   },
   "dependencies": {
     "axios": "0.18.0",
-    "core": "file:../web/src/core",
-    "data": "file:src/data",
-    "domain": "file:src/domain",
     "get-dev-paths": "0.1.1",
     "lodash": "4.17.11",
     "moment": "2.24.0",
-    "presentation": "file:src/presentation",
     "prop-types": "15.7.2",
     "react": "16.8.3",
     "react-native": "0.59.1",
@@ -40,6 +38,7 @@
     "react-redux": "6.0.1",
     "recompose": "0.30.0",
     "redux": "4.0.1",
+    "redux-saga": "1.0.2",
     "validator": "10.11.0"
   },
   "devDependencies": {
@@ -65,7 +64,7 @@
     "redux-mock-store": "1.5.3"
   },
   "engines": {
-    "node": "11.10.0",
+    "node": "10.13.0",
     "npm": "6.9.0"
   }
 }
