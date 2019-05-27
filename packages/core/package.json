@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": false,
   "main": "dist/index.js",
+  "types": "index.d.ts",
   "scripts": {
     "flow": "flow",
     "flow:coverage": "flow coverage",
@@ -13,7 +14,7 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build:watch": "cross-env NODE_ENV=development npm run build:src -- --watch --source-maps",
-    "build:types": "tsc --emitDeclarationOnly",
+    "build:types": "tsc --declaration --outDir dist --emitDeclarationOnly",
     "build:js": "babel src --out-dir ./dist --extensions \".ts,.tsx\" --source-maps inline --delete-dir-on-start --copy-files",
     "build": "cross-env NODE_ENV=production npm run build:types && npm run build:js"
   },
