@@ -1,17 +1,24 @@
-// @flow strict
-
-export class Counter {
-  count: number;
-
-  constructor(startNumber: number = 0) {
+'use strict';
+exports.__esModule = true;
+var Counter = /** @class */ (function() {
+  function Counter(startNumber) {
+    if (startNumber === void 0) {
+      startNumber = 0;
+    }
     this.count = startNumber;
   }
-
-  increment(qty?: number = 1) {
+  Counter.prototype.increment = function(qty) {
+    if (qty === void 0) {
+      qty = 1;
+    }
     this.count += qty;
-  }
-
-  decrement(qty?: number = 1) {
+  };
+  Counter.prototype.decrement = function(qty) {
+    if (qty === void 0) {
+      qty = 1;
+    }
     this.count -= qty;
-  }
-}
+  };
+  return Counter;
+})();
+exports.Counter = Counter;

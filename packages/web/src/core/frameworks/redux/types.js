@@ -1,7 +1,5 @@
-// @flow strict
-
-import type { Counter } from '../../entities/counter';
-import type { User } from '../../entities/user';
+import { Counter } from '../../entities/counter';
+import { User } from '../../entities/user';
 
 // eslint-disable-next-line
 export type PayloadlessAction = {

@@ -1,7 +1,2 @@
-// @flow strict
-
-export type ForeignName = {
-  language: string,
-  name: string,
-  multiverseId: string,
-};
+'use strict';
+exports.__esModule = true;

@@ -1,7 +1,5 @@
-// @flow strict
-
-import type { User } from '../../../entities/user';
-import type { SetUserAction, StateType, UserStateSlice } from '../types';
+import { User } from '../../../entities/user';
+import { SetUserAction, StateType, UserStateSlice } from '../types';
 
 export const INITIAL_STATE = null;
 const SET_USER = 'user/sync/set';

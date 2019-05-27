@@ -1,10 +1,6 @@
-// @flow strict
-
 import { Counter } from '../../../entities/counter';
-import type { StateType } from '../types';
+import { StateType } from '../types';
 import { CounterInteractor } from '../../../useCases';
-
-type StateSliceType = Counter;
 
 type ActionType = {
   type: string,
@@ -28,25 +24,25 @@ export const decrementCounterAction = (qty: number = 1): ActionType => ({
 });
 
 const incrementReducer = (
-  counter: StateSliceType,
+  counter: Counter,
   action: ActionType,
   interactor: CounterInteractor,
-): StateSliceType => {
+): Counter => {
   return interactor.increment(counter, action.qty);
 };
 
 const decrementReducer = (
-  counter: StateSliceType,
+  counter: Counter,
   action: ActionType,
   interactor: CounterInteractor,
-): StateSliceType => {
+): Counter => {
   return interactor.decrement(counter, action.qty);
 };
 
 export const counterReducer = (interactor: CounterInteractor) => (
-  state: StateSliceType = new Counter(0),
+  state: Counter = new Counter(0),
   action: ActionType,
-): StateSliceType => {
+): Counter => {
   switch (action.type) {
     case INCREMENT:
       return incrementReducer(state, action, interactor);

@@ -1,8 +1,2 @@
-// @flow strict
-
-import Moment from 'moment';
-
-export type Ruling = {
-  date: Moment,
-  text: string,
-};
+'use strict';
+exports.__esModule = true;

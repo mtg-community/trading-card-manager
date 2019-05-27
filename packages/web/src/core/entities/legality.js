@@ -1,6 +1,2 @@
-// @flow strict
-
-export type Legality = {
-  format: string,
-  legality: string,
-};
+'use strict';
+exports.__esModule = true;

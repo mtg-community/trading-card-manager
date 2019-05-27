@@ -1,5 +1,3 @@
-// @flow strict
-
 import isEmail from 'validator/lib/isEmail';
 import { User } from '../entities/user';
 

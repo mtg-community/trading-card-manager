@@ -12,6 +12,10 @@
     "flow": "flow"
   },
   "dependencies": {
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.2",
+    "@types/react": "16.8.18",
+    "@types/react-dom": "16.8.4",
     "core": "file:src/core",
     "firebase": "5.8.5",
     "lodash": "4.17.11",
@@ -25,7 +29,8 @@
     "react-redux": "6.0.0",
     "react-router-dom": "5.0.0",
     "react-scripts": "2.1.8",
-    "redux": "4.0.1"
+    "redux": "4.0.1",
+    "typescript": "3.4.5"
   },
   "eslintConfig": {
     "extends": "react-app"

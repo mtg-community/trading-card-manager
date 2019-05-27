@@ -1,5 +1,3 @@
-// @flow strict
-
 import { Counter } from '../entities/counter';
 
 export class CounterInteractor {

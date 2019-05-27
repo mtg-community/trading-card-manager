@@ -1,5 +1,3 @@
-// @flow strict
-
 import { all, takeLatest, throttle } from 'redux-saga/effects';
 import {
   FORGOT_PASSWORD,

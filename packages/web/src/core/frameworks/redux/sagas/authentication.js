@@ -1,13 +1,11 @@
-// @flow strict
-
 import { call, put } from 'redux-saga/effects';
-import type {
+import {
   AuthUserAction,
   ForgotPasswordAction,
   LogOutAction,
   SetUserAction,
 } from '../types';
-import type { Saga } from 'redux-saga';
+import { Saga } from 'redux-saga';
 import { setUserAction } from '../ducks/userReducer';
 import { AuthenticationInteractor } from '../../../useCases';
 
