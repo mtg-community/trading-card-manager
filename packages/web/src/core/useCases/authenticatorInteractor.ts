@@ -1,14 +1,15 @@
-import isEmail from 'validator/lib/isEmail';
-import { User } from '../entities/user';
+import { User } from '../entities';
+const isEmail: (email: string) => boolean = require('validator/lib/isEmail');
+
 
 export const INVALID_EMAIL_ERROR = 'Invalid Email';
 
-export type AuthenticationService = {|
-  signIn: (string, string) => Promise<User>,
-  signUp: (string, string) => Promise<User>,
-  signOut: () => Promise<void>,
-  resetPassword: string => Promise<void>,
-|};
+export interface AuthenticationService {
+  signIn: (email: string, password: string) => Promise<User>;
+  signUp: (email: string, password: string) => Promise<User>;
+  signOut: () => Promise<void>;
+  resetPassword: (email: string) => Promise<void>;
+}
 
 const validateEmail = (email: string) => {
   if (!isEmail(email)) {

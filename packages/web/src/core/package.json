@@ -3,9 +3,9 @@
   "description": "Temporary location of core module",
   "version": "0.0.1",
   "private": true,
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "compile": "tsc index.ts"
+    "compile": "tsc --build tsconfig.json"
   },
   "dependencies": {
     "moment": "2.22.2",

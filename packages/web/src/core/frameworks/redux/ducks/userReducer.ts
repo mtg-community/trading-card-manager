@@ -1,18 +1,20 @@
-import { User } from '../../../entities/user';
+import { User } from '../../../entities';
 import { SetUserAction, StateType, UserStateSlice } from '../types';
 
 export const INITIAL_STATE = null;
 const SET_USER = 'user/sync/set';
 const SET_USER_LISTENER = 'user/listener/set';
 
-export const selectUser = (state: StateType): ?User => state.user;
+export function selectUser(state: StateType): User | undefined | null {
+  return state.user;
+}
 
-export const setUserAction = (user: ?User = null): SetUserAction => ({
+export const setUserAction = (user?: User): SetUserAction => ({
   type: SET_USER,
   user,
 });
 
-export const setUserListenerAction = (user: ?User = null): SetUserAction => ({
+export const setUserListenerAction = (user?: User): SetUserAction => ({
   type: SET_USER_LISTENER,
   user,
 });

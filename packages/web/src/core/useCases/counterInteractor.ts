@@ -9,7 +9,7 @@ export class CounterInteractor {
     this.higherBound = higherBound;
   }
 
-  increment(counter: Counter, qty?: number = 1): Counter {
+  increment(counter: Counter, qty: number = 1): Counter {
     counter.increment(qty);
 
     if (counter.count > this.higherBound) {
@@ -19,7 +19,7 @@ export class CounterInteractor {
     }
   }
 
-  decrement(counter: Counter, qty?: number = 1): Counter {
+  decrement(counter: Counter, qty: number = 1): Counter {
     counter.decrement(qty);
 
     if (counter.count < this.lowerBound) {

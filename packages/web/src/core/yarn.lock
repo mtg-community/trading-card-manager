@@ -53,6 +53,49 @@
   resolved "https://registry.yarnpkg.com/@redux-saga/types/-/types-1.0.2.tgz#1d94f02800b094753f9271c206a26c2a06ca14ee"
   integrity sha512-8/qcMh15507AnXJ3lBeuhsdFwnWQqnp68EpUuHlYPixJ5vjVmls7/Jq48cnUlrZI8Jd9U1jkhfCl0gaT5KMgVw==
 
+"@types/hoist-non-react-statics@^3.3.0":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
+  integrity sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==
+  dependencies:
+    "@types/react" "*"
+    hoist-non-react-statics "^3.3.0"
+
+"@types/prop-types@*":
+  version "15.7.1"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.1.tgz#f1a11e7babb0c3cad68100be381d1e064c68f1f6"
+  integrity sha512-CFzn9idOEpHrgdw8JsoTkaDDyRWk1jrzIV8djzcgpq0y9tG4B4lFT+Nxh52DVpDXV+n4+NPNv7M1Dj5uMp6XFg==
+
+"@types/react-redux@7.0.9":
+  version "7.0.9"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.0.9.tgz#4825ee2872c44768916304b6bb8df5b46d443b88"
+  integrity sha512-fMVX9SneWWw68d/JoeNUh6hj42kx2G30YhPdCYJTOv3xqbJ1xzIz6tEM/xzi7nBvpNbwZkSa9TMsV06kWOFIIg==
+  dependencies:
+    "@types/hoist-non-react-statics" "^3.3.0"
+    "@types/react" "*"
+    hoist-non-react-statics "^3.3.0"
+    redux "^4.0.0"
+
+"@types/react@*":
+  version "16.8.18"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.18.tgz#fe66fb748b0b6ca9709d38b87b2d1356d960a511"
+  integrity sha512-lUXdKzRqWR4FebR5tGHkLCqnvQJS4fdXKCBrNGGbglqZg2gpU+J82pMONevQODUotATs9fc9k66bx3/St8vReg==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
+csstype@^2.2.0:
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.4.tgz#d585a6062096e324e7187f80e04f92bd0f00e37f"
+  integrity sha512-lAJUJP3M6HxFXbqtGRc0iZrdyeN+WzOWeY0q/VnFzI+kqVrYIzC7bWlKqCW7oCIdzoPkvfp82EVvrTlQ8zsWQg==
+
+hoist-non-react-statics@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
+  integrity sha512-0XsbTXxgiaCDYDIWFcwkmerZPSwywfUqYmwT4jzewKTQSWoE6FCMoUVOeBJWK3E/CrWbxRG3m5GzY4lnIwGRBA==
+  dependencies:
+    react-is "^16.7.0"
+
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -70,6 +113,11 @@ moment@2.22.2:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
   integrity sha1-PCV/mDn8DpP/UxSWMiOeuQeD/2Y=
 
+react-is@^16.7.0:
+  version "16.8.6"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
+  integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
+
 redux-saga@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.0.1.tgz#5f5c6803882bc5c7c8dd558562e8392ef15e3ffe"
@@ -77,7 +125,7 @@ redux-saga@1.0.1:
   dependencies:
     "@redux-saga/core" "^1.0.1"
 
-redux@4.0.1, "redux@>=0.10 <5":
+redux@4.0.1, "redux@>=0.10 <5", redux@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
   integrity sha512-R7bAtSkk7nY6O/OYMVR9RiBI+XghjF9rlbl5806HJbQph0LJVHZrU5oaO4q70eUKiqMRqm4y07KLTlMZ2BlVmg==

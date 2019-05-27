@@ -1,4 +1,4 @@
-import { combineReducers, applyMiddleware, createStore, compose, Middleware } from 'redux';
+import { combineReducers, applyMiddleware, createStore, compose, Middleware, Action } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { counterReducer } from './ducks/counterReducer';
 import { userReducer } from './ducks/userReducer';
@@ -27,7 +27,7 @@ export const configureStore = (
     ...appSpecificReducers,
   });
 
-  const rootReducer = (state, action) => {
+  const rootReducer = (state: any, action: Action) => {
     if (action.type === RESET_STATE) {
       // https://stackoverflow.com/questions/35622588/how-to-reset-the-state-of-a-redux-store/35641992#35641992
       return reducers(undefined, action);

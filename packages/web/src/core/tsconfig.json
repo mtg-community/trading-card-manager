@@ -3,6 +3,7 @@
     "outDir": "./dist",
     "target": "es5",
     "lib": [
+      "dom",
       "esnext"
     ],
     "allowJs": true,
@@ -19,6 +20,6 @@
     "jsx": "preserve"
   },
   "include": [
-    "index.ts"
+    "./**/*.ts"
   ]
 }

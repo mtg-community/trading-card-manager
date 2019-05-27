@@ -13,7 +13,7 @@ import { ReduxAdapter } from '../reduxAdapter';
 
 const ONE_SECOND = 1000;
 
-export function* rootSaga(adapter: ReduxAdapter): Generator<*, *, *> {
+export function* rootSaga(adapter: ReduxAdapter) {
   yield all([
     takeLatest(SIGN_IN, signInSaga, adapter.authentication),
     takeLatest(SIGN_UP, signUpSaga, adapter.authentication),
