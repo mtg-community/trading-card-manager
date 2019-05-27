@@ -3,9 +3,7 @@ import {
   AuthUserAction,
   ForgotPasswordAction,
   LogOutAction,
-  SetUserAction,
 } from '../types';
-import { Saga } from 'redux-saga';
 import { setUserAction } from '../../..';
 import { AuthenticationInteractor } from '../../../useCases';
 
