@@ -6,12 +6,13 @@ import { rootSaga } from './sagas';
 import { Adapter } from './reduxAdapter';
 
 const RESET_STATE = 'rootReducer/resetState';
+export type Reducer = (state: any, action: any) => any
 export const resetStateAction = () => ({ type: RESET_STATE });
 
 export const configureStore = (
   adapter: Adapter,
   appSpecificMiddleware: Middleware<any, any, any>[] = [],
-  appSpecificReducers: { [key: string]: Middleware<any, any, any> } = {},
+  appSpecificReducers: { [key: string]: Reducer } = {},
 ) => {
   if (!adapter.hasBeenInitialized()) {
     throw new Error('ReduxAdapter is required.');

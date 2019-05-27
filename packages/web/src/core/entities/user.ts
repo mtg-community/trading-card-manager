@@ -1,5 +1,3 @@
-// @flow strict
-
 import { Email } from './email';
 
 type optionalFields = {

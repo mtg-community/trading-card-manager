@@ -2,9 +2,7 @@ import { configureStore, resetStateAction } from '../store';
 import { mockReduxAdapter } from './reduxAdapter';
 import cloneDeep from 'lodash/cloneDeep';
 
-export const configureTestStore = (
-  appSpecificReducers: { [string]: Function } = {},
-) => {
+export const configureTestStore = appSpecificReducers => {
   const adapter = cloneDeep(mockReduxAdapter);
   const actionMiddleware = actionRepository();
   const store = configureStore(
