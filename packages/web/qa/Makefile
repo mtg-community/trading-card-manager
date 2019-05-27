@@ -1,5 +1,5 @@
 install:
-	npm ci
+	yarn install
 
 end-to-end-test:
 	npm run qa
