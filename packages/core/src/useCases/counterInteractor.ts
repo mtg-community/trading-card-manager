@@ -1,6 +1,13 @@
-import { Counter } from '../entities/counter';
+import { Counter } from '../entities';
 
-export class CounterInteractor {
+export interface ICounterInteractor {
+  higherBound: number;
+  lowerBound: number;
+  increment(counter: Counter, qty?: number): Counter;
+  decrement(counter: Counter, qty?: number): Counter
+}
+
+export class CounterInteractor implements ICounterInteractor {
   higherBound: number = 10;
   lowerBound: number = 0;
 

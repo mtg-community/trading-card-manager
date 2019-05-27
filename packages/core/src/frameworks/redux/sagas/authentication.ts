@@ -4,8 +4,8 @@ import {
   ForgotPasswordAction,
   LogOutAction,
 } from '../types';
-import { setUserAction } from '../../../index';
-import { AuthenticationInteractor } from '../../../useCases/index';
+import { setUserAction } from '../ducks';
+import { IAuthenticationInteractor } from '../../../useCases/authenticatorInteractor';
 
 export const SIGN_IN = 'user/saga/sign_in';
 export const SIGN_UP = 'user/saga/sign_up';
@@ -24,7 +24,7 @@ export const loginAction = (
 });
 
 export function* signInSaga(
-  interactor: AuthenticationInteractor,
+  interactor: IAuthenticationInteractor,
   action: AuthUserAction,
 ) {
   try {
@@ -47,7 +47,7 @@ export const signUpAction = (
 });
 
 export function* signUpSaga(
-  interactor: AuthenticationInteractor,
+  interactor: IAuthenticationInteractor,
   action: AuthUserAction,
 ) {
   try {
@@ -71,7 +71,7 @@ export const forgotPasswordAction = (
 
 // FIXME: ACTION THAT DOESN'T CHANGE THE STATE
 export function* forgotPasswordSaga(
-  interactor: AuthenticationInteractor,
+  interactor: IAuthenticationInteractor,
   action: ForgotPasswordAction,
 ) {
   try {
@@ -92,7 +92,7 @@ export const logOutAction = (
 });
 
 export function* logoutSaga(
-  interactor: AuthenticationInteractor,
+  interactor: IAuthenticationInteractor,
   action: LogOutAction,
 ) {
   try {

@@ -1,6 +1,6 @@
-import { Counter } from '../../../entities/counter';
+import { Counter } from '../../../entities';
 import { StateType } from '../types';
-import { CounterInteractor } from '../../../useCases/index';
+import { ICounterInteractor } from '../../../useCases/counterInteractor';
 
 type ActionType = {
   type: string,
@@ -26,7 +26,7 @@ export const decrementCounterAction = (qty: number = 1): ActionType => ({
 const incrementReducer = (
   counter: Counter,
   action: ActionType,
-  interactor: CounterInteractor,
+  interactor: ICounterInteractor,
 ): Counter => {
   return interactor.increment(counter, action.qty);
 };
@@ -34,12 +34,12 @@ const incrementReducer = (
 const decrementReducer = (
   counter: Counter,
   action: ActionType,
-  interactor: CounterInteractor,
+  interactor: ICounterInteractor,
 ): Counter => {
   return interactor.decrement(counter, action.qty);
 };
 
-export const counterReducer = (interactor: CounterInteractor) => (
+export const counterReducer = (interactor: ICounterInteractor) => (
   state: Counter = new Counter(0),
   action: ActionType,
 ): Counter => {
