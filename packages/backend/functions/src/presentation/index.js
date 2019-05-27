@@ -1,7 +1,8 @@
-const api = require('./api');
+const express = require('./rest/express');
+const yogaGraphql = require('./graphql/yoga');
 
 const initializePresentationLayer = () => {
-  return { api };
+  return { rest: express, graphql: yogaGraphql };
 };
 
 module.exports = {
