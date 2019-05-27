@@ -20,7 +20,7 @@
     "jsx": "preserve"
   },
   "include": [
-    "index.ts",
+    "src/index.ts",
     "./**/*.ts"
   ]
 }

@@ -1,3 +1,3 @@
 export * from './frameworks';
 export * from './entities';
-export * from './useCases';
+export * from './useCases/index';

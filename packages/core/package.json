@@ -14,7 +14,11 @@
     "build:watch": "cross-env NODE_ENV=development npm run build:src -- --watch --source-maps",
     "build": "cross-env NODE_ENV=production npm run build:src"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/jest": "24.0.13",
+    "jest": "24.8.0",
+    "typescript": "3.4.5"
+  },
   "peerDependencies": {
     "moment": "2.22.2",
     "redux": "4.0.1",

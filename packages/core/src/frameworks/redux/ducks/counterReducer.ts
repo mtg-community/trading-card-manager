@@ -1,6 +1,6 @@
 import { Counter } from '../../../entities/counter';
 import { StateType } from '../types';
-import { CounterInteractor } from '../../../useCases';
+import { CounterInteractor } from '../../../useCases/index';
 
 type ActionType = {
   type: string,

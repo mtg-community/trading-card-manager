@@ -4,8 +4,8 @@ import {
   ForgotPasswordAction,
   LogOutAction,
 } from '../types';
-import { setUserAction } from '../../..';
-import { AuthenticationInteractor } from '../../../useCases';
+import { setUserAction } from '../../../index';
+import { AuthenticationInteractor } from '../../../useCases/index';
 
 export const SIGN_IN = 'user/saga/sign_in';
 export const SIGN_UP = 'user/saga/sign_up';

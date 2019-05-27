@@ -4,7 +4,7 @@ import {
   logOutAction,
   signUpAction,
 } from './authentication';
-import { setUserAction } from '../../..';
+import { setUserAction } from '../../../index';
 import { User } from '../../../entities';
 import { configureTestStore } from '../__mocks__/store';
 
