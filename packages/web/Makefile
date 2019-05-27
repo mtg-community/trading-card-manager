@@ -3,7 +3,6 @@ install:
 
 ci-check:
 	npm run test:coverage
-	npm run flow
 
 build:
 	npm run build
