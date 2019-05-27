@@ -2,14 +2,14 @@ import { combineReducers, applyMiddleware, createStore, compose, Middleware, Act
 import createSagaMiddleware from 'redux-saga';
 import { counterReducer } from './ducks/counterReducer';
 import { userReducer } from './ducks/userReducer';
-import { ReduxAdapter } from './reduxAdapter';
 import { rootSaga } from './sagas';
+import { Adapter } from './reduxAdapter';
 
 const RESET_STATE = 'rootReducer/resetState';
 export const resetStateAction = () => ({ type: RESET_STATE });
 
 export const configureStore = (
-  adapter: ReduxAdapter,
+  adapter: Adapter,
   appSpecificMiddleware: Middleware<any, any, any>[] = [],
   appSpecificReducers: { [key: string]: Middleware<any, any, any> } = {},
 ) => {

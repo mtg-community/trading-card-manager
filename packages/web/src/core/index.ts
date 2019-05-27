@@ -1,3 +1,5 @@
+import { Adapter } from './frameworks/redux';
+
 export {
   counterSelector,
   decrementCounterAction,
@@ -10,7 +12,8 @@ export {
 } from './frameworks/redux/ducks/userReducer';
 
 export { CounterInteractor, AuthenticationInteractor } from './useCases';
-export { ReduxAdapter } from './frameworks/redux/reduxAdapter';
+// export { ReduxAdapter, Adapter } from './frameworks/redux/reduxAdapter';
+export * from './frameworks/redux/reduxAdapter';
 export { configureStore } from './frameworks/redux/store';
 export { User, Email, Counter } from './entities';
 export { forgotPasswordAction } from './frameworks/redux/sagas/authentication';
