@@ -1,5 +1,5 @@
 install:
-	yarn install
+	npm ci
 
 ci-check:
 	npm run test:coverage
