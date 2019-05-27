@@ -57,7 +57,7 @@ describe('Authentication Sagas', function() {
     });
   });
 
-  describe('Signup Saga', function() {
+  describe('sSignup Saga', function() {
     test('Success', async function() {
       store.adapter.authentication.signUp = jest.fn(() =>
         Promise.resolve(mockUser),
