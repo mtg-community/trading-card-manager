@@ -7,14 +7,12 @@
   "scripts": {
     "compile": "tsc --build tsconfig.json"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "lodash": "4.17.11",
     "moment": "2.22.2",
     "redux": "4.0.1",
     "redux-saga": "1.0.1",
     "typescript": "3.4.5",
     "validator": "10.11.0"
-  },
-  "peerDependencies": {
-    "lodash": "4.17.11"
   }
 }
