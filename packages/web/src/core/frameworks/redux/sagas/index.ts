@@ -1,5 +1,3 @@
-// @flow strict
-
 import { all, takeLatest, throttle } from 'redux-saga/effects';
 import {
   FORGOT_PASSWORD,
@@ -11,11 +9,11 @@ import {
   signInSaga,
   signUpSaga,
 } from './authentication';
-import { ReduxAdapter } from '../reduxAdapter';
+import { Adapter } from '../reduxAdapter';
 
 const ONE_SECOND = 1000;
 
-export function* rootSaga(adapter: ReduxAdapter): Generator<*, *, *> {
+export function* rootSaga(adapter: Adapter) {
   yield all([
     takeLatest(SIGN_IN, signInSaga, adapter.authentication),
     takeLatest(SIGN_UP, signUpSaga, adapter.authentication),

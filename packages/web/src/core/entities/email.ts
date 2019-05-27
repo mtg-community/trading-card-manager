@@ -1,6 +1,4 @@
-// @flow strict
-
-import { isEmail } from 'validator';
+const isEmail: (email: string) => boolean = require('validator/lib/isEmail');
 
 export const INVALID_EMAIL_ERROR = 'Invalid Email';
 

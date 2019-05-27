@@ -1,7 +1,7 @@
 install:
   - nvm install && nvm use
   - npm install -g "npm@$(jq -r '.engines.npm' package.json)"
-  - npm ci
+  - yarn install
 matrix:
   include:
     - os: linux

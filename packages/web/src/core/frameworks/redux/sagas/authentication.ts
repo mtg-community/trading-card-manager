@@ -1,14 +1,10 @@
-// @flow strict
-
 import { call, put } from 'redux-saga/effects';
-import type {
+import {
   AuthUserAction,
   ForgotPasswordAction,
   LogOutAction,
-  SetUserAction,
 } from '../types';
-import type { Saga } from 'redux-saga';
-import { setUserAction } from '../ducks/userReducer';
+import { setUserAction } from '../../..';
 import { AuthenticationInteractor } from '../../../useCases';
 
 export const SIGN_IN = 'user/saga/sign_in';
@@ -19,7 +15,7 @@ export const FORGOT_PASSWORD = 'user/saga/forgot_password';
 export const loginAction = (
   email: string,
   password: string,
-  onError: Error => void,
+  onError: (error: Error) => void,
 ): AuthUserAction => ({
   type: SIGN_IN,
   email,
@@ -30,7 +26,7 @@ export const loginAction = (
 export function* signInSaga(
   interactor: AuthenticationInteractor,
   action: AuthUserAction,
-): Saga<SetUserAction> {
+) {
   try {
     const user = yield call(interactor.signIn, action.email, action.password);
     yield put(setUserAction(user));
@@ -42,7 +38,7 @@ export function* signInSaga(
 export const signUpAction = (
   email: string,
   password: string,
-  onError: Error => void,
+  onError: (error: Error) => void,
 ): AuthUserAction => ({
   type: SIGN_UP,
   email,
@@ -53,7 +49,7 @@ export const signUpAction = (
 export function* signUpSaga(
   interactor: AuthenticationInteractor,
   action: AuthUserAction,
-): Saga<SetUserAction> {
+) {
   try {
     const user = yield call(interactor.signUp, action.email, action.password);
     yield put(setUserAction(user));
@@ -65,7 +61,7 @@ export function* signUpSaga(
 export const forgotPasswordAction = (
   email: string,
   onSuccess: () => void,
-  onError: Error => void,
+  onError: (error: Error) => void,
 ): ForgotPasswordAction => ({
   type: FORGOT_PASSWORD,
   email,
@@ -77,7 +73,7 @@ export const forgotPasswordAction = (
 export function* forgotPasswordSaga(
   interactor: AuthenticationInteractor,
   action: ForgotPasswordAction,
-): Saga<SetUserAction> {
+) {
   try {
     yield call(interactor.forgotPassword, action.email);
     action.onSuccess();
@@ -88,7 +84,7 @@ export function* forgotPasswordSaga(
 
 export const logOutAction = (
   onSuccess?: () => void,
-  onError?: Error => void,
+  onError?: (error: Error) => void,
 ): LogOutAction => ({
   type: LOG_OUT,
   onSuccess,
@@ -98,10 +94,10 @@ export const logOutAction = (
 export function* logoutSaga(
   interactor: AuthenticationInteractor,
   action: LogOutAction,
-): Saga<SetUserAction> {
+) {
   try {
     yield call(interactor.signOut);
-    yield put(setUserAction(null));
+    yield put(setUserAction(undefined));
     action.onSuccess && action.onSuccess();
   } catch (error) {
     action.onError && action.onError(error);

@@ -1,9 +1,13 @@
-// @flow strict
-
 import { AuthenticationInteractor } from '../../useCases/authenticatorInteractor';
 import { CounterInteractor } from '../../useCases/counterInteractor';
 
-export class ReduxAdapter {
+export interface Adapter {
+  authentication: AuthenticationInteractor;
+  counter: CounterInteractor;
+  hasBeenInitialized: () => boolean;
+}
+
+export class ReduxAdapter implements Adapter {
   authentication: AuthenticationInteractor;
   counter: CounterInteractor;
 

@@ -1,5 +1,3 @@
-// @flow strict
-
 export class Counter {
   count: number;
 
@@ -7,11 +5,11 @@ export class Counter {
     this.count = startNumber;
   }
 
-  increment(qty?: number = 1) {
+  increment(qty: number = 1) {
     this.count += qty;
   }
 
-  decrement(qty?: number = 1) {
+  decrement(qty: number = 1) {
     this.count -= qty;
   }
 }

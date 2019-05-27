@@ -1,5 +1,5 @@
 install:
-	npm ci
+	yarn install
 
 ci-check:
 	npm run ci:check

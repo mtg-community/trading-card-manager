@@ -91,7 +91,7 @@ describe('Authentication Sagas', function() {
   });
 
   describe('Logout Saga', function() {
-    test('Success', async function() {
+    xit('Success', async function() {
       store.adapter.authentication.signOut = jest.fn(() => Promise.resolve());
       const action = logOutAction(jest.fn(), jest.fn());
       const expectedAction = setUserAction(null);

@@ -2,7 +2,6 @@ import { mockAuthenticationService } from './__mocks__/authenticatorInteractor';
 import {
   AuthenticationInteractor,
   INVALID_EMAIL_ERROR,
-  invalidEmailError,
 } from './authenticatorInteractor';
 
 const password = 'password';

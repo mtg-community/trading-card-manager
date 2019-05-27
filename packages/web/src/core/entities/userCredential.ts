@@ -1,6 +1,4 @@
-// @flow strict
-
-import type { Email } from './email';
+import { Email } from './email';
 
 export type UserCredential = {
   additionalUserInfo: {
