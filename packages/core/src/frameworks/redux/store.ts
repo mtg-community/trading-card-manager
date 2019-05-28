@@ -1,7 +1,6 @@
-import { combineReducers, applyMiddleware, createStore, compose, Middleware, Action } from 'redux';
+import { combineReducers, applyMiddleware, createStore, compose, Middleware, Action, Store, AnyAction } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { counterReducer } from './ducks/counterReducer';
-import { userReducer } from './ducks/userReducer';
+import { counterReducer, userReducer } from './ducks';
 import { rootSaga } from './sagas';
 import { Adapter } from './reduxAdapter';
 
@@ -9,11 +8,13 @@ const RESET_STATE = 'rootReducer/resetState';
 export type Reducer = (state: any, action: any) => any
 export const resetStateAction = () => ({ type: RESET_STATE });
 
+type MTGXStore = Store<any, AnyAction>
+
 export const configureStore = (
   adapter: Adapter,
   appSpecificMiddleware: Middleware<any, any, any>[] = [],
   appSpecificReducers: { [key: string]: Reducer } = {},
-) => {
+): MTGXStore => {
   if (!adapter.hasBeenInitialized()) {
     throw new Error('ReduxAdapter is required.');
   }
