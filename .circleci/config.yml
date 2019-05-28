@@ -97,14 +97,11 @@ jobs:
             - node-v1-
       - run:
           name: 'Npm Install'
-          command: npm ci
+          command: make install
       - save_cache:
             paths:
               - ~/usr/local/lib/node_modules
             key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      # - run:
-      #     name: 'Lerna Bootstrap'
-      #     command: npm run lerna:bootstrap
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:

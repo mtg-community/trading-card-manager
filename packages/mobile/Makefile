@@ -1,7 +1,7 @@
 install:
 	$(MAKE) -C ../core install
 	$(MAKE) -C ../core build
-	npm ci
+	$(MAKE) -C ../../ install
 
 ci-check:
 	npm run ci:check
