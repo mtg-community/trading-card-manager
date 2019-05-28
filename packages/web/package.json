@@ -11,8 +11,6 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "redux-saga": "1.0.1",
-    "validator": "10.11.0",
     "@types/jest": "24.0.13",
     "@types/lodash": "4.14.132",
     "@types/node": "12.0.2",
@@ -31,7 +29,9 @@
     "react-router-dom": "5.0.0",
     "react-scripts": "3.0.1",
     "redux": "4.0.1",
-    "typescript": "3.4.5"
+    "redux-saga": "1.0.1",
+    "typescript": "3.4.5",
+    "validator": "10.11.0"
   },
   "eslintConfig": {
     "extends": "react-app"
