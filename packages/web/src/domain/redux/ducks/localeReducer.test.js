@@ -2,7 +2,7 @@ import localeReducer, {
   localeSelector,
   setLocaleAction,
 } from './localeReducer';
-import { configureTestStore } from '../testUtils';
+import { configureTestStore } from 'core/src/testUtils';
 
 describe('Locale', function() {
   const store = configureTestStore({ locale: localeReducer });

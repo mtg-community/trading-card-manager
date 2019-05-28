@@ -1,11 +1,11 @@
 install:
-#	yarn install
+	npm ci
 
 ci-check:
-#	npm run test:coverage
+	npm run test:coverage
 
 build:
-#	npm run build
+	npm run build
 
 sonarqube:
 #	@sonar-scanner \
