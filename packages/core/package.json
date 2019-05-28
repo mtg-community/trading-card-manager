@@ -18,11 +18,7 @@
     "build:js": "babel src --out-dir ./dist --extensions \".ts,.tsx\" --source-maps inline --delete-dir-on-start --copy-files",
     "build": "cross-env NODE_ENV=production npm run build:types && npm run build:js"
   },
-  "dependencies": {
-    "@types/jest": "24.0.13",
-    "jest": "24.8.0",
-    "typescript": "3.4.5"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "moment": "2.22.2",
     "redux": "4.0.1",
@@ -31,12 +27,15 @@
     "validator": "10.11.0"
   },
   "devDependencies": {
+    "@types/jest": "24.0.13",
     "@babel/cli": "7.4.4",
     "@babel/core": "7.4.5",
     "@babel/plugin-proposal-class-properties": "7.4.4",
     "@babel/plugin-proposal-object-rest-spread": "7.4.4",
     "@babel/preset-env": "7.4.5",
     "@babel/preset-typescript": "7.3.3",
+    "jest": "24.8.0",
+    "typescript": "3.4.5",
     "cross-env": "5.2.0"
   }
 }
