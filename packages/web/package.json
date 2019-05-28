@@ -16,6 +16,7 @@
     "@types/node": "12.0.2",
     "@types/react": "16.8.18",
     "@types/react-dom": "16.8.4",
+    "core": "file:../core",
     "firebase": "5.8.5",
     "lodash": "4.17.11",
     "logrocket": "0.6.19",
