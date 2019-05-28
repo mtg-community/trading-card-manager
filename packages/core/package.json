@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": false,
   "main": "dist/index.js",
+  "types": "index.d.ts",
   "files": [
     "dist"
   ],
@@ -21,11 +22,12 @@
     "build": "cross-env NODE_ENV=production npm run build:types && npm run build:js"
   },
   "dependencies": {
+    "redux": "4.0.1",
+    "redux-saga": "1.0.2",
     "validator": "11.0.0"
   },
   "peerDependencies": {
     "moment": "2.22.2",
-    "redux": "4.0.1",
     "redux-saga": "1.0.2"
   },
   "devDependencies": {
