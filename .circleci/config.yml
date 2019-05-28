@@ -94,6 +94,7 @@ jobs:
           root: /tmp/trading-card-manager
           paths:
             - packages/web
+            - packages/core
             - packages/backend
 
   build-frontend:
@@ -111,6 +112,7 @@ jobs:
           root: /tmp/trading-card-manager
           paths:
             - packages/web
+            - packages/core
 
   test-frontend:
     executor: frontend
