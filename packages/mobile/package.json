@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "axios": "0.18.0",
-    "core": "file:../core",
+    "core": "0.0.1",
     "get-dev-paths": "0.1.1",
     "lodash": "4.17.11",
     "moment": "2.22.2",
