@@ -1,4 +1,6 @@
 install:
+	$(MAKE) -C ../core install
+	$(MAKE) -C ../core build
 	npm ci
 
 ci-check:

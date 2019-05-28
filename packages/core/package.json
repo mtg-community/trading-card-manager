@@ -22,14 +22,13 @@
     "build": "cross-env NODE_ENV=production npm run build:types && npm run build:js"
   },
   "dependencies": {
+    "@types/node": "12.0.2",
     "redux": "4.0.1",
+    "moment": "2.22.2",
     "redux-saga": "1.0.2",
     "validator": "11.0.0"
   },
-  "peerDependencies": {
-    "moment": "2.22.2",
-    "redux-saga": "1.0.2"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "@types/jest": "24.0.13",
     "@babel/cli": "7.4.4",
