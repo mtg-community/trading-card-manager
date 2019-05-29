@@ -29,40 +29,40 @@ workflows:
             branches:
               only:
                 - master
-  Core-Build-Pipeline:
+Core-Build-Pipeline:
+  jobs:
+    - gitclone
+    - build-core:
+        requires:
+          - gitclone
+    - test-core:
+        requires:
+          - build-core
+    - sonar-core:
+        context: mtgx-web-context
+        requires:
+          - test-core
+  Backend-Build-Pipeline:
     jobs:
       - gitclone
-      - build-core:
+      - build-backend:
           requires:
             - gitclone
-      - test-core:
+      - test-backend:
           requires:
-            - build-core
-      - sonar-core:
+            - build-backend
+      - sonar-backend:
           context: mtgx-web-context
           requires:
-            - test-core
-    Backend-Build-Pipeline:
-      jobs:
-        - gitclone
-        - build-backend:
-            requires:
-              - gitclone
-        - test-backend:
-            requires:
-              - build-backend
-        - sonar-backend:
-            context: mtgx-web-context
-            requires:
-              - test-backend
-        - deploy-backend:
-            context: mtgx-web-context
-            requires:
-              - test-backend
-            filters:
-              branches:
-                only:
-                  - master
+            - test-backend
+      - deploy-backend:
+          context: mtgx-web-context
+          requires:
+            - test-backend
+          filters:
+            branches:
+              only:
+                - master
 
 executors:
   sonar-scaner:
