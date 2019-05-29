@@ -104,10 +104,7 @@ jobs:
             key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - persist_to_workspace:
           root: /tmp/trading-card-manager
-          paths:
-            - packages/web
-            - packages/core
-            - packages/backend
+          paths: .
 
   build-core:
     executor: core
