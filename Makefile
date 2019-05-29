@@ -24,6 +24,7 @@ code-coverage:
 
 install:
 	npm ci
+	npm run lerna:bootstrap
 
 docker_build-web:
 	docker build -t mtgx_web_image .
