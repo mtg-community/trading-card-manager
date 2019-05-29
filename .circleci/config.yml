@@ -29,36 +29,40 @@ workflows:
             branches:
               only:
                 - master
-Core-Build-Pipeline:
-  jobs:
-    - gitclone
-    - build-core:
-        requires:
-          - gitclone
-    - test-core:
-        requires:
-          - build-core
-  Backend-Build-Pipeline:
+  Core-Build-Pipeline:
     jobs:
       - gitclone
-      - build-backend:
+      - build-core:
           requires:
             - gitclone
-      - test-backend:
+      - test-core:
           requires:
-            - build-backend
-      - sonar-backend:
+            - build-core
+      - sonar-core:
           context: mtgx-web-context
           requires:
-            - test-backend
-      - deploy-backend:
-          context: mtgx-web-context
-          requires:
-            - test-backend
-          filters:
-            branches:
-              only:
-                - master
+            - test-core
+    Backend-Build-Pipeline:
+      jobs:
+        - gitclone
+        - build-backend:
+            requires:
+              - gitclone
+        - test-backend:
+            requires:
+              - build-backend
+        - sonar-backend:
+            context: mtgx-web-context
+            requires:
+              - test-backend
+        - deploy-backend:
+            context: mtgx-web-context
+            requires:
+              - test-backend
+            filters:
+              branches:
+                only:
+                  - master
 
 executors:
   sonar-scaner:
@@ -136,6 +140,16 @@ jobs:
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths: packages/core/coverage
+
+  sonar-core:
+    executor: sonar-scaner
+    working_directory: /tmp/trading-card-manager/packages/core
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Sonar'
+          command: make sonarqube
 
   build-frontend:
     executor: frontend
