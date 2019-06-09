@@ -3,7 +3,7 @@
 import { type NavigationComponentType } from './navigationComponent';
 
 const defaultOptions = {
-  topBar: { visible: false, drawBehind: true },
+  topBar: { visible: false, drawBehind: true, height: 0 },
 };
 
 export const createStackLayout = (

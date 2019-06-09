@@ -6,6 +6,7 @@ import { Metrics, Fonts, Colors } from '../../../shared/theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
   },
   card: {
     marginHorizontal: Metrics.smallMargin,
@@ -18,10 +19,8 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
   },
-  rowName: {
-    color: Colors.black,
-  },
   rowText: {
     fontSize: Fonts.size.regular,
+    color: Colors.black,
   },
 });

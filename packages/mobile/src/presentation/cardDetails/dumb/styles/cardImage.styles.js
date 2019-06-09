@@ -1,16 +1,17 @@
 // @flow strict
 
 import { StyleSheet } from 'react-native';
+import { Metrics } from '../../../shared/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: Metrics.screenWidth,
+    height: Metrics.screenHeight * 0.4,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   image: {
-    flex: 1,
-  },
-  spinner: {
-    flex: 1,
-    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
   },
 });
