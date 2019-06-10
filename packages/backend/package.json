@@ -1,5 +1,6 @@
 {
-  "name": "firebase",
+  "name": "backend",
+  "version": "0.0.1",
   "description": "Firebase Hosting and Functions",
   "engines": {
     "node": "8"
@@ -8,7 +9,7 @@
     "login": "firebase login --reauth",
     "deploy": "firebase deploy"
   },
-  "dependencies": {
+  "devDependencies": {
     "firebase-tools": "6.4.0"
   }
 }

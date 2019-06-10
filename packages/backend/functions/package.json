@@ -1,5 +1,6 @@
 {
-  "name": "functions",
+  "name": "backend-functions",
+  "version": "0.0.1",
   "description": "Cloud Functions for Firebase",
   "engines": {
     "node": "8"
