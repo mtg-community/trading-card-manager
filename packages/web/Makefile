@@ -1,7 +1,5 @@
 install:
-	$(MAKE) -C ../core install
-	$(MAKE) -C ../core build
-	$(MAKE) -C ../.. install
+	$(MAKE) -C ../.. bootstrap_web
 
 ci-check:
 	npm run test:coverage

@@ -29,19 +29,19 @@ workflows:
             branches:
               only:
                 - master
-Core-Build-Pipeline:
-  jobs:
-    - gitclone
-    - build-core:
-        requires:
-          - gitclone
-    - test-core:
-        requires:
-          - build-core
-    - sonar-core:
-        context: mtgx-web-context
-        requires:
-          - test-core
+  Core-Build-Pipeline:
+    jobs:
+      - gitclone
+      - build-core:
+          requires:
+            - gitclone
+      - test-core:
+          requires:
+            - build-core
+      - sonar-core:
+          context: mtgx-web-context
+          requires:
+            - test-core
   Backend-Build-Pipeline:
     jobs:
       - gitclone

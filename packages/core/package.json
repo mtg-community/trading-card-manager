@@ -8,8 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "flow": "flow",
-    "flow:coverage": "flow coverage",
+    "prepare": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --silent --coverage",
