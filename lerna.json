@@ -1,14 +1,12 @@
 {
   "packages": [
-    "packages/*"
+    "packages/*",
+    "packages/backend/functions"
   ],
   "command": {
     "publish": {
       "ignoreChanges": ["ignored-file", "*.md"],
       "message": "chore(release): publish"
-    },
-    "bootstrap": {
-      "ignore": "backend"
     }
   },
   "version": "0.0.0",
