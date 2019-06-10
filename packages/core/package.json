@@ -22,13 +22,13 @@
   },
   "dependencies": {
     "redux": "4.0.1",
-    "moment": "2.22.2",
-    "redux-saga": "1.0.2",
+    "moment": "2.24.0",
+    "redux-saga": "1.0.3",
     "validator": "11.0.0"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@types/node": "12.0.2",
+    "@types/node": "12.0.7",
     "@types/jest": "24.0.13",
     "@babel/cli": "7.4.4",
     "@babel/core": "7.4.5",
@@ -37,7 +37,7 @@
     "@babel/preset-env": "7.4.5",
     "@babel/preset-typescript": "7.3.3",
     "jest": "24.8.0",
-    "typescript": "3.4.5",
+    "typescript": "3.5.1",
     "cross-env": "5.2.0"
   }
 }
