@@ -11,7 +11,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "core": "file:../core",
+    "core": "0.0.1",
     "firebase": "5.8.5",
     "lodash": "4.17.11",
     "logrocket": "0.6.19",
