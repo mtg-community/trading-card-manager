@@ -22,7 +22,6 @@
   "dependencies": {
     "axios": "0.18.0",
     "core": "0.0.1",
-    "get-dev-paths": "0.1.1",
     "lodash": "4.17.11",
     "moment": "2.22.2",
     "prop-types": "15.7.2",
@@ -42,6 +41,7 @@
     "validator": "10.11.0"
   },
   "devDependencies": {
+    "get-dev-paths": "0.1.1",
     "@babel/core": "7.3.4",
     "@babel/runtime": "7.3.4",
     "babel-cli": "6.26.0",
