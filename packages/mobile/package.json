@@ -1,5 +1,5 @@
 {
-  "name": "mtgx",
+  "name": "mobile",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "axios": "0.18.0",
-    "core": "0.0.1",
+    "core": "file:../core",
     "get-dev-paths": "0.1.1",
     "lodash": "4.17.11",
     "moment": "2.22.2",
