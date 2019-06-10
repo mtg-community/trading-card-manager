@@ -8,11 +8,10 @@
       "message": "chore(release): publish"
     },
     "bootstrap": {
-      "ignore": "backend",
-      "ignore-scripts": true,
-      "no-ci": true
+      "ignore": "backend"
     }
   },
   "version": "0.0.0",
-  "npmClient": "yarn"
+  "npmClient": "npm",
+  "npmClientArgs": ["--verbose"]
 }

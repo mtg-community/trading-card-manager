@@ -24,8 +24,14 @@ code-coverage:
 
 install:
 	npm ci
-	npm run lerna:bootstrap
-	$(MAKE) -C packages/mobile build
+
+bootstrap_mobile:
+	npm ci
+	npm run lerna:bootstrap-mobile
+
+bootstrap_web:
+	npm ci
+	npm run lerna:bootstrap-web
 
 docker_build-web:
 	docker build -t mtgx_web_image .
