@@ -4,8 +4,8 @@
   "private": false,
   "scripts": {
     "lerna:bootstrap": "lerna bootstrap",
-    "lerna:bootstrap-mobile": "lerna bootstrap --ignore web backend",
-    "lerna:bootstrap-web": "lerna bootstrap --ignore mobile backend"
+    "lerna:bootstrap-mobile": "lerna bootstrap --ignore web",
+    "lerna:bootstrap-web": "lerna bootstrap --ignore mobile"
   },
   "engines": {
     "node": "10.13.0",

@@ -26,11 +26,9 @@ install:
 	npm ci
 
 bootstrap_mobile:
-	npm ci
 	npm run lerna:bootstrap-mobile
 
 bootstrap_web:
-	npm ci
 	npm run lerna:bootstrap-web
 
 docker_build-web:
