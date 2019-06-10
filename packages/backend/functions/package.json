@@ -25,9 +25,5 @@
     "graphql-yoga": "1.17.4",
     "mongoose": "5.4.15",
     "mongoose-paginate": "5.0.3"
-  },
-  "devDependencies": {
-    "firebase-tools": "6.4.0",
-    "jest": "23.6.0"
   }
 }
