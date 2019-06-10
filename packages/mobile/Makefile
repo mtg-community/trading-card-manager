@@ -1,6 +1,8 @@
 install:
+	echo "Install and Build Core Module"
 	$(MAKE) -C ../core install
 	$(MAKE) -C ../core build
+	echo "Bootstrap Lerna Projects"
 	$(MAKE) -C ../.. install
 
 ci-check:
