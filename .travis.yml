@@ -20,7 +20,7 @@ before_install:
 - make setup-travis-environment
 install:
 - make install
-- make mobile_install
+- make bootstrap_mobile
 after_script:
 - make code-coverage
 matrix:
