@@ -8,12 +8,14 @@
     "web": {
       "packages": [
         "packages/web/package.json"
-      ]
+      ],
+      "ignore": ["core"]
     },
     "mobile": {
       "packages": [
         "packages/mobile/package.json"
-      ]
+      ],
+      "ignore": ["core"]
     },
     "backend": {
       "packages": [
