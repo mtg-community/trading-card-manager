@@ -21,7 +21,7 @@
     "cors": "2.8.5",
     "dotenv": "8.0.0",
     "express": "4.17.1",
-    "firebase-admin": "8.0.0",
+    "firebase-admin": "8.1.0",
     "firebase-functions": "2.3.1",
     "graphql-yoga": "1.17.4",
     "mongoose": "5.5.14",
