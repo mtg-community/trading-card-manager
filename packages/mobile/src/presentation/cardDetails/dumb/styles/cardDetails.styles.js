@@ -23,4 +23,9 @@ export const styles = StyleSheet.create({
     fontSize: Fonts.size.regular,
     color: Colors.black,
   },
+  manaFont: {
+    fontFamily: 'mana',
+    fontSize: Fonts.size.regular,
+    color: Colors.lightblue,
+  },
 });
