@@ -26,6 +26,5 @@ export const styles = StyleSheet.create({
   manaFont: {
     fontFamily: 'mana',
     fontSize: Fonts.size.regular,
-    color: Colors.lightblue,
   },
 });
