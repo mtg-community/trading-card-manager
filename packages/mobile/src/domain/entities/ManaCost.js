@@ -1,12 +1,18 @@
 // @flow
 
-export const placeholdersToSymbols = (cardText: string) => {
-  const curlyBracesRegex = /[{}]+/;
-  return (cardText || '')
-    .split(curlyBracesRegex)
-    .map(a => convertionMap[a] || a)
-    .join('');
-};
+export class ManaCost {
+  constructor(cost: string) {
+    this.cost = cost;
+  }
+
+  toSymbol() {
+    const curlyBracesRegex = /[{}]+/;
+    return (this.cost || '')
+      .split(curlyBracesRegex)
+      .map(a => convertionMap[a] || a)
+      .join('');
+  }
+}
 
 function unicodeChar(value) {
   return String.fromCharCode(parseInt(value, 16));

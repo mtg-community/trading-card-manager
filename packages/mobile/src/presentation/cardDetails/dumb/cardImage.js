@@ -1,43 +1,36 @@
 // @flow strict
 
-import React, { useState, useEffect } from 'react';
-import { Image, ActivityIndicator, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Image, ActivityIndicator } from 'react-native';
 import { styles } from './styles/cardImage.styles';
-import { getCardCropImage } from 'data/service/cardsService';
 
 type PropTypes = {
   multiverseId: number,
+  style: View.propTypes.style,
 };
 
-export const CardImage = ({ multiverseId }: PropTypes) => {
-  const [loading, setLoading] = useState(true);
-  const [cropImage, setcropImage] = useState('');
-  useEffect(() => {
-    const cropCardImage = async () => {
-      try {
-        const art_crop = await getCardCropImage(multiverseId);
-        setcropImage(art_crop);
-      } catch (e) {
-        console.log(e);
-        setLoading(false);
-      } finally {
-        setLoading(false);
-      }
-    };
-    cropCardImage();
-  }, []);
+export const CardImage = (props: PropTypes) => {
+  const [loading, setLoading] = useState(false);
+  const { multiverseId, style } = props;
+  const IMG_URL = `http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=${multiverseId}&type=card`;
+  const renderSpinner = () =>
+    loading ? (
+      <ActivityIndicator style={styles.spinner} size="large" />
+    ) : (
+      <View />
+    );
+
   return (
-    <View style={styles.container}>
-      {!loading ? (
-        <Image
-          resizeMode="stretch"
-          resizeMethod="auto"
-          style={styles.container}
-          source={{ uri: cropImage }}
-        />
-      ) : (
-        <ActivityIndicator size="large" />
-      )}
+    <View style={style || styles.container}>
+      <Image
+        resizeMode="contain"
+        resizeMethod="scale"
+        style={styles.image}
+        source={{ uri: IMG_URL }}
+        onLoad={() => setLoading(false)}
+        onError={error => console.info('Error while loading card image', error)}
+      />
+      {renderSpinner()}
     </View>
   );
 };

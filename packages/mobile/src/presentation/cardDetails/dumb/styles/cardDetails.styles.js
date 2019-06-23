@@ -6,7 +6,8 @@ import { Metrics, Fonts, Colors } from '../../../shared/theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
   },
   card: {
     marginHorizontal: Metrics.smallMargin,
@@ -14,17 +15,31 @@ export const styles = StyleSheet.create({
     height: (Metrics.screenWidth - Metrics.smallMargin * 2) * 1.4,
   },
   rowContainer: {
-    marginHorizontal: Metrics.baseMargin,
-    marginVertical: Metrics.smallMargin,
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: Metrics.screenWidth - Metrics.baseMargin * 2,
+    marginHorizontal: Metrics.baseMargin,
+    marginVertical: Metrics.baseMargin,
+  },
+  rowRightAligned: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    width: Metrics.screenWidth - Metrics.baseMargin * 2,
+    marginHorizontal: Metrics.baseMargin,
+    marginVertical: Metrics.baseMargin * 2,
+  },
+  cardName: {
+    fontSize: Fonts.size.h4,
+    color: Colors.black,
   },
   rowText: {
-    fontSize: Fonts.size.regular,
+    fontSize: Fonts.size.h5,
     color: Colors.black,
   },
   manaFont: {
     fontFamily: 'mana',
-    fontSize: Fonts.size.regular,
+    fontSize: Fonts.size.h5,
   },
 });
