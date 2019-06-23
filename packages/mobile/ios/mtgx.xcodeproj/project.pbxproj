@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -67,6 +66,10 @@
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		FF7CE1D7C10345869AECE759 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B42AA7F0136E4209B926D041 /* MaterialCommunityIcons.ttf */; };
+		A724993058B442839CEA579E /* beleren.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE7741A530D446D8E2ED3C4 /* beleren.ttf */; };
+		AB2CCD14A2264F72B92F3074 /* mana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B65192E23C0C4721B3524492 /* mana.ttf */; };
+		5A8165760D7542D3900780CA /* mplantin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFF5E552B0FE4941A0E3B735 /* mplantin.ttf */; };
+		CC9174FBE1FE40E7831FD40E /* mtgx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B0D1592131D43EF9032FFE0 /* mtgx.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -468,6 +471,10 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		FB017D7136A140ACB6145462 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		4CE7741A530D446D8E2ED3C4 /* beleren.ttf */ = {isa = PBXFileReference; name = "beleren.ttf"; path = "../src/presentation/shared/assets/fonts/beleren.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B65192E23C0C4721B3524492 /* mana.ttf */ = {isa = PBXFileReference; name = "mana.ttf"; path = "../src/presentation/shared/assets/fonts/mana.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BFF5E552B0FE4941A0E3B735 /* mplantin.ttf */ = {isa = PBXFileReference; name = "mplantin.ttf"; path = "../src/presentation/shared/assets/fonts/mplantin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2B0D1592131D43EF9032FFE0 /* mtgx.ttf */ = {isa = PBXFileReference; name = "mtgx.ttf"; path = "../src/presentation/shared/assets/fonts/mtgx.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -686,6 +693,10 @@
 				76F4803819AE4DD8A4549F32 /* Octicons.ttf */,
 				D2BC0988DF344420A3D68573 /* SimpleLineIcons.ttf */,
 				FB017D7136A140ACB6145462 /* Zocial.ttf */,
+				4CE7741A530D446D8E2ED3C4 /* beleren.ttf */,
+				B65192E23C0C4721B3524492 /* mana.ttf */,
+				BFF5E552B0FE4941A0E3B735 /* mplantin.ttf */,
+				2B0D1592131D43EF9032FFE0 /* mtgx.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1390,6 +1401,10 @@
 				2429160283B14E94B31472F8 /* Octicons.ttf in Resources */,
 				4AC4EE522DF644399CD1ACF5 /* SimpleLineIcons.ttf in Resources */,
 				28DB134631694459822EC2CA /* Zocial.ttf in Resources */,
+				A724993058B442839CEA579E /* beleren.ttf in Resources */,
+				AB2CCD14A2264F72B92F3074 /* mana.ttf in Resources */,
+				5A8165760D7542D3900780CA /* mplantin.ttf in Resources */,
+				CC9174FBE1FE40E7831FD40E /* mtgx.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

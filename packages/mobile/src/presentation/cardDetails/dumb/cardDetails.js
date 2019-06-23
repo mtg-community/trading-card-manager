@@ -1,50 +1,56 @@
 // @flow strict
 
 import React from 'react';
-import { Text, View, ScrollView } from 'react-native';
-import I18n from 'react-native-i18n';
+import { Text, View, SafeAreaView } from 'react-native';
 import { Card } from 'core';
-import { CardImage } from './cardImage';
-import {
-  FloatingActionButton,
-  type ItemType,
-} from '../../shared/components/floatingActionButton';
 
 import { styles } from './styles/cardDetails.styles';
+import { ManaCost } from 'domain/entities/ManaCost';
 
 type PropTypes = {
   card: Card,
-  fabItems: Array<ItemType>,
 };
 
-export const CardDetails = (props: PropTypes) => {
-  const renderRow = (rowName: string, rowText: string) => {
-    if (rowText === null) {
-      return null;
-    }
-
-    return (
-      <View style={styles.rowContainer}>
-        <Text style={styles.rowText}>
-          <Text style={styles.rowName}>{`${I18n.t(rowName)}: `}</Text>
-          {rowText}
-        </Text>
-      </View>
-    );
-  };
-  const { card } = props;
-
-  return (
-    <ScrollView style={styles.container}>
-      <CardImage style={styles.card} multiverseId={card.multiverseId} />
-      {renderRow('CARD_NAME', card.name)}
-      {renderRow('TYPE', card.type)}
-      {renderRow('POWER_TOUGHNESS', `${card.power}/${card.toughness}`)}
-      {renderRow('MANA_COST', `${card.manaCost} (${card.cmc})`)}
-      {renderRow('RARITY', card.rarity)}
-      {renderRow('CARD_TEXT', card.text)}
-      {renderRow('FLAVOR_TEXT', card.flavor)}
-      <FloatingActionButton items={props.fabItems} />
-    </ScrollView>
-  );
+const renderNameAndManaCost = (manaCost: string, name: string) => {
+  const mana = new ManaCost(manaCost).toSymbol();
+  return name ? (
+    <View style={styles.rowContainer}>
+      <Text style={styles.cardName}>{name}</Text>
+      <Text style={styles.manaFont}>{mana}</Text>
+    </View>
+  ) : null;
 };
+
+const renderTypeAndEdition = (type: string, printing: string) =>
+  type ? (
+    <View style={styles.rowContainer}>
+      <Text style={styles.rowText}>{type}</Text>
+      <Text style={styles.rowText}>{printing}</Text>
+    </View>
+  ) : null;
+
+const renderPowerAndToughness = (power: string, toughness: string) =>
+  power || toughness ? (
+    <View style={styles.rowRightAligned}>
+      <Text style={styles.rowText}>{`${power}/${toughness}`}</Text>
+    </View>
+  ) : null;
+
+const renderRow = (rowText: string) =>
+  rowText ? (
+    <View style={styles.rowContainer}>
+      <Text style={styles.rowText}>{rowText}</Text>
+    </View>
+  ) : null;
+
+export const CardDetails = ({ card }: PropTypes) => (
+  <SafeAreaView style={styles.container}>
+    <View>
+      {renderNameAndManaCost(card.manaCost, card.name)}
+      {renderTypeAndEdition(card.type, card.printings[0])}
+      {renderRow(card.text)}
+      {renderRow(card.flavor)}
+    </View>
+    {renderPowerAndToughness(card.power, card.toughness)}
+  </SafeAreaView>
+);

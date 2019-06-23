@@ -17,7 +17,8 @@
     "eslint": "eslint src/**",
     "test:coverage": "jest --silent --coverage",
     "emulator:start": "scripts/android-emulator.sh start",
-    "emulator:create": "scripts/android-emulator.sh create"
+    "emulator:create": "scripts/android-emulator.sh create",
+    "react-devtools": "react-devtools"
   },
   "dependencies": {
     "axios": "0.18.0",
@@ -56,10 +57,16 @@
     "jest-enzyme": "7.0.2",
     "metro-react-native-babel-preset": "0.53.1",
     "prettier": "1.16.4",
+    "react-devtools": "3.6.1",
     "react-dom": "16.8.4",
     "react-native-cli": "2.0.1",
     "react-test-renderer": "16.8.3",
     "redux-mock-store": "1.5.3"
+  },
+  "rnpm": {
+    "assets": [
+      "./src/presentation/shared/assets/fonts"
+    ]
   },
   "engines": {
     "node": "10.13.0",

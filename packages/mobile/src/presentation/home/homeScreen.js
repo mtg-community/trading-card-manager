@@ -43,6 +43,12 @@ export class HomeContainer extends Component<Props> {
     });
   };
 
+  navigateToCardDetails = () => {
+    this.props.navigator.navigateTo(SCREENS.CARD_DETAILS.route, {
+      redirectTo: SCREENS.HOME.route,
+    });
+  };
+
   render() {
     return (
       <Home
@@ -51,6 +57,7 @@ export class HomeContainer extends Component<Props> {
         logOut={this.props.logOut}
         counter={this.props.counter}
         navigateToLogin={this.navigateToLogin}
+        navigateToCardDetails={this.navigateToCardDetails}
         instructions={instructions}
         isLoggedIn={!!this.props.user}
       />
