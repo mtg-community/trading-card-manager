@@ -19,7 +19,8 @@ before_install:
 - nvm install && nvm use
 - make setup-travis-environment
 install:
-- make mobile_install
+- make install
+- make bootstrap_mobile
 after_script:
 - make code-coverage
 matrix:

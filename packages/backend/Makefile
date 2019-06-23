@@ -1,6 +1,6 @@
 install:
-	npm ci
-	cd functions && npm ci
+	yarn install
+	cd functions && yarn install
 
 deploy:
 	@npx firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}

@@ -1,5 +1,5 @@
 {
-  "name": "mtgx",
+  "name": "mobile",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,12 +7,13 @@
     "info": "node node_modules/react-native/local-cli/cli.js info",
     "android": "react-native run-android",
     "android:dev-menu": "adb shell input keyevent 82",
+    "android:create": "scripts/android-emulator create",
+    "android:start": "scripts/android-emulator start",
     "ci:check": "scripts/ci-check",
     "clean": "scripts/clean",
     "ios": "react-native run-ios --simulator=\"iPhone SE\"",
     "test": "jest",
     "test:watch": "jest --watch",
-    "flow": "flow",
     "eslint": "eslint src/**",
     "test:coverage": "jest --silent --coverage",
     "emulator:start": "scripts/android-emulator.sh start",
@@ -21,13 +22,9 @@
   },
   "dependencies": {
     "axios": "0.18.0",
-    "core": "file:../web/src/core",
-    "data": "file:src/data",
-    "domain": "file:src/domain",
-    "get-dev-paths": "0.1.1",
+    "core": "0.0.1",
     "lodash": "4.17.11",
-    "moment": "2.24.0",
-    "presentation": "file:src/presentation",
+    "moment": "2.22.2",
     "prop-types": "15.7.2",
     "react": "16.8.3",
     "react-native": "0.59.1",
@@ -38,12 +35,14 @@
     "react-native-navigation": "2.17.0",
     "react-native-splash-screen": "3.2.0",
     "react-native-vector-icons": "6.4.1",
-    "react-redux": "6.0.1",
+    "react-redux": "7.1.0",
     "recompose": "0.30.0",
     "redux": "4.0.1",
+    "redux-saga": "1.0.2",
     "validator": "10.11.0"
   },
   "devDependencies": {
+    "get-dev-paths": "0.1.1",
     "@babel/core": "7.3.4",
     "@babel/runtime": "7.3.4",
     "babel-cli": "6.26.0",
@@ -53,9 +52,7 @@
     "enzyme-adapter-react-16": "1.11.2",
     "eslint": "5.15.2",
     "eslint-config-prettier": "4.1.0",
-    "eslint-plugin-flowtype": "3.4.2",
     "eslint-plugin-prettier": "3.0.1",
-    "flow-bin": "0.92.0",
     "jest": "24.5.0",
     "jest-enzyme": "7.0.2",
     "metro-react-native-babel-preset": "0.53.1",
@@ -72,7 +69,7 @@
     ]
   },
   "engines": {
-    "node": "11.10.0",
+    "node": "10.13.0",
     "npm": "6.9.0"
   }
 }

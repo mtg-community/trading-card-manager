@@ -29,6 +29,19 @@ workflows:
             branches:
               only:
                 - master
+  Core-Build-Pipeline:
+    jobs:
+      - gitclone
+      - build-core:
+          requires:
+            - gitclone
+      - test-core:
+          requires:
+            - build-core
+      - sonar-core:
+          context: mtgx-web-context
+          requires:
+            - test-core
   Backend-Build-Pipeline:
     jobs:
       - gitclone
@@ -68,6 +81,12 @@ executors:
     docker:
       - image: circleci/node@sha256:c6881bf3c9365341052e09f98fa61c0246810023787cbf1480ac30ba347ef033
     working_directory: /tmp/trading-card-manager/packages/backend
+  core:
+    environment:
+      - CI: true
+    docker:
+      - image: circleci/node@sha256:c6881bf3c9365341052e09f98fa61c0246810023787cbf1480ac30ba347ef033
+    working_directory: /tmp/trading-card-manager/packages/core
 
 jobs:
   gitclone:
@@ -82,19 +101,55 @@ jobs:
             - node-v1-
       - run:
           name: 'Npm Install'
-          command: npm ci
+          command: make install
       - save_cache:
             paths:
               - ~/usr/local/lib/node_modules
             key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      # - run:
-      #     name: 'Lerna Bootstrap'
-      #     command: npm run lerna:bootstrap
+      - persist_to_workspace:
+          root: /tmp/trading-card-manager
+          paths: .
+
+  build-core:
+    executor: core
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Npm Install'
+          command: make install
+      - run:
+          name: 'Build'
+          command: make build
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths:
-            - packages/web
-            - packages/backend
+            - packages/core
+
+  test-core:
+    executor: core
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'CI Check'
+          command: make ci-check
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - persist_to_workspace:
+          root: /tmp/trading-card-manager
+          paths: packages/core/coverage
+
+  sonar-core:
+    executor: sonar-scaner
+    working_directory: /tmp/trading-card-manager/packages/core
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Sonar'
+          command: make sonarqube
 
   build-frontend:
     executor: frontend
@@ -111,6 +166,7 @@ jobs:
           root: /tmp/trading-card-manager
           paths:
             - packages/web
+            - packages/core
 
   test-frontend:
     executor: frontend

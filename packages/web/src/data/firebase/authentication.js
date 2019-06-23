@@ -2,7 +2,7 @@ import { auth } from 'firebase/app';
 import { User } from 'core';
 
 export const signInWithEmailAndPassword = async (email, password) => {
-  setPersistence();
+  await setPersistence();
   const userCredential = await auth().signInWithEmailAndPassword(
     email,
     password,
@@ -11,7 +11,7 @@ export const signInWithEmailAndPassword = async (email, password) => {
 };
 
 export const signUpWithEmailAndPassword = async (email, password) => {
-  setPersistence();
+  await setPersistence();
   const userCredential = await auth().createUserWithEmailAndPassword(
     email,
     password,

@@ -4,8 +4,9 @@ const { initializeDataLayer } = require('./src/data');
 const { initializePresentationLayer } = require('./src/presentation');
 
 initializeDataLayer();
-const Presentation = initializePresentationLayer();
+const { rest, graphql } = initializePresentationLayer();
 
 module.exports = {
-  api: functions.https.onRequest(Presentation.api),
+  rest: functions.https.onRequest(rest),
+  graphql: functions.https.onRequest(graphql),
 };

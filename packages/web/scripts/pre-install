@@ -2,7 +2,7 @@
 
 # Install Core
 cd ../core
-npm ci
+yarn install
 npm run build
 
 # Install Web

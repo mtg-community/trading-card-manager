@@ -20,10 +20,16 @@ sonar-scanner:
 	sonar-scanner
 
 code-coverage:
-	$(MAKE) -C mobile sonar-scanner
+	$(MAKE) -C packages/mobile sonar-scanner
 
 install:
 	npm ci
+
+bootstrap_mobile:
+	npm run lerna:bootstrap-mobile
+
+bootstrap_web:
+	npm run lerna:bootstrap-web
 
 docker_build-web:
 	docker build -t mtgx_web_image .

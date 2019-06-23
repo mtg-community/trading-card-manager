@@ -1,9 +1,8 @@
 install:
-	npm ci
+	$(MAKE) -C ../.. bootstrap_web
 
 ci-check:
 	npm run test:coverage
-	npm run flow
 
 build:
 	npm run build

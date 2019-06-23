@@ -1,7 +1,7 @@
 import 'jest-enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { findActionByType } from 'core/frameworks/redux/__mocks__/asyncActions';
+import { findActionByType } from 'core/src/frameworks/redux/__mocks__/asyncActions';
 import diff from 'jest-diff';
 
 Enzyme.configure({ adapter: new Adapter() });

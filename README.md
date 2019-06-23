@@ -1,6 +1,7 @@
 # trading-card-manager
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/mtg-community/trading-card-manager.svg)](https://greenkeeper.io/)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 ## Links úteis
 [SonarCloud](https://sonarcloud.io/organizations/mtg-community/projects)

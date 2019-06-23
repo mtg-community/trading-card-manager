@@ -1,24 +1,33 @@
 {
   "groups": {
+    "core": {
+      "packages": [
+        "packages/core/package.json"
+      ]
+    },
     "web": {
       "packages": [
-        "core/package.json",
-        "web/package.json"
+        "packages/web/package.json"
       ],
-      "ignore": ["flow-bin", "@babel/core"]
+      "ignore": ["core"]
+    },
+    "mobile": {
+      "packages": [
+        "packages/mobile/package.json"
+      ],
+      "ignore": ["core"]
     },
     "backend": {
       "packages": [
-        "backend/functions/package.json",
-        "backend/package.json"
-      ],
-      "ignore": ["flow-bin", "@babel/core"]
+        "packages/backend/package.json",
+        "packages/backend/functions/package.json"
+      ]
     },
     "root": {
       "packages": [
         "package.json"
       ],
-      "ignore": ["flow-bin", "@babel/core"]
+      "ignore": ["@babel/core", "@babel/cli"]
     }
   }
 }

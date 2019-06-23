@@ -1,10 +1,7 @@
-'use strict';
-
-const presets = ['@babel/preset-env', '@babel/preset-flow'];
-const plugins = ['@babel/plugin-proposal-class-properties'];
-
 module.exports = {
-  ignore: ['node_modules'],
-  presets,
-  plugins,
+  presets: ['@babel/env', '@babel/typescript'],
+  plugins: [
+    '@babel/proposal-class-properties',
+    '@babel/proposal-object-rest-spread',
+  ],
 };
