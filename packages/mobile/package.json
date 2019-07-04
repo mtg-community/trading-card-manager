@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "get-dev-paths": "0.1.1",
-    "@babel/core": "7.3.4",
+    "@babel/core": "7.5.0",
     "@babel/runtime": "7.3.4",
     "babel-cli": "6.26.0",
     "babel-eslint": "10.0.1",
