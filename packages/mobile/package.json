@@ -55,7 +55,7 @@
     "eslint-plugin-prettier": "3.0.1",
     "jest": "24.5.0",
     "jest-enzyme": "7.0.2",
-    "metro-react-native-babel-preset": "0.53.1",
+    "metro-react-native-babel-preset": "0.55.0",
     "prettier": "1.16.4",
     "react-devtools": "3.6.1",
     "react-dom": "16.8.4",
