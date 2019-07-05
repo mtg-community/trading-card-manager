@@ -39,7 +39,7 @@
     "recompose": "0.30.0",
     "redux": "4.0.1",
     "redux-saga": "1.0.2",
-    "validator": "10.11.0"
+    "validator": "11.1.0"
   },
   "devDependencies": {
     "get-dev-paths": "0.1.1",
