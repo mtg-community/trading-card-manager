@@ -24,7 +24,7 @@
     "redux": "4.0.1",
     "moment": "2.24.0",
     "redux-saga": "1.0.3",
-    "validator": "11.0.0"
+    "validator": "11.1.0"
   },
   "peerDependencies": {},
   "devDependencies": {
