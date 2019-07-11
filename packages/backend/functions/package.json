@@ -28,7 +28,7 @@
     "mongoose-paginate": "5.0.3"
   },
   "devDependencies": {
-    "firebase-tools": "6.11.0",
+    "firebase-tools": "7.1.0",
     "jest": "24.8.0"
   }
 }
