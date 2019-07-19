@@ -57,7 +57,7 @@
     "jest-enzyme": "7.0.2",
     "metro-react-native-babel-preset": "0.53.1",
     "prettier": "1.16.4",
-    "react-devtools": "3.6.1",
+    "react-devtools": "3.6.2",
     "react-dom": "16.8.4",
     "react-native-cli": "2.0.1",
     "react-test-renderer": "16.8.3",
