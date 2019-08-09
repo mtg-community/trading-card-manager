@@ -18,7 +18,7 @@
     "logrocket-react": "3.0.0",
     "moment": "2.22.2",
     "prop-types": "15.7.2",
-    "react": "16.8.5",
+    "react": "16.9.0",
     "react-dom": "16.8.5",
     "react-intl": "2.8.0",
     "react-redux": "7.1.0",
