@@ -1,6 +1,6 @@
 import { all, takeLatest } from 'redux-saga/effects'
-import { signIn } from '../ducks/userReducer'
-import { signInWithEmailAndPasswordSaga } from './userSaga'
+import { signIn } from '../ducks/authenticationReducer'
+import { signInWithEmailAndPasswordSaga } from './authenticationSaga'
 
 export function* rootSaga() {
   yield all([

@@ -1,5 +1,14 @@
 import { createReducer, createAction } from 'redux-starter-kit'
-import { User } from "../entities";
+import { User } from '../entities'
+import { Store } from '../index'
+
+export interface AuthenticationState {
+  user: User,
+  alerts: {
+    showAlert: boolean,
+    message: string,
+  }
+}
 
 export const NO_ALERTS = { showAlert: false, message: '' }
 
@@ -12,19 +21,20 @@ export const USER_INITIAL_STATE = {
   alerts: NO_ALERTS
 };
 
-export const userSelector = state => state.user
+
+export const authSelector = (state: Store) => state.authentication
 
 export const updateUser = createAction('duck/user/updateUser')
 export const showAlert = createAction('duck/user/showAlert')
 export const signIn = createAction('saga/user/signIn')
 export const signOut = createAction('saga/user/signOut')
 
-export const handleUpdateUser = (state, { payload }) => ({
+export const handleUpdateUser = (state: AuthenticationState, { payload }) => ({
   ...state,
   user: payload
 })
 
-export const handleShowAlert = (state, { payload }) => ({
+export const handleShowAlert = (state: AuthenticationState, { payload }) => ({
   ...state,
   alerts: {
     showAlert: true,
@@ -32,7 +42,7 @@ export const handleShowAlert = (state, { payload }) => ({
   }
 })
 
-export const userReducer = createReducer(USER_INITIAL_STATE, {
+export const authenticationReducer = createReducer(USER_INITIAL_STATE, {
   [updateUser.toString()]: handleUpdateUser,
   [showAlert.toString()]: handleShowAlert
 })

@@ -1,5 +1,5 @@
 import { initializeFirebase } from './firebase';
 
-export const initializeDataLayer = () => {
+export const initializeDataLayer = (): void => {
   initializeFirebase();
 };

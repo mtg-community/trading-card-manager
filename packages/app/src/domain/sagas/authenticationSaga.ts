@@ -1,6 +1,6 @@
 import { put, call } from 'redux-saga/effects'
 import { signInWithEmailAndPassword } from '../../data/firebase/authentication'
-import { showAlert, updateUser } from '../ducks/userReducer'
+import { showAlert, updateUser } from '../ducks/authenticationReducer'
 
 export function* signInWithEmailAndPasswordSaga({ payload }) {
   try {

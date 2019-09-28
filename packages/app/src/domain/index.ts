@@ -1,11 +1,18 @@
-import { configureStore } from 'redux-starter-kit'
+import { AnyAction, configureStore, EnhancedStore } from 'redux-starter-kit'
 import createSagaMiddleware from 'redux-saga'
-import { userReducer } from './ducks/userReducer'
+import {
+  authenticationReducer,
+  AuthenticationState
+} from './ducks/authenticationReducer'
 import { rootSaga } from './sagas'
 
-export const initializeDomainLayer = () => {
+export interface Store {
+  authentication: AuthenticationState
+}
+
+export const initializeDomainLayer = (): EnhancedStore<any, AnyAction> => {
   const reducer = {
-    user: userReducer,
+    authentication: authenticationReducer,
   }
   const sagaMiddleware = createSagaMiddleware()
   const middleware = [sagaMiddleware]

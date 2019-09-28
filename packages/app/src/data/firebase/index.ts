@@ -17,7 +17,7 @@ const ERROR = {
   },
 };
 
-export const initializeFirebase = () => {
+export const initializeFirebase = (): void => {
   const config = {
     apiKey: FIREBASE_API_KEY,
     authDomain: FIREBASE_AUTH_DOMAIN,
