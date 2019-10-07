@@ -16,6 +16,20 @@ export async function signInWithEmailAndPassword(
   }
 }
 
+export async function signInWithCredential(
+  credential: auth.AuthCredential,
+): Promise<User> {
+  try {
+    const { user } = await auth().signInWithCredential(credential);
+    return new User(user.uid, user.email, {
+      emailVerified: user.emailVerified,
+      name: user.displayName,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function createUserWithEmailAndPassword(
   email: string,
   password: string,
@@ -29,6 +43,18 @@ export async function createUserWithEmailAndPassword(
       emailVerified: user.emailVerified,
       name: user.displayName,
     });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function createGoogleCredential(
+  idToken: string,
+): Promise<auth.OAuthCredential> {
+  try {
+    const res = await auth.GoogleAuthProvider.credential(idToken);
+    console.log('credential', res);
+    return res;
   } catch (error) {
     console.log(error);
   }

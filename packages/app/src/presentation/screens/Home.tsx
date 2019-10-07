@@ -8,6 +8,10 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { authSelector } from '../../domain/ducks/authenticationReducer';
 import { Input } from '../components/Input';
 import { logInAsync } from 'expo-google-app-auth';
+import {
+  createGoogleCredential,
+  signInWithCredential,
+} from '../../data/firebase/authentication';
 
 export const Home = () => {
   useEffect(() => {
@@ -21,7 +25,9 @@ export const Home = () => {
         androidClientId: GOOGLE_ANDROID_CLIENT_ID,
         scopes: ['profile', 'email'],
       });
-      console.log(accessToken, idToken);
+      const credential = createGoogleCredential(idToken);
+      const res = await signInWithCredential({ providerId: '' });
+      console.log('res', res);
     } catch (error) {
       console.log(error);
     }
