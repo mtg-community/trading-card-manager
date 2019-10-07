@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { logInAsync } from 'expo-google-app-auth';
 import {
   GOOGLE_ANDROID_CLIENT_ID,
   GOOGLE_IOS_CLIENT_ID,
 } from 'react-native-dotenv';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { authSelector } from '../../domain/ducks/authenticationReducer';
 import { Input } from '../components/Input';
-import { logInAsync } from 'expo-google-app-auth';
 
 export const Home = () => {
   useEffect(() => {
@@ -33,6 +33,7 @@ export const Home = () => {
   return (
     <View style={styles.container}>
       <View style={styles.form}>
+        <Text>Renderizado na web</Text>
         <Input
           value={email}
           autoCapitalize="none"

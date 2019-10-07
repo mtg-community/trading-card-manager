@@ -1,18 +1,35 @@
-import { auth } from 'firebase/app'
-import { User } from '../../domain/entities'
+import { auth } from 'firebase/app';
+import { User } from '../../domain/entities';
 
 export async function signInWithEmailAndPassword(
   email: string,
-  password: string
+  password: string,
 ): Promise<User> {
   try {
-    const { user } = await auth().signInWithEmailAndPassword(
-      email, password
-      )
+    const { user } = await auth().signInWithEmailAndPassword(email, password);
     return new User(user.uid, user.email, {
-      emailVerified: user.emailVerified, name: user.displayName
-    })
+      emailVerified: user.emailVerified,
+      name: user.displayName,
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
+  }
+}
+
+export async function createUserWithEmailAndPassword(
+  email: string,
+  password: string,
+): Promise<User> {
+  try {
+    const { user } = await auth().createUserWithEmailAndPassword(
+      email,
+      password,
+    );
+    return new User(user.uid, user.email, {
+      emailVerified: user.emailVerified,
+      name: user.displayName,
+    });
+  } catch (error) {
+    console.log(error);
   }
 }
