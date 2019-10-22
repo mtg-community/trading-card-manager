@@ -8,6 +8,7 @@ export interface AuthenticationState {
     showAlert: boolean,
     message: string,
   };
+  isLoading: boolean;
 }
 
 export const NO_ALERTS = { showAlert: false, message: '' };
@@ -19,10 +20,12 @@ export const NOT_LOGGED_IN = {
 export const USER_INITIAL_STATE = {
   user: NOT_LOGGED_IN,
   alerts: NO_ALERTS,
+  isLoading: false,
 };
 
 export const authSelector = (state: Store) => state.authentication;
 
+export const setLoading = createAction('duck/user/setLoading');
 export const updateUser = createAction('duck/user/updateUser');
 export const showAlert = createAction('duck/user/showAlert');
 export const signIn = createAction('saga/user/signIn');
@@ -42,7 +45,13 @@ export const handleShowAlert = (state: AuthenticationState, { payload }) => ({
   },
 });
 
+export const handleSetLoading = (state: AuthenticationState, { payload }) => ({
+  ...state,
+  isLoading: payload,
+});
+
 export const authenticationReducer = createReducer(USER_INITIAL_STATE, {
   [updateUser.toString()]: handleUpdateUser,
   [showAlert.toString()]: handleShowAlert,
+  [setLoading.toString()]: handleSetLoading,
 });
