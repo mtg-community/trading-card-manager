@@ -24,7 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.app"
+    },
+    "android": {
+      "package": "com.app"
     }
   }
 }
