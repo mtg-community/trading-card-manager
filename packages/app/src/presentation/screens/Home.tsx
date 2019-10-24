@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   StyleSheet,
   Text,
@@ -7,13 +7,11 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import { authSelector, signIn } from '../../domain/ducks/authenticationReducer';
+import { signIn } from '../../domain/ducks/authenticationReducer';
 import { Input } from '../components/Input';
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector(authSelector);
-  console.log(user);
   const [email, handleChangeEmail] = useState('');
   const [password, handleChangePassword] = useState('');
   const handleSignIn = () => {

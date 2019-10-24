@@ -17,9 +17,9 @@ export const NOT_LOGGED_IN = {
   id: null,
 };
 
-export const USER_INITIAL_STATE = {
+export const AUTH_INITIAL_STATE = {
   user: NOT_LOGGED_IN,
-  alerts: NO_ALERTS,
+  alert: NO_ALERTS,
   isLoading: false,
 };
 
@@ -39,7 +39,7 @@ export const handleUpdateUser = (state: AuthenticationState, { payload }) => ({
 
 export const handleShowAlert = (state: AuthenticationState, { payload }) => ({
   ...state,
-  alerts: {
+  alert: {
     showAlert: true,
     message: payload,
   },
@@ -50,8 +50,8 @@ export const handleSetLoading = (state: AuthenticationState, { payload }) => ({
   isLoading: payload,
 });
 
-export const authenticationReducer = createReducer(USER_INITIAL_STATE, {
-  [updateUser.toString()]: handleUpdateUser,
-  [showAlert.toString()]: handleShowAlert,
-  [setLoading.toString()]: handleSetLoading,
+export const authenticationReducer = createReducer(AUTH_INITIAL_STATE, {
+  [updateUser]: handleUpdateUser,
+  [showAlert]: handleShowAlert,
+  [setLoading]: handleSetLoading,
 });

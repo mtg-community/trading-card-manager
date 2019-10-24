@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  Image
-} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { signIn } from '../../domain/ducks/authenticationReducer';
 import { Input } from '../components/Input';
-import { Colors } from "../constants/colors";
+import { Colors } from '../constants/colors';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -22,7 +16,12 @@ export const Home = () => {
     <View style={styles.container}>
       <View style={styles.content}>
         <View style={styles.wallpaper}>
-          <Image style={styles.image} source={require('../../../assets/images/signInWallpaper.jpg')} />
+          <Image
+            resizeMode="cover"
+            resizeMethod="auto"
+            style={styles.image}
+            source={require('../../../assets/images/signInWallpaper.jpg')}
+          />
         </View>
         <View style={styles.form}>
           <Input
@@ -92,8 +91,6 @@ const styles = StyleSheet.create({
   image: {
     height: '100%',
     width: '100%',
-    resizeMode: 'cover',
-    resizeMethod: 'auto',
     borderBottomLeftRadius: 5,
     borderTopLeftRadius: 5,
   },
@@ -108,6 +105,6 @@ const styles = StyleSheet.create({
   },
   buttonLabel: {
     fontSize: 16,
-    color: Colors.white
-  }
+    color: Colors.white,
+  },
 });

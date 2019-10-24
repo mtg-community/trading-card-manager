@@ -8,7 +8,8 @@
     "eject": "expo eject",
     "build-web": "expo build:web",
     "build-ios": "expo build:ios",
-    "build-android": "expo build:android"
+    "build-android": "expo build:android",
+    "test": "jest --watch"
   },
   "jest": {
     "preset": "jest-expo"
@@ -45,7 +46,7 @@
     "jest-expo": "35.0.0",
     "prettier": "1.18.2",
     "react-native-testing-library": "1.11.1",
-    "react-test-renderer": "16.9.0",
+    "react-test-renderer": "16.8.3",
     "typescript": "3.6.3"
   },
   "private": true
