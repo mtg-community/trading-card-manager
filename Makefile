@@ -10,6 +10,9 @@ mobile_%:
 core_%:
 	$(MAKE) -C packages/core $*
 
+app_%:
+	$(MAKE) -C packages/core $*
+
 backend_%:
 	$(MAKE) -C packages/backend $*
 
