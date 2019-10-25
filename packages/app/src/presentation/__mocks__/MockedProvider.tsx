@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import {
+  createAppContainer,
+  createSwitchNavigator,
+  NavigationRouteConfig,
+} from 'react-navigation';
 import { IStore } from '../../domain';
 
 type MockedProviderType = {
@@ -10,7 +14,7 @@ type MockedProviderType = {
 
 export const MockedProvider = ({ children, store }: MockedProviderType) => {
   const MockedSwitchNavigator = createSwitchNavigator({
-    App: (): React.ReactNode => children,
+    App: (() => children) as NavigationRouteConfig<any, any>,
   });
   const MockedApp = createAppContainer(MockedSwitchNavigator);
   return (
