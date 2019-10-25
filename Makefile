@@ -26,7 +26,7 @@ code-coverage:
 	$(MAKE) -C packages/mobile sonar-scanner
 
 install:
-	npm ci
+	yarn install
 
 bootstrap_mobile:
 	npm run lerna:bootstrap-mobile

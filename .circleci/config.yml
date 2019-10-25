@@ -56,18 +56,9 @@ jobs:
     executor: frontend
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-            - node-v1-{{ .Branch }}-
-            - node-v1-
       - run:
           name: 'Npm Install'
           command: make install
-      - save_cache:
-            paths:
-              - ~/usr/local/lib/node_modules
-            key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - persist_to_workspace:
           root: /tmp/trading-card-manager
           paths: .
