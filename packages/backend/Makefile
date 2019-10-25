@@ -15,4 +15,4 @@ install:
 	$(MAKE) -C ./functions install
 
 sonarqube:
-	$(MAKE) -C ./functions sonarqube
+	#$(MAKE) -C ./functions sonarqube
