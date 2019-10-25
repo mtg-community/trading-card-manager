@@ -7,8 +7,9 @@ import {
   signOutSaga,
   signUp,
 } from './authenticationSaga';
+import { SagaIterator } from 'redux-saga';
 
-export function* rootSaga() {
+export function* rootSaga(): SagaIterator {
   yield all([
     takeLatest(signIn, signInWithEmailAndPasswordSaga),
     takeLatest(signUp, createUserWithEmailAndPasswordSaga),

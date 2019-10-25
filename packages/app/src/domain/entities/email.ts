@@ -1,4 +1,4 @@
-function emailIsValid(email: string) {
+function emailIsValid(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
@@ -15,15 +15,15 @@ export class Email {
     this._email = email;
   }
 
-  equals(email: string) {
+  equals(email: string): boolean {
     return this._email === email;
   }
 
-  toString() {
+  toString(): string {
     return this._email;
   }
 
-  valueOf() {
+  valueOf(): string {
     return this._email;
   }
 }

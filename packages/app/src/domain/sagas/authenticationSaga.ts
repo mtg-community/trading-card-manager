@@ -12,25 +12,26 @@ import { NOT_LOGGED_IN_USER } from '../entities/user';
 import { createAction, PayloadAction } from 'redux-starter-kit';
 import { Email } from '../entities';
 import { PayloadActionCreator } from 'redux-starter-kit/src/createAction';
+import { SagaIterator } from 'redux-saga';
 
-export const signIn: PayloadActionCreator<ILoginCredentials> = createAction(
+export const signIn: PayloadActionCreator<LoginCredentials> = createAction(
   'saga/user/signIn',
 );
-export const signUp: PayloadActionCreator<ILoginCredentials> = createAction(
+export const signUp: PayloadActionCreator<LoginCredentials> = createAction(
   'saga/user/signUp',
 );
 export const signOut: PayloadActionCreator<void> = createAction(
   'saga/user/signOut',
 );
 
-export interface ILoginCredentials {
+export interface LoginCredentials {
   password: string;
   email: Email;
 }
 
 export function* signInWithEmailAndPasswordSaga(
-  action: PayloadAction<ILoginCredentials>,
-) {
+  action: PayloadAction<LoginCredentials>,
+): SagaIterator {
   try {
     const { password, email } = action.payload;
     yield put(setLoading(true));
@@ -44,8 +45,8 @@ export function* signInWithEmailAndPasswordSaga(
 }
 
 export function* createUserWithEmailAndPasswordSaga(
-  action: PayloadAction<ILoginCredentials>,
-) {
+  action: PayloadAction<LoginCredentials>,
+): SagaIterator {
   try {
     const { password, email } = action.payload;
     yield put(setLoading(true));
@@ -58,7 +59,7 @@ export function* createUserWithEmailAndPasswordSaga(
   }
 }
 
-export function* signOutSaga() {
+export function* signOutSaga(): SagaIterator {
   try {
     yield put(setLoading(true));
     yield call(signOut);

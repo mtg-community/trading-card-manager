@@ -9,7 +9,10 @@
     "build-web": "expo build:web",
     "build-ios": "expo build:ios",
     "build-android": "expo build:android",
-    "type-check": "tsc --noEmit",
+    "types:check": "tsc --noEmit",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "prettier:check": "prettier --check 'src/**/*.{ts,tsx}'",
+    "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
     "test": "jest --watch"
   },
   "jest": {
@@ -39,6 +42,7 @@
   "devDependencies": {
     "@types/react": "16.9.3",
     "@types/react-native": "0.57.65",
+    "@types/react-navigation": "3.0.8",
     "@types/react-redux": "7.1.4",
     "babel-jest": "24.9.0",
     "babel-preset-expo": "7.0.0",

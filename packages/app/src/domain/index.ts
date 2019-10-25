@@ -11,11 +11,11 @@ import {
 } from './ducks/authenticationReducer';
 import { rootSaga } from './sagas';
 
-export interface IState {
+export interface State {
   authentication: AuthenticationState;
 }
 
-export type IStore = EnhancedStore<IState, Action | PayloadAction>;
+export type IStore = EnhancedStore<State, Action | PayloadAction>;
 
 export const initializeDomainLayer = (): IStore => {
   const reducer = {
