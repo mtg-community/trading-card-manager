@@ -3,7 +3,7 @@ import { View, TextInput } from 'react-native';
 import { styles } from './styles/Input.styles';
 import { Colors } from '../constants/colors';
 
-export const Input = ({ ...props }) => {
+export function Input({ ...props }): React.ReactElement {
   return (
     <View style={styles.container}>
       <TextInput
@@ -13,4 +13,4 @@ export const Input = ({ ...props }) => {
       />
     </View>
   );
-};
+}

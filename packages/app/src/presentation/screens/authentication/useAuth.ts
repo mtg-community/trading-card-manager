@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import {
-  ILoginCredentials,
+  LoginCredentials,
   signIn,
 } from '../../../domain/sagas/authenticationSaga';
 import { Email } from '../../../domain/entities';
@@ -13,22 +13,23 @@ type UseAuthType = [
   (password: string) => void,
   {
     actions: {
-      signIn: () => Promise<void>,
-    },
-  },
+      signIn: () => Promise<void>;
+    };
+  }
 ];
 
 export function useAuth(): UseAuthType {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const handleSignIn = async () => {
-    const userCredential: ILoginCredentials = {
+
+  async function handleSignIn(): Promise<void> {
+    const userCredential: LoginCredentials = {
       password,
       email: new Email(email),
     };
     dispatch(signIn(userCredential));
-  };
+  }
 
   return [
     email,

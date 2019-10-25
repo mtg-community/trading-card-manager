@@ -13,15 +13,15 @@ export class Email {
     this._email = email;
   }
 
-  equals(email: string) {
+  equals(email: string): boolean {
     return this._email === email;
   }
 
-  toString() {
+  toString(): string {
     return this._email;
   }
 
-  valueOf() {
+  valueOf(): string {
     return this._email;
   }
 }

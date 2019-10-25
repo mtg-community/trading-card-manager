@@ -9,7 +9,21 @@ import {
 import { Input } from '../components/Input';
 import { useAuth } from './authentication/useAuth';
 
-export const Home = () => {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  form: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
+    width: Dimensions.get('window').width - 16,
+  },
+});
+
+export function Home(): React.ReactNode {
   const [
     email,
     password,
@@ -42,18 +56,4 @@ export const Home = () => {
       </View>
     </View>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  form: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8,
-    width: Dimensions.get('window').width - 16,
-  },
-});
+}

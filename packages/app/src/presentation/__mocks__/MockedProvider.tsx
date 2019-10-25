@@ -8,13 +8,16 @@ import {
 import { IStore } from '../../domain';
 
 type MockedProviderType = {
-  children: React.ReactNode,
-  store: IStore,
+  children: React.ReactNode;
+  store: IStore;
 };
 
-export const MockedProvider = ({ children, store }: MockedProviderType) => {
+export const MockedProvider = ({
+  children,
+  store,
+}: MockedProviderType): React.ReactNode => {
   const MockedSwitchNavigator = createSwitchNavigator({
-    App: (() => children) as NavigationRouteConfig<any, any>,
+    App: (() => children) as NavigationRouteConfig<unknown, unknown>,
   });
   const MockedApp = createAppContainer(MockedSwitchNavigator);
   return (

@@ -1,8 +1,8 @@
 import { Email } from './email';
 
 type optionalFields = {
-  name: string,
-  emailVerified: boolean,
+  name: string;
+  emailVerified: boolean;
 };
 
 const defaultOptionalFields = {
