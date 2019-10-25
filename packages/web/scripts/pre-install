@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-# Install Core
-cd ../core
-yarn install
-npm run build
-
-# Install Web
-npm install ../core
