@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,16 +6,20 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import { signIn } from '../../domain/ducks/authenticationReducer';
 import { Input } from '../components/Input';
+import { useAuth } from './authentication/useAuth';
 
 export const Home = () => {
-  const dispatch = useDispatch();
-  const [email, handleChangeEmail] = useState('');
-  const [password, handleChangePassword] = useState('');
-  const handleSignIn = () => {
-    dispatch(signIn({ password, email }));
-  };
+  const [
+    email,
+    password,
+    handleChangeEmail,
+    handleChangePassword,
+    {
+      actions: { signIn },
+    },
+  ] = useAuth();
+
   return (
     <View style={styles.container}>
       <View style={styles.form}>
@@ -33,7 +36,7 @@ export const Home = () => {
           placeholder="********"
           onChangeText={handleChangePassword}
         />
-        <TouchableOpacity onPress={handleSignIn}>
+        <TouchableOpacity onPress={signIn}>
           <Text>Sign In</Text>
         </TouchableOpacity>
       </View>

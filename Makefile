@@ -4,32 +4,17 @@ setup-travis-environment:
 	.travis-ci/restore-secrets.sh
 	npm install -g "npm@$(jq -r '.engines.npm' package.json)"
 
-mobile_%:
-	$(MAKE) -C packages/mobile $*
-
-core_%:
+app_%:
 	$(MAKE) -C packages/core $*
 
 backend_%:
 	$(MAKE) -C packages/backend $*
 
-web_%:
-	$(MAKE) -C packages/web $*
-
 sonar-scanner:
 	sonar-scanner
 
-code-coverage:
-	$(MAKE) -C packages/mobile sonar-scanner
-
 install:
-	npm ci
-
-bootstrap_mobile:
-	npm run lerna:bootstrap-mobile
-
-bootstrap_web:
-	npm run lerna:bootstrap-web
+	yarn install
 
 docker_build-web:
 	docker build -t mtgx_web_image .

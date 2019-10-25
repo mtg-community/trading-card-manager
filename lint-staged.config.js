@@ -1,6 +1,7 @@
 module.exports = {
   linters: {
-    '*.(js|jsx|ts|tsx)': ['prettier --write', 'git add'],
+    '*.(js|jsx)': ['prettier --write', 'git add'],
+    '*.(ts|tsx)': ['prettier --parser typescript --write', 'git add'],
   },
   ignore: ['**/package.json', '**/package-lock.json'],
 };

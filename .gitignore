@@ -25,3 +25,6 @@ coverage/
 
 .travis-ci/bitbucket_key
 .secrets
+
+# We are using yarn on this project
+package-lock.json

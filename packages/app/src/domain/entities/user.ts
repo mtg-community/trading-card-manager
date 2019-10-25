@@ -21,7 +21,7 @@ export class User {
   constructor(
     id: string,
     email: string | Email,
-    opt?: { emailVerified: boolean, name: string },
+    opt: optionalFields = defaultOptionalFields,
   ) {
     if (!id) {
       throw Error(userMustHaveAnId);
@@ -34,3 +34,8 @@ export class User {
     this.name = opt.name;
   }
 }
+
+export const NOT_LOGGED_IN_USER = new User(
+  'unknown',
+  new Email('unknown@user.io'),
+);

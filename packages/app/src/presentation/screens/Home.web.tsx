@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { signIn } from '../../domain/ducks/authenticationReducer';
+
 import { Input } from '../components/Input';
 import { Colors } from '../constants/colors';
+import { useAuth } from './authentication/useAuth';
+
+const signInWallPaper = require('../../../assets/images/signInWallpaper.jpg');
 
 export const Home = () => {
-  const dispatch = useDispatch();
-  const [email, handleChangeEmail] = useState('');
-  const [password, handleChangePassword] = useState('');
-  const handleSignIn = () => {
-    dispatch(signIn({ password, email }));
-  };
+  const [
+    email,
+    password,
+    setEmail,
+    setPassword,
+    {
+      actions: { signIn },
+    },
+  ] = useAuth();
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -20,7 +26,7 @@ export const Home = () => {
             resizeMode="cover"
             resizeMethod="auto"
             style={styles.image}
-            source={require('../../../assets/images/signInWallpaper.jpg')}
+            source={signInWallPaper}
           />
         </View>
         <View style={styles.form}>
@@ -28,16 +34,16 @@ export const Home = () => {
             value={email}
             autoCapitalize="none"
             placeholder="email"
-            onChangeText={handleChangeEmail}
+            onChangeText={setEmail}
           />
           <Input
             value={password}
             autoCapitalize="none"
             secureTextEntry
             placeholder="********"
-            onChangeText={handleChangePassword}
+            onChangeText={setPassword}
           />
-          <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+          <TouchableOpacity style={styles.button} onPress={signIn}>
             <Text style={styles.buttonLabel}>Sign In</Text>
           </TouchableOpacity>
         </View>

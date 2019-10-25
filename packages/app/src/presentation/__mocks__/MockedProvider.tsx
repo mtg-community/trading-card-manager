@@ -1,13 +1,20 @@
-import React from 'react';
+import * as React from 'react';
 import { Provider } from 'react-redux';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import {
+  createAppContainer,
+  createSwitchNavigator,
+  NavigationRouteConfig,
+} from 'react-navigation';
+import { IStore } from '../../domain';
 
-export const MockedProvider = ({ children, store }) => {
-  const Screen = () => children;
+type MockedProviderType = {
+  children: React.ReactNode,
+  store: IStore,
+};
+
+export const MockedProvider = ({ children, store }: MockedProviderType) => {
   const MockedSwitchNavigator = createSwitchNavigator({
-    App: {
-      screen: Screen,
-    },
+    App: (() => children) as NavigationRouteConfig<any, any>,
   });
   const MockedApp = createAppContainer(MockedSwitchNavigator);
   return (

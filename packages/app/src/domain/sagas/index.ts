@@ -1,9 +1,11 @@
 import { all, takeLatest } from 'redux-saga/effects';
-import { signIn, signUp, signOut } from '../ducks/authenticationReducer';
 import {
   createUserWithEmailAndPasswordSaga,
+  signIn,
   signInWithEmailAndPasswordSaga,
+  signOut,
   signOutSaga,
+  signUp,
 } from './authenticationSaga';
 
 export function* rootSaga() {

@@ -3,5 +3,5 @@ export const Colors = {
   textInputColor: '#00CBFF',
   placeholderText: '#A5A5A5',
   white: '#FFF',
-  black: '#000'
+  black: '#000',
 };

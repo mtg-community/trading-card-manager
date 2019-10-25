@@ -1,57 +1,78 @@
-import { createReducer, createAction } from 'redux-starter-kit';
+import { createReducer, createAction, PayloadAction } from 'redux-starter-kit';
 import { User } from '../entities';
-import { Store } from '../index';
+import { NOT_LOGGED_IN_USER } from '../entities/user';
+
+type AuthActionsType =
+  | PayloadAction<User>
+  | PayloadAction<boolean>
+  | PayloadAction<string>;
+
+type AuthenticationReducerType = (
+  state: AuthenticationState,
+  action: AuthActionsType,
+) => AuthenticationState;
+
+interface AlertType {
+  showAlert: boolean;
+  message: string;
+}
 
 export interface AuthenticationState {
   user: User;
-  alerts: {
-    showAlert: boolean,
-    message: string,
-  };
+  alert: AlertType;
   isLoading: boolean;
 }
 
-export const NO_ALERTS = { showAlert: false, message: '' };
+export const NO_ALERTS: AlertType = { showAlert: false, message: '' };
 
-export const NOT_LOGGED_IN = {
-  id: null,
-};
-
-export const AUTH_INITIAL_STATE = {
-  user: NOT_LOGGED_IN,
+export const AUTH_INITIAL_STATE: AuthenticationState = {
+  user: NOT_LOGGED_IN_USER,
   alert: NO_ALERTS,
   isLoading: false,
 };
 
-export const authSelector = (state: Store) => state.authentication;
-
 export const setLoading = createAction('duck/user/setLoading');
 export const updateUser = createAction('duck/user/updateUser');
 export const showAlert = createAction('duck/user/showAlert');
-export const signIn = createAction('saga/user/signIn');
-export const signUp = createAction('saga/user/signUp');
-export const signOut = createAction('saga/user/signOut');
 
-export const handleUpdateUser = (state: AuthenticationState, { payload }) => ({
-  ...state,
-  user: payload,
-});
+export function handleUpdateUser(
+  state: AuthenticationState,
+  action: PayloadAction<User>,
+): AuthenticationState {
+  return {
+    ...state,
+    user: action.payload,
+  };
+}
 
-export const handleShowAlert = (state: AuthenticationState, { payload }) => ({
-  ...state,
-  alert: {
-    showAlert: true,
-    message: payload,
+export function handleShowAlert(
+  state: AuthenticationState,
+  action: PayloadAction<string>,
+): AuthenticationState {
+  return {
+    ...state,
+    alert: {
+      showAlert: true,
+      message: action.payload,
+    },
+  };
+}
+
+export function handleSetLoading(
+  state: AuthenticationState,
+  action: PayloadAction<boolean>,
+): AuthenticationState {
+  return {
+    ...state,
+    isLoading: action.payload,
+  };
+}
+
+export const authenticationReducer: AuthenticationReducerType = createReducer(
+  AUTH_INITIAL_STATE,
+  {
+    [updateUser.type]: handleUpdateUser,
+    [showAlert.type]: handleShowAlert,
+    [setLoading.type]: handleSetLoading,
   },
-});
-
-export const handleSetLoading = (state: AuthenticationState, { payload }) => ({
-  ...state,
-  isLoading: payload,
-});
-
-export const authenticationReducer = createReducer(AUTH_INITIAL_STATE, {
-  [updateUser]: handleUpdateUser,
-  [showAlert]: handleShowAlert,
-  [setLoading]: handleSetLoading,
-});
+);
