@@ -1,27 +1,34 @@
-import { AnyAction, configureStore, EnhancedStore } from 'redux-starter-kit'
-import createSagaMiddleware from 'redux-saga'
+import {
+  Action,
+  configureStore,
+  EnhancedStore,
+  PayloadAction,
+} from 'redux-starter-kit';
+import createSagaMiddleware from 'redux-saga';
 import {
   authenticationReducer,
-  AuthenticationState
-} from './ducks/authenticationReducer'
-import { rootSaga } from './sagas'
+  AuthenticationState,
+} from './ducks/authenticationReducer';
+import { rootSaga } from './sagas';
 
-export interface Store {
-  authentication: AuthenticationState
+export interface IState {
+  authentication: AuthenticationState;
 }
 
-export const initializeDomainLayer = (): EnhancedStore<any, AnyAction> => {
+export type IStore = EnhancedStore<IState, Action | PayloadAction>;
+
+export const initializeDomainLayer = (): IStore => {
   const reducer = {
     authentication: authenticationReducer,
-  }
-  const sagaMiddleware = createSagaMiddleware()
-  const middleware = [sagaMiddleware]
+  };
+  const sagaMiddleware = createSagaMiddleware();
+  const middleware = [sagaMiddleware];
   const store = configureStore({
     reducer,
     middleware,
-  })
+  });
 
-  sagaMiddleware.run(rootSaga)
+  sagaMiddleware.run(rootSaga);
 
-  return store
-}
+  return store;
+};

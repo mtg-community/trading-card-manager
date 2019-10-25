@@ -5,8 +5,8 @@ import {
   FIREBASE_DATABASE_URL,
   FIREBASE_STORAGE_BUCKET,
   FIREBASE_MSG_SENDER_ID,
-  FIREBASE_PROJECT_ID
-} from 'react-native-dotenv'
+  FIREBASE_PROJECT_ID,
+} from 'react-native-dotenv';
 import 'firebase/auth';
 
 const ERROR = {

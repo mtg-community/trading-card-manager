@@ -2,13 +2,19 @@ import { initializeDomainLayer } from '../../index';
 import { User } from '../../entities';
 import {
   AUTH_INITIAL_STATE,
-  NOT_LOGGED_IN,
+  authenticationReducer,
   showAlert,
   updateUser,
 } from '../authenticationReducer';
+import { NOT_LOGGED_IN_USER } from '../../entities/user';
 
 describe('Authentication Reducer', () => {
-  const store = initializeDomainLayer();
+  let store = initializeDomainLayer();
+
+  beforeEach(() => {
+    store = initializeDomainLayer();
+  });
+
   it('should update user on the store', () => {
     const uid = 'some_uid';
     const email = 'email@email.com';
@@ -32,7 +38,7 @@ describe('Authentication Reducer', () => {
   });
 
   it('should sign out the user', () => {
-    store.dispatch(updateUser(NOT_LOGGED_IN));
+    store.dispatch(updateUser(NOT_LOGGED_IN_USER));
     expect(store.getState().authentication).toEqual(AUTH_INITIAL_STATE);
   });
 
@@ -41,7 +47,8 @@ describe('Authentication Reducer', () => {
       showAlert: true,
       message: 'User not found',
     };
-    store.dispatch(showAlert('User not found'));
+    let action = showAlert('User not found');
+    store.dispatch(action);
     expect(store.getState().authentication.alert).toEqual(expectedState);
   });
 });

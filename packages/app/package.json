@@ -9,6 +9,7 @@
     "build-web": "expo build:web",
     "build-ios": "expo build:ios",
     "build-android": "expo build:android",
+    "type-check": "tsc --noEmit",
     "test": "jest --watch"
   },
   "jest": {
@@ -33,8 +34,7 @@
     "react-redux": "7.1.1",
     "redux": "4.0.4",
     "redux-saga": "1.1.1",
-    "redux-starter-kit": "0.7.0",
-    "validator": "11.1.0"
+    "redux-starter-kit": "0.7.0"
   },
   "devDependencies": {
     "@types/react": "16.9.3",
@@ -42,9 +42,10 @@
     "@types/react-redux": "7.1.4",
     "babel-jest": "24.9.0",
     "babel-preset-expo": "7.0.0",
+    "expo-cli": "^3.4.1",
     "firebase-tools": "7.6.1",
     "jest-expo": "35.0.0",
-    "prettier": "1.18.2",
+    "prettier": "^1.18.2",
     "react-native-testing-library": "1.11.1",
     "react-test-renderer": "16.8.3",
     "typescript": "3.6.3"

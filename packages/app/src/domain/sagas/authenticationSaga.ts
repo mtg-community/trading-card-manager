@@ -2,18 +2,37 @@ import { put, call } from 'redux-saga/effects';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
 } from '../../data/firebase/authentication';
 import {
   showAlert,
   updateUser,
   setLoading,
-  NOT_LOGGED_IN
 } from '../ducks/authenticationReducer';
+import { NOT_LOGGED_IN_USER } from '../entities/user';
+import { createAction, PayloadAction } from 'redux-starter-kit';
+import { Email } from '../entities';
+import { PayloadActionCreator } from 'redux-starter-kit/src/createAction';
 
-export function* signInWithEmailAndPasswordSaga({ payload }) {
+export const signIn: PayloadActionCreator<ILoginCredentials> = createAction(
+  'saga/user/signIn',
+);
+export const signUp: PayloadActionCreator<ILoginCredentials> = createAction(
+  'saga/user/signUp',
+);
+export const signOut: PayloadActionCreator<void> = createAction(
+  'saga/user/signOut',
+);
+
+export interface ILoginCredentials {
+  password: string;
+  email: Email;
+}
+
+export function* signInWithEmailAndPasswordSaga(
+  action: PayloadAction<ILoginCredentials>,
+) {
   try {
-    const { password, email } = payload;
+    const { password, email } = action.payload;
     yield put(setLoading(true));
     const User = yield call(signInWithEmailAndPassword, email, password);
     yield put(updateUser(User));
@@ -24,9 +43,11 @@ export function* signInWithEmailAndPasswordSaga({ payload }) {
   }
 }
 
-export function* createUserWithEmailAndPasswordSaga({ payload }) {
+export function* createUserWithEmailAndPasswordSaga(
+  action: PayloadAction<ILoginCredentials>,
+) {
   try {
-    const { password, email } = payload;
+    const { password, email } = action.payload;
     yield put(setLoading(true));
     const User = yield call(createUserWithEmailAndPassword, email, password);
     yield put(updateUser(User));
@@ -40,8 +61,8 @@ export function* createUserWithEmailAndPasswordSaga({ payload }) {
 export function* signOutSaga() {
   try {
     yield put(setLoading(true));
-    yield call(signOut)
-    yield put(updateUser(NOT_LOGGED_IN));
+    yield call(signOut);
+    yield put(updateUser(NOT_LOGGED_IN_USER));
   } catch (error) {
     yield put(showAlert(error.message));
   } finally {

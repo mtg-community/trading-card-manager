@@ -1,4 +1,6 @@
-const isEmail: (email: string) => boolean = require('validator/lib/isEmail');
+function emailIsValid(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
 export const INVALID_EMAIL_ERROR = 'Invalid Email';
 
@@ -6,7 +8,7 @@ export class Email {
   _email: string;
 
   constructor(email: string) {
-    if (!isEmail(email)) {
+    if (!emailIsValid(email)) {
       throw new Error(`${INVALID_EMAIL_ERROR} ${email}`);
     }
 
