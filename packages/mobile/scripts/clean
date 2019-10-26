@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -o xtrace
-
-watchman watch-del-all
-rm -rf /tmp/haste-map-react-native-packager-*
-rm -rf /tmp/metro-bundler-cache-*
