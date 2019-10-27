@@ -15,7 +15,7 @@ type UseAuthType = [
     actions: {
       signIn: () => Promise<void>;
     };
-  }
+  },
 ];
 
 export function useAuth(): UseAuthType {

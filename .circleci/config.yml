@@ -25,6 +25,24 @@ workflows:
             branches:
               only:
                 - master
+      - build-frontend:
+          requires:
+            - gitclone
+      - test-frontend:
+          requires:
+            - build-frontend
+      - sonar-frontend:
+          context: mtgx-web-context
+          requires:
+            - test-frontend
+      - deploy-frontend:
+          context: mtgx-web-context
+          requires:
+            - test-frontend
+          filters:
+            branches:
+              only:
+                - master
 
 executors:
   sonar-scaner:
@@ -36,19 +54,19 @@ executors:
       - CI: true
     docker:
       - image: circleci/node:10.13@sha256:991bcf4d64fb0038ba55dc0660f9ecd2dc4482bcdf5197fa99df360e28b9fe3e
-    working_directory: /tmp/trading-card-manager/packages/web
+    working_directory: /tmp/trading-card-manager/packages/frontend
   backend:
     environment:
       - CI: true
     docker:
       - image: circleci/node@sha256:c6881bf3c9365341052e09f98fa61c0246810023787cbf1480ac30ba347ef033
     working_directory: /tmp/trading-card-manager/packages/backend
-  core:
+  cli:
     environment:
       - CI: true
     docker:
       - image: circleci/node@sha256:c6881bf3c9365341052e09f98fa61c0246810023787cbf1480ac30ba347ef033
-    working_directory: /tmp/trading-card-manager/packages/core
+    working_directory: /tmp/trading-card-manager
 
 jobs:
   gitclone:
@@ -83,7 +101,7 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'CI Check'
-          command: make ci-check
+          command: make test
       - store_artifacts:
           path: coverage
           prefix: coverage
@@ -109,3 +127,50 @@ jobs:
       - run:
           name: 'Deploy'
           command: make deploy-functions
+
+  build-frontend:
+    executor: frontend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Npm Install'
+          command: make install
+      - persist_to_workspace:
+          root: /tmp/trading-card-manager
+          paths:
+            - packages/frontend
+
+  test-frontend:
+    executor: frontend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'CI Check'
+          command: make test
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - persist_to_workspace:
+          root: /tmp/trading-card-manager
+          paths: packages/frontend/coverage
+
+  sonar-frontend:
+    executor: sonar-scaner
+    working_directory: /tmp/trading-card-manager/packages/frontend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Sonar'
+          command: make sonarqube
+
+  deploy-frontend:
+    executor: frontend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Deploy'
+          command: make deploy

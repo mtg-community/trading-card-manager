@@ -1,18 +1,20 @@
 install:
 	yarn install
 
-ci-check:
-	yarn prettier:check
-	yarn lint
+test:
+	yarn test --coverage
 	yarn types:check
-	yarn test
+	yarn lint
+	yarn prettier:check
 
 build:
 	yarn build-web
-	yarn build-ios
-	yarn build-android
 
 sonarqube:
-	@sonar-scanner \
-		-Dproject.settings=sonar-scanner.properties \
-    -Dsonar.login=${SONAR_CLOUD_TOKEN}
+	echo 'Sonarqube'
+#	@sonar-scanner \
+#		-Dproject.settings=sonar-scanner.properties \
+#    -Dsonar.login=${SONAR_CLOUD_TOKEN}
+
+deploy:
+	echo 'Deploy'
