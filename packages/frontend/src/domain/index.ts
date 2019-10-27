@@ -1,30 +1,27 @@
-import {
-  Action,
-  configureStore,
-  EnhancedStore,
-  PayloadAction,
-} from 'redux-starter-kit';
+import { configureStore, EnhancedStore } from 'redux-starter-kit';
 import createSagaMiddleware from 'redux-saga';
 import {
+  AuthActionsType,
   authenticationReducer,
   AuthenticationState,
 } from './ducks/authenticationReducer';
 import { rootSaga } from './sagas';
+import { ReducersMapObject } from 'redux';
 
-export interface State {
-  authentication: AuthenticationState;
+export interface MTGState {
+  readonly authentication: AuthenticationState;
 }
+export type MTGActions = AuthActionsType;
+export type MTGStore = EnhancedStore<MTGState, MTGActions>;
+const rootReducer: ReducersMapObject<MTGState, MTGActions> = {
+  authentication: authenticationReducer,
+};
 
-export type IStore = EnhancedStore<State, Action | PayloadAction>;
-
-export const initializeDomainLayer = (): IStore => {
-  const reducer = {
-    authentication: authenticationReducer,
-  };
+export const initializeDomainLayer = (): MTGStore => {
   const sagaMiddleware = createSagaMiddleware();
   const middleware = [sagaMiddleware];
   const store = configureStore({
-    reducer,
+    reducer: rootReducer,
     middleware,
   });
 

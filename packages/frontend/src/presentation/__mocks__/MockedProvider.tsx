@@ -5,11 +5,11 @@ import {
   createSwitchNavigator,
   NavigationRouteConfig,
 } from 'react-navigation';
-import { IStore } from '../../domain';
+import { MTGStore } from '../../domain';
 
 type MockedProviderType = {
   children: React.ReactNode;
-  store: IStore;
+  store: MTGStore;
 };
 
 export const MockedProvider = ({

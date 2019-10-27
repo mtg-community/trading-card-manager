@@ -1,16 +1,16 @@
-import { createReducer, createAction, PayloadAction } from 'redux-starter-kit';
+import {
+  createReducer,
+  createAction,
+  PayloadAction,
+  Reducer,
+} from 'redux-starter-kit';
 import { User } from '../entities';
 import { NOT_LOGGED_IN_USER } from '../entities/user';
 
-type AuthActionsType =
+export type AuthActionsType =
   | PayloadAction<User>
   | PayloadAction<boolean>
   | PayloadAction<string>;
-
-type AuthenticationReducerType = (
-  state: AuthenticationState,
-  action: AuthActionsType,
-) => AuthenticationState;
 
 interface AlertType {
   showAlert: boolean;
@@ -31,9 +31,9 @@ export const AUTH_INITIAL_STATE: AuthenticationState = {
   isLoading: false,
 };
 
-export const setLoading = createAction('duck/user/setLoading');
-export const updateUser = createAction('duck/user/updateUser');
-export const showAlert = createAction('duck/user/showAlert');
+export const setLoading = createAction<boolean>('duck/user/setLoading');
+export const updateUser = createAction<User>('duck/user/updateUser');
+export const showAlert = createAction<string>('duck/user/showAlert');
 
 export function handleUpdateUser(
   state: AuthenticationState,
@@ -68,11 +68,11 @@ export function handleSetLoading(
   };
 }
 
-export const authenticationReducer: AuthenticationReducerType = createReducer(
-  AUTH_INITIAL_STATE,
-  {
-    [updateUser.type]: handleUpdateUser,
-    [showAlert.type]: handleShowAlert,
-    [setLoading.type]: handleSetLoading,
-  },
-);
+export const authenticationReducer: Reducer<
+  AuthenticationState,
+  AuthActionsType
+> = createReducer(AUTH_INITIAL_STATE, {
+  [updateUser.type]: handleUpdateUser,
+  [showAlert.type]: handleShowAlert,
+  [setLoading.type]: handleSetLoading,
+});

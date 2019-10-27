@@ -1,7 +1,7 @@
 import { Email } from './email';
 
 type optionalFields = {
-  name: string;
+  name?: string;
   emailVerified: boolean;
 };
 
@@ -16,7 +16,7 @@ export class User {
   id: string;
   email: Email;
   emailVerified: boolean;
-  name: string;
+  name?: string;
 
   constructor(
     id: string,
