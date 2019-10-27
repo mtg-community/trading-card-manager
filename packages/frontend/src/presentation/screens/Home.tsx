@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export function Home(): React.ReactNode {
+export const Home: React.FC = () => {
   const [
     email,
     password,
@@ -56,4 +56,4 @@ export function Home(): React.ReactNode {
       </View>
     </View>
   );
-}
+};

@@ -12,7 +12,9 @@ type FallBackViewProps = {
   };
 };
 
-export const FallBackView: React.ReactNode = (props: FallBackViewProps) => {
+export const FallBackView: React.FC<FallBackViewProps> = (
+  props: FallBackViewProps,
+) => {
   const { error, info } = props;
   return (
     <View style={styles.errorMessageContainer}>

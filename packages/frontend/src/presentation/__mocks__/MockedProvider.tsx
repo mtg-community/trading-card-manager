@@ -12,10 +12,10 @@ type MockedProviderType = {
   store: MTGStore;
 };
 
-export const MockedProvider = ({
+export const MockedProvider: React.FC<MockedProviderType> = ({
   children,
   store,
-}: MockedProviderType): React.ReactNode => {
+}) => {
   const MockedSwitchNavigator = createSwitchNavigator({
     App: (() => children) as NavigationRouteConfig<unknown, unknown>,
   });
