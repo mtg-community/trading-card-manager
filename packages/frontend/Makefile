@@ -1,7 +1,7 @@
 install:
 	yarn install
 
-ci-check:
+test:
 	yarn prettier:check
 	yarn lint
 	yarn types:check
@@ -13,6 +13,10 @@ build:
 	yarn build-android
 
 sonarqube:
-	@sonar-scanner \
-		-Dproject.settings=sonar-scanner.properties \
-    -Dsonar.login=${SONAR_CLOUD_TOKEN}
+	echo 'Sonarqube'
+#	@sonar-scanner \
+#		-Dproject.settings=sonar-scanner.properties \
+#    -Dsonar.login=${SONAR_CLOUD_TOKEN}
+
+deploy:
+	echo 'Deploy'

@@ -109,3 +109,50 @@ jobs:
       - run:
           name: 'Deploy'
           command: make deploy-functions
+
+  build-frontend:
+    executor: backend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Npm Install'
+          command: make install
+      - persist_to_workspace:
+          root: /tmp/trading-card-manager
+          paths:
+            - packages/frontend
+
+  test-frontend:
+    executor: frontent
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'CI Check'
+          command: make ci-check
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - persist_to_workspace:
+          root: /tmp/trading-card-manager
+          paths: packages/frontend/coverage
+
+  sonar-frontend:
+    executor: sonar-scaner
+    working_directory: /tmp/trading-card-manager/packages/frontend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Sonar'
+          command: make sonarqube
+
+  deploy-frontend:
+    executor: frontend
+    steps:
+      - attach_workspace:
+          at: /tmp/trading-card-manager
+      - run:
+          name: 'Deploy'
+          command: make deploy
