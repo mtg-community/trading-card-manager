@@ -25,6 +25,24 @@ workflows:
             branches:
               only:
                 - master
+      - build-frontend:
+          requires:
+            - gitclone
+      - test-frontend:
+          requires:
+            - build-frontend
+      - sonar-frontend:
+          context: mtgx-web-context
+          requires:
+            - test-frontend
+      - deploy-frontend:
+          context: mtgx-web-context
+          requires:
+            - test-frontend
+          filters:
+            branches:
+              only:
+                - master
 
 executors:
   sonar-scaner:
