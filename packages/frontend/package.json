@@ -42,10 +42,12 @@
     "redux-starter-kit": "0.7.0"
   },
   "devDependencies": {
-    "@types/react": "16.9.3",
-    "@types/react-native": "0.57.65",
+    "@types/jest": "24.0.20",
+    "@types/react": "16.9.11",
+    "@types/react-native": "0.60.21",
     "@types/react-navigation": "3.0.8",
     "@types/react-redux": "7.1.4",
+    "@types/react-test-renderer": "16.9.1",
     "babel-jest": "24.9.0",
     "babel-preset-expo": "7.0.0",
     "expo-cli": "^3.4.1",
@@ -54,7 +56,14 @@
     "prettier": "1.18.2",
     "react-native-testing-library": "1.11.1",
     "react-test-renderer": "16.8.3",
-    "typescript": "3.6.3"
+    "typescript": "3.6.3",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.3.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-prettier": "3.1.0",
+    "eslint-plugin-react": "7.12.1",
+    "@typescript-eslint/eslint-plugin": "2.5.0",
+    "@typescript-eslint/parser": "2.5.0"
   },
   "private": true
 }

@@ -1,5 +1,4 @@
 module.exports = {
-  root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   extends: [
@@ -20,10 +19,10 @@ module.exports = {
   },
   settings: {
     react: {
-      version: '16.8.3',
+      version: 'detect',
     },
   },
   rules: {
-    'no-console': 0,
+    'no-console': 'off',
   },
 };
