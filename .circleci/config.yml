@@ -101,7 +101,7 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'CI Check'
-          command: make ci-check
+          command: make test
       - store_artifacts:
           path: coverage
           prefix: coverage
@@ -148,7 +148,7 @@ jobs:
           at: /tmp/trading-card-manager
       - run:
           name: 'CI Check'
-          command: make ci-check
+          command: make test
       - store_artifacts:
           path: coverage
           prefix: coverage
