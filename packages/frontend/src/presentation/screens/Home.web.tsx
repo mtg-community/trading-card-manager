@@ -5,7 +5,7 @@ import { useAuth } from './authentication/useAuth';
 import { HomeStyles } from './Home.css';
 import signInWallPaper from '../../../assets/images/signInWallpaper.jpg';
 
-export function Home(): React.ReactNode {
+export const Home: React.FC = () => {
   const styles = HomeStyles;
   const [
     email,
@@ -49,4 +49,4 @@ export function Home(): React.ReactNode {
       </View>
     </View>
   );
-}
+};

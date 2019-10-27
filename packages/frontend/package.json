@@ -13,6 +13,7 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "prettier:check": "prettier --check 'src/**/*.{ts,tsx}'",
     "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
+    "ci:check": "yarn prettier && yarn lint && yarn types:check && yarn test",
     "test": "jest",
     "test:watch": "jest --watch"
   },
