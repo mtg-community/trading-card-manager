@@ -21,5 +21,5 @@ export const styles = StyleSheet.create({
     fontFamily: 'space-mono',
     marginTop: 20,
     fontSize: 11,
-  }
+  },
 });
