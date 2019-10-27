@@ -13,7 +13,8 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "prettier:check": "prettier --check 'src/**/*.{ts,tsx}'",
     "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
-    "test": "jest --watch"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "jest": {
     "preset": "jest-expo"
@@ -44,7 +45,7 @@
   "devDependencies": {
     "@types/jest": "24.0.20",
     "@types/react": "16.8.3",
-    "@types/react-native": "0.60.21",
+    "@types/react-native": "0.57.65",
     "@types/react-redux": "7.1.4",
     "@types/react-test-renderer": "16.8.3",
     "babel-jest": "24.9.0",
@@ -58,7 +59,6 @@
     "typescript": "3.6.3",
     "eslint": "5.16.0",
     "eslint-config-prettier": "4.3.0",
-    "eslint-plugin-jsx-a11y": "6.1.2",
     "eslint-plugin-prettier": "3.1.0",
     "eslint-plugin-react": "7.12.1",
     "@typescript-eslint/eslint-plugin": "2.5.0",
