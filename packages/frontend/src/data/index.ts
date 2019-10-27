@@ -1,5 +1,15 @@
 import { initializeFirebase } from './firebase';
+import { initBugSnag } from './bugsnag';
 
-export const initializeDataLayer = (): void => {
-  initializeFirebase();
+type DataLayerInit = {
+  ErrorBoundary: React.ReactType;
 };
+
+export function initializeDataLayer(): DataLayerInit {
+  initializeFirebase();
+  const { ErrorBoundary } = initBugSnag();
+
+  return {
+    ErrorBoundary,
+  };
+}
