@@ -2,7 +2,7 @@ install:
 	yarn install
 
 test:
-	yarn test
+	yarn test --coverage
 	yarn types:check
 	yarn lint
 	yarn prettier:check
