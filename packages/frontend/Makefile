@@ -2,15 +2,13 @@ install:
 	yarn install
 
 test:
-	yarn prettier:check
-	yarn lint
-	yarn types:check
 	yarn test
+	yarn types:check
+	yarn lint
+	yarn prettier:check
 
 build:
 	yarn build-web
-	yarn build-ios
-	yarn build-android
 
 sonarqube:
 	echo 'Sonarqube'

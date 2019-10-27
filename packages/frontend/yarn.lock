@@ -1985,21 +1985,13 @@
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.5.3.tgz#1c3b71b091eaeaf5924538006b7f70603ce63d38"
   integrity sha512-Jugo5V/1bS0fRhy2z8+cUAHEyWOATaz4rbyLVvcFs7+dXp5HfwpEwzF1Q11bB10ApUqHf+yTauxI0UXQDwGrbA==
 
-"@types/react-native@*", "@types/react-native@0.60.21":
+"@types/react-native@0.60.21":
   version "0.60.21"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.60.21.tgz#81a41cae7b232f52ab3983d854f4a0b0df79531e"
   integrity sha512-E7F+P/UG4Utu+kh8Hy544i0m4CzpHw1awNX6hVfkhlu4mXSlAn6KLZzKEkPBbHm7g1kspmZTiuP23HAKZpASPw==
   dependencies:
     "@types/prop-types" "*"
     "@types/react" "*"
-
-"@types/react-navigation@3.0.8":
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/@types/react-navigation/-/react-navigation-3.0.8.tgz#770d5217a4795fe8526e2a69cc6ccb8600c911e4"
-  integrity sha512-r8UQvBmOz7XjPE8AHTHh0SThGqModhQtSsntkmob7rczhueJIqDwBOgsEn54SJa25XzD/KBlelAWeVZ7+Ggm8A==
-  dependencies:
-    "@types/react" "*"
-    "@types/react-native" "*"
 
 "@types/react-redux@7.1.4":
   version "7.1.4"
@@ -2011,10 +2003,10 @@
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
 
-"@types/react-test-renderer@16.9.1":
-  version "16.9.1"
-  resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-16.9.1.tgz#9d432c46c515ebe50c45fa92c6fb5acdc22e39c4"
-  integrity sha512-nCXQokZN1jp+QkoDNmDZwoWpKY8HDczqevIDO4Uv9/s9rbGPbSpy8Uaxa5ixHKkcm/Wt0Y9C3wCxZivh4Al+rQ==
+"@types/react-test-renderer@16.8.3":
+  version "16.8.3"
+  resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-16.8.3.tgz#b6ca14d5fe4c742fd6d68ef42d45e3b5c6dd470a"
+  integrity sha512-vEEYh6gFk3jkPHqRe7N5CxWA+yb92hCZxNyhq/1Wj3mClqVWLJYakJDMp3iFmntCgEq96m68N9Oad3wOHm+pdQ==
   dependencies:
     "@types/react" "*"
 
@@ -2026,10 +2018,10 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/react@16.9.11":
-  version "16.9.11"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.11.tgz#70e0b7ad79058a7842f25ccf2999807076ada120"
-  integrity sha512-UBT4GZ3PokTXSWmdgC/GeCGEJXE5ofWyibCcecRLUVN2ZBpXQGVgQGtG2foS7CrTKFKlQVVswLvf7Js6XA/CVQ==
+"@types/react@16.8.3":
+  version "16.8.3"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.3.tgz#7b67956f682bea30a5a09b3242c0784ff196c848"
+  integrity sha512-PjPocAxL9SNLjYMP4dfOShW/rj9FDBJGu3JFRt0zEYf77xfihB6fq8zfDpMrV6s82KnAi7F1OEe5OsQX25Ybdw==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -5915,7 +5907,7 @@ expo-asset@~7.0.0:
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
 
-expo-cli@^3.4.1:
+expo-cli@3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/expo-cli/-/expo-cli-3.4.1.tgz#e3619434c252c4132d1f9ee869f7d1f52a447d7d"
   integrity sha512-9v+vzVy1zfdKaWfDCaofrdvZAmHUwBg6eCpzd7XT6sW7tsJsgt5fKRHG26+yHR4QLFcK1ILdKwgmsKDlvPfssw==
