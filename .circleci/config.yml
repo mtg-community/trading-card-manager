@@ -142,7 +142,7 @@ jobs:
             - packages/frontend
 
   test-frontend:
-    executor: frontent
+    executor: frontend
     steps:
       - attach_workspace:
           at: /tmp/trading-card-manager
