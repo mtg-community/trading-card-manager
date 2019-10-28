@@ -6,6 +6,7 @@ import {
 } from 'redux-starter-kit';
 import { User } from '../entities';
 import { NOT_LOGGED_IN_USER } from '../entities/user';
+import { MTGState } from '../DomainLayer';
 
 export type AuthActionsType =
   | PayloadAction<User>
@@ -30,6 +31,9 @@ export const AUTH_INITIAL_STATE: AuthenticationState = {
   alert: NO_ALERTS,
   isLoading: false,
 };
+
+export const authSelector = (state: MTGState): AuthenticationState =>
+  state.authentication;
 
 export const setLoading = createAction<boolean>('duck/user/setLoading');
 export const updateUser = createAction<User>('duck/user/updateUser');

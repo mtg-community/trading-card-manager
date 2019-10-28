@@ -14,11 +14,16 @@ function mapFirebaseUserToUserDomain(user: firebase.User | null): User {
   });
 }
 
+async function setPersistence(): Promise<void> {
+  return auth().setPersistence(auth.Auth.Persistence.LOCAL);
+}
+
 export async function signInWithEmailAndPassword(
   email: Email,
   password: string,
 ): Promise<User> {
   try {
+    await setPersistence()
     const { user } = await auth().signInWithEmailAndPassword(
       email.toString(),
       password,
@@ -35,6 +40,7 @@ export async function createUserWithEmailAndPassword(
   password: string,
 ): Promise<User> {
   try {
+    await setPersistence()
     const { user } = await auth().createUserWithEmailAndPassword(
       email.toString(),
       password,

@@ -6,9 +6,11 @@ import {
   createUserWithEmailAndPassword,
 } from '../authentication';
 import { User } from '../../../domain/entities';
+import { initializeDomainLayer } from '../../../domain/DomainLayer';
 
 jest.mock('firebase/app', function() {
   const mockFirebaseAuth = {
+    setPersistence: jest.fn(),
     signInWithEmailAndPassword: jest.fn(),
     createUserWithEmailAndPassword: jest.fn(),
     sendPasswordResetEmail: jest.fn(),
@@ -31,6 +33,7 @@ const password = 'password';
 const mockFirebaseUser = { uid: 'some_uid', email, emailVerified: true };
 
 describe('Firebase Auth Module', function() {
+  const store = initializeDomainLayer();
   it('signs user in with LOCAL session persistence', async function() {
     const expectedUser = new User(
       mockFirebaseUser.uid,
@@ -46,6 +49,9 @@ describe('Firebase Auth Module', function() {
     const user = await signInWithEmailAndPassword(email, password);
 
     expect(user).toEqual(expectedUser);
+    expect(firebase.auth().setPersistence).toHaveBeenCalledWith(
+      firebase.auth.Auth.Persistence.LOCAL,
+    );
   });
 
   it('signs user up with LOCAL session persistence', async function() {
@@ -63,6 +69,9 @@ describe('Firebase Auth Module', function() {
     const user = await createUserWithEmailAndPassword(email, password);
 
     expect(user).toEqual(expectedUser);
+    expect(firebase.auth().setPersistence).toHaveBeenCalledWith(
+      firebase.auth.Auth.Persistence.LOCAL,
+    );
   });
 
   it("recovers user's password", async function() {
