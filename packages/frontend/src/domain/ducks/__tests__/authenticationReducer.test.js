@@ -1,4 +1,4 @@
-import { initializeDomainLayer } from '../../index';
+import { initializeDomainLayer } from '../../DomainLayer';
 import { User } from '../../entities';
 import {
   AUTH_INITIAL_STATE,
