@@ -25,6 +25,9 @@ workflows:
             branches:
               only:
                 - master
+Frontend-Build-Pipeline:
+    jobs:
+      - gitclone
       - build-frontend:
           requires:
             - gitclone
