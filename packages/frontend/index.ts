@@ -12,4 +12,3 @@ if (__DEV__) {
 }
 
 registerRootComponent(initializePresentationLayer(store));
-
