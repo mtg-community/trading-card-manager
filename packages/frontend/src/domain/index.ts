@@ -7,6 +7,8 @@ import {
 } from './ducks/authenticationReducer';
 import { rootSaga } from './sagas';
 import { ReducersMapObject } from 'redux';
+import { BugSnag } from '../data/bugsnag';
+import { ErrorReporter } from './ErrorReporter';
 
 export interface MTGState {
   readonly authentication: AuthenticationState;
@@ -17,7 +19,11 @@ const rootReducer: ReducersMapObject<MTGState, MTGActions> = {
   authentication: authenticationReducer,
 };
 
-export const initializeDomainLayer = (): MTGStore => {
+export const initializeDomainLayer = (bugSnag?: BugSnag): MTGStore => {
+  if (bugSnag) {
+    ErrorReporter.init(bugSnag);
+  }
+
   const sagaMiddleware = createSagaMiddleware();
   const middleware = [sagaMiddleware];
   const store = configureStore({
