@@ -16,7 +16,9 @@ interface Props {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
-export const Welcome: React.FC = ({ navigation }: Props) => {
+export const Welcome: React.ReactNode = ({
+  navigation,
+}: Props): React.FunctionComponentElement<Props> => {
   const { user } = useSelector(authSelector);
   const styles = WelcomeStyles;
   const [
