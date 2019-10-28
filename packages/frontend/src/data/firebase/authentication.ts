@@ -1,7 +1,7 @@
-import {auth} from 'firebase/app';
-import {Email, User} from '../../domain/entities';
-import {ErrorReporter} from '../../domain/ErrorReporter';
-import {NOT_LOGGED_IN_USER} from '../../domain/entities/user';
+import { auth } from 'firebase/app';
+import { Email, User } from '../../domain/entities';
+import { ErrorReporter } from '../../domain/ErrorReporter';
+import { NOT_LOGGED_IN_USER } from '../../domain/entities/user';
 
 function mapFirebaseUserToUserDomain(user: firebase.User | null): User {
   if (!user || !user.email || !user.uid) {

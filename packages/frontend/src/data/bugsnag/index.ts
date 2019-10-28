@@ -16,6 +16,6 @@ export class BugSnag implements ErrorReporterParams<BugsnagCore.Client> {
 export function initBugSnag(): BugSnag {
   const bugSnagClient = bugsnag(BUGSNAG_API_KEY);
   const errorBoundary = bugSnagClient.getPlugin('react');
-  console.log(errorBoundary)
+
   return new BugSnag(bugSnagClient, errorBoundary);
 }
