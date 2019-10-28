@@ -23,7 +23,7 @@ export async function signInWithEmailAndPassword(
   password: string,
 ): Promise<User> {
   try {
-    await setPersistence()
+    await setPersistence();
     const { user } = await auth().signInWithEmailAndPassword(
       email.toString(),
       password,
@@ -40,7 +40,7 @@ export async function createUserWithEmailAndPassword(
   password: string,
 ): Promise<User> {
   try {
-    await setPersistence()
+    await setPersistence();
     const { user } = await auth().createUserWithEmailAndPassword(
       email.toString(),
       password,

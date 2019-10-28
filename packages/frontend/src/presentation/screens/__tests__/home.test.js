@@ -9,7 +9,7 @@ import {
 import { User } from '../../../domain/entities';
 import { initializeDomainLayer } from '../../../domain/DomainLayer';
 import { MockedProvider } from '../../__mocks__/MockedProvider';
-import { Welcome } from '../Welcome/index.native';
+import { Welcome } from '../Welcome/index.tsx';
 
 const homeScreenRouteName = 'Home';
 const emailInputPlaceholder = 'email';
