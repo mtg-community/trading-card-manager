@@ -1,5 +1,7 @@
-import { auth } from 'firebase/app';
-import { Email, User } from '../../domain/entities';
+import {auth} from 'firebase/app';
+import {Email, User} from '../../domain/entities';
+import {ErrorReporter} from '../../domain/ErrorReporter';
+import {NOT_LOGGED_IN_USER} from '../../domain/entities/user';
 
 function mapFirebaseUserToUserDomain(user: firebase.User | null): User {
   if (!user || !user.email || !user.uid) {
@@ -15,23 +17,33 @@ function mapFirebaseUserToUserDomain(user: firebase.User | null): User {
 export async function signInWithEmailAndPassword(
   email: Email,
   password: string,
-): Promise<User | void> {
-  const { user } = await auth().signInWithEmailAndPassword(
-    email.toString(),
-    password,
-  );
-  return mapFirebaseUserToUserDomain(user);
+): Promise<User> {
+  try {
+    const { user } = await auth().signInWithEmailAndPassword(
+      email.toString(),
+      password,
+    );
+    return mapFirebaseUserToUserDomain(user);
+  } catch (error) {
+    ErrorReporter.report(error);
+    return NOT_LOGGED_IN_USER;
+  }
 }
 
 export async function createUserWithEmailAndPassword(
   email: Email,
   password: string,
-): Promise<User | void> {
-  const { user } = await auth().createUserWithEmailAndPassword(
-    email.toString(),
-    password,
-  );
-  return mapFirebaseUserToUserDomain(user);
+): Promise<User> {
+  try {
+    const { user } = await auth().createUserWithEmailAndPassword(
+      email.toString(),
+      password,
+    );
+    return mapFirebaseUserToUserDomain(user);
+  } catch (error) {
+    ErrorReporter.report(error);
+    return NOT_LOGGED_IN_USER;
+  }
 }
 
 export async function sendPasswordResetEmail(email: string): Promise<void> {
@@ -44,19 +56,22 @@ export async function signOut(): Promise<void> {
 
 export async function signInWithCredential(
   credential: auth.AuthCredential,
-): Promise<User | void> {
-  const { user } = await auth().signInWithCredential(credential);
-  return mapFirebaseUserToUserDomain(user);
+): Promise<User> {
+  try {
+    const { user } = await auth().signInWithCredential(credential);
+    return mapFirebaseUserToUserDomain(user);
+  } catch (e) {
+    ErrorReporter.report(e);
+    return NOT_LOGGED_IN_USER;
+  }
 }
 
 export async function createGoogleCredential(
   idToken: string,
 ): Promise<auth.OAuthCredential | void> {
   try {
-    const res = await auth.GoogleAuthProvider.credential(idToken);
-    console.log('credential', res);
-    return res;
+    return await auth.GoogleAuthProvider.credential(idToken);
   } catch (error) {
-    console.log(error);
+    ErrorReporter.report(error);
   }
 }
