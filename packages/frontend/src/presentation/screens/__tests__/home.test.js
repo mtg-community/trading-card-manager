@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from 'react-native-testing-library';
 import { Home } from '../Home';
-import { initializeDomainLayer } from '../../../domain';
+import { initializeDomainLayer } from '../../../domain/DomainLayer';
 import { MockedProvider } from '../../__mocks__/MockedProvider';
 
 const emailInputPlaceholder = 'email';

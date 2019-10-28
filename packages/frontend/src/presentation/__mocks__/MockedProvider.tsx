@@ -5,7 +5,7 @@ import {
   createSwitchNavigator,
   NavigationRouteConfig,
 } from 'react-navigation';
-import { MTGStore } from '../../domain';
+import { MTGStore } from '../../domain/DomainLayer';
 
 type MockedProviderType = {
   children: React.ReactNode;

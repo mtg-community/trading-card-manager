@@ -1,11 +1,11 @@
 import React from 'react';
-import { MTGStore } from '../domain';
+import { MTGStore } from '../domain/DomainLayer';
 import { FallBackView } from './components/FallBackView';
 import { Provider } from 'react-redux';
 import { Navigator } from './Navigator';
 import { ErrorReporter } from '../domain/ErrorReporter';
 
-type MainProps = {
+export type MainProps = {
   store: MTGStore;
 };
 
