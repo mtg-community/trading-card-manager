@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Metrics } from '../../constants/metrics';
-import { Colors } from '../../constants/colors';
+import { Metrics, Colors } from '../../constants';
 
 export const styles = StyleSheet.create({
   container: {
@@ -15,7 +14,6 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.textInputBackgroundColor,
     color: Colors.textInputColor,
     width: '100%',
-    maxWidth: 377,
     marginVertical: 8,
   },
 });
