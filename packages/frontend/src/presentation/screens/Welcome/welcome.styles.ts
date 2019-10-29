@@ -6,11 +6,16 @@ export const WelcomeStyles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#ECE9DE',
   },
   form: {
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
     width: Metrics.screenWidth - 16,
+  },
+  inputWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });

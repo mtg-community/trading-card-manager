@@ -36,19 +36,23 @@ export const Welcome: React.FC<Props> = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.form}>
-        <Input
-          value={email}
-          autoCapitalize="none"
-          placeholder="email"
-          onChangeText={handleChangeEmail}
-        />
-        <Input
-          value={password}
-          autoCapitalize="none"
-          secureTextEntry
-          placeholder="********"
-          onChangeText={handleChangePassword}
-        />
+        <View style={styles.inputWrapper}>
+          <Input
+            value={email}
+            autoCapitalize="none"
+            placeholder="email"
+            onChangeText={handleChangeEmail}
+          />
+        </View>
+        <View style={styles.inputWrapper}>
+          <Input
+            value={password}
+            autoCapitalize="none"
+            secureTextEntry
+            placeholder="password"
+            onChangeText={handleChangePassword}
+          />
+        </View>
         <TouchableOpacity onPress={signIn}>
           <Text>Sign In</Text>
         </TouchableOpacity>

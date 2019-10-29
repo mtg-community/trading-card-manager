@@ -2,18 +2,14 @@ import { StyleSheet } from 'react-native';
 import { Metrics, Colors } from '../../constants';
 
 export const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   input: {
     height: Metrics.textInputHeight,
     padding: 8,
     borderRadius: 5,
-    backgroundColor: Colors.textInputBackgroundColor,
-    color: Colors.textInputColor,
-    width: '100%',
-    marginVertical: 8,
+    backgroundColor: Colors.white,
+    color: Colors.black,
+    flex: 1,
+    fontFamily: 'Roboto-Regular',
+    margin: 8,
   },
 });
