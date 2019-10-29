@@ -12,3 +12,4 @@ web-report/
 .idea/
 coverage/
 *.log
+package-lock.json

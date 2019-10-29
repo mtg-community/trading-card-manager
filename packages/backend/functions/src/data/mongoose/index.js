@@ -8,6 +8,11 @@ const connect = () => {
     useCreateIndex: true,
     useFindAndModify: false,
   };
+  if (!url) {
+    console.log("MONGO_URL is missing, the app will not be able to connect to the Database");
+    return;
+  }
+
   mongoose.connect(url, options);
 };
 
