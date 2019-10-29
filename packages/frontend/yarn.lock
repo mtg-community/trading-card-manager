@@ -1548,25 +1548,6 @@
     import-from "3.0.0"
     tslib "1.10.0"
 
-"@graphql-codegen/typescript-operations@1.8.2":
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-operations/-/typescript-operations-1.8.2.tgz#067d2d238eb3d3dc84120a3dfb61d0cd16c687ca"
-  integrity sha512-v8JAdkDpKW/PBycyum1/ER2e7sJlz05HWVV277eM7MQMuZXX35aCKB3pWddRk2os2HOlcK92pwPGZogUVpOyzg==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "1.8.2"
-    "@graphql-codegen/typescript" "1.8.2"
-    "@graphql-codegen/visitor-plugin-common" "1.8.2"
-    tslib "1.10.0"
-
-"@graphql-codegen/typescript-react-apollo@1.8.2":
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-react-apollo/-/typescript-react-apollo-1.8.2.tgz#e8b01355a43913f283e0d7f1a967347bd1fd0bb4"
-  integrity sha512-gzyKzfuxuprSO3DxJD9Q0XwWCnbSGuKxpbGaG6BBdKxTE0E5qq5pxwzpK0Lpvmb/FqAOFSfEeKC+1FVKcv/CFA==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "1.8.2"
-    "@graphql-codegen/visitor-plugin-common" "1.8.2"
-    tslib "1.10.0"
-
 "@graphql-codegen/typescript@1.8.2":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript/-/typescript-1.8.2.tgz#1faef5428a7f2a5a20ee80325850c947fa227300"
@@ -2161,6 +2142,10 @@
   version "6.5.3"
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.5.3.tgz#1c3b71b091eaeaf5924538006b7f70603ce63d38"
   integrity sha512-Jugo5V/1bS0fRhy2z8+cUAHEyWOATaz4rbyLVvcFs7+dXp5HfwpEwzF1Q11bB10ApUqHf+yTauxI0UXQDwGrbA==
+
+"@types/ramda@types/npm-ramda#dist":
+  version "0.25.0"
+  resolved "https://codeload.github.com/types/npm-ramda/tar.gz/9529aa3c8ff70ff84afcbc0be83443c00f30ea90"
 
 "@types/react-native@0.57.65":
   version "0.57.65"
@@ -13179,6 +13164,11 @@ quick-lru@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-1.1.0.tgz#4360b17c61136ad38078397ff11416e186dcfbb8"
   integrity sha1-Q2CxfGETatOAeDl/8RQW4Ybc+7g=
+
+ramda@0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
+  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
 
 randomatic@^3.0.0:
   version "3.1.1"
