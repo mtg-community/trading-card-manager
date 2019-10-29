@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'prettier', 'react'],
   extends: [
@@ -10,9 +11,10 @@ module.exports = {
     'prettier/@typescript-eslint',
   ],
   parserOptions: {
-    project: './tsconfig.json',
     ecmaVersion: 2018,
     sourceType: 'module',
+    jsx: true,
+    useJSXTextNode: true,
     ecmaFeatures: {
       jsx: true,
     },
@@ -24,5 +26,6 @@ module.exports = {
   },
   rules: {
     'no-console': 'off',
+    '@typescript-eslint/no-empty-interface': 'off',
   },
 };
