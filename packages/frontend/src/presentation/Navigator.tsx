@@ -3,8 +3,8 @@ import {
   createSwitchNavigator,
   NavigationContainer,
 } from 'react-navigation';
-import { Welcome } from './screens/Welcome';
-import { Home } from './screens/Home';
+import { Welcome } from './screens/Welcome/Welcome';
+import { Home } from './screens/Home/Home';
 import { CardSearchFilter } from './screens/CardSearchFilter/CardSearchFilter';
 
 export const Navigator: NavigationContainer = createAppContainer(
@@ -15,7 +15,7 @@ export const Navigator: NavigationContainer = createAppContainer(
       CardSearchFilter,
     },
     {
-      initialRouteName: 'CardSearchFilter',
+      initialRouteName: 'Home',
       backBehavior: 'history',
     },
   ),

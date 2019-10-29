@@ -3,8 +3,8 @@ import { useState } from 'react';
 import {
   LoginCredentials,
   signIn,
-} from '../../../domain/sagas/authenticationSaga';
-import { Email } from '../../../domain/entities';
+} from '../../domain/sagas/authenticationSaga';
+import { Email } from '../../domain/entities';
 
 type UseAuthType = [
   string,

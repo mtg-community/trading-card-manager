@@ -9,7 +9,7 @@ import {
 import { authSelector } from '../../../domain/ducks/authenticationReducer';
 import { NOT_LOGGED_IN_USER } from '../../../domain/entities/user';
 import { Input } from '../../components/Input';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 import { WelcomeStyles } from './welcome.styles';
 
 interface Props {
