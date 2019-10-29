@@ -1,0 +1,6 @@
+overwrite: true
+schema: "https://us-central1-trading-card-manager-mtgx.cloudfunctions.net/graphql/"
+generates:
+  types/graphql-api.d.ts:
+    plugins:
+      - "typescript"

@@ -15,7 +15,7 @@ export const Navigator: NavigationContainer = createAppContainer(
       CardSearchFilter,
     },
     {
-      initialRouteName: 'Welcome',
+      initialRouteName: 'CardSearchFilter',
       backBehavior: 'history',
     },
   ),

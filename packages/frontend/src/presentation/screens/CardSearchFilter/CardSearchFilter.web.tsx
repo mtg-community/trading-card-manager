@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/button/Button';
 import { Label } from '../../components/label/Label';
+import { querySampleCard } from '../../../data/graphql/queries/SampleCardList';
 
 export const CardSearchFilter: React.FC = () => {
   const [cardName, setCardName] = useState('');
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
-    console.log(cardName);
+    querySampleCard().then(console.log);
     event.preventDefault();
   }
 
