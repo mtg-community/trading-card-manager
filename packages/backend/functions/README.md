@@ -13,6 +13,7 @@ As rotas podem ser encontradas em `./functions/src/presentation/rest/routes`
 Versão de staging: https://us-central1-trading-card-manager-mtgx.cloudfunctions.net/rest/
 
 # Como iniciar a aplicação
+Certifique-se de estar logado no firebase-cli antes de tentar iniciar a aplicacao.
 - `npm install`
 - `npm start`, isto irá rodar locamente as funções.
 

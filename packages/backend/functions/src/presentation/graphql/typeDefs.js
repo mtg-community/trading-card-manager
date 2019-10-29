@@ -1,11 +1,9 @@
+const { QueryTypeDef } = require('./queries');
+
 const typeDefs = `
-  type Query {
-    hello(name: String): String!
-    sampleCard: Card!
-  }
-  
+${QueryTypeDef}
+
   type ForeignData {
-    id: String!
     multiverseId: Int!
     flavorText: String
     language: String!
@@ -14,9 +12,8 @@ const typeDefs = `
     type: String
     layout: Layout
   }
-  
+
   type Ruling {
-    id: String!
     date: String!
     text: String!
   }
@@ -28,26 +25,26 @@ const typeDefs = `
     B,
     U
   }
-  
+
   enum Layout {
     NORMAL,
   }
-  
+
   enum BorderColor {
     BLACK,
   }
-  
+
   enum SetType {
     EXPANSION,
   }
-  
+
   enum Rarity {
     COMMON,
     UNCOMMON,
     RARE,
     MYTHIC
   }
-  
+
   type Card {
     id: String!
     uuid: String!
