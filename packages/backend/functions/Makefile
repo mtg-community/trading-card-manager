@@ -10,4 +10,7 @@ install:
 	yarn install
 
 deploy:
-	@npx firebase deploy --only functions -m "Pipe $CIRCLE_BRANCH Commit $CIRCLE_SHA1" --token $FIREBASE_TOKEN
+	@npx firebase deploy --only functions \
+			-m "Pipe $CIRCLE_BRANCH Commit $CIRCLE_SHA1" \
+			--token ${FIREBASE_DEPLOY_TOKEN} \
+			--non-interactive
