@@ -1,7 +1,3 @@
-install:
-	yarn install
-	cd functions && yarn install
-
 deploy: install
 	@npx firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}
 
@@ -13,6 +9,7 @@ test:
 	$(MAKE) -C ./functions ci-check
 
 install:
+	yarn install
 	$(MAKE) -C ./functions install
 
 sonarqube:

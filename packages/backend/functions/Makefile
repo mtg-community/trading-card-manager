@@ -7,4 +7,4 @@ ci-check:
 	npm run test:coverage
 
 install:
-	npm install
+	yarn install
