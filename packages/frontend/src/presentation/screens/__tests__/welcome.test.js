@@ -4,16 +4,15 @@ import {
   render,
   fireEvent,
   waitForElement,
-  act,
 } from 'react-native-testing-library';
 import { User } from '../../../domain/entities';
 import { initializeDomainLayer } from '../../../domain/DomainLayer';
 import { MockedProvider } from '../../__mocks__/MockedProvider';
-import { Welcome } from '../Welcome/index.tsx';
+import { Welcome } from '../Welcome/Welcome';
 
 const homeScreenRouteName = 'Home';
 const emailInputPlaceholder = 'email';
-const passwordInputPlaceholder = '********';
+const passwordInputPlaceholder = 'password';
 const email = 'email@email.com';
 const testPassword = 'password';
 const submitButtonText = 'Sign In';

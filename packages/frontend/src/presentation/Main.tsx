@@ -24,7 +24,7 @@ async function startAsync(): Promise<void> {
     `${FileSystem.documentDirectory}/SQLite` + 'AllPrintings.sqlite',
   );
   const db = SQLite.openDatabase('AllPrintings.sqlite');
-  console.log(db)
+  console.log(db);
 }
 
 export const Main: React.FC<MainProps> = (props: MainProps) => {
