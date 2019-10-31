@@ -8,3 +8,6 @@ ci-check:
 
 install:
 	yarn install
+
+deploy:
+		yarn deploy
