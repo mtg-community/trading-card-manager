@@ -6,7 +6,8 @@ deploy:
 	@npx firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}
 
 deploy-functions:
-	# cd functions && npm run deploy
+	@npx firebase login --token ${FIREBASE_DEPLOY_TOKEN}
+	cd functions && npm run deploy
 
 test:
 	$(MAKE) -C ./functions ci-check
