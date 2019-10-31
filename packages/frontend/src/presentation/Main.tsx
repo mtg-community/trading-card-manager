@@ -19,9 +19,10 @@ async function startAsync(): Promise<void> {
     'Roboto-Regular': require('../../assets/fonts/Roboto-Regular.ttf'),
     'Mana-Font': require('../../assets/fonts/mana.ttf'),
   });
+  await FileSystem.makeDirectoryAsync(`${FileSystem.documentDirectory}/SQLite`);
   await FileSystem.downloadAsync(
     'https://www.mtgjson.com/files/AllPrintings.sqlite',
-    `${FileSystem.documentDirectory}/SQLite` + 'AllPrintings.sqlite',
+    `${FileSystem.documentDirectory}/SQLite/AllPrintings.sqlite`,
   );
   const db = SQLite.openDatabase('AllPrintings.sqlite');
   console.log(db);
