@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
+import * as SQLite from 'expo-sqlite';
+import * as FileSystem from 'expo-file-system';
 import { MTGStore } from '../domain/DomainLayer';
 import { FallBackView } from './components/FallBackView';
 import { Provider } from 'react-redux';
@@ -17,6 +19,12 @@ async function startAsync(): Promise<void> {
     'Roboto-Regular': require('../../assets/fonts/Roboto-Regular.ttf'),
     'Mana-Font': require('../../assets/fonts/mana.ttf'),
   });
+  await FileSystem.downloadAsync(
+    'https://www.mtgjson.com/files/AllPrintings.sqlite',
+    `${FileSystem.documentDirectory}/SQLite` + 'AllPrintings.sqlite',
+  );
+  const db = SQLite.openDatabase('AllPrintings.sqlite');
+  console.log(db)
 }
 
 export const Main: React.FC<MainProps> = (props: MainProps) => {
@@ -37,7 +45,7 @@ export const Main: React.FC<MainProps> = (props: MainProps) => {
   return (
     <ErrorBoundary FallbackComponent={FallBackView}>
       <Provider store={store}>
-        <StatusBar barStyle="light-content" />
+        <StatusBar backgroundColor="transparent" barStyle="dark-content" />
         <Navigator />
       </Provider>
     </ErrorBoundary>

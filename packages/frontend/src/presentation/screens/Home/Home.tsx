@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { styles } from './styles';
 import { Input } from '../../components/Input';
 
@@ -13,13 +14,18 @@ export const Home: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Input
-          value={name}
-          onChangeText={handleChangeName}
-          placeholder="Name"
-          returnKeyType="search"
-        />
+        <View style={styles.inputWrapper}>
+          <Ionicons name="ios-search" size={28} />
+          <Input
+            value={name}
+            onChangeText={handleChangeName}
+            placeholder="Name"
+            returnKeyType="search"
+          />
+          <Ionicons name="ios-mic" size={28} />
+        </View>
       </View>
+      <View style={styles.searchResults} />
     </View>
   );
 };
