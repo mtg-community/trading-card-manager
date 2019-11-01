@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import Constants from 'expo-constants';
 import { Colors } from '../../constants';
 
 export const styles = StyleSheet.create({
   container: {
-    paddingTop: getStatusBarHeight(),
     flex: 1,
     backgroundColor: '#ECE9DE',
+    paddingTop: Constants.statusBarHeight,
   },
   inputWrapper: {
     flexDirection: 'row',
@@ -27,9 +27,28 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.white,
   },
+  resultsItem: {
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderColor: '#ECE9DE',
+    borderBottomWidth: 2,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  name: {
+    fontSize: 18,
+    fontFamily: 'Roboto-Regular',
+  },
+  text: {
+    fontSize: 14,
+    fontFamily: 'Roboto-Regular',
+  },
   manaFont: {
     fontFamily: 'Mana-Font',
-    fontSize: 16,
+    fontSize: 12,
   },
   manaContainer: {
     padding: 4,
