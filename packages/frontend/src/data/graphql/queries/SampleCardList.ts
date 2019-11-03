@@ -46,8 +46,54 @@ const sampleCardQuery = gql`
   }
 `;
 
+const sampleCardListQuery = gql`
+  query {
+    sampleCardList {
+      id
+      uuid
+      artist
+      colorIdentities
+      colors
+      layout
+      name
+      number
+      power
+      toughness
+      text
+      type
+      watermark
+      convertedManaCost
+      flavorText
+      manaCost
+      multiverseId
+      rarity
+      printings
+      subTypes
+      superTypes
+      types
+      rulings {
+        date
+        text
+      }
+      foreignData {
+        multiverseId
+        flavorText
+        language
+        name
+        text
+        type
+        layout
+      }
+    }
+  }
+`;
+
 interface SampleCardQueryData {
   sampleCard: ApiCard;
+}
+
+interface SampleCardListQueryData {
+  sampleCardList: ApiCard[];
 }
 
 function mapApiResponseToDomainModel(response: ApiCard): Card {
@@ -60,4 +106,12 @@ export async function querySampleCard(): Promise<Card> {
   });
 
   return mapApiResponseToDomainModel(response.data.sampleCard);
+}
+
+export async function querySampleCardList(): Promise<Card[]> {
+  const response = await apolloClient.query<SampleCardListQueryData>({
+    query: sampleCardListQuery,
+  });
+
+  return response.data.sampleCardList.map(mapApiResponseToDomainModel);
 }

@@ -5,7 +5,9 @@ import {
 } from 'react-navigation';
 import { Welcome } from './screens/Welcome';
 import { Home } from './screens/Home';
-import { CardSearchFilter } from './screens/CardSearchFilter/CardSearchFilter';
+import { CardSearchFilter } from './screens/CardSearch/CardSearchFilter';
+import { CardSearchResults } from './screens/CardSearch/CardSearchResults';
+import { CardDetails } from './screens/CardSearch/CardDetails';
 
 export const Navigator: NavigationContainer = createAppContainer(
   createSwitchNavigator(
@@ -13,6 +15,8 @@ export const Navigator: NavigationContainer = createAppContainer(
       Welcome,
       Home,
       CardSearchFilter,
+      CardSearchResults,
+      CardDetails,
     },
     {
       initialRouteName: 'CardSearchFilter',
@@ -20,3 +24,11 @@ export const Navigator: NavigationContainer = createAppContainer(
     },
   ),
 );
+
+export const ROUTES = {
+  WELCOME: 'Welcome',
+  HOME: 'Home',
+  CARD_SEARCH_FILTER: 'CardSearchFilter',
+  CARD_SEARCH_RESULTS: 'CardSearchResults',
+  CARD_DETAILS: 'CardDetails',
+};

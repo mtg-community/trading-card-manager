@@ -3,15 +3,24 @@ import { initBugSnag, BugSnag } from './bugsnag';
 import { initApolloClient } from './graphql/Apollo';
 
 type DataLayerInit = {
-  BugSnag: BugSnag;
+  BugSnag?: BugSnag;
 };
 
 export function initializeDataLayer(): DataLayerInit {
-  initializeFirebase();
-  const BugSnag = initBugSnag();
-  initApolloClient();
+  let BugSnag = undefined;
 
-  return {
-    BugSnag,
-  };
+  try {
+    initializeFirebase();
+    initApolloClient();
+    BugSnag = initBugSnag();
+
+    return {
+      BugSnag,
+    };
+  } catch (e) {
+    console.info('Failed to initialize Data Layer:');
+    console.error(e);
+
+    return { BugSnag };
+  }
 }
