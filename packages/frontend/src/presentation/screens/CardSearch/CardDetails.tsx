@@ -19,8 +19,6 @@ export const CardDetails: React.FC<Props> = (props: Props) => {
     name,
     manaCost,
     text,
-    power,
-    toughness,
     subTypes,
     superTypes,
     types,

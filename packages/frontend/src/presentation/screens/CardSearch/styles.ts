@@ -54,5 +54,6 @@ export const styles = StyleSheet.create({
   cardDetailsContent: {
     flex: 1,
     alignItems: 'center',
+    padding: 8,
   },
 });

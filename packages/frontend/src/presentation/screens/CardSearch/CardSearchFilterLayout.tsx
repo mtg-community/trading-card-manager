@@ -62,7 +62,11 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
           <Picker.Item label="Vintage" value="vintage" />
         </Picker>
       </View>
-      <Button onPress={onSubmitFilter} label="Search" />
+      <Button
+        onPress={onSubmitFilter}
+        label="Search"
+        isLoadingLabel="Searching"
+      />
     </SafeAreaView>
   );
 };
