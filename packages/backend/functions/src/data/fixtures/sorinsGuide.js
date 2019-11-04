@@ -1,7 +1,8 @@
 const sorinsGuide = {
+  id: 'id3',
   artist: "Jason Rainville",
   borderColor: "black",
-  colorIdentity: [
+  colorIdentities: [
     "B"
   ],
   colors: [
@@ -101,7 +102,7 @@ const sorinsGuide = {
   isMtgo: true,
   isPaper: true,
   isStarter: true,
-  layout: "normal",
+  layout: "NORMAL",
   legalities: {
     brawl: "Legal",
     commander: "Legal",
@@ -131,7 +132,7 @@ printings: [
   mtgstocks: "https://mtgjson.com/links/484b8607be5dd06d",
     tcgplayer: "https://mtgjson.com/links/db0d888873dd558a"
 },
-rarity: "rare",
+rarity: "RARE",
   rulings: [ ],
   scryfallId: "416b000d-77d0-4c83-bbbd-d1107f746dde",
   scryfallIllustrationId: "cafc69bc-5c24-4de5-9dd8-3be99cef3278",

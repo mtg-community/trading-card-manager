@@ -1,7 +1,8 @@
 const chandraFlameFury = {
+  id: 'id2',
   artist: "Magali Villeneuve",
   borderColor: "black",
-  colorIdentity: [
+  colorIdentities: [
     "R"
   ],
   colors: [
@@ -90,7 +91,7 @@ const chandraFlameFury = {
   isMtgo: true,
   isPaper: true,
   isStarter: true,
-  layout: "normal",
+  layout: "NORMAL",
   leadershipSkills: {
     brawl: false,
     commander: false,
@@ -125,7 +126,7 @@ printings: [
   mtgstocks: "https://mtgjson.com/links/036373eb11eec9e8",
     tcgplayer: "https://mtgjson.com/links/2e2d11cb0d82a0f7"
 },
-rarity: "mythic",
+rarity: "MYTHIC",
   rulings: [
   {
     date: "2019-07-12",
