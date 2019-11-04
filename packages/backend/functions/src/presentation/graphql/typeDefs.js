@@ -70,6 +70,7 @@ ${QueryTypeDef}
     subTypes: [String!]
     superTypes: [String!]
     types: [String!]
+    loyalty: String
   }
 `;
 
