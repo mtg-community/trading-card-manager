@@ -1,7 +1,7 @@
 const { teferiHeroOfDominaria } = require('../../data/fixtures/teferi');
-const { liliana } = require('../../data/fixtures/liliana');
-const { snapMage } = require('../../data/fixtures/snapMage');
-const { lordOfAtlantis } = require('../../data/fixtures/lordOfAtlantis');
+const { ajaniInspiringLeader } = require('../../data/fixtures/ajaniInspiringLeader');
+const { chandraFlameFury } = require('../../data/fixtures/chandraFlameFury');
+const { sorinsGuide } = require('../../data/fixtures/sorinsGuide');
 
 const QueryTypeDef = `
   type Query {
@@ -14,7 +14,7 @@ const QueryTypeDef = `
 const queries = {
   hello: (_, { name }) => `Hello ${name || 'World'}`,
   sampleCard: () => teferiHeroOfDominaria,
-  sampleCardList: () => [teferiHeroOfDominaria, snapMage, lordOfAtlantis, liliana],
+  sampleCardList: () => [teferiHeroOfDominaria, chandraFlameFury, sorinsGuide, ajaniInspiringLeader],
 };
 
 module.exports = {
