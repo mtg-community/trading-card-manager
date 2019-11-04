@@ -1,7 +1,8 @@
 const ajaniInspiringLeader = {
+  id: 'id1',
   artist: "Yongjae Choi",
   borderColor: "black",
-  colorIdentity: [
+  colorIdentities: [
     "W"
   ],
   colors: [
@@ -90,7 +91,7 @@ const ajaniInspiringLeader = {
   isMtgo: true,
   isPaper: true,
   isStarter: true,
-  layout: "normal",
+  layout: "NORMAL",
   leadershipSkills: {
     brawl: false,
     commander: false,
@@ -125,7 +126,7 @@ printings: [
   mtgstocks: "https://mtgjson.com/links/8b079386956bcd07",
     tcgplayer: "https://mtgjson.com/links/4e0ed17813277065"
 },
-rarity: "mythic",
+rarity: "MYTHIC",
   rulings: [
   {
     date: "2019-07-12",
