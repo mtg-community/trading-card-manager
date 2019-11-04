@@ -23,5 +23,36 @@ export const styles = StyleSheet.create({
     width: '100%',
     marginVertical: 8,
     backgroundColor: Colors.white,
-  }
+  },
+  searchResult: {
+    backgroundColor: Colors.white,
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderBottomColor: Colors.black,
+    padding: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: Metrics.screenWidth - 16,
+  },
+  subHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    width: Metrics.screenWidth - 16,
+  },
+  footer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    width: Metrics.screenWidth - 16,
+  },
+  cardDetailsContent: {
+    flex: 1,
+    alignItems: 'center',
+  },
 });

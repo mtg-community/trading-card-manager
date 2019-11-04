@@ -3,7 +3,6 @@ import { View, SafeAreaView, Picker } from 'react-native';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/button/Button';
 import { styles } from './styles';
-import { ManaCost } from '../../components/ManaCost';
 
 interface Props {
   onSubmitFilter: () => Promise<void>;
@@ -17,7 +16,6 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
   const [format, setFormat] = useState('');
   return (
     <SafeAreaView style={styles.container}>
-      <ManaCost manaCost="{3}{W}{U}" />
       <View style={styles.content}>
         <View style={styles.inputContainer}>
           <Input

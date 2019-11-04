@@ -1,66 +1,51 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { styles } from './styles/ManaCost.styles';
-
-interface ConvertionMap {
-  [key: string]: string;
-}
-
-export const convertionMap: ConvertionMap = {
-  W: 'e600',
-  U: 'e601',
-  B: 'e602',
-  R: 'e603',
-  G: 'e604',
-  C: 'e904',
-  '0': 'e605',
-  '1': 'e606',
-  '2': 'e607',
-  '3': 'e608',
-  '4': 'e609',
-  '5': 'e60a',
-  '6': 'e60b',
-  '7': 'e60c',
-  '8': 'e60d',
-  '9': 'e60e',
-  '10': 'e60F',
-  '11': 'e610',
-  '12': 'e611',
-  '13': 'e612',
-  '14': 'e613',
-  '15': 'e614',
-  '16': 'e62a',
-  '17': 'e62b',
-  '18': 'e62c',
-  '19': 'e62d',
-  '20': 'e62e',
-  X: 'e615',
-  Y: 'e616',
-  Z: 'e617',
-  P: 'e618',
-  S: 'e619',
-  E: 'e907',
-};
+import { Mana } from '../../domain/entities/Mana';
+import { Colors } from '../constants';
 
 type Props = {
   manaCost: string;
 };
 
 export const ManaCost: React.FC<Props> = ({ manaCost }: Props) => {
-  function unicodeChar(value: string): string {
-    return String.fromCharCode(parseInt(value, 16));
-  }
   const curlyBracesRegex = /[{}]+/;
-  const manaSymbols = manaCost
-    .split(curlyBracesRegex)
-    .filter((mana: string) => !!mana)
-    .map((mana: string): string => unicodeChar(convertionMap[mana]));
+  const manaStrings = manaCost.split(curlyBracesRegex).filter(mana => !!mana);
+  const manaSymbols = manaStrings.map(
+    (manaString: string): Mana => new Mana(manaString),
+  );
+  const getBackgroundColor = (mana: string) => {
+    if (mana == 'W') {
+      return Colors.whiteManaBackground;
+    }
+    if (mana == 'B') {
+      return Colors.blackManaBackground;
+    }
+    if (mana == 'R') {
+      return Colors.redManaBackground;
+    }
+    if (mana == 'U') {
+      return Colors.blueManaBackground;
+    }
+    if (mana == 'G') {
+      return Colors.greenManaBackground;
+    }
+    return Colors.numberManaBackground;
+  };
   return (
-    <View>
+    <View style={styles.container}>
       {manaSymbols.map(mana => (
-        <Text key={mana} style={styles.mana}>
-          {mana}
-        </Text>
+        <View
+          key={Math.random()}
+          style={StyleSheet.flatten([
+            styles.manaContainer,
+            {
+              backgroundColor: getBackgroundColor(mana.cost),
+            },
+          ])}
+        >
+          <Text style={styles.mana}>{mana.toSymbol()}</Text>
+        </View>
       ))}
     </View>
   );

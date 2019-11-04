@@ -1,10 +1,16 @@
 import React from 'react';
-import { SafeAreaView, FlatList } from 'react-native';
+import {
+  SafeAreaView,
+  FlatList,
+  TouchableOpacity,
+  View,
+  Text,
+} from 'react-native';
 import { NavigationScreenProp, NavigationState } from 'react-navigation';
 import { Card } from '../../../domain/entities/Card';
 import { ROUTES } from '../../Navigator';
-import { Button } from '../../components/button/Button';
 import { styles } from './styles';
+import { ManaCost } from '../../components/ManaCost';
 
 interface NavigationParams {
   cardsFiltered: Card[];
@@ -27,7 +33,7 @@ export const CardSearchResults: React.FC<Props> = (props: Props) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         bounces={false}
-        keyExtractor={(item): string => item.id}
+        keyExtractor={(item): string => item.uuid}
         data={cards}
         renderItem={({ item }) => (
           <CardSearchResultItem card={item} onClick={navigateTo(item)} />
@@ -45,5 +51,13 @@ interface CardSearchResultItemProps {
 const CardSearchResultItem: React.FC<CardSearchResultItemProps> = (
   props: CardSearchResultItemProps,
 ) => {
-  return <Button onPress={props.onClick} label={props.card.name} />;
+  return (
+    <TouchableOpacity style={styles.searchResult} onPress={props.onClick}>
+      <View style={styles.header}>
+        <Text>{props.card.name}</Text>
+        <ManaCost manaCost={props.card.manaCost} />
+      </View>
+      <Text>{props.card.text}</Text>
+    </TouchableOpacity>
+  );
 };
