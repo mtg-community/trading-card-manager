@@ -1,6 +1,7 @@
 import { initializeFirebase } from './firebase';
 import { initBugSnag, BugSnag } from './bugsnag';
 import { initApolloClient } from './graphql/Apollo';
+import { initializeAxios } from './services';
 
 type DataLayerInit = {
   BugSnag?: BugSnag;
@@ -12,6 +13,7 @@ export function initializeDataLayer(): DataLayerInit {
   try {
     initializeFirebase();
     initApolloClient();
+    initializeAxios();
     BugSnag = initBugSnag();
 
     return {

@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const CardSearchResults: React.FC<Props> = (props: Props) => {
-  const cards = props.navigation.getParam('cardsFiltered');
+  const cards = props.navigation.getParam('cardsFiltered', []);
 
   function navigateTo(card: Card) {
     return (): void => {
