@@ -14,7 +14,7 @@ export const ManaCost: React.FC<Props> = ({ manaCost }: Props) => {
   const manaSymbols = manaStrings.map(
     (manaString: string): Mana => new Mana(manaString),
   );
-  const getBackgroundColor = (mana: string) => {
+  const getBackgroundColor = (mana: string): string => {
     if (mana == 'W') {
       return Colors.whiteManaBackground;
     }

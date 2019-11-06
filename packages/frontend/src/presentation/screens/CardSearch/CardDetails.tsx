@@ -34,7 +34,7 @@ export const CardDetails: React.FC<Props> = (props: Props) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.cardNavBar}>
-        <TouchableOpacity onPress={() => props.navigation.goBack()}>
+        <TouchableOpacity onPress={(): boolean => props.navigation.goBack()}>
           <MaterialCommunityIcons
             name="keyboard-backspace"
             size={24}

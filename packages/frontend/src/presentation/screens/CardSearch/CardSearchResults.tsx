@@ -35,7 +35,7 @@ export const CardSearchResults: React.FC<Props> = (props: Props) => {
         bounces={false}
         keyExtractor={(item): string => item.uuid}
         data={cards}
-        renderItem={({ item }) => (
+        renderItem={({ item }): React.ReactElement => (
           <CardSearchResultItem card={item} onClick={navigateTo(item)} />
         )}
       />

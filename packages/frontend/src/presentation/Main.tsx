@@ -28,7 +28,7 @@ export const Main: React.FC<MainProps> = (props: MainProps) => {
     return (
       <AppLoading
         startAsync={loadResourcesAsync}
-        onFinish={() => setLoadingComplete(true)}
+        onFinish={(): void => setLoadingComplete(true)}
       />
     );
   }
