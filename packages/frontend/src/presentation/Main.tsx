@@ -14,6 +14,9 @@ export type MainProps = {
 async function loadResourcesAsync(): Promise<void> {
   await Font.loadAsync({
     Mana: require('../../assets/fonts/mana.ttf'),
+    Roboto: require('../../assets/fonts/Roboto-Regular.ttf'),
+    'Roboto-Bold': require('../../assets/fonts/Roboto-Bold.ttf'),
+    'Roboto-Thin': require('../../assets/fonts/Roboto-Thin.ttf'),
   });
 }
 

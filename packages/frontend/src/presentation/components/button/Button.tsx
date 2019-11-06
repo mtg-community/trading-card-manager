@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     color: Colors.white,
+    fontFamily: 'Roboto',
   },
 });
 

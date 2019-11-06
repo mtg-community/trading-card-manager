@@ -9,5 +9,6 @@ export const styles = StyleSheet.create({
     color: Colors.black,
     flex: 1,
     borderRadius: 4,
+    fontFamily: 'Roboto',
   },
 });

@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.white,
     alignItems: 'center',
   },
   content: {
@@ -18,20 +18,34 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     marginVertical: 8,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: Colors.black,
   },
   picker: {
     width: '100%',
     marginVertical: 8,
     backgroundColor: Colors.white,
+    borderColor: Colors.black,
+    borderWidth: 1,
+    fontFamily: 'Roboto',
   },
   searchResult: {
     backgroundColor: Colors.white,
     borderBottomWidth: 1,
-    borderTopWidth: 1,
     borderBottomColor: Colors.black,
     padding: 8,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  cardNavBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: Metrics.screenWidth,
+    padding: 8,
+    backgroundColor: Colors.black,
+    marginBottom: 8,
   },
   header: {
     flexDirection: 'row',
@@ -55,5 +69,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     padding: 8,
+  },
+  regularText: {
+    fontSize: 14,
+    fontFamily: 'Roboto',
   },
 });

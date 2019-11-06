@@ -6,7 +6,7 @@ export const WelcomeStyles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.white,
   },
   form: {
     alignItems: 'center',
@@ -18,6 +18,10 @@ export const WelcomeStyles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     marginVertical: 8,
+    backgroundColor: Colors.black,
+    borderRadius: 4,
+    borderColor: Colors.black,
+    borderWidth: 1,
   },
   button: {
     marginVertical: 12,

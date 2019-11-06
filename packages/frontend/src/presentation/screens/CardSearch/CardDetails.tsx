@@ -1,9 +1,11 @@
 import React from 'react';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { NavigationScreenProp, NavigationState } from 'react-navigation';
 import { Card } from '../../../domain/entities/Card';
-import { Text, SafeAreaView, View } from 'react-native';
+import { Text, SafeAreaView, View, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { ManaCost } from '../../components/ManaCost';
+import { Colors } from '../../constants';
 
 interface NavigationParams {
   card: Card;
@@ -31,24 +33,40 @@ export const CardDetails: React.FC<Props> = (props: Props) => {
   const [subtype] = subTypes || [''];
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.cardNavBar}>
+        <TouchableOpacity onPress={() => props.navigation.goBack()}>
+          <MaterialCommunityIcons
+            name="keyboard-backspace"
+            size={24}
+            color={Colors.white}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <MaterialCommunityIcons
+            name="dots-vertical"
+            size={24}
+            color={Colors.white}
+          />
+        </TouchableOpacity>
+      </View>
       <View style={styles.header}>
-        <Text>{name}</Text>
+        <Text style={styles.regularText}>{name}</Text>
         <ManaCost manaCost={manaCost} />
       </View>
       <View style={styles.subHeader}>
-        <Text>{superType}</Text>
-        <Text>{` ${type} `}</Text>
-        <Text>{`- ${subtype}`}</Text>
+        <Text style={styles.regularText}>{superType}</Text>
+        <Text style={styles.regularText}>{` ${type} `}</Text>
+        <Text style={styles.regularText}>{`- ${subtype}`}</Text>
       </View>
       <View style={styles.cardDetailsContent}>
-        <Text>{text}</Text>
+        <Text style={styles.regularText}>{text}</Text>
       </View>
       <View style={styles.header}>
         <View>
-          <Text>{number}</Text>
-          <Text>{artist}</Text>
+          <Text style={styles.regularText}>{number}</Text>
+          <Text style={styles.regularText}>{artist}</Text>
         </View>
-        <Text>{loyalty}</Text>
+        <Text style={styles.regularText}>{loyalty}</Text>
       </View>
     </SafeAreaView>
   );
