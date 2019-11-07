@@ -32,5 +32,6 @@ export type Card = {
   printings: Array<string>;
   subTypes?: Maybe<Array<string>>;
   superTypes?: Maybe<Array<string>>;
+  loyalty?: Maybe<string>;
   types?: Maybe<Array<string>>;
 };

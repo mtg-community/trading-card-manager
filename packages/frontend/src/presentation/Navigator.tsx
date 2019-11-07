@@ -4,7 +4,6 @@ import {
   NavigationContainer,
 } from 'react-navigation';
 import { Welcome } from './screens/Welcome';
-import { Home } from './screens/Home';
 import { CardSearchFilter } from './screens/CardSearch/CardSearchFilter';
 import { CardSearchResults } from './screens/CardSearch/CardSearchResults';
 import { CardDetails } from './screens/CardSearch/CardDetails';
@@ -13,7 +12,6 @@ export const Navigator: NavigationContainer = createAppContainer(
   createSwitchNavigator(
     {
       Welcome,
-      Home,
       CardSearchFilter,
       CardSearchResults,
       CardDetails,

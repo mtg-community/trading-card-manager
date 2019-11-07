@@ -1,18 +1,38 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import LottieView from 'lottie-react-native';
 import { useSetStateIfMounted } from '../../hooks/useSetStateIfMounted';
+import source from '../../../../assets/animations/loading-animation.json';
+import { Colors } from '../../constants';
 
 interface ButtonProps {
   onPress: () => void;
   label: string;
+  isLoadingLabel?: string;
 }
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.black,
+    paddingVertical: 8,
+    width: 180,
+    borderRadius: 100,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    width: '100%',
+  },
+  buttonColumn: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 20,
+  },
+  buttonText: {
+    fontSize: 16,
+    color: Colors.white,
+    fontFamily: 'Roboto',
   },
 });
 
@@ -38,13 +58,22 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       console.error(e);
     }
   }
-
+  const label = state === ButtonState.BUSY ? props.isLoadingLabel : props.label;
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={avoidClickingWhenPromiseIsResolving}
     >
-      <Text>{state === ButtonState.BUSY ? 'Wait' : props.label}</Text>
+      <View style={styles.buttonRow}>
+        <View style={styles.buttonColumn}>
+          <Text style={styles.buttonText}>{label}</Text>
+        </View>
+        {state === ButtonState.BUSY && (
+          <View style={styles.buttonColumn}>
+            <LottieView source={source} resizeMode="contain" autoPlay loop />
+          </View>
+        )}
+      </View>
       {state === ButtonState.FAILED ? <Text>FAILED</Text> : null}
     </TouchableOpacity>
   );

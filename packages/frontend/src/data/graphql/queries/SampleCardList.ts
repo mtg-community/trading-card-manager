@@ -29,6 +29,7 @@ const sampleCardQuery = gql`
       subTypes
       superTypes
       types
+      loyalty
       rulings {
         date
         text
@@ -71,6 +72,7 @@ const sampleCardListQuery = gql`
       subTypes
       superTypes
       types
+      loyalty
       rulings {
         date
         text
