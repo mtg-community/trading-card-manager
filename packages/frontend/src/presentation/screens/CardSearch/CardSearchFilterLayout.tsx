@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, SafeAreaView, Picker } from 'react-native';
+import React from 'react';
+import { View, SafeAreaView } from 'react-native';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/button/Button';
 import { styles } from './styles';
@@ -8,12 +8,22 @@ interface Props {
   onSubmitFilter: () => Promise<void>;
   cardName: string;
   setCardName: (cardName: string) => void;
+  subtype: string;
+  setSubtype: (subtype: string) => void;
+  supertype: string;
+  setSupertype: (supertype: string) => void;
 }
 
 export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
-  const { onSubmitFilter, cardName, setCardName } = props;
-  const [type, setType] = useState('');
-  const [format, setFormat] = useState('');
+  const {
+    onSubmitFilter,
+    cardName,
+    setCardName,
+    subtype,
+    supertype,
+    setSubtype,
+    setSupertype,
+  } = props;
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -27,40 +37,26 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
             onSubmitEditing={onSubmitFilter}
           />
         </View>
-        <Picker
-          style={styles.picker}
-          selectedValue={type}
-          onValueChange={(itemValue: string): void => setType(itemValue)}
-        >
-          <Picker.Item label="Type" value="" />
-          <Picker.Item label="Basic" value="basic" />
-          <Picker.Item label="Conspiracy" value="conspiracy" />
-          <Picker.Item label="Creature" value="creature" />
-          <Picker.Item label="Enchantment" value="enchantment" />
-          <Picker.Item label="Instant" value="instant" />
-          <Picker.Item label="Land" value="land" />
-          <Picker.Item label="Legendary" value="legendary" />
-          <Picker.Item label="Planeswalker" value="planeswalker" />
-          <Picker.Item label="Sorcery" value="sorcery" />
-          <Picker.Item label="Summon" value="summon" />
-          <Picker.Item label="Tribal" value="tribal" />
-          <Picker.Item label="Vanguard" value="vanguard" />
-        </Picker>
-        <Picker
-          style={styles.picker}
-          selectedValue={format}
-          onValueChange={(itemValue: string): void => setFormat(itemValue)}
-        >
-          <Picker.Item label="Format" value="" />
-          <Picker.Item label="Brawl" value="brawl" />
-          <Picker.Item label="Commander" value="commander" />
-          <Picker.Item label="Legacy" value="legacy" />
-          <Picker.Item label="Modern" value="modern" />
-          <Picker.Item label="Pauper" value="pauper" />
-          <Picker.Item label="Pionner" value="pionner" />
-          <Picker.Item label="Standard" value="standard" />
-          <Picker.Item label="Vintage" value="vintage" />
-        </Picker>
+        <View style={styles.inputGroup}>
+          <View
+            style={{ ...styles.autoCompleteInputContainer, marginRight: 2 }}
+          >
+            <Input
+              value={subtype}
+              autoCapitalize="none"
+              placeholder="Sub(Type)"
+              onChangeText={setSubtype}
+            />
+          </View>
+          <View style={{ ...styles.autoCompleteInputContainer, marginLeft: 2 }}>
+            <Input
+              value={supertype}
+              autoCapitalize="none"
+              placeholder="Super(Type)"
+              onChangeText={setSupertype}
+            />
+          </View>
+        </View>
       </View>
       <Button
         onPress={onSubmitFilter}

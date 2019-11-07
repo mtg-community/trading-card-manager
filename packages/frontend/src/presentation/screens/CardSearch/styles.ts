@@ -22,6 +22,18 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.black,
   },
+  inputGroup: {
+    width: '100%',
+    flexDirection: 'row',
+    marginVertical: 8,
+  },
+  autoCompleteInputContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: Colors.black,
+  },
   picker: {
     width: '100%',
     marginVertical: 8,
