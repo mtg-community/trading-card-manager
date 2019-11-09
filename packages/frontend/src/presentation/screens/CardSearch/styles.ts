@@ -65,6 +65,23 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: Metrics.screenWidth - 16,
   },
+  manaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    marginVertical: 8,
+  },
+  manaButton: {
+    borderRadius: 4,
+    borderColor: Colors.primary,
+    borderWidth: 1,
+    marginHorizontal: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 25,
+    width: 25,
+  },
   subHeader: {
     flexDirection: 'row',
     alignItems: 'center',

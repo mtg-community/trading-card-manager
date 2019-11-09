@@ -3,6 +3,7 @@ import {
   render,
   fireEvent,
   waitForElement,
+  act,
 } from 'react-native-testing-library';
 import { initializeDomainLayer } from '../../../domain/DomainLayer';
 import { MockedProvider } from '../../__mocks__/MockedProvider';
@@ -17,18 +18,24 @@ jest.mock('../../../data/graphql/queries/SampleCardList', () => {
           name: 'Ajani, Inspiring Leader',
           subTypes: ['Ajani'],
           superTypes: ['Legendary'],
+          colorIdentities: ['U', 'W'],
+          colors: ['U', 'W'],
         },
         {
           id: 'id2',
           name: "Chandra, Flame's Fury",
           subTypes: ['Chandra'],
           superTypes: ['Legendary'],
+          colorIdentities: ['R'],
+          colors: ['R'],
         },
         {
           id: 'id3',
           name: 'Teferi, Hero of Dominaria',
           subTypes: ['Teferi'],
           superTypes: ['Legendary'],
+          colorIdentities: ['W'],
+          colors: ['W'],
         },
       ]),
     ),
@@ -50,6 +57,9 @@ const SUBTYPE_INPUT = 'Teferi';
 const SUPERTYPE_INPUT_PLACEHOLDER = 'Super(Type)';
 const SUPERTYPE_INPUT = 'Legendary';
 const SEARCH_BUTTON_TEXT = 'Search';
+const WHITE_MANA_COLOR_CHECKBOX_ACCESSIBILITY_HINT = 'manaColorCheckboxColor:W';
+const WHITE_IDENTITY_CHECKBOX_ACCESSIBILITY_HINT =
+  'manaIdentityCheckboxColor:W';
 const toHaveBeenCalledWith = 'CardSearchResults';
 
 describe('CardSearchFilter screen', () => {
@@ -57,7 +67,7 @@ describe('CardSearchFilter screen', () => {
   const navigation = {
     navigate: jest.fn(),
   };
-  const { getByPlaceholder, getByText } = render(
+  const { getByPlaceholder, getByText, getByA11yHint } = render(
     <MockedProvider store={store}>
       <CardSearchFilter navigation={navigation} />
     </MockedProvider>,
@@ -70,18 +80,24 @@ describe('CardSearchFilter screen', () => {
           name: 'Ajani, Inspiring Leader',
           subTypes: ['Ajani'],
           superTypes: ['Legendary'],
+          colorIdentities: ['U', 'W'],
+          colors: ['U', 'W'],
         },
         {
           id: 'id2',
           name: "Chandra, Flame's Fury",
           subTypes: ['Chandra'],
           superTypes: ['Legendary'],
+          colorIdentities: ['R'],
+          colors: ['R'],
         },
         {
           id: 'id3',
           name: 'Teferi, Hero of Dominaria',
           subTypes: ['Teferi'],
           superTypes: ['Legendary'],
+          colorIdentities: ['W'],
+          colors: ['W'],
         },
       ],
     };
@@ -100,7 +116,7 @@ describe('CardSearchFilter screen', () => {
     );
   });
 
-  test('should search for cards and navigate to search result with filtered results', async () => {
+  test('should search for cards and navigate to search result filtered by subtype and supertype', async () => {
     const navigateParams = {
       cardsFiltered: [
         {
@@ -108,6 +124,8 @@ describe('CardSearchFilter screen', () => {
           name: 'Teferi, Hero of Dominaria',
           subTypes: ['Teferi'],
           superTypes: ['Legendary'],
+          colorIdentities: ['W'],
+          colors: ['W'],
         },
       ],
     };
@@ -122,6 +140,47 @@ describe('CardSearchFilter screen', () => {
     fireEvent.press(searchButton);
 
     expect(searchCardInput.props.value).toEqual(SEARCH_INPUT);
+    await waitForElement(() =>
+      expect(navigation.navigate).toHaveBeenCalledWith(
+        toHaveBeenCalledWith,
+        navigateParams,
+      ),
+    );
+  });
+
+  test('should search for cards and navigate to search result filtered by color', async () => {
+    const navigateParams = {
+      cardsFiltered: [
+        {
+          id: 'id1',
+          name: 'Ajani, Inspiring Leader',
+          subTypes: ['Ajani'],
+          superTypes: ['Legendary'],
+          colorIdentities: ['U', 'W'],
+          colors: ['U', 'W'],
+        },
+        {
+          id: 'id3',
+          name: 'Teferi, Hero of Dominaria',
+          subTypes: ['Teferi'],
+          superTypes: ['Legendary'],
+          colorIdentities: ['W'],
+          colors: ['W'],
+        },
+      ],
+    };
+    const searchCardInput = getByPlaceholder(SEARCH_INPUT_PLACEHOLDER);
+    const searchButton = getByText(SEARCH_BUTTON_TEXT);
+    const manaColorCheckbox = await waitForElement(() =>
+      getByA11yHint(WHITE_MANA_COLOR_CHECKBOX_ACCESSIBILITY_HINT),
+    );
+
+    fireEvent.changeText(searchCardInput, SEARCH_INPUT);
+    fireEvent.press(searchButton);
+    fireEvent.press(manaColorCheckbox);
+
+    expect(searchCardInput.props.value).toEqual(SEARCH_INPUT);
+    expect(manaColorCheckbox.props.isSelected).toBeTruthy();
     await waitForElement(() =>
       expect(navigation.navigate).toHaveBeenCalledWith(
         toHaveBeenCalledWith,
