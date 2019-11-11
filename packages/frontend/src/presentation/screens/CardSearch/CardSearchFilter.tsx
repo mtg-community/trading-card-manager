@@ -5,7 +5,7 @@ import { NavigationScreenProp, NavigationState } from 'react-navigation';
 import { ROUTES } from '../../Navigator';
 import { CardSearchFilterLayout } from './CardSearchFilterLayout';
 import { Card } from '../../../domain/entities/Card';
-import { Color } from '../../../../types/graphql-api';
+import { Color } from '../../../domain/entities/Color';
 
 export interface CardSearchFilterNavigationParams {}
 

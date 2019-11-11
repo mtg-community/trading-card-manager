@@ -3,6 +3,7 @@ import {
   render,
   fireEvent,
   waitForElement,
+  act,
 } from 'react-native-testing-library';
 import { initializeDomainLayer } from '../../../domain/DomainLayer';
 import { MockedProvider } from '../../__mocks__/MockedProvider';
@@ -11,45 +12,37 @@ import {
   CardSearchFilterNavigationParams,
 } from '../CardSearch/CardSearchFilter';
 import { NavigationScreenProp, NavigationState } from 'react-navigation';
+import { ROUTES } from '../../Navigator';
 
+const mockBackend = [
+  {
+    id: 'id1',
+    name: 'Ajani, Inspiring Leader',
+    subTypes: ['Ajani'],
+    superTypes: ['Legendary'],
+    colorIdentities: ['U', 'W'],
+    colors: ['U', 'W'],
+  },
+  {
+    id: 'id2',
+    name: "Chandra, Flame's Fury",
+    subTypes: ['Chandra'],
+    superTypes: ['Legendary'],
+    colorIdentities: ['R'],
+    colors: ['R'],
+  },
+  {
+    id: 'id3',
+    name: 'Teferi, Hero of Dominaria',
+    subTypes: ['Teferi'],
+    superTypes: ['Legendary'],
+    colorIdentities: ['W'],
+    colors: ['W'],
+  },
+];
 jest.mock('../../../data/graphql/queries/SampleCardList', () => {
   return {
-    querySampleCardList: jest.fn(() =>
-      Promise.resolve([
-        {
-          id: 'id1',
-          name: 'Ajani, Inspiring Leader',
-          subTypes: ['Ajani'],
-          superTypes: ['Legendary'],
-          colorIdentities: ['U', 'W'],
-          colors: ['U', 'W'],
-        },
-        {
-          id: 'id2',
-          name: "Chandra, Flame's Fury",
-          subTypes: ['Chandra'],
-          superTypes: ['Legendary'],
-          colorIdentities: ['R'],
-          colors: ['R'],
-        },
-        {
-          id: 'id3',
-          name: 'Teferi, Hero of Dominaria',
-          subTypes: ['Teferi'],
-          superTypes: ['Legendary'],
-          colorIdentities: ['W'],
-          colors: ['W'],
-        },
-      ]),
-    ),
-  };
-});
-
-jest.mock('../../Navigator', () => {
-  return {
-    ROUTES: {
-      CARD_SEARCH_RESULTS: 'CardSearchResults',
-    },
+    querySampleCardList: jest.fn(() => Promise.resolve(mockBackend)),
   };
 });
 
@@ -86,52 +79,32 @@ const navigation: NavigationScreenProp<
 };
 
 describe('CardSearchFilter screen', () => {
-  const store = initializeDomainLayer();
-  const { getByPlaceholder, getByText, getByA11yHint } = render(
-    <MockedProvider store={store}>
-      <CardSearchFilter navigation={navigation} />
-    </MockedProvider>,
-  );
+  let store = initializeDomainLayer();
+
+  beforeEach(() => {
+    store = initializeDomainLayer();
+    jest.clearAllMocks();
+  });
+
   test('should search for cards and navigate to search result without any filter applied', async () => {
-    const navigateParams = {
-      cardsFiltered: [
-        {
-          id: 'id1',
-          name: 'Ajani, Inspiring Leader',
-          subTypes: ['Ajani'],
-          superTypes: ['Legendary'],
-          colorIdentities: ['U', 'W'],
-          colors: ['U', 'W'],
-        },
-        {
-          id: 'id2',
-          name: "Chandra, Flame's Fury",
-          subTypes: ['Chandra'],
-          superTypes: ['Legendary'],
-          colorIdentities: ['R'],
-          colors: ['R'],
-        },
-        {
-          id: 'id3',
-          name: 'Teferi, Hero of Dominaria',
-          subTypes: ['Teferi'],
-          superTypes: ['Legendary'],
-          colorIdentities: ['W'],
-          colors: ['W'],
-        },
-      ],
-    };
+    const { getByPlaceholder, getByText } = render(
+      <MockedProvider store={store}>
+        <CardSearchFilter navigation={navigation} />
+      </MockedProvider>,
+    );
+
     const searchCardInput = getByPlaceholder(SEARCH_INPUT_PLACEHOLDER);
     const searchButton = getByText(SEARCH_BUTTON_TEXT);
 
-    fireEvent.changeText(searchCardInput, SEARCH_INPUT);
-    fireEvent.press(searchButton);
+    act(() => {
+      fireEvent.changeText(searchCardInput, SEARCH_INPUT);
+      fireEvent.press(searchButton);
+    });
 
-    expect(searchCardInput.props.value).toEqual(SEARCH_INPUT);
     await waitForElement(() =>
       expect(navigation.navigate).toHaveBeenCalledWith(
-        toHaveBeenCalledWith,
-        navigateParams,
+        ROUTES.CARD_SEARCH_RESULTS,
+        { cardsFiltered: mockBackend },
       ),
     );
   });
@@ -149,6 +122,12 @@ describe('CardSearchFilter screen', () => {
         },
       ],
     };
+    const { getByPlaceholder, getByText } = render(
+      <MockedProvider store={store}>
+        <CardSearchFilter navigation={navigation} />
+      </MockedProvider>,
+    );
+
     const searchCardInput = getByPlaceholder(SEARCH_INPUT_PLACEHOLDER);
     const subtypeInput = getByPlaceholder(SUBTYPE_INPUT_PLACEHOLDER);
     const supertypeInput = getByPlaceholder(SUPERTYPE_INPUT_PLACEHOLDER);
@@ -189,8 +168,16 @@ describe('CardSearchFilter screen', () => {
         },
       ],
     };
+    const { getByPlaceholder, getByText, getByA11yHint, debug } = render(
+      <MockedProvider store={store}>
+        <CardSearchFilter navigation={navigation} />
+      </MockedProvider>,
+    );
+
     const searchCardInput = getByPlaceholder(SEARCH_INPUT_PLACEHOLDER);
     const searchButton = getByText(SEARCH_BUTTON_TEXT);
+
+    debug();
     const manaColorCheckbox = await waitForElement(() =>
       getByA11yHint(WHITE_MANA_COLOR_CHECKBOX_ACCESSIBILITY_HINT),
     );

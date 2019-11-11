@@ -5,7 +5,7 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/button/Button';
 import { styles } from './styles';
 import { ManaCost } from '../../components/ManaCost';
-import { Color } from '../../../../types/graphql-api';
+import { Color } from '../../../domain/entities/Color';
 
 interface Props {
   onSubmitFilter: () => Promise<void>;
