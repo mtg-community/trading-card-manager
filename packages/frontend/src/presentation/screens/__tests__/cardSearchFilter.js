@@ -3,7 +3,6 @@ import {
   render,
   fireEvent,
   waitForElement,
-  act,
 } from 'react-native-testing-library';
 import { initializeDomainLayer } from '../../../domain/DomainLayer';
 import { MockedProvider } from '../../__mocks__/MockedProvider';
@@ -180,7 +179,9 @@ describe('CardSearchFilter screen', () => {
     fireEvent.press(manaColorCheckbox);
 
     expect(searchCardInput.props.value).toEqual(SEARCH_INPUT);
-    expect(manaColorCheckbox.props.isSelected).toBeTruthy();
+    await waitForElement(() =>
+      expect(manaColorCheckbox.props.isSelected).toBeTruthy(),
+    );
     await waitForElement(() =>
       expect(navigation.navigate).toHaveBeenCalledWith(
         toHaveBeenCalledWith,

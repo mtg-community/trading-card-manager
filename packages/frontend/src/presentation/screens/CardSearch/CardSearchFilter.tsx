@@ -5,6 +5,7 @@ import { NavigationScreenProp, NavigationState } from 'react-navigation';
 import { ROUTES } from '../../Navigator';
 import { CardSearchFilterLayout } from './CardSearchFilterLayout';
 import { Card } from '../../../domain/entities/Card';
+import { Color } from '../../../../types/graphql-api';
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState>;
@@ -14,8 +15,8 @@ export const CardSearchFilter: React.FC<Props> = (props: Props) => {
   const [cardName, setCardName] = useState('');
   const [supertype, setSupertype] = useState('');
   const [subtype, setSubtype] = useState('');
-  const [colors, setColors] = useState(['']);
-  const [colorIdentities, setColorIdentities] = useState(['']);
+  const [colors, setColors] = useState<Array<Color>>([]);
+  const [colorIdentities, setColorIdentities] = useState<Array<Color>>([]);
   const isMounted = useIsMounted();
 
   function byColor(card: Card): boolean | Card {
