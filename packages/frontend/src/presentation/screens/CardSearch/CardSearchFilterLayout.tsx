@@ -16,9 +16,9 @@ interface Props {
   supertype: string;
   setSupertype: (supertype: string) => void;
   colors: Array<Color>;
-  setColors: (colors: Color) => void;
+  setColors: (colors: Color[]) => void;
   colorIdentities: Array<Color>;
-  setColorIdentities: (colorIdentities: Color) => void;
+  setColorIdentities: (colorIdentities: Color[]) => void;
 }
 
 export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
@@ -37,24 +37,26 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
   } = props;
   function handleSelectColor(color: Color): void {
     if (colors.includes(color)) {
-      return setColors(colors.filter(elem => elem != color));
+      setColors(colors.filter(elem => elem !== color));
+    } else {
+      setColors(colors.concat(color));
     }
-    return setColors(colors.concat(color));
   }
   function handleSelectColorIdentity(colorIdentity: Color): void {
     if (colorIdentities.includes(colorIdentity)) {
-      return setColorIdentities(
-        colorIdentities.filter(color => color != colorIdentity),
+      setColorIdentities(
+        colorIdentities.filter(color => color !== colorIdentity),
       );
+    } else {
+      setColorIdentities(colorIdentities.concat(colorIdentity));
     }
-    return setColorIdentities(colorIdentities.concat(colorIdentity));
   }
   const ManaIdentityCheckbox: React.FC<{
     color: Color;
     isSelected: boolean;
   }> = (props: { color: Color; isSelected: boolean }) => {
     const { color, isSelected } = props;
-    const renderContent = () =>
+    const renderContent = (): React.ReactNode =>
       !isSelected ? (
         <ManaCost manaCost={color} />
       ) : (
@@ -64,7 +66,9 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
       <TouchableOpacity
         accessibilityHint={`manaIdentityCheckboxColor:${color}`}
         style={styles.manaButton}
-        onPress={() => handleSelectColorIdentity(color)}
+        onPress={(): void => {
+          handleSelectColorIdentity(color);
+        }}
       >
         {renderContent()}
       </TouchableOpacity>
@@ -75,7 +79,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
     isSelected: boolean;
   }> = (props: { color: Color; isSelected: boolean }) => {
     const { color, isSelected } = props;
-    const renderContent = () =>
+    const renderContent = (): React.ReactNode =>
       !isSelected ? (
         <ManaCost manaCost={color} />
       ) : (
@@ -85,7 +89,9 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
       <TouchableOpacity
         accessibilityHint={`manaColorCheckboxColor:${color}`}
         style={styles.manaButton}
-        onPress={() => handleSelectColor(color)}
+        onPress={(): void => {
+          handleSelectColor(color);
+        }}
       >
         {renderContent()}
       </TouchableOpacity>

@@ -6,7 +6,11 @@ import {
 } from 'react-native-testing-library';
 import { initializeDomainLayer } from '../../../domain/DomainLayer';
 import { MockedProvider } from '../../__mocks__/MockedProvider';
-import { CardSearchFilter } from '../CardSearch/CardSearchFilter';
+import {
+  CardSearchFilter,
+  CardSearchFilterNavigationParams,
+} from '../CardSearch/CardSearchFilter';
+import { NavigationScreenProp, NavigationState } from 'react-navigation';
 
 jest.mock('../../../data/graphql/queries/SampleCardList', () => {
   return {
@@ -57,15 +61,32 @@ const SUPERTYPE_INPUT_PLACEHOLDER = 'Super(Type)';
 const SUPERTYPE_INPUT = 'Legendary';
 const SEARCH_BUTTON_TEXT = 'Search';
 const WHITE_MANA_COLOR_CHECKBOX_ACCESSIBILITY_HINT = 'manaColorCheckboxColor:W';
-const WHITE_IDENTITY_CHECKBOX_ACCESSIBILITY_HINT =
-  'manaIdentityCheckboxColor:W';
+
 const toHaveBeenCalledWith = 'CardSearchResults';
+
+const navigation: NavigationScreenProp<
+  NavigationState,
+  CardSearchFilterNavigationParams
+> = {
+  navigate: jest.fn(),
+  dismiss: jest.fn(),
+  goBack: jest.fn(),
+  openDrawer: jest.fn(),
+  closeDrawer: jest.fn(),
+  toggleDrawer: jest.fn(),
+  getParam: jest.fn(),
+  setParams: jest.fn(),
+  dispatch: jest.fn(),
+  emit: jest.fn(),
+  addListener: jest.fn(),
+  isFocused: jest.fn(),
+  isFirstRouteInParent: jest.fn(),
+  dangerouslyGetParent: jest.fn(),
+  state: {} as NavigationState,
+};
 
 describe('CardSearchFilter screen', () => {
   const store = initializeDomainLayer();
-  const navigation = {
-    navigate: jest.fn(),
-  };
   const { getByPlaceholder, getByText, getByA11yHint } = render(
     <MockedProvider store={store}>
       <CardSearchFilter navigation={navigation} />
