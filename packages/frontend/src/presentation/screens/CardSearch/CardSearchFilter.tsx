@@ -7,8 +7,13 @@ import { CardSearchFilterLayout } from './CardSearchFilterLayout';
 import { Card } from '../../../domain/entities/Card';
 import { Color } from '../../../../types/graphql-api';
 
+export interface CardSearchFilterNavigationParams {}
+
 interface Props {
-  navigation: NavigationScreenProp<NavigationState>;
+  navigation: NavigationScreenProp<
+    NavigationState,
+    CardSearchFilterNavigationParams
+  >;
 }
 
 export const CardSearchFilter: React.FC<Props> = (props: Props) => {
