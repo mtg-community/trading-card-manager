@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { DocumentNode, gql } from 'apollo-boost';
 import { apolloClient } from '../Apollo';
 import { Card as ApiCard } from '../../../../types/graphql-api';
 import { Card } from '../../../domain/entities/Card';
@@ -47,9 +47,9 @@ const sampleCardQuery = gql`
   }
 `;
 
-const sampleCardListQuery = gql`
+const sampleCardListQuery = (filter: string): DocumentNode => gql`
   query {
-    sampleCardList {
+    sampleCardList(filter: ${filter}) {
       id
       uuid
       artist
@@ -110,9 +110,9 @@ export async function querySampleCard(): Promise<Card> {
   return mapApiResponseToDomainModel(response.data.sampleCard);
 }
 
-export async function querySampleCardList(): Promise<Card[]> {
+export async function querySampleCardList(filter: string): Promise<Card[]> {
   const response = await apolloClient.query<SampleCardListQueryData>({
-    query: sampleCardListQuery,
+    query: sampleCardListQuery(filter),
   });
 
   return response.data.sampleCardList.map(mapApiResponseToDomainModel);

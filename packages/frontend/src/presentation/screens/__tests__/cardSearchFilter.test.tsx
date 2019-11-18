@@ -13,6 +13,13 @@ import {
 } from '../CardSearch/CardSearchFilter';
 import { NavigationScreenProp, NavigationState } from 'react-navigation';
 import { ROUTES } from '../../Navigator';
+import {
+  SEARCH_BUTTON_TEXT,
+  SEARCH_INPUT_PLACEHOLDER,
+  SUBTYPE_INPUT_PLACEHOLDER,
+  SUPERTYPE_INPUT_PLACEHOLDER,
+} from '../CardSearch/CardSearchFilterLayout';
+import { Mana } from '../../../domain/entities/Mana';
 
 const mockBackend = [
   {
@@ -40,22 +47,18 @@ const mockBackend = [
     colors: ['W'],
   },
 ];
+
+const SEARCH_INPUT = 'Chandra';
+const SUBTYPE_INPUT = 'Teferi';
+const SUPERTYPE_INPUT = 'Legendary';
+const WHITE_MANA_COLOR_CHECKBOX_TEXT = new Mana('W').toSymbol();
+const toHaveBeenCalledWith = 'CardSearchResults';
+
 jest.mock('../../../data/graphql/queries/SampleCardList', () => {
   return {
     querySampleCardList: jest.fn(() => Promise.resolve(mockBackend)),
   };
 });
-
-const SEARCH_INPUT_PLACEHOLDER = 'Card Name';
-const SEARCH_INPUT = 'Chandra';
-const SUBTYPE_INPUT_PLACEHOLDER = 'Sub(Type)';
-const SUBTYPE_INPUT = 'Teferi';
-const SUPERTYPE_INPUT_PLACEHOLDER = 'Super(Type)';
-const SUPERTYPE_INPUT = 'Legendary';
-const SEARCH_BUTTON_TEXT = 'Search';
-const WHITE_MANA_COLOR_CHECKBOX_ACCESSIBILITY_HINT = 'manaColorCheckboxColor:W';
-
-const toHaveBeenCalledWith = 'CardSearchResults';
 
 const navigation: NavigationScreenProp<
   NavigationState,
@@ -168,7 +171,7 @@ describe('CardSearchFilter screen', () => {
         },
       ],
     };
-    const { getByPlaceholder, getByText, getByA11yHint, debug } = render(
+    const { getByPlaceholder, getByText, getAllByText } = render(
       <MockedProvider store={store}>
         <CardSearchFilter navigation={navigation} />
       </MockedProvider>,
@@ -176,19 +179,21 @@ describe('CardSearchFilter screen', () => {
 
     const searchCardInput = getByPlaceholder(SEARCH_INPUT_PLACEHOLDER);
     const searchButton = getByText(SEARCH_BUTTON_TEXT);
-
-    debug();
-    const manaColorCheckbox = await waitForElement(() =>
-      getByA11yHint(WHITE_MANA_COLOR_CHECKBOX_ACCESSIBILITY_HINT),
+    const [manaColorCheckbox, manaIndentityCheckbox] = getAllByText(
+      WHITE_MANA_COLOR_CHECKBOX_TEXT,
     );
 
     fireEvent.changeText(searchCardInput, SEARCH_INPUT);
     fireEvent.press(searchButton);
     fireEvent.press(manaColorCheckbox);
+    fireEvent.press(manaIndentityCheckbox);
 
     expect(searchCardInput.props.value).toEqual(SEARCH_INPUT);
     await waitForElement(() =>
       expect(manaColorCheckbox.props.isSelected).toBeTruthy(),
+    );
+    await waitForElement(() =>
+      expect(manaIndentityCheckbox.props.isSelected).toBeTruthy(),
     );
     await waitForElement(() =>
       expect(navigation.navigate).toHaveBeenCalledWith(

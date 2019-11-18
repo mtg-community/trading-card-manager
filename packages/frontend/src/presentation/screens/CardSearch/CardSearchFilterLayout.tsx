@@ -21,6 +21,11 @@ interface Props {
   setColorIdentities: (colorIdentities: Color[]) => void;
 }
 
+export const SEARCH_INPUT_PLACEHOLDER = 'Card Name';
+export const SUBTYPE_INPUT_PLACEHOLDER = 'Sub(Type)';
+export const SUPERTYPE_INPUT_PLACEHOLDER = 'Super(Type)';
+export const SEARCH_BUTTON_TEXT = 'Search';
+
 export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
   const {
     onSubmitFilter,
@@ -64,7 +69,6 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
       );
     return (
       <TouchableOpacity
-        accessibilityHint={`manaIdentityCheckboxColor:${color}`}
         style={styles.manaButton}
         onPress={(): void => {
           handleSelectColorIdentity(color);
@@ -87,7 +91,6 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
       );
     return (
       <TouchableOpacity
-        accessibilityHint={`manaColorCheckboxColor:${color}`}
         style={styles.manaButton}
         onPress={(): void => {
           handleSelectColor(color);
@@ -104,7 +107,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
           <Input
             value={cardName}
             autoCapitalize="none"
-            placeholder="Card Name"
+            placeholder={SEARCH_INPUT_PLACEHOLDER}
             onChangeText={setCardName}
             returnKeyType="search"
             onSubmitEditing={onSubmitFilter}
@@ -117,7 +120,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
             <Input
               value={subtype}
               autoCapitalize="none"
-              placeholder="Sub(Type)"
+              placeholder={SUBTYPE_INPUT_PLACEHOLDER}
               onChangeText={setSubtype}
             />
           </View>
@@ -125,7 +128,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
             <Input
               value={supertype}
               autoCapitalize="none"
-              placeholder="Super(Type)"
+              placeholder={SUPERTYPE_INPUT_PLACEHOLDER}
               onChangeText={setSupertype}
             />
           </View>
@@ -187,7 +190,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
       </View>
       <Button
         onPress={onSubmitFilter}
-        label="Search"
+        label={SEARCH_BUTTON_TEXT}
         isLoadingLabel="Searching"
       />
     </SafeAreaView>
