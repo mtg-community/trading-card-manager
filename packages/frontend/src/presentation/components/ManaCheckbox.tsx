@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
   },
 });
 
-export const ManaCheckbox = (props: Props) => {
+export const ManaCheckbox: React.FC<Props> = (props: Props) => {
   const { color, isSelected, onSelectColor } = props;
   const renderContent = (): React.ReactNode =>
     !isSelected ? (
@@ -34,9 +34,8 @@ export const ManaCheckbox = (props: Props) => {
     );
   return (
     <TouchableOpacity
-      testID={`manaColorCheckBox:${color}`}
       style={styles.manaButton}
-      onPress={() => onSelectColor(color)}
+      onPress={(): void => onSelectColor(color)}
     >
       {renderContent()}
     </TouchableOpacity>
