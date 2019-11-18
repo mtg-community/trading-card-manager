@@ -34,9 +34,9 @@ export const ManaCost: React.FC<Props> = ({ manaCost }: Props) => {
   };
   return (
     <View style={styles.container}>
-      {manaSymbols.map(mana => (
+      {manaSymbols.map((mana, index) => (
         <View
-          key={Math.random()}
+          key={index}
           style={StyleSheet.flatten([
             styles.manaContainer,
             {

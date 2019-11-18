@@ -1,11 +1,10 @@
 import React from 'react';
-import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, Text, View } from 'react-native';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/button/Button';
 import { styles } from './styles';
-import { ManaCost } from '../../components/ManaCost';
 import { Color } from '../../../domain/entities/Color';
+import { ManaCheckboxRow } from '../../components/ManaCheckboxRow';
 
 interface Props {
   onSubmitFilter: () => Promise<void>;
@@ -40,66 +39,6 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
     colorIdentities,
     setColorIdentities,
   } = props;
-  function handleSelectColor(color: Color): void {
-    if (colors.includes(color)) {
-      setColors(colors.filter(elem => elem !== color));
-    } else {
-      setColors(colors.concat(color));
-    }
-  }
-  function handleSelectColorIdentity(colorIdentity: Color): void {
-    if (colorIdentities.includes(colorIdentity)) {
-      setColorIdentities(
-        colorIdentities.filter(color => color !== colorIdentity),
-      );
-    } else {
-      setColorIdentities(colorIdentities.concat(colorIdentity));
-    }
-  }
-  const ManaIdentityCheckbox: React.FC<{
-    color: Color;
-    isSelected: boolean;
-  }> = (props: { color: Color; isSelected: boolean }) => {
-    const { color, isSelected } = props;
-    const renderContent = (): React.ReactNode =>
-      !isSelected ? (
-        <ManaCost manaCost={color} />
-      ) : (
-        <Ionicons name="ios-checkmark" size={26} />
-      );
-    return (
-      <TouchableOpacity
-        style={styles.manaButton}
-        onPress={(): void => {
-          handleSelectColorIdentity(color);
-        }}
-      >
-        {renderContent()}
-      </TouchableOpacity>
-    );
-  };
-  const ManaColorCheckbox: React.FC<{
-    color: Color;
-    isSelected: boolean;
-  }> = (props: { color: Color; isSelected: boolean }) => {
-    const { color, isSelected } = props;
-    const renderContent = (): React.ReactNode =>
-      !isSelected ? (
-        <ManaCost manaCost={color} />
-      ) : (
-        <Ionicons name="ios-checkmark" size={26} />
-      );
-    return (
-      <TouchableOpacity
-        style={styles.manaButton}
-        onPress={(): void => {
-          handleSelectColor(color);
-        }}
-      >
-        {renderContent()}
-      </TouchableOpacity>
-    );
-  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -134,59 +73,12 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
           </View>
         </View>
         <Text style={styles.regularText}>Color</Text>
-        <View style={styles.manaRow}>
-          <ManaColorCheckbox
-            color={Color.W}
-            isSelected={colors.includes(Color.W)}
-          />
-          <ManaColorCheckbox
-            color={Color.B}
-            isSelected={colors.includes(Color.B)}
-          />
-          <ManaColorCheckbox
-            color={Color.R}
-            isSelected={colors.includes(Color.R)}
-          />
-          <ManaColorCheckbox
-            color={Color.U}
-            isSelected={colors.includes(Color.U)}
-          />
-          <ManaColorCheckbox
-            color={Color.G}
-            isSelected={colors.includes(Color.G)}
-          />
-          <ManaColorCheckbox
-            color={Color.C}
-            isSelected={colors.includes(Color.C)}
-          />
-        </View>
+        <ManaCheckboxRow colors={colors} setColors={setColors} />
         <Text style={styles.regularText}>Color Identity</Text>
-        <View style={styles.manaRow}>
-          <ManaIdentityCheckbox
-            color={Color.W}
-            isSelected={colors.includes(Color.W)}
-          />
-          <ManaIdentityCheckbox
-            color={Color.B}
-            isSelected={colors.includes(Color.B)}
-          />
-          <ManaIdentityCheckbox
-            color={Color.R}
-            isSelected={colors.includes(Color.R)}
-          />
-          <ManaIdentityCheckbox
-            color={Color.U}
-            isSelected={colors.includes(Color.U)}
-          />
-          <ManaIdentityCheckbox
-            color={Color.G}
-            isSelected={colors.includes(Color.G)}
-          />
-          <ManaIdentityCheckbox
-            color={Color.C}
-            isSelected={colors.includes(Color.C)}
-          />
-        </View>
+        <ManaCheckboxRow
+          colors={colorIdentities}
+          setColors={setColorIdentities}
+        />
       </View>
       <Button
         onPress={onSubmitFilter}

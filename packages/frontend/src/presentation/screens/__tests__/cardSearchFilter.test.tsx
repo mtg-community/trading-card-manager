@@ -19,7 +19,6 @@ import {
   SUBTYPE_INPUT_PLACEHOLDER,
   SUPERTYPE_INPUT_PLACEHOLDER,
 } from '../CardSearch/CardSearchFilterLayout';
-import { Mana } from '../../../domain/entities/Mana';
 
 const mockBackend = [
   {
@@ -51,7 +50,7 @@ const mockBackend = [
 const SEARCH_INPUT = 'Chandra';
 const SUBTYPE_INPUT = 'Teferi';
 const SUPERTYPE_INPUT = 'Legendary';
-const WHITE_MANA_COLOR_CHECKBOX_TEXT = new Mana('W').toSymbol();
+const WHITE_MANA_COLOR_COLOR_CHECKBOX_ID = 'manaColorCheckBox:W';
 const toHaveBeenCalledWith = 'CardSearchResults';
 
 jest.mock('../../../data/graphql/queries/SampleCardList', () => {
@@ -171,7 +170,7 @@ describe('CardSearchFilter screen', () => {
         },
       ],
     };
-    const { getByPlaceholder, getByText, getAllByText } = render(
+    const { getByPlaceholder, getByText, getAllByTestId } = render(
       <MockedProvider store={store}>
         <CardSearchFilter navigation={navigation} />
       </MockedProvider>,
@@ -179,8 +178,8 @@ describe('CardSearchFilter screen', () => {
 
     const searchCardInput = getByPlaceholder(SEARCH_INPUT_PLACEHOLDER);
     const searchButton = getByText(SEARCH_BUTTON_TEXT);
-    const [manaColorCheckbox, manaIndentityCheckbox] = getAllByText(
-      WHITE_MANA_COLOR_CHECKBOX_TEXT,
+    const [manaColorCheckbox, manaIndentityCheckbox] = getAllByTestId(
+      WHITE_MANA_COLOR_COLOR_CHECKBOX_ID,
     );
 
     fireEvent.changeText(searchCardInput, SEARCH_INPUT);
@@ -190,10 +189,10 @@ describe('CardSearchFilter screen', () => {
 
     expect(searchCardInput.props.value).toEqual(SEARCH_INPUT);
     await waitForElement(() =>
-      expect(manaColorCheckbox.props.isSelected).toBeTruthy(),
+      expect(manaColorCheckbox.props.isSelected).toEqual(true),
     );
     await waitForElement(() =>
-      expect(manaIndentityCheckbox.props.isSelected).toBeTruthy(),
+      expect(manaIndentityCheckbox.props.isSelected).toEqual(true),
     );
     await waitForElement(() =>
       expect(navigation.navigate).toHaveBeenCalledWith(

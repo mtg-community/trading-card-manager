@@ -67,7 +67,7 @@
     "eslint-config-prettier": "4.3.0",
     "eslint-plugin-prettier": "3.1.0",
     "eslint-plugin-react": "7.12.1",
-    "expo-cli": "3.4.1",
+    "expo-cli": "3.8.0",
     "firebase-tools": "7.6.1",
     "jest-expo": "35.0.0",
     "prettier": "1.18.2",
