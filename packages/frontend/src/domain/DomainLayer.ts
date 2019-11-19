@@ -1,4 +1,4 @@
-import { configureStore, EnhancedStore } from 'redux-starter-kit';
+import { configureStore, EnhancedStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import {
   AuthActionsType,

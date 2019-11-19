@@ -2001,6 +2001,18 @@
   resolved "https://registry.yarnpkg.com/@redux-saga/types/-/types-1.1.0.tgz#0e81ce56b4883b4b2a3001ebe1ab298b84237204"
   integrity sha512-afmTuJrylUU/0OtqzaRkbyYFFNgCF73Bvel/sw90pvGrWIZ+vyoIJqA6eMSoA6+nb443kTmulmBtC9NerXboNg==
 
+"@reduxjs/toolkit@1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.0.4.tgz#cec88446a22a98b48808af7ab19a58aa93e6f5f9"
+  integrity sha512-nyCZ9/CpnMXFZ//0wm1mNPSEl0J0bCghY2qeHM8zuubaBBMBr6KsIaLLms1jThbOJ1O+Ej0Tl11z5naE9czfzA==
+  dependencies:
+    immer "^4.0.1"
+    redux "^4.0.0"
+    redux-devtools-extension "^2.13.8"
+    redux-immutable-state-invariant "^2.1.0"
+    redux-thunk "^2.3.0"
+    reselect "^4.0.0"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -13884,18 +13896,6 @@ redux-saga@1.1.1:
   integrity sha512-guSnGJ/uEF8yL8Mn4aNa7HxRGCpVUALCkec9iTTD0fOhQqkF6bRQkBLeS+7/cAH3nFnr299bi/DOurTi1apcCA==
   dependencies:
     "@redux-saga/core" "^1.1.1"
-
-redux-starter-kit@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/redux-starter-kit/-/redux-starter-kit-1.0.0.tgz#7c317306755dafd49a1e8f09e4fe36dd0633736f"
-  integrity sha512-vOJ8hJw28bAGJimyb7eICL1KYk/F3X5xnpCck8uuwJdo0Bj9myTzxEnphOBriiXemt19E1jafjhD22eaeTOcfg==
-  dependencies:
-    immer "^4.0.1"
-    redux "^4.0.0"
-    redux-devtools-extension "^2.13.8"
-    redux-immutable-state-invariant "^2.1.0"
-    redux-thunk "^2.3.0"
-    reselect "^4.0.0"
 
 redux-thunk@^2.3.0:
   version "2.3.0"

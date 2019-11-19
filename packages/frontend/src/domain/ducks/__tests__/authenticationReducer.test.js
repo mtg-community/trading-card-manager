@@ -2,7 +2,6 @@ import { initializeDomainLayer } from '../../DomainLayer';
 import { User } from '../../entities';
 import {
   AUTH_INITIAL_STATE,
-  authenticationReducer,
   showAlert,
   updateUser,
 } from '../authenticationReducer';
