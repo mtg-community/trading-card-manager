@@ -7,11 +7,7 @@ import {
 } from 'react-native-testing-library';
 import { initializeDomainLayer } from '../../../domain/DomainLayer';
 import { MockedProvider } from '../../__mocks__/MockedProvider';
-import {
-  CardSearchFilter,
-  CardSearchFilterNavigationParams,
-} from '../CardSearch/CardSearchFilter';
-import { NavigationScreenProp, NavigationState } from 'react-navigation';
+import { CardSearchFilter } from '../CardSearch/CardSearchFilter';
 import { ROUTES } from '../../Navigator';
 import {
   SEARCH_BUTTON_TEXT,
@@ -63,25 +59,8 @@ jest.mock('../../../data/graphql/queries/SampleCardList', () => {
   };
 });
 
-const navigation: NavigationScreenProp<
-  NavigationState,
-  CardSearchFilterNavigationParams
-> = {
+const navigation = {
   navigate: jest.fn(),
-  dismiss: jest.fn(),
-  goBack: jest.fn(),
-  openDrawer: jest.fn(),
-  closeDrawer: jest.fn(),
-  toggleDrawer: jest.fn(),
-  getParam: jest.fn(),
-  setParams: jest.fn(),
-  dispatch: jest.fn(),
-  emit: jest.fn(),
-  addListener: jest.fn(),
-  isFocused: jest.fn(),
-  isFirstRouteInParent: jest.fn(),
-  dangerouslyGetParent: jest.fn(),
-  state: {} as NavigationState,
 };
 
 describe('CardSearchFilter screen', () => {

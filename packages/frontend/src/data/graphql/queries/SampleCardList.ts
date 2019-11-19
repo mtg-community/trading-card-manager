@@ -47,9 +47,9 @@ const sampleCardQuery = gql`
   }
 `;
 
-const sampleCardListQuery = (filter: string): DocumentNode => gql`
+const sampleCardListQuery = (): DocumentNode => gql`
   query {
-    sampleCardList(filter: ${filter}) {
+    sampleCardList {
       id
       uuid
       artist
@@ -110,9 +110,9 @@ export async function querySampleCard(): Promise<Card> {
   return mapApiResponseToDomainModel(response.data.sampleCard);
 }
 
-export async function querySampleCardList(filter: string): Promise<Card[]> {
+export async function querySampleCardList(): Promise<Card[]> {
   const response = await apolloClient.query<SampleCardListQueryData>({
-    query: sampleCardListQuery(filter),
+    query: sampleCardListQuery(),
   });
 
   return response.data.sampleCardList.map(mapApiResponseToDomainModel);

@@ -9,9 +9,9 @@ import {
   setLoading,
 } from '../ducks/authenticationReducer';
 import { NOT_LOGGED_IN_USER } from '../entities/user';
-import { createAction, PayloadAction } from 'redux-starter-kit';
+import { createAction, PayloadAction } from '@reduxjs/toolkit';
 import { Email } from '../entities';
-import { PayloadActionCreator } from 'redux-starter-kit/src/createAction';
+import { PayloadActionCreator } from '@reduxjs/toolkit/src/createAction';
 import { SagaIterator } from 'redux-saga';
 
 export const signIn: PayloadActionCreator<LoginCredentials> = createAction(

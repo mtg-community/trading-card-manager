@@ -3,7 +3,7 @@ import {
   createAction,
   PayloadAction,
   Reducer,
-} from 'redux-starter-kit';
+} from '@reduxjs/toolkit';
 import { User } from '../entities';
 import { NOT_LOGGED_IN_USER } from '../entities/user';
 import { MTGState } from '../DomainLayer';

@@ -4,7 +4,7 @@ import { AppLoading } from 'expo';
 import { MTGStore } from '../domain/DomainLayer';
 import { FallBackView } from './components/FallBackView';
 import { Provider } from 'react-redux';
-import { createNavigator } from './Navigator';
+import { Navigator } from './Navigator';
 import { ErrorReporter } from '../domain/ErrorReporter';
 
 export type MainProps = {
@@ -32,9 +32,6 @@ export const Main: React.FC<MainProps> = (props: MainProps) => {
       />
     );
   }
-
-  const Navigator = createNavigator();
-
   return (
     <ErrorBoundary FallbackComponent={FallBackView}>
       <Provider store={store}>
