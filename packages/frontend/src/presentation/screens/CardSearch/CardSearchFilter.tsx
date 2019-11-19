@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import {
+  CompositeNavigationProp,
+  NavigationHelpers,
+  ParamListBase,
+} from '@react-navigation/core';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { querySampleCardList } from '../../../data/graphql/queries/SampleCardList';
 import { useIsMounted } from '../../hooks/IsMounted';
-import { NavigationScreenProp, NavigationState } from 'react-navigation';
 import { ROUTES } from '../../Navigator';
 import { CardSearchFilterLayout } from './CardSearchFilterLayout';
 import { Color } from '../../../domain/entities/Color';
 
-export interface CardSearchFilterNavigationParams {}
-
 interface Props {
-  navigation: NavigationScreenProp<
-    NavigationState,
-    CardSearchFilterNavigationParams
+  navigation: CompositeNavigationProp<
+    StackNavigationProp<ParamListBase, 'CardSearchFilter'>,
+    NavigationHelpers<ParamListBase>
   >;
 }
 
@@ -24,7 +27,7 @@ export const CardSearchFilter: React.FC<Props> = (props: Props) => {
   const isMounted = useIsMounted();
 
   async function handleSubmit(): Promise<void> {
-    const cardsFiltered = await querySampleCardList(subtype);
+    const cardsFiltered = await querySampleCardList();
 
     if (isMounted()) {
       props.navigation.navigate(ROUTES.CARD_SEARCH_RESULTS, {

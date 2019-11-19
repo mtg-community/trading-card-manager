@@ -1,22 +1,26 @@
 import React from 'react';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { NavigationScreenProp, NavigationState } from 'react-navigation';
-import { Card } from '../../../domain/entities/Card';
-import { Text, SafeAreaView, View, TouchableOpacity } from 'react-native';
+import { Text, SafeAreaView, View } from 'react-native';
 import { styles } from './styles';
 import { ManaCost } from '../../components/ManaCost';
-import { Colors } from '../../constants';
-
-interface NavigationParams {
-  card: Card;
-}
+import {
+  CompositeNavigationProp,
+  NavigationHelpers,
+  ParamListBase,
+  RouteProp,
+} from '@react-navigation/core';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootParamList } from '../../Navigator';
 
 interface Props {
-  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+  navigation: CompositeNavigationProp<
+    StackNavigationProp<ParamListBase, 'CardDetails'>,
+    NavigationHelpers<ParamListBase>
+  >;
+  route: RouteProp<RootParamList, 'CardDetails'>;
 }
 
 export const CardDetails: React.FC<Props> = (props: Props) => {
-  const card = props.navigation.getParam('card');
+  const { card } = props.route.params;
   const {
     name,
     manaCost,
@@ -33,22 +37,6 @@ export const CardDetails: React.FC<Props> = (props: Props) => {
   const [subtype] = subTypes || [''];
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.cardNavBar}>
-        <TouchableOpacity onPress={(): boolean => props.navigation.goBack()}>
-          <MaterialCommunityIcons
-            name="keyboard-backspace"
-            size={24}
-            color={Colors.white}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <MaterialCommunityIcons
-            name="dots-vertical"
-            size={24}
-            color={Colors.white}
-          />
-        </TouchableOpacity>
-      </View>
       <View style={styles.header}>
         <Text style={styles.regularText}>{name}</Text>
         <ManaCost manaCost={manaCost} />

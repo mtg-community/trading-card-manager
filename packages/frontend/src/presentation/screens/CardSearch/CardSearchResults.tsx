@@ -6,22 +6,28 @@ import {
   View,
   Text,
 } from 'react-native';
-import { NavigationScreenProp, NavigationState } from 'react-navigation';
+import {
+  CompositeNavigationProp,
+  NavigationHelpers,
+  ParamListBase,
+  RouteProp,
+} from '@react-navigation/core';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { Card } from '../../../domain/entities/Card';
-import { ROUTES } from '../../Navigator';
+import { RootParamList, ROUTES } from '../../Navigator';
 import { styles } from './styles';
 import { ManaCost } from '../../components/ManaCost';
 
-interface NavigationParams {
-  cardsFiltered: Card[];
-}
-
 interface Props {
-  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+  navigation: CompositeNavigationProp<
+    StackNavigationProp<ParamListBase, 'CardSearchResults'>,
+    NavigationHelpers<ParamListBase>
+  >;
+  route: RouteProp<RootParamList, 'CardSearchResults'>;
 }
 
 export const CardSearchResults: React.FC<Props> = (props: Props) => {
-  const cards = props.navigation.getParam('cardsFiltered', []);
+  const { cardsFiltered } = props.route.params;
 
   function navigateTo(card: Card) {
     return (): void => {
@@ -34,7 +40,7 @@ export const CardSearchResults: React.FC<Props> = (props: Props) => {
       <FlatList
         bounces={false}
         keyExtractor={(item): string => item.uuid}
-        data={cards}
+        data={cardsFiltered}
         renderItem={({ item }): React.ReactElement => (
           <CardSearchResultItem card={item} onClick={navigateTo(item)} />
         )}
