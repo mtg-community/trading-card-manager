@@ -5,6 +5,7 @@ import { Button } from '../../components/button/Button';
 import { styles } from './styles';
 import { Color } from '../../../domain/entities/Color';
 import { ManaCheckboxRow } from '../../components/ManaCheckboxRow';
+import { ActiveFilters } from '../../components/ActiveFilters';
 
 interface Props {
   onSubmitFilter: () => Promise<void>;
@@ -14,10 +15,17 @@ interface Props {
   setSubtype: (subtype: string) => void;
   supertype: string;
   setSupertype: (supertype: string) => void;
-  colors: Array<Color>;
+  colors: Color[];
   setColors: (colors: Color[]) => void;
-  colorIdentities: Array<Color>;
+  colorIdentities: Color[];
   setColorIdentities: (colorIdentities: Color[]) => void;
+  filters: {
+    cardName?: string;
+    colors?: Color[];
+    colorIdentities?: Color[];
+    supertype: string;
+    subtype: string;
+  };
 }
 
 export const SEARCH_INPUT_PLACEHOLDER = 'Card Name';
@@ -38,6 +46,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
     setColors,
     colorIdentities,
     setColorIdentities,
+    filters,
   } = props;
   return (
     <SafeAreaView style={styles.container}>
@@ -79,6 +88,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
           colors={colorIdentities}
           setColors={setColorIdentities}
         />
+        <ActiveFilters testID="ActiveFilters" activefilters={filters} />
       </View>
       <Button
         onPress={onSubmitFilter}
