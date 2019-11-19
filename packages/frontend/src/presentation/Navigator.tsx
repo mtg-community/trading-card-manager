@@ -27,8 +27,16 @@ export function Navigator(): React.ReactElement {
   return (
     <NavigationNativeContainer>
       <Stack.Navigator initialRouteName="CardSearchFilter">
-        <Stack.Screen name="Welcome" component={Welcome} />
-        <Stack.Screen name="CardSearchFilter" component={CardSearchFilter} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Welcome"
+          component={Welcome}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="CardSearchFilter"
+          component={CardSearchFilter}
+        />
         <Stack.Screen name="CardSearchResults" component={CardSearchResults} />
         <Stack.Screen name="CardDetails" component={CardDetails} />
       </Stack.Navigator>
