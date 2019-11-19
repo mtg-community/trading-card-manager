@@ -37,7 +37,11 @@ export function Navigator(): React.ReactElement {
           name="CardSearchFilter"
           component={CardSearchFilter}
         />
-        <Stack.Screen name="CardSearchResults" component={CardSearchResults} />
+        <Stack.Screen
+          options={{ title: 'Search Results' }}
+          name="CardSearchResults"
+          component={CardSearchResults}
+        />
         <Stack.Screen name="CardDetails" component={CardDetails} />
       </Stack.Navigator>
     </NavigationNativeContainer>

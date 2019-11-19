@@ -32,6 +32,9 @@ export const CardDetails: React.FC<Props> = (props: Props) => {
     loyalty,
     artist,
   } = card;
+  props.navigation.setOptions({
+    title: name,
+  });
   const [superType] = superTypes || [''];
   const [type] = types || [''];
   const [subtype] = subTypes || [''];
