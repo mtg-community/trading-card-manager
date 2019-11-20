@@ -5,7 +5,9 @@ import { Button } from '../../components/button/Button';
 import { styles } from './styles';
 import { Color } from '../../../domain/entities/Color';
 import { ManaCheckboxRow } from '../../components/ManaCheckboxRow';
-import { ActiveFilters } from '../../components/ActiveFilters';
+import { ActiveFilters } from '../../components/activeFilters/ActiveFilters';
+import { Supertype } from '../../../domain/entities/Supertype';
+import { Subtype } from '../../../domain/entities/Subtype';
 
 interface Props {
   onSubmitFilter: () => Promise<void>;
@@ -20,11 +22,11 @@ interface Props {
   colorIdentities: Color[];
   setColorIdentities: (colorIdentities: Color[]) => void;
   filters: {
-    cardName?: string;
-    colors?: Color[];
-    colorIdentities?: Color[];
-    supertype: string;
-    subtype: string;
+    cardName: string;
+    colors: Color[];
+    colorIdentities: Color[];
+    supertype: Supertype | string;
+    subtype: Subtype | string;
   };
 }
 
