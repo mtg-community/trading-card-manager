@@ -24,6 +24,7 @@ export const CardSearchFilter: React.FC<Props> = (props: Props) => {
   const [subtype, setSubtype] = useState('');
   const [colors, setColors] = useState<Array<Color>>([]);
   const [colorIdentities, setColorIdentities] = useState<Array<Color>>([]);
+  const filters = { subtype, supertype, colors, colorIdentities, cardName };
   const isMounted = useIsMounted();
 
   async function handleSubmit(): Promise<void> {
@@ -49,6 +50,7 @@ export const CardSearchFilter: React.FC<Props> = (props: Props) => {
       setColors={setColors}
       colorIdentities={colorIdentities}
       setColorIdentities={setColorIdentities}
+      filters={filters}
     />
   );
 };
