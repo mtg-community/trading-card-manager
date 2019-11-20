@@ -4,7 +4,7 @@ import { styles } from './styles';
 import { Supertype } from '../../../domain/entities/Supertype';
 
 interface Props {
-  supertype: Supertype | string;
+  supertype: Supertype;
 }
 
 export const SupertypeFilter: React.FC<Props> = (props: Props) => {

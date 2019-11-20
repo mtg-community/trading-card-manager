@@ -4,7 +4,7 @@ import { styles } from './styles';
 import { Subtype } from '../../../domain/entities/Subtype';
 
 interface Props {
-  subtype: Subtype | string;
+  subtype: Subtype;
 }
 
 export const SubtypeFilter: React.FC<Props> = (props: Props) => {

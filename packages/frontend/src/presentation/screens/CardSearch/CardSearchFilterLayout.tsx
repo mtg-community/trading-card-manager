@@ -25,8 +25,8 @@ interface Props {
     cardName: string;
     colors: Color[];
     colorIdentities: Color[];
-    supertype: Supertype | string;
-    subtype: Subtype | string;
+    supertype: Supertype;
+    subtype: Subtype;
   };
 }
 
