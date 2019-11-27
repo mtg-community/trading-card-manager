@@ -26,7 +26,15 @@ const findAll = async (page = 1, pageSize = 25, sort = {}) => {
   };
 };
 
+const searchWithFilters = async (filters) => {
+  const { cardName, supertype, subtype, colors, colorIdentities } = filters
+  return await CardModel.find({
+    $or: [{ colors }]
+  })
+}
+
 module.exports = {
   save: upsert,
   findAll,
+  searchWithFilters,
 };
