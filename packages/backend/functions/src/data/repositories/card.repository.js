@@ -26,15 +26,21 @@ const findAll = async (page = 1, pageSize = 25, sort = {}) => {
   };
 };
 
-const searchWithFilters = async (filters) => {
-  const { cardName, supertype, subtype, colors, colorIdentities } = filters
+const findWithFilters = async (filters) => {
+  const { cardName, supertype, subtype, colors, colorIdentity } = filters
   return await CardModel.find({
-    $or: [{ colors }]
+    $or: [
+      { name: { $regex: cardName }, },
+      { colors: { $in : colors } },
+      { supertypes: supertype },
+      { subtypes: subtype },
+      { colorIdentity: { $in: colorIdentity } }
+    ]
   })
 }
 
 module.exports = {
   save: upsert,
   findAll,
-  searchWithFilters,
-};
+  findWithFilters,
+}

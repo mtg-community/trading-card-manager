@@ -45,6 +45,7 @@ const schema = new Schema(
     scryfallId: { type: String, index: true },
     tcgplayerProductId: { type: String, index: true },
     supertypes: [String],
+    subtypes: [String],
     type: String,
     originalType: String,
     types: [String],

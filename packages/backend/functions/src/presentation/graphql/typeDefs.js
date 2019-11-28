@@ -67,8 +67,8 @@ ${QueryTypeDef}
     rarity: Rarity!
     rulings: [Ruling!]
     printings: [String!]!
-    subTypes: [String!]
-    superTypes: [String!]
+    subtypes: [String!]
+    supertypes: [String!]
     types: [String!]
     loyalty: String
   }
