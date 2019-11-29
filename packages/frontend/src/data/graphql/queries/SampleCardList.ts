@@ -26,8 +26,8 @@ const sampleCardQuery = gql`
       multiverseId
       rarity
       printings
-      subTypes
-      superTypes
+      subtypes
+      supertypes
       types
       loyalty
       rulings {
@@ -69,8 +69,8 @@ const sampleCardListQuery = (): DocumentNode => gql`
       multiverseId
       rarity
       printings
-      subTypes
-      superTypes
+      subtypes
+      supertypes
       types
       loyalty
       rulings {
