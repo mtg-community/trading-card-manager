@@ -14,7 +14,7 @@ const QueryTypeDef = `
      supertype: String,
      subtype: String,
      colors: [String],
-     colorIdentity: [String]
+     colorIdentities: [String]
     ): [Card!]!
   }
 `
