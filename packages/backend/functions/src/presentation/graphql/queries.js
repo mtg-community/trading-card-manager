@@ -9,13 +9,7 @@ const QueryTypeDef = `
     hello(name: String): String!
     sampleCard: Card!
     sampleCardList: [Card!]!
-    sampleCardListFiltered(
-     cardName: String,
-     supertype: String,
-     subtype: String,
-     colors: [String],
-     colorIdentities: [String]
-    ): [Card!]!
+    sampleCardListFiltered(filter: CardFilter): [Card!]
   }
 `
 

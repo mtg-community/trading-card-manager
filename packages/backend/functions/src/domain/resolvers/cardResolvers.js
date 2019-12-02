@@ -3,7 +3,8 @@ const { ajaniInspiringLeader } = require('../../data/fixtures/ajaniInspiringLead
 const { chandraFlameFury } = require('../../data/fixtures/chandraFlameFury');
 const { sorinsGuide } = require('../../data/fixtures/sorinsGuide');
 
-const sampleCardListFiltered = (_, { cardName, supertype, subtype, colors, colorIdentities }) => {
+const sampleCardListFiltered = (_, { filter }) => {
+  const { cardName, supertype, subtype, colors, colorIdentities } = filter
   const byCardName = (card) => {
     if (!cardName) {
       return true
