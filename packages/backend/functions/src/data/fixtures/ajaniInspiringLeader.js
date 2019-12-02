@@ -151,7 +151,7 @@ rarity: "MYTHIC",
   "Legendary"
 ],
   tcgplayerProductId: 192695,
-  text: "[+2]: You gain 2 life. Put two +1/+1 counters on up to one target creature. [−3]: Exile target creature. Its controller gains 2 life. [−10]: Creatures you control gain flying and double strike until end of turn.",
+  text: "+2: You gain 2 life. Put two +1/+1 counters on up to one target creature.\n −3: Exile target creature. Its controller gains 2 life.\n −10: Creatures you control gain flying and double strike until end of turn.",
   type: "Legendary Planeswalker — Ajani",
   types: [
   "Planeswalker"

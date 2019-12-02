@@ -67,10 +67,18 @@ ${QueryTypeDef}
     rarity: Rarity!
     rulings: [Ruling!]
     printings: [String!]!
-    subTypes: [String!]
-    superTypes: [String!]
+    subtypes: [String!]
+    supertypes: [String!]
     types: [String!]
     loyalty: String
+  }
+  
+  input CardFilter {
+     cardName: String,
+     supertype: String,
+     subtype: String,
+     colors: [String],
+     colorIdentities: [String]
   }
 `;
 

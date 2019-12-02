@@ -147,7 +147,7 @@ rarity: "MYTHIC",
   "Legendary"
 ],
   tcgplayerProductId: 192692,
-  text: "[+1]: Chandra, Flame's Fury deals 2 damage to any target. [−2]: Chandra, Flame's Fury deals 4 damage to target creature and 2 damage to that creature's controller. [−8]: Chandra, Flame's Fury deals 10 damage to target player and each creature that player controls.",
+  text: "+1: Chandra, Flame's Fury deals 2 damage to any target.\n −2: Chandra, Flame's Fury deals 4 damage to target creature and 2 damage to that creature's controller.\n −8: Chandra, Flame's Fury deals 10 damage to target player and each creature that player controls.",
   type: "Legendary Planeswalker — Chandra",
   types: [
   "Planeswalker"

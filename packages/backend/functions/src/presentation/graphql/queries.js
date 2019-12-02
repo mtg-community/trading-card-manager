@@ -1,3 +1,4 @@
+const { sampleCardListFiltered } = require('../../domain/resolvers/cardResolvers')
 const { teferiHeroOfDominaria } = require('../../data/fixtures/teferi');
 const { ajaniInspiringLeader } = require('../../data/fixtures/ajaniInspiringLeader');
 const { chandraFlameFury } = require('../../data/fixtures/chandraFlameFury');
@@ -8,6 +9,7 @@ const QueryTypeDef = `
     hello(name: String): String!
     sampleCard: Card!
     sampleCardList: [Card!]!
+    sampleCardListFiltered(filter: CardFilter): [Card!]
   }
 `
 
@@ -15,6 +17,7 @@ const queries = {
   hello: (_, { name }) => `Hello ${name || 'World'}`,
   sampleCard: () => teferiHeroOfDominaria,
   sampleCardList: () => [teferiHeroOfDominaria, chandraFlameFury, sorinsGuide, ajaniInspiringLeader],
+  sampleCardListFiltered,
 };
 
 module.exports = {
