@@ -6,7 +6,6 @@ import {
   createUserWithEmailAndPassword,
 } from '../authentication';
 import { User } from '../../../domain/entities';
-import { initializeDomainLayer } from '../../../domain/DomainLayer';
 
 jest.mock('firebase/app', function() {
   const mockFirebaseAuth = {
@@ -33,13 +32,11 @@ const password = 'password';
 const mockFirebaseUser = { uid: 'some_uid', email, emailVerified: true };
 
 describe('Firebase Auth Module', function() {
-  const store = initializeDomainLayer();
   it('signs user in with LOCAL session persistence', async function() {
-    const expectedUser = new User(
-      mockFirebaseUser.uid,
-      mockFirebaseUser.email,
-      { emailVerified: mockFirebaseUser.emailVerified },
-    );
+    const expectedUser = new User(mockFirebaseUser.uid, {
+      emailVerified: mockFirebaseUser.emailVerified,
+      email: mockFirebaseUser.email,
+    });
     firebase
       .auth()
       .signInWithEmailAndPassword.mockImplementation(() =>
@@ -55,11 +52,10 @@ describe('Firebase Auth Module', function() {
   });
 
   it('signs user up with LOCAL session persistence', async function() {
-    const expectedUser = new User(
-      mockFirebaseUser.uid,
-      mockFirebaseUser.email,
-      { emailVerified: mockFirebaseUser.emailVerified },
-    );
+    const expectedUser = new User(mockFirebaseUser.uid, {
+      emailVerified: mockFirebaseUser.emailVerified,
+      email: mockFirebaseUser.email,
+    });
     firebase
       .auth()
       .createUserWithEmailAndPassword.mockImplementation(() =>

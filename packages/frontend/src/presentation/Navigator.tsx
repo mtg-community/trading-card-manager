@@ -7,12 +7,12 @@ import { CardSearchResults } from './screens/CardSearch/CardSearchResults';
 import { CardDetails } from './screens/CardSearch/CardDetails';
 import { Card } from '../domain/entities/Card';
 
-export const ROUTES = {
-  WELCOME: 'Welcome',
-  CARD_SEARCH_FILTER: 'CardSearchFilter',
-  CARD_SEARCH_RESULTS: 'CardSearchResults',
-  CARD_DETAILS: 'CardDetails',
-};
+export enum ROUTES {
+  WELCOME = 'Welcome',
+  CARD_SEARCH_FILTER = 'CardSearchFilter',
+  CARD_SEARCH_RESULTS = 'CardSearchResults',
+  CARD_DETAILS = 'CardDetails',
+}
 
 export type RootParamList = {
   Welcome: undefined;
@@ -26,23 +26,23 @@ const Stack = createStackNavigator<RootParamList>();
 export function Navigator(): React.ReactElement {
   return (
     <NavigationNativeContainer>
-      <Stack.Navigator initialRouteName={SCREENS.WELCOME}>
+      <Stack.Navigator initialRouteName={ROUTES.WELCOME}>
         <Stack.Screen
           options={{ headerShown: false }}
-          name="Welcome"
+          name={ROUTES.WELCOME}
           component={Welcome}
         />
         <Stack.Screen
           options={{ headerShown: false }}
-          name="CardSearchFilter"
+          name={ROUTES.CARD_SEARCH_FILTER}
           component={CardSearchFilter}
         />
         <Stack.Screen
           options={{ title: 'Search Results' }}
-          name="CardSearchResults"
+          name={ROUTES.CARD_SEARCH_RESULTS}
           component={CardSearchResults}
         />
-        <Stack.Screen name="CardDetails" component={CardDetails} />
+        <Stack.Screen name={ROUTES.CARD_DETAILS} component={CardDetails} />
       </Stack.Navigator>
     </NavigationNativeContainer>
   );

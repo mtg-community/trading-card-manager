@@ -4,13 +4,14 @@ import { ErrorReporter } from '../../domain/ErrorReporter';
 import { NOT_LOGGED_IN_USER } from '../../domain/entities/user';
 
 function mapFirebaseUserToUserDomain(user: firebase.User | null): User {
-  if (!user || !user.email || !user.uid) {
+  if (!user || !user.uid) {
     throw new Error('Invalid Firebase User');
   }
 
-  return new User(user.uid, user.email, {
+  return new User(user.uid, {
     emailVerified: Boolean(user.emailVerified),
     name: user.displayName || undefined,
+    email: user.email || undefined,
   });
 }
 

@@ -68,11 +68,10 @@ describe('Welcome screen test', () => {
   });
 
   test('should sign in with email and password', async () => {
-    const expectedUser = new User(
-      mockFirebaseUser.uid,
-      mockFirebaseUser.email,
-      { emailVerified: mockFirebaseUser.emailVerified },
-    );
+    const expectedUser = new User(mockFirebaseUser.uid, {
+      emailVerified: mockFirebaseUser.emailVerified,
+      email: mockFirebaseUser.email,
+    });
     firebase
       .auth()
       .signInWithEmailAndPassword.mockImplementation(() =>
