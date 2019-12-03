@@ -92,3 +92,11 @@ export type Ruling = {
 export enum SetType {
   Expansion = 'EXPANSION',
 }
+
+export type CardFilter = {
+  cardName: string;
+  supertype: string;
+  subtype: string;
+  colors: Color[];
+  colorIdentities: Color[];
+};
