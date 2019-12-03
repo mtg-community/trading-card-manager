@@ -81,3 +81,13 @@ export async function createGoogleCredential(
     ErrorReporter.report(error);
   }
 }
+
+export async function createFacebookCredential(
+  accessToken: string,
+): Promise<auth.OAuthCredential | void> {
+  try {
+    return await auth.FacebookAuthProvider.credential(accessToken);
+  } catch (error) {
+    ErrorReporter.report(error);
+  }
+}

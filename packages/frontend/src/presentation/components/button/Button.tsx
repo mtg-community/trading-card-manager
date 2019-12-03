@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors.black,
     paddingVertical: 8,
-    width: 180,
-    borderRadius: 100,
+    width: '100%',
+    borderRadius: 5,
   },
   buttonRow: {
     flexDirection: 'row',

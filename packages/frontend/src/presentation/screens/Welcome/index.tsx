@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import { authSelector } from '../../../domain/ducks/authenticationReducer';
 import { NOT_LOGGED_IN_USER } from '../../../domain/entities/user';
 import { Input } from '../../components/Input';
@@ -21,6 +21,9 @@ interface Props {
   >;
 }
 
+export const emailInputPlaceholder = 'something@domain.com';
+export const passwordInputPlaceholder = '***********';
+
 export const Welcome: React.FC<Props> = (props: Props) => {
   const { navigation } = props;
   const { user } = useSelector(authSelector);
@@ -31,7 +34,7 @@ export const Welcome: React.FC<Props> = (props: Props) => {
     handleChangeEmail,
     handleChangePassword,
     {
-      actions: { signIn },
+      actions: { signInWithGoogle, signIn, signInWithFacebook },
     },
   ] = useAuth();
   useEffect(() => {
@@ -42,24 +45,42 @@ export const Welcome: React.FC<Props> = (props: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.form}>
+        <View style={styles.buttonContainer}>
+          <Button
+            label="Sign In With Facebook"
+            onPress={signInWithFacebook}
+            isLoadingLabel="Signing"
+          />
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button
+            label="Sign In With Google"
+            onPress={signInWithGoogle}
+            isLoadingLabel="Signing"
+          />
+        </View>
+        <Text>Email</Text>
         <View style={styles.inputContainer}>
           <Input
             value={email}
             autoCapitalize="none"
-            placeholder="Email"
+            placeholder={emailInputPlaceholder}
             onChangeText={handleChangeEmail}
           />
         </View>
+        <Text>Password</Text>
         <View style={styles.inputContainer}>
           <Input
             value={password}
             autoCapitalize="none"
             secureTextEntry
-            placeholder="Password"
+            placeholder={passwordInputPlaceholder}
             onChangeText={handleChangePassword}
           />
         </View>
-        <Button label="Sign In" onPress={signIn} isLoadingLabel="Signing" />
+        <View style={styles.buttonContainer}>
+          <Button label="Sign In" onPress={signIn} isLoadingLabel="Signing" />
+        </View>
       </View>
     </View>
   );

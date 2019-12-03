@@ -8,8 +8,10 @@ export const WelcomeStyles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: Colors.white,
   },
+  buttonContainer: {
+    marginVertical: 12,
+  },
   form: {
-    alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
     width: Metrics.screenWidth - 16,

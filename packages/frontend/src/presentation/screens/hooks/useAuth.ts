@@ -3,6 +3,8 @@ import { useState } from 'react';
 import {
   LoginCredentials,
   signIn,
+  signInWithGoogle,
+  signInWithFacebook,
 } from '../../../domain/sagas/authenticationSaga';
 import { Email } from '../../../domain/entities';
 
@@ -14,6 +16,8 @@ type UseAuthType = [
   {
     actions: {
       signIn: () => Promise<void>;
+      signInWithGoogle: () => Promise<void>;
+      signInWithFacebook: () => Promise<void>;
     };
   },
 ];
@@ -31,6 +35,14 @@ export function useAuth(): UseAuthType {
     dispatch(signIn(userCredential));
   }
 
+  async function handleSignInWithGoogle(): Promise<void> {
+    dispatch(signInWithGoogle());
+  }
+
+  async function handleSignInWithFacebook(): Promise<void> {
+    dispatch(signInWithFacebook());
+  }
+
   return [
     email,
     password,
@@ -39,6 +51,8 @@ export function useAuth(): UseAuthType {
     {
       actions: {
         signIn: handleSignIn,
+        signInWithGoogle: handleSignInWithGoogle,
+        signInWithFacebook: handleSignInWithFacebook,
       },
     },
   ];
