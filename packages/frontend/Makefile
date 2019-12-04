@@ -1,5 +1,6 @@
 install:
 	yarn install
+	sh	scripts/secrets
 
 test:
 	yarn test --coverage
@@ -18,3 +19,4 @@ sonarqube:
 
 deploy:
 	echo 'Deploy'
+	@npx firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}

@@ -21,8 +21,4 @@ echo "Cloning secrets repository..."
 git clone --depth 1 "$REPO_SSH_URL" "$SECRETS_PATH"
 
 echo "Moving the secrets to the right folder..."
-mv "$SECRETS_PATH/mobile/google-services.json" \
-  packages/mobile/android/app/google-services.json
-mv "$SECRETS_PATH/mobile/GoogleService-Info.plist" \
-  packages/mobile/ios/GoogleService-Info.plist
-mv "$SECRETS_PATH/mobile/.env" packages/mobile/.env
+mv "$SECRETS_PATH/mobile/.env" packages/frontend/.env
