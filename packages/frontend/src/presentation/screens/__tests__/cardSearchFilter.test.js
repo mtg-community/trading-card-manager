@@ -57,7 +57,7 @@ const activeFilterComponentProps = {
 
 jest.mock('../../../data/graphql/queries/SampleCardList', () => {
   return {
-    querySampleCardList: jest.fn(() => Promise.resolve(mockBackend)),
+    querySampleCardListFiltered: jest.fn(() => Promise.resolve(mockBackend)),
   };
 });
 
