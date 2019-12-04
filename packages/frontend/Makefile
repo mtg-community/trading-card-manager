@@ -1,5 +1,6 @@
 install:
 	yarn install
+	sh	scripts/secrets
 
 test:
 	yarn test --coverage
