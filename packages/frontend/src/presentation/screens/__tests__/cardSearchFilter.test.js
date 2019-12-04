@@ -4,6 +4,7 @@ import {
   fireEvent,
   waitForElement,
 } from 'react-native-testing-library';
+import { querySampleCardListFiltered } from '../../../data/graphql/queries/SampleCardList';
 import { initializeDomainLayer } from '../../../domain/DomainLayer';
 import { MockedProvider } from '../../__mocks__/MockedProvider';
 import { CardSearchFilter } from '../CardSearch/CardSearchFilter';
@@ -57,7 +58,7 @@ const activeFilterComponentProps = {
 
 jest.mock('../../../data/graphql/queries/SampleCardList', () => {
   return {
-    querySampleCardList: jest.fn(() => Promise.resolve(mockBackend)),
+    querySampleCardListFiltered: jest.fn(() => Promise.resolve(mockBackend)),
   };
 });
 
@@ -96,12 +97,13 @@ describe('CardSearchFilter screen', () => {
 
     expect(searchCardInput.props.value).toEqual(SEARCH_INPUT);
     expect(activeFilters.props.activefilters).toEqual(expectedFilter);
-    await waitForElement(() =>
-      expect(navigation.navigate).toHaveBeenCalledWith(
-        ROUTES.CARD_SEARCH_RESULTS,
-        { cardsFiltered: mockBackend },
-      ),
-    );
+    expect(querySampleCardListFiltered).toHaveBeenCalledWith(expectedFilter),
+      await waitForElement(() =>
+        expect(navigation.navigate).toHaveBeenCalledWith(
+          ROUTES.CARD_SEARCH_RESULTS,
+          { cardsFiltered: mockBackend },
+        ),
+      );
   });
 
   test('should search for cards and navigate to search result filtered by subtype and supertype', async () => {
@@ -134,6 +136,7 @@ describe('CardSearchFilter screen', () => {
 
     expect(searchCardInput.props.value).toEqual(SEARCH_INPUT);
     expect(activeFilters.props.activefilters).toEqual(expectedFilter);
+    expect(querySampleCardListFiltered).toHaveBeenCalledWith(expectedFilter);
     await waitForElement(() =>
       expect(navigation.navigate).toHaveBeenCalledWith(
         toHaveBeenCalledWith,
@@ -177,14 +180,15 @@ describe('CardSearchFilter screen', () => {
     };
 
     fireEvent.changeText(searchCardInput, SEARCH_INPUT);
-    fireEvent.press(searchButton);
     fireEvent.press(manaColorCheckbox);
     fireEvent.press(manaIndentityCheckbox);
+    fireEvent.press(searchButton);
 
     expect(searchCardInput.props.value).toEqual(SEARCH_INPUT);
     expect(whiteManaColorCheckbox.props.isSelected).toEqual(true);
     expect(whiteManaIdentityCheckbox.props.isSelected).toEqual(true);
     expect(activeFilters.props.activefilters).toEqual(expectedFilter);
+    expect(querySampleCardListFiltered).toHaveBeenCalledWith(expectedFilter);
     await waitForElement(() =>
       expect(navigation.navigate).toHaveBeenCalledWith(
         toHaveBeenCalledWith,
