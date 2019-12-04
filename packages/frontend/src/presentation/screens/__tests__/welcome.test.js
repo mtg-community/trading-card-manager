@@ -13,15 +13,15 @@ import { MockedProvider } from '../../__mocks__/MockedProvider';
 import {
   emailInputPlaceholder,
   passwordInputPlaceholder,
+  signInButtonLabel,
+  signInWithFacebookButtonLabel,
+  signInWithGoogleButtonLabel,
   Welcome,
 } from '../Welcome';
 
 const homeScreenRouteName = 'Home';
 const email = 'email@email.com';
 const testPassword = 'password';
-const signInButtonText = 'Sign In';
-const signInWithGoogleButtonText = 'Sign In With Google';
-const signInWithFacebookButtonText = 'Sign In With Facebook';
 const mockFirebaseUser = { uid: 'some_uid', email, emailVerified: true };
 jest.mock('firebase/app', function() {
   const mockFirebaseAuth = {
@@ -85,7 +85,7 @@ describe('Welcome screen test', () => {
 
     const emailInput = getByPlaceholder(emailInputPlaceholder);
     const passwordInput = getByPlaceholder(passwordInputPlaceholder);
-    const signInButton = getByText(signInButtonText);
+    const signInButton = getByText(signInButtonLabel);
 
     fireEvent.changeText(emailInput, email);
     fireEvent.changeText(passwordInput, testPassword);
@@ -106,7 +106,7 @@ describe('Welcome screen test', () => {
       </MockedProvider>,
     );
 
-    const signInWithGoogleButton = getByText(signInWithGoogleButtonText);
+    const signInWithGoogleButton = getByText(signInWithGoogleButtonLabel);
 
     fireEvent.press(signInWithGoogleButton);
 
@@ -120,7 +120,7 @@ describe('Welcome screen test', () => {
       </MockedProvider>,
     );
 
-    const signInWithFacebookButton = getByText(signInWithFacebookButtonText);
+    const signInWithFacebookButton = getByText(signInWithFacebookButtonLabel);
 
     fireEvent.press(signInWithFacebookButton);
 

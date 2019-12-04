@@ -23,6 +23,9 @@ interface Props {
 
 export const emailInputPlaceholder = 'something@domain.com';
 export const passwordInputPlaceholder = '***********';
+export const signInButtonLabel = 'Sign In';
+export const signInWithGoogleButtonLabel = 'Sign In With Google';
+export const signInWithFacebookButtonLabel = 'Sign In With Facebook';
 
 export const Welcome: React.FC<Props> = (props: Props) => {
   const { navigation } = props;
@@ -47,14 +50,14 @@ export const Welcome: React.FC<Props> = (props: Props) => {
       <View style={styles.form}>
         <View style={styles.buttonContainer}>
           <Button
-            label="Sign In With Facebook"
+            label={signInWithFacebookButtonLabel}
             onPress={signInWithFacebook}
             isLoadingLabel="Signing"
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
-            label="Sign In With Google"
+            label={signInWithGoogleButtonLabel}
             onPress={signInWithGoogle}
             isLoadingLabel="Signing"
           />
@@ -79,7 +82,11 @@ export const Welcome: React.FC<Props> = (props: Props) => {
           />
         </View>
         <View style={styles.buttonContainer}>
-          <Button label="Sign In" onPress={signIn} isLoadingLabel="Signing" />
+          <Button
+            label={signInButtonLabel}
+            onPress={signIn}
+            isLoadingLabel="Signing"
+          />
         </View>
       </View>
     </View>
