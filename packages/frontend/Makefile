@@ -19,3 +19,4 @@ sonarqube:
 
 deploy:
 	echo 'Deploy'
+	@npx firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}

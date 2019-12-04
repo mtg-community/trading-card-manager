@@ -26,7 +26,7 @@ const Stack = createStackNavigator<RootParamList>();
 export function Navigator(): React.ReactElement {
   return (
     <NavigationNativeContainer>
-      <Stack.Navigator initialRouteName={ROUTES.WELCOME}>
+      <Stack.Navigator initialRouteName={ROUTES.CARD_SEARCH_FILTER}>
         <Stack.Screen
           options={{ headerShown: false }}
           name={ROUTES.WELCOME}
