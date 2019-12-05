@@ -11,11 +11,11 @@ import { User } from '../../../domain/entities';
 import { initializeDomainLayer } from '../../../domain/DomainLayer';
 import { MockedProvider } from '../../__mocks__/MockedProvider';
 import {
-  emailInputPlaceholder,
-  passwordInputPlaceholder,
-  signInButtonLabel,
-  signInWithFacebookButtonLabel,
-  signInWithGoogleButtonLabel,
+  EMAIL_INPUT_PLACEHOLDER,
+  PASSWORD_INPUT_PLACEHOLDER,
+  SIGN_IN_BUTTON_LABEL,
+  SIGN_IN_WITH_FACEBOOK_BUTTON_LABEL,
+  SIGN_IN_WITH_GOOGLE_BUTTON_LABEL,
   Welcome,
 } from '../Welcome';
 
@@ -83,9 +83,9 @@ describe('Welcome screen test', () => {
       </MockedProvider>,
     );
 
-    const emailInput = getByPlaceholder(emailInputPlaceholder);
-    const passwordInput = getByPlaceholder(passwordInputPlaceholder);
-    const signInButton = getByText(signInButtonLabel);
+    const emailInput = getByPlaceholder(EMAIL_INPUT_PLACEHOLDER);
+    const passwordInput = getByPlaceholder(PASSWORD_INPUT_PLACEHOLDER);
+    const signInButton = getByText(SIGN_IN_BUTTON_LABEL);
 
     fireEvent.changeText(emailInput, email);
     fireEvent.changeText(passwordInput, testPassword);
@@ -106,7 +106,7 @@ describe('Welcome screen test', () => {
       </MockedProvider>,
     );
 
-    const signInWithGoogleButton = getByText(signInWithGoogleButtonLabel);
+    const signInWithGoogleButton = getByText(SIGN_IN_WITH_GOOGLE_BUTTON_LABEL);
 
     fireEvent.press(signInWithGoogleButton);
 
@@ -120,7 +120,9 @@ describe('Welcome screen test', () => {
       </MockedProvider>,
     );
 
-    const signInWithFacebookButton = getByText(signInWithFacebookButtonLabel);
+    const signInWithFacebookButton = getByText(
+      SIGN_IN_WITH_FACEBOOK_BUTTON_LABEL,
+    );
 
     fireEvent.press(signInWithFacebookButton);
 

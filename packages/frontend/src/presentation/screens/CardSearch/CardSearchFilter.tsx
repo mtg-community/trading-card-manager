@@ -13,7 +13,7 @@ import { Color } from '../../../domain/entities/Color';
 
 interface Props {
   navigation: CompositeNavigationProp<
-    StackNavigationProp<ParamListBase, 'CardSearchFilter'>,
+    StackNavigationProp<ParamListBase, ROUTES.CARD_SEARCH_FILTER>,
     NavigationHelpers<ParamListBase>
   >;
 }

@@ -9,14 +9,14 @@ import {
   RouteProp,
 } from '@react-navigation/core';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootParamList } from '../../Navigator';
+import { RootParamList, ROUTES } from '../../Navigator';
 
 interface Props {
   navigation: CompositeNavigationProp<
-    StackNavigationProp<ParamListBase, 'CardDetails'>,
+    StackNavigationProp<ParamListBase, ROUTES.CARD_DETAILS>,
     NavigationHelpers<ParamListBase>
   >;
-  route: RouteProp<RootParamList, 'CardDetails'>;
+  route: RouteProp<RootParamList, ROUTES.CARD_DETAILS>;
 }
 
 export const CardDetails: React.FC<Props> = (props: Props) => {

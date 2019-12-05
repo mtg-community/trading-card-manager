@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/button/Button';
 import { styles } from './styles';
@@ -30,10 +31,11 @@ interface Props {
   };
 }
 
-export const SEARCH_INPUT_PLACEHOLDER = 'Card Name';
-export const SUBTYPE_INPUT_PLACEHOLDER = 'Sub(Type)';
-export const SUPERTYPE_INPUT_PLACEHOLDER = 'Super(Type)';
-export const SEARCH_BUTTON_TEXT = 'Search';
+export const SEARCH_INPUT_PLACEHOLDER = 'cardSearch:searchInputPlaceholder';
+export const SUBTYPE_INPUT_PLACEHOLDER = 'cardSearch:subtypeInputPlaceholder';
+export const SUPERTYPE_INPUT_PLACEHOLDER =
+  'cardSearch:supertypeInputPlaceholder';
+export const SEARCH_BUTTON_TEXT = 'cardSearch:searchButtonLabel';
 
 export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
   const {
@@ -50,6 +52,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
     setColorIdentities,
     filters,
   } = props;
+  const { t } = useTranslation();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -57,7 +60,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
           <Input
             value={cardName}
             autoCapitalize="none"
-            placeholder={SEARCH_INPUT_PLACEHOLDER}
+            placeholder={t(SEARCH_INPUT_PLACEHOLDER)}
             onChangeText={setCardName}
             returnKeyType="search"
             onSubmitEditing={onSubmitFilter}
@@ -70,7 +73,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
             <Input
               value={subtype}
               autoCapitalize="none"
-              placeholder={SUBTYPE_INPUT_PLACEHOLDER}
+              placeholder={t(SUBTYPE_INPUT_PLACEHOLDER)}
               onChangeText={setSubtype}
             />
           </View>
@@ -78,14 +81,18 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
             <Input
               value={supertype}
               autoCapitalize="none"
-              placeholder={SUPERTYPE_INPUT_PLACEHOLDER}
+              placeholder={t(SUPERTYPE_INPUT_PLACEHOLDER)}
               onChangeText={setSupertype}
             />
           </View>
         </View>
-        <Text style={styles.regularText}>Color</Text>
+        <Text style={styles.regularText}>
+          {t('cardSearch:manaColorCheckboxRowTitle')}
+        </Text>
         <ManaCheckboxRow colors={colors} setColors={setColors} />
-        <Text style={styles.regularText}>Color Identity</Text>
+        <Text style={styles.regularText}>
+          {t('cardSearch:manaIdentityCheckboxRowTitle')}
+        </Text>
         <ManaCheckboxRow
           colors={colorIdentities}
           setColors={setColorIdentities}
@@ -94,8 +101,8 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
       </View>
       <Button
         onPress={onSubmitFilter}
-        label={SEARCH_BUTTON_TEXT}
-        isLoadingLabel="Searching"
+        label={t(SEARCH_BUTTON_TEXT)}
+        loadingLabel={t('cardSearch:searchButtonLoadingLabel')}
       />
     </SafeAreaView>
   );

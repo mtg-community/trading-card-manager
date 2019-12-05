@@ -8,7 +8,7 @@ import { Colors } from '../../constants';
 interface ButtonProps {
   onPress: () => void;
   label: string;
-  isLoadingLabel?: string;
+  loadingLabel?: string;
 }
 
 const styles = StyleSheet.create({
@@ -58,7 +58,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       console.error(e);
     }
   }
-  const label = state === ButtonState.BUSY ? props.isLoadingLabel : props.label;
+  const label = state === ButtonState.BUSY ? props.loadingLabel : props.label;
   return (
     <TouchableOpacity
       style={styles.container}
