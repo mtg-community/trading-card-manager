@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
 import { authSelector } from '../../../domain/ducks/authenticationReducer';
@@ -21,15 +22,18 @@ interface Props {
   >;
 }
 
-export const emailInputPlaceholder = 'something@domain.com';
-export const passwordInputPlaceholder = '***********';
-export const signInButtonLabel = 'Sign In';
-export const signInWithGoogleButtonLabel = 'Sign In With Google';
-export const signInWithFacebookButtonLabel = 'Sign In With Facebook';
+export const EMAIL_INPUT_PLACEHOLDER = 'welcome:emailInputPlaceholder';
+export const PASSWORD_INPUT_PLACEHOLDER = '***********';
+export const SIGN_IN_BUTTON_LABEL = 'welcome:signInButtonLabel';
+export const SIGN_IN_WITH_GOOGLE_BUTTON_LABEL =
+  'welcome:signInWithGoogleButtonLabel';
+export const SIGN_IN_WITH_FACEBOOK_BUTTON_LABEL =
+  'welcome:signInWithFacebookButtonLabel';
 
 export const Welcome: React.FC<Props> = (props: Props) => {
   const { navigation } = props;
   const { user } = useSelector(authSelector);
+  const { t } = useTranslation();
   const styles = WelcomeStyles;
   const [
     email,
@@ -50,42 +54,42 @@ export const Welcome: React.FC<Props> = (props: Props) => {
       <View style={styles.form}>
         <View style={styles.buttonContainer}>
           <Button
-            label={signInWithFacebookButtonLabel}
+            label={t(SIGN_IN_WITH_FACEBOOK_BUTTON_LABEL)}
             onPress={signInWithFacebook}
-            isLoadingLabel="Signing"
+            loadingLabel={t('welcome:loadingLabel')}
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
-            label={signInWithGoogleButtonLabel}
+            label={t(SIGN_IN_WITH_GOOGLE_BUTTON_LABEL)}
             onPress={signInWithGoogle}
-            isLoadingLabel="Signing"
+            loadingLabel={t('welcome:loadingLabel')}
           />
         </View>
-        <Text>Email</Text>
+        <Text>{t('welcome:emailInputTitle')}</Text>
         <View style={styles.inputContainer}>
           <Input
             value={email}
             autoCapitalize="none"
-            placeholder={emailInputPlaceholder}
+            placeholder={t(EMAIL_INPUT_PLACEHOLDER)}
             onChangeText={handleChangeEmail}
           />
         </View>
-        <Text>Password</Text>
+        <Text>{t('welcome:passwordInputTitle')}</Text>
         <View style={styles.inputContainer}>
           <Input
             value={password}
             autoCapitalize="none"
             secureTextEntry
-            placeholder={passwordInputPlaceholder}
+            placeholder={PASSWORD_INPUT_PLACEHOLDER}
             onChangeText={handleChangePassword}
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
-            label={signInButtonLabel}
+            label={t(SIGN_IN_BUTTON_LABEL)}
             onPress={signIn}
-            isLoadingLabel="Signing"
+            loadingLabel={t('welcome:loadingLabel')}
           />
         </View>
       </View>

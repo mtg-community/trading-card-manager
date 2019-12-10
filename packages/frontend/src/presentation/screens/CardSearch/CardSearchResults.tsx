@@ -20,10 +20,10 @@ import { ManaCost } from '../../components/ManaCost';
 
 interface Props {
   navigation: CompositeNavigationProp<
-    StackNavigationProp<ParamListBase, 'CardSearchResults'>,
+    StackNavigationProp<ParamListBase, ROUTES.CARD_SEARCH_RESULTS>,
     NavigationHelpers<ParamListBase>
   >;
-  route: RouteProp<RootParamList, 'CardSearchResults'>;
+  route: RouteProp<RootParamList, ROUTES.CARD_SEARCH_RESULTS>;
 }
 
 export const CardSearchResults: React.FC<Props> = (props: Props) => {

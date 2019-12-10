@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { View, Text } from 'react-native';
 import { Color } from '../../../domain/entities/Color';
 import { styles } from './styles';
@@ -28,9 +29,10 @@ export const ActiveFilters: React.FC<Props> = (props: Props) => {
     supertype,
     subtype,
   } = props.activefilters;
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
-      <Text>Active Filters:</Text>
+      <Text> {t('activefilters:title')}</Text>
       <CardNameFilter cardName={cardName} />
       <SubtypeFilter subtype={subtype} />
       <SupertypeFilter supertype={supertype} />

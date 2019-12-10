@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as Font from 'expo-font';
+import { loadAsync } from 'expo-font';
 import { AppLoading } from 'expo';
 import { MTGStore } from '../domain/DomainLayer';
 import { FallBackView } from './components/FallBackView';
@@ -12,7 +12,7 @@ export type MainProps = {
 };
 
 async function loadResourcesAsync(): Promise<void> {
-  await Font.loadAsync({
+  await loadAsync({
     Mana: require('../../assets/fonts/mana.ttf'),
     Roboto: require('../../assets/fonts/Roboto-Regular.ttf'),
     'Roboto-Bold': require('../../assets/fonts/Roboto-Bold.ttf'),
