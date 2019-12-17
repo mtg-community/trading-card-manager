@@ -1,6 +1,6 @@
 import { put, call } from 'redux-saga/effects';
 import { logInAsync } from 'expo-google-app-auth';
-import * as Facebook from 'expo-facebook';
+import { logInWithReadPermissionsAsync } from 'expo-facebook';
 import {
   GOOGLE_IOS_CLIENT_ID,
   GOOGLE_ANDROID_CLIENT_ID,
@@ -79,7 +79,7 @@ export function* signInWithGoogleSaga(): SagaIterator {
 
 export function* signInWithFacebookSaga(): SagaIterator {
   try {
-    const { token } = yield call(Facebook.logInWithReadPermissionsAsync, {
+    const { token } = yield call(logInWithReadPermissionsAsync, {
       permissions: ['public_profile', 'email'],
     });
     yield put(setLoading(true));
