@@ -4,7 +4,6 @@ import { logInWithReadPermissionsAsync } from 'expo-facebook';
 import {
   GOOGLE_IOS_CLIENT_ID,
   GOOGLE_ANDROID_CLIENT_ID,
-  FACEBOOK_APP_ID,
 } from 'react-native-dotenv';
 import {
   createFacebookCredential,
@@ -80,13 +79,9 @@ export function* signInWithGoogleSaga(): SagaIterator {
 
 export function* signInWithFacebookSaga(): SagaIterator {
   try {
-    const { token } = yield call(
-      logInWithReadPermissionsAsync,
-      FACEBOOK_APP_ID,
-      {
-        permissions: ['public_profile', 'email'],
-      },
-    );
+    const { token } = yield call(logInWithReadPermissionsAsync, {
+      permissions: ['public_profile', 'email'],
+    });
     yield put(setLoading(true));
     const facebookCredential = yield call(createFacebookCredential, token);
     const User = yield call(signInWithCredential, facebookCredential);

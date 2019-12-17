@@ -28,7 +28,7 @@ export function Navigator(): React.ReactElement {
   const { t } = useTranslation();
   return (
     <NavigationNativeContainer>
-      <Stack.Navigator initialRouteName={ROUTES.CARD_SEARCH_FILTER}>
+      <Stack.Navigator initialRouteName={ROUTES.WELCOME}>
         <Stack.Screen
           options={{ headerShown: false }}
           name={ROUTES.WELCOME}
