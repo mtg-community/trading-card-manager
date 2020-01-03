@@ -27,5 +27,6 @@ module.exports = {
   rules: {
     'no-console': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
+    '@typescript-eslint/camelcase': 'off',
   },
 };

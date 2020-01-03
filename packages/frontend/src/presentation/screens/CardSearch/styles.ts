@@ -103,4 +103,9 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Roboto',
   },
+  textRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
 });

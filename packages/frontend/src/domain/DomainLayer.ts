@@ -9,14 +9,21 @@ import { rootSaga } from './sagas';
 import { ReducersMapObject } from 'redux';
 import { BugSnag } from '../data/bugsnag';
 import { ErrorReporter } from './ErrorReporter';
+import {
+  CardListActionsType,
+  cardListReducer,
+  CardListState,
+} from './ducks/cardListReducer';
 
 export interface MTGState {
   readonly authentication: AuthenticationState;
+  readonly cardList: CardListState;
 }
-export type MTGActions = AuthActionsType;
+export type MTGActions = AuthActionsType & CardListActionsType;
 export type MTGStore = EnhancedStore<MTGState, MTGActions>;
 const rootReducer: ReducersMapObject<MTGState, MTGActions> = {
   authentication: authenticationReducer,
+  cardList: cardListReducer,
 };
 
 export const initializeDomainLayer = (bugSnag?: BugSnag): MTGStore => {

@@ -1,10 +1,12 @@
 import React from 'react';
+import { Action } from '@reduxjs/toolkit';
 import {
-  SafeAreaView,
   FlatList,
+  SafeAreaView,
+  Text,
   TouchableOpacity,
   View,
-  Text,
+  Alert,
 } from 'react-native';
 import {
   CompositeNavigationProp,
@@ -17,6 +19,8 @@ import { Card } from '../../../domain/entities/Card';
 import { RootParamList, ROUTES } from '../../Navigator';
 import { styles } from './styles';
 import { ManaCost } from '../../components/ManaCost';
+import { useDispatch } from 'react-redux';
+import { listTypes, updateList } from '../../../domain/ducks/cardListReducer';
 
 interface Props {
   navigation: CompositeNavigationProp<
@@ -57,8 +61,47 @@ interface CardSearchResultItemProps {
 const CardSearchResultItem: React.FC<CardSearchResultItemProps> = (
   props: CardSearchResultItemProps,
 ) => {
+  const dispatch = useDispatch();
+  const onLongPress = (): void =>
+    Alert.alert('Wish List', 'Add card to your wish list', [
+      {
+        text: 'Want',
+        onPress: (): Action =>
+          dispatch(
+            updateList({
+              listType: listTypes.TRADE_WANT,
+              cardId: props.card.id,
+            }),
+          ),
+      },
+      {
+        text: 'Have',
+        onPress: (): Action =>
+          dispatch(
+            updateList({
+              listType: listTypes.TRADE_HAVE,
+              cardId: props.card.id,
+            }),
+          ),
+      },
+      {
+        text: 'Buy',
+        onPress: (): Action =>
+          dispatch(
+            updateList({
+              listType: listTypes.BUY,
+              cardId: props.card.id,
+            }),
+          ),
+      },
+    ]);
+
   return (
-    <TouchableOpacity style={styles.searchResult} onPress={props.onClick}>
+    <TouchableOpacity
+      style={styles.searchResult}
+      onPress={props.onClick}
+      onLongPress={onLongPress}
+    >
       <View style={styles.header}>
         <Text>{props.card.name}</Text>
         <ManaCost manaCost={props.card.manaCost} />
