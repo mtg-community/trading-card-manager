@@ -11,7 +11,7 @@ interface Props {
   onSelectColor: (color: Color) => void;
 }
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   manaButton: {
     borderRadius: 4,
     borderColor: Colors.primary,

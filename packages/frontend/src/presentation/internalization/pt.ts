@@ -23,4 +23,11 @@ export const pt = {
     emailInputTitle: 'Email',
     passwordInputTitle: 'Senha',
   },
+  wishList: {
+    tradeHave: 'Tenho',
+    tradeWant: 'Quero',
+    buy: 'Compro',
+    sell: 'Vendo',
+    cancel: 'Cancelar',
+  },
 };

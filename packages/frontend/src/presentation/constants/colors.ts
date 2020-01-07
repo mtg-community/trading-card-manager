@@ -4,6 +4,7 @@ export const Colors = {
   placeholderText: '#A5A5A5',
   white: '#FFF',
   black: '#000',
+  red: '#FF0000',
   blueManaBackground: '#AAE2FB',
   whiteManaBackground: '#FFFCD6',
   redManaBackground: '#FAAA8F',
