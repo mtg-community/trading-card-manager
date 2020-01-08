@@ -39,7 +39,7 @@ export const CardDetails: React.FC<Props> = (props: Props) => {
   const [type] = types || [''];
   const [subtype] = subTypes || [''];
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.cardContainer}>
       <View style={styles.header}>
         <Text style={styles.regularText}>{name}</Text>
         <ManaCost manaCost={manaCost} />

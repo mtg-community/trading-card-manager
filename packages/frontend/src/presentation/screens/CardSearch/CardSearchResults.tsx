@@ -52,6 +52,7 @@ export const CardSearchResults: React.FC<Props> = (props: Props) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         bounces={false}
+        showsVerticalScrollIndicator={false}
         keyExtractor={(item): string => item.uuid}
         data={cardsFiltered}
         renderItem={({ item }): React.ReactElement => (

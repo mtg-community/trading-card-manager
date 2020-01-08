@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: Metrics.screenWidth,
     backgroundColor: Colors.black,
-    opacity: 0.9,
   },
   buttonText: {
     fontSize: 18,
@@ -52,7 +51,7 @@ export const TradeListModal: React.FC<Props> = (props: Props) => {
   const dispatch = useDispatch();
   return (
     <Modal
-      animationType="slide"
+      animationType="fade"
       visible={isVisible}
       onRequestClose={onRequestClose}
       transparent

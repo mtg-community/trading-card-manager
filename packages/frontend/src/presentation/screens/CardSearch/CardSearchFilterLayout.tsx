@@ -54,7 +54,7 @@ export const CardSearchFilterLayout: React.FC<Props> = (props: Props) => {
   } = props;
   const { t } = useTranslation();
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.cardSearchContainer}>
       <View style={styles.content}>
         <View style={styles.inputContainer}>
           <Input

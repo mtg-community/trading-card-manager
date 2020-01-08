@@ -5,8 +5,19 @@ import { Colors, Metrics } from '../../constants';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.white,
+    alignItems: 'center',
+  },
+  cardSearchContainer: {
+    flex: 1,
     paddingTop: Constants.statusBarHeight,
     backgroundColor: Colors.white,
+    alignItems: 'center',
+  },
+  cardContainer: {
+    flex: 1,
+    backgroundColor: Colors.white,
+    padding: 8,
     alignItems: 'center',
   },
   content: {
