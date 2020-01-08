@@ -17,7 +17,7 @@ import { Card } from '../../../domain/entities/Card';
 import { RootParamList, ROUTES } from '../../Navigator';
 import { styles } from './styles';
 import { ManaCost } from '../../components/ManaCost';
-import { WishListModal } from '../../components/WishListModal';
+import { TradeListModal } from '../../components/TradeListModal';
 
 interface Props {
   navigation: CompositeNavigationProp<
@@ -62,7 +62,7 @@ export const CardSearchResults: React.FC<Props> = (props: Props) => {
           />
         )}
       />
-      <WishListModal
+      <TradeListModal
         onRequestClose={onRequestClose}
         cardId={cardId}
         isVisible={isModalVisible}

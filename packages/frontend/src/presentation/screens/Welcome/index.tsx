@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
 import { authSelector } from '../../../domain/ducks/authenticationReducer';
-import { NOT_LOGGED_IN_USER } from '../../../domain/entities/user';
+import { NOT_LOGGED_IN_USER } from '../../../domain/entities/User';
 import { Input } from '../../components/Input';
 import { useAuth } from '../hooks/useAuth';
 import { WelcomeStyles } from './welcome.styles';

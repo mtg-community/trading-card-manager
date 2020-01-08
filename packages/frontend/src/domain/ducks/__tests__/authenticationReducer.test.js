@@ -5,7 +5,7 @@ import {
   showAlert,
   updateUser,
 } from '../authenticationReducer';
-import { NOT_LOGGED_IN_USER } from '../../entities/user';
+import { NOT_LOGGED_IN_USER } from '../../entities/User';
 
 describe('Authentication Reducer', () => {
   let store = initializeDomainLayer();

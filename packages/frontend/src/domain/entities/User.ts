@@ -1,4 +1,4 @@
-import { Email } from './email';
+import { Email } from './Email';
 
 type optionalFields = {
   name?: string;

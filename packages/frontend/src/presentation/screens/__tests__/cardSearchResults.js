@@ -12,7 +12,7 @@ import {
   SELL_BUTTON_LABEL,
   TRADE_HAVE_BUTTON_LABEL,
   TRADE_WANT_BUTTON_LABEL,
-} from '../../components/WishListModal';
+} from '../../components/TradeListModal';
 
 jest.mock('../../../data/graphql/queries/SampleCardList', () => {
   return {

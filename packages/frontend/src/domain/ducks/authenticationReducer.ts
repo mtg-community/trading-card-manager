@@ -5,7 +5,7 @@ import {
   Reducer,
 } from '@reduxjs/toolkit';
 import { User } from '../entities';
-import { NOT_LOGGED_IN_USER } from '../entities/user';
+import { NOT_LOGGED_IN_USER } from '../entities/User';
 import { MTGState } from '../DomainLayer';
 
 export type AuthActionsType =

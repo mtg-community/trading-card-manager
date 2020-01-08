@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const WishListModal: React.FC<Props> = (props: Props) => {
+export const TradeListModal: React.FC<Props> = (props: Props) => {
   const { isVisible, onRequestClose, cardId } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -67,6 +67,7 @@ export const WishListModal: React.FC<Props> = (props: Props) => {
               }),
             )
           }
+          onPressOut={onRequestClose}
         >
           <Text style={styles.buttonText}>{t(TRADE_WANT_BUTTON_LABEL)}</Text>
         </TouchableOpacity>
@@ -79,6 +80,7 @@ export const WishListModal: React.FC<Props> = (props: Props) => {
               }),
             )
           }
+          onPressOut={onRequestClose}
         >
           <Text style={styles.buttonText}>{t(TRADE_HAVE_BUTTON_LABEL)}</Text>
         </TouchableOpacity>
@@ -91,6 +93,7 @@ export const WishListModal: React.FC<Props> = (props: Props) => {
               }),
             )
           }
+          onPressOut={onRequestClose}
         >
           <Text style={styles.buttonText}>{t(BUY_BUTTON_LABEL)}</Text>
         </TouchableOpacity>
@@ -103,6 +106,7 @@ export const WishListModal: React.FC<Props> = (props: Props) => {
               }),
             )
           }
+          onPressOut={onRequestClose}
         >
           <Text style={styles.buttonText}>{t(SELL_BUTTON_LABEL)}</Text>
         </TouchableOpacity>

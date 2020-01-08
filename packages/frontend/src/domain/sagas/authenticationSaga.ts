@@ -17,7 +17,7 @@ import {
   updateUser,
   setLoading,
 } from '../ducks/authenticationReducer';
-import { NOT_LOGGED_IN_USER } from '../entities/user';
+import { NOT_LOGGED_IN_USER } from '../entities/User';
 import { createAction, PayloadAction } from '@reduxjs/toolkit';
 import { Email } from '../entities';
 import { PayloadActionCreator } from '@reduxjs/toolkit/src/createAction';
