@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavigationNativeContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Welcome } from './screens/Welcome';
 import { CardSearchFilter } from './screens/CardSearch/CardSearchFilter';
@@ -27,8 +27,8 @@ const Stack = createStackNavigator<RootParamList>();
 export function Navigator(): React.ReactElement {
   const { t } = useTranslation();
   return (
-    <NavigationNativeContainer>
-      <Stack.Navigator initialRouteName={ROUTES.WELCOME}>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName={ROUTES.CARD_SEARCH_FILTER}>
         <Stack.Screen
           options={{ headerShown: false }}
           name={ROUTES.WELCOME}
@@ -46,6 +46,6 @@ export function Navigator(): React.ReactElement {
         />
         <Stack.Screen name={ROUTES.CARD_DETAILS} component={CardDetails} />
       </Stack.Navigator>
-    </NavigationNativeContainer>
+    </NavigationContainer>
   );
 }
