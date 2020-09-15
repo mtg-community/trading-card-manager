@@ -44,6 +44,7 @@ Os módulos consistem em três camadas: `domain`, `data`, `presentation`.
 A camada de domínio é responsável por conectar o módulo core à aplicação, conectando os casos de usos com as respectivas implementações concretas e os frameworks com à aplicação. Caso algum caso de uso seja específico da aplicação aqui é o lugar.
 ##### data
 A camada de dados é responsável por criar as conexões com o mundo exterior, todos os dados que são acessados ou enviados para fora da aplicação passam por aqui.
+
 ##### presentation
 A camada de apresentação é aonde criamos a interface gráfica e por onde recebemos as interações com o usuário.
 Esta camada deve conter o mínimo de lógica possível, sendo expressamente proibido se comunicar diretamente com a camada de dados e/ou conter regras de negócio, e.g., Ao fazer um cadastro o usuário precisa preencher o email, logo se faz necessário uma validação de campo, esta validação é uma regra de negócio do sistema e deve ser corretamente modelada.
