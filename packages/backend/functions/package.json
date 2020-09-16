@@ -2,9 +2,6 @@
   "name": "backend-functions",
   "version": "0.0.1",
   "description": "Cloud Functions for Firebase",
-  "engines": {
-    "node": "8"
-  },
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage",
