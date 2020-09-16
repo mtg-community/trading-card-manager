@@ -21,7 +21,7 @@ yarn-error.log
 .vscode/
 coverage/
 .scannerwork/
-
+*.log
 
 .travis-ci/bitbucket_key
 .secrets
