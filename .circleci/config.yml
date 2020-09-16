@@ -62,7 +62,7 @@ executors:
     environment:
       - CI: true
     docker:
-      - image: circleci/node@sha256:c6881bf3c9365341052e09f98fa61c0246810023787cbf1480ac30ba347ef033
+      - image: circleci/node:10.13@sha256:991bcf4d64fb0038ba55dc0660f9ecd2dc4482bcdf5197fa99df360e28b9fe3e
     working_directory: /tmp/trading-card-manager/packages/backend
   cli:
     environment:
