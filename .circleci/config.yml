@@ -56,13 +56,13 @@ executors:
     environment:
       - CI: true
     docker:
-      - image: circleci/node:12.18.4
+      - image: circleci/node:12.18.3
     working_directory: /tmp/trading-card-manager/packages/frontend
   backend:
     environment:
       - CI: true
     docker:
-      - image: circleci/node:12.18.4
+      - image: circleci/node:12.18.3
     working_directory: /tmp/trading-card-manager/packages/backend
   cli:
     environment:
