@@ -14,7 +14,7 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
-    "cookie-parser": "1.4.4",
+    "cookie-parser": "1.4.5",
     "cors": "2.8.5",
     "dotenv": "8.0.0",
     "express": "4.17.1",
