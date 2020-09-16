@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Firebase Hosting and Functions",
   "engines": {
-    "node": "8"
+    "node": "10.13.0"
   },
   "scripts": {
     "login": "firebase login --reauth",
