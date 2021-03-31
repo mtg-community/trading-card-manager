@@ -21,7 +21,7 @@
     "firebase-admin": "6.4.0",
     "firebase-functions": "2.1.0",
     "graphql-yoga": "1.18.3",
-    "mongoose": "5.5.14",
+    "mongoose": "5.12.3",
     "mongoose-paginate": "5.0.3"
   },
   "devDependencies": {
